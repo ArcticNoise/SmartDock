@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Working in XAML | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Working in XAML | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="working-in-xaml">Working in XAML</h1>
+
+<p>You can declare the layout, toolbars, key bindings, and theme on the window itself. <code>MarkupWindow</code> does all of that, and its code-behind only calls <code>InitializeComponent</code>, which any window with <code>x:Class</code> needs.</p>
+<pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.MarkupWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:dock=&quot;clr-namespace:SmartDock;assembly=SmartDock&quot;
+        xmlns:local=&quot;clr-namespace:SmartDock.Docs.Samples&quot;
+        xmlns:model=&quot;clr-namespace:SmartDock;assembly=SmartDock.Core&quot;
+        Title=&quot;SmartDock&quot;
+        Height=&quot;640&quot;
+        Width=&quot;960&quot;&gt;
+  &lt;Window.DataContext&gt;
+    &lt;local:ThemeChoice /&gt;
+  &lt;/Window.DataContext&gt;
+  &lt;Window.InputBindings&gt;
+    &lt;KeyBinding Key=&quot;F&quot;
+                Modifiers=&quot;Control&quot;
+                Command=&quot;{x:Static dock:DockCommands.ToggleFloat}&quot;
+                CommandTarget=&quot;{Binding ElementName=Dock}&quot; /&gt;
+    &lt;KeyBinding Key=&quot;H&quot;
+                Modifiers=&quot;Control&quot;
+                Command=&quot;{x:Static dock:DockCommands.ToggleAutoHide}&quot;
+                CommandTarget=&quot;{Binding ElementName=Dock}&quot; /&gt;
+  &lt;/Window.InputBindings&gt;
+  &lt;dock:DockManager x:Name=&quot;Dock&quot; local:SampleContent.Prepare=&quot;True&quot; Theme=&quot;{Binding Theme}&quot;&gt;
+    &lt;dock:DockManager.ToolBars&gt;
+      &lt;ToolBar dock:DockToolBar.Id=&quot;standard&quot;
+               dock:DockToolBar.Title=&quot;Standard&quot;
+               dock:DockToolBar.Edge=&quot;Top&quot;
+               dock:DockToolBar.Band=&quot;0&quot;
+               dock:DockToolBar.Alignment=&quot;End&quot;
+               dock:DockToolBar.PaneId=&quot;solution&quot;&gt;
+        &lt;Button dock:DockToolBar.Key=&quot;save&quot; Content=&quot;Save&quot; /&gt;
+        &lt;Button Content=&quot;Float&quot;
+                Command=&quot;{x:Static dock:DockCommands.ToggleFloat}&quot;
+                CommandTarget=&quot;{Binding ElementName=Dock}&quot; /&gt;
+        &lt;Button Content=&quot;Blue&quot; Command=&quot;{Binding UseBlue}&quot; /&gt;
+      &lt;/ToolBar&gt;
+    &lt;/dock:DockManager.ToolBars&gt;
+    &lt;dock:DockManager.Layout&gt;
+      &lt;model:DockLayout&gt;
+        &lt;model:DockLayout.Root&gt;
+          &lt;model:SplitNode Id=&quot;root&quot; Orientation=&quot;Horizontal&quot;&gt;
+            &lt;model:SplitNode.Children&gt;
+              &lt;model:SplitChild Proportion=&quot;0.25&quot;&gt;
+                &lt;model:SplitChild.Node&gt;
+                  &lt;model:TabGroupNode Id=&quot;tools&quot; Kind=&quot;Tool&quot;&gt;
+                    &lt;model:TabGroupNode.Panels&gt;
+                      &lt;model:DockPane ContentId=&quot;solution&quot; Title=&quot;Solution Explorer&quot; Kind=&quot;Tool&quot; CanClose=&quot;False&quot; CanAutoHide=&quot;True&quot; /&gt;
+                      &lt;model:DockPane ContentId=&quot;properties&quot; Title=&quot;Properties&quot; Kind=&quot;Tool&quot; /&gt;
+                    &lt;/model:TabGroupNode.Panels&gt;
+                  &lt;/model:TabGroupNode&gt;
+                &lt;/model:SplitChild.Node&gt;
+              &lt;/model:SplitChild&gt;
+              &lt;model:SplitChild Proportion=&quot;0.75&quot;&gt;
+                &lt;model:SplitChild.Node&gt;
+                  &lt;model:TabGroupNode Id=&quot;docs&quot; Kind=&quot;Document&quot;&gt;
+                    &lt;model:TabGroupNode.Panels&gt;
+                      &lt;model:DockPane ContentId=&quot;program&quot; Title=&quot;Program.cs&quot; /&gt;
+                      &lt;model:DockPane ContentId=&quot;readme&quot; Title=&quot;README.md&quot; /&gt;
+                    &lt;/model:TabGroupNode.Panels&gt;
+                  &lt;/model:TabGroupNode&gt;
+                &lt;/model:SplitChild.Node&gt;
+              &lt;/model:SplitChild&gt;
+            &lt;/model:SplitNode.Children&gt;
+          &lt;/model:SplitNode&gt;
+        &lt;/model:DockLayout.Root&gt;
+      &lt;/model:DockLayout&gt;
+    &lt;/dock:DockManager.Layout&gt;
+  &lt;/dock:DockManager&gt;
+&lt;/Window&gt;
+</code></pre><h2 id="layout">Layout</h2>
+<p>The tree uses the same node types as <a href="layout.html">Layout</a>. A <code>DockPane</code> in XAML only names a content id. It doesn't create the control, and <code>RegisterContent</code> is a method, so markup can't call it. This sample works around that with <code>local:SampleContent.Prepare</code>, an attached property defined in <code>LayoutWindow.xaml.cs</code>. XAML sets it on the start tag, before the <code>Layout</code> property element, so the content factories are registered before the panes are created.</p>
+<p><code>Theme</code> is bound to <code>ThemeChoice</code>, a small class with a <code>DockThemeKind</code> property. The manager repaints whenever that value changes.</p>
+<pre><code class="lang-csharp">using System.ComponentModel;
+using System.Windows.Input;
+
+namespace SmartDock.Docs.Samples;
+
+public sealed class ThemeChoice : INotifyPropertyChanged
+{
+    private DockThemeKind _theme = DockThemeKind.Light;
+
+    public ThemeChoice() =&gt; UseBlue = new RelayCommand(_ =&gt; Theme = DockThemeKind.Blue);
+
+    public DockThemeKind Theme
+    {
+        get =&gt; _theme;
+        set
+        {
+            if (_theme == value)
+                return;
+            _theme = value;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Theme)));
+        }
+    }
+
+    public ICommand UseBlue { get; }
+
+    public event PropertyChangedEventHandler? PropertyChanged;
+}
+</code></pre>
+<p>The Blue button runs <code>UseBlue</code>, which sets <code>Theme</code> to <code>Blue</code>. <a href="themes.html">Themes</a> lists the three palettes. To change individual colors, put <code>Dock.*</code> brushes in <code>DockManager.Resources</code>. They win over the theme and reach floating windows, the guide overlay, the auto-hide flyout, and toolbar windows. <a href="styling.html">Styling and templates</a> lists the keys.</p>
+<h2 id="content-from-a-collection">Content from a collection</h2>
+<p>If your items are the content, you don't need factories at all. <code>DocumentsSource</code> and <code>ToolsSource</code> take any <code>IEnumerable</code>. An item that is a <code>UIElement</code> becomes the pane body. Any other item is shown through <code>DocumentTemplateSelector</code>, then <code>DocumentTemplate</code>, then the implicit <code>DataTemplate</code> for its type. Tools use <code>ToolTemplateSelector</code>, <code>ToolTemplate</code>, and the same implicit lookup.</p>
+<p>The implicit template is found with <code>TryFindResource</code> on the manager, which checks the manager's own resources, then parents such as the window, then application resources. The lookup runs when the item is added and again when the manager gets a parent and when it loads, so the templates can live in <code>Window.Resources</code>, as they do in <code>MarkupDocumentsWindow</code>. A template you add after the manager has loaded isn't applied to items that are already open. A template that came from <code>DocumentTemplate</code>, <code>ToolTemplate</code>, or a selector is never replaced by this lookup. This window's code-behind also only calls <code>InitializeComponent</code>.</p>
+<pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.MarkupDocumentsWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:dock=&quot;clr-namespace:SmartDock;assembly=SmartDock&quot;
+        xmlns:local=&quot;clr-namespace:SmartDock.Docs.Samples&quot;
+        Title=&quot;SmartDock&quot;
+        Height=&quot;640&quot;
+        Width=&quot;960&quot;&gt;
+  &lt;Window.Resources&gt;
+    &lt;DataTemplate DataType=&quot;{x:Type local:MarkupDocument}&quot;&gt;
+      &lt;TextBox Text=&quot;{Binding Text, UpdateSourceTrigger=PropertyChanged}&quot;
+               AcceptsReturn=&quot;True&quot;
+               BorderThickness=&quot;0&quot; /&gt;
+    &lt;/DataTemplate&gt;
+    &lt;DataTemplate DataType=&quot;{x:Type local:MarkupTool}&quot;&gt;
+      &lt;TextBlock Text=&quot;{Binding Text}&quot; Margin=&quot;12&quot; TextWrapping=&quot;Wrap&quot; /&gt;
+    &lt;/DataTemplate&gt;
+  &lt;/Window.Resources&gt;
+  &lt;dock:DockManager&gt;
+    &lt;dock:DockManager.Resources&gt;
+      &lt;Style x:Key=&quot;DocumentItem&quot; TargetType=&quot;dock:DockItem&quot;&gt;
+        &lt;Setter Property=&quot;Title&quot; Value=&quot;{Binding Title}&quot; /&gt;
+        &lt;Setter Property=&quot;ContentId&quot; Value=&quot;{Binding ContentId}&quot; /&gt;
+        &lt;Setter Property=&quot;CanClose&quot; Value=&quot;{Binding CanClose}&quot; /&gt;
+        &lt;Setter Property=&quot;CanFloat&quot; Value=&quot;{Binding CanFloat}&quot; /&gt;
+      &lt;/Style&gt;
+      &lt;Style x:Key=&quot;ToolItem&quot; TargetType=&quot;dock:DockItem&quot;&gt;
+        &lt;Setter Property=&quot;Title&quot; Value=&quot;{Binding Title}&quot; /&gt;
+        &lt;Setter Property=&quot;ContentId&quot; Value=&quot;{Binding ContentId}&quot; /&gt;
+        &lt;Setter Property=&quot;CanClose&quot; Value=&quot;{Binding CanClose}&quot; /&gt;
+        &lt;Setter Property=&quot;CanFloat&quot; Value=&quot;{Binding CanFloat}&quot; /&gt;
+        &lt;Setter Property=&quot;CanAutoHide&quot; Value=&quot;{Binding CanAutoHide}&quot; /&gt;
+        &lt;Setter Property=&quot;HideOnClose&quot; Value=&quot;{Binding HideOnClose}&quot; /&gt;
+      &lt;/Style&gt;
+    &lt;/dock:DockManager.Resources&gt;
+    &lt;dock:DockManager.DocumentItemStyle&gt;
+      &lt;StaticResource ResourceKey=&quot;DocumentItem&quot; /&gt;
+    &lt;/dock:DockManager.DocumentItemStyle&gt;
+    &lt;dock:DockManager.ToolItemStyle&gt;
+      &lt;StaticResource ResourceKey=&quot;ToolItem&quot; /&gt;
+    &lt;/dock:DockManager.ToolItemStyle&gt;
+    &lt;dock:DockManager.DocumentsSource&gt;
+      &lt;x:Array Type=&quot;{x:Type local:MarkupDocument}&quot;&gt;
+        &lt;local:MarkupDocument ContentId=&quot;program&quot; Title=&quot;Program.cs&quot; Text=&quot;class Program&quot; /&gt;
+        &lt;local:MarkupDocument ContentId=&quot;readme&quot; Title=&quot;README.md&quot; Text=&quot;Notes&quot; CanClose=&quot;False&quot; /&gt;
+      &lt;/x:Array&gt;
+    &lt;/dock:DockManager.DocumentsSource&gt;
+    &lt;dock:DockManager.ToolsSource&gt;
+      &lt;x:Array Type=&quot;{x:Type local:MarkupTool}&quot;&gt;
+        &lt;local:MarkupTool ContentId=&quot;solution&quot; Title=&quot;Solution Explorer&quot; Text=&quot;Projects&quot; CanClose=&quot;False&quot; CanAutoHide=&quot;True&quot; /&gt;
+      &lt;/x:Array&gt;
+    &lt;/dock:DockManager.ToolsSource&gt;
+  &lt;/dock:DockManager&gt;
+&lt;/Window&gt;
+</code></pre>
+<p><code>DocumentItemStyle</code> and <code>ToolItemStyle</code> target <code>DockItem</code>, with the source item as the data context. You can set <code>Title</code>, <code>ContentId</code>, <code>Icon</code>, <code>CanClose</code>, <code>CanFloat</code>, <code>CanAutoHide</code>, and <code>HideOnClose</code>. A pane with an empty title shows its content id instead. An empty <code>ContentId</code> is replaced with <code>item-</code> followed by eight hex digits. A saved layout finds an item again only when its id is the same string, so give items fixed ids if you save layouts. <code>Icon</code> isn't saved in the layout file.</p>
+<p>If a tool's style doesn't set <code>CanAutoHide</code>, it defaults to true, the same as <code>DockTree.Tool</code>. This window binds it, so the value comes from <code>MarkupTool</code>. <code>MarkupDocument</code> and <code>MarkupTool</code> are in <code>MarkupDocument.cs</code>.</p>
+<p><code>x:Array</code> doesn't implement <code>INotifyCollectionChanged</code>, so adding to it later has no effect. Use an <code>ObservableCollection</code> when the list changes; <a href="mvvm.html">MVVM</a> shows how.</p>
+<p>The first pane added to an empty manager becomes the root. After that, a new document joins the main-tree document group that last held the active document. If there isn't one, it joins the first document group, and if there are no document groups, it goes to the right of the root at 0.75. A new tool joins the first tool group, or goes to the left of the root at <code>DockEdit.DefaultProportion</code> (0.25). An id that is already docked, floating, auto-hidden, or hidden stays where the layout put it.</p>
+<h2 id="toolbars">Toolbars</h2>
+<p>The toolbar in <code>MarkupWindow</code> uses the <code>DockToolBar</code> attached properties. <code>Edge</code>, <code>Band</code>, <code>Alignment</code>, and <code>PaneId</code> only set where it starts. Once the toolbar has been shown or dragged, its saved position wins, and changing these properties doesn't move it. <code>PaneId=&quot;solution&quot;</code> starts the toolbar on that pane, and an unknown pane id falls back to the main window's top tray. <a href="toolbars.html">Toolbars</a> lists the other attached properties.</p>
+<p><code>DockToolBar.Key</code> on the Save button is the key that customization is saved under. A button with no key, <code>Name</code>, content id, or string tooltip gets a key that lasts only for the session. That key isn't saved, and the button doesn't appear in the customize menu.</p>
+<h2 id="commands">Commands</h2>
+<p><code>DockCommands</code> holds routed commands that the manager already handles: <code>ClosePane</code>, <code>NextDocument</code>, <code>PreviousDocument</code>, <code>ToggleFloat</code>, <code>ToggleAutoHide</code>, <code>SaveLayout</code>, and <code>LoadLayout</code>. The manager and each floating window have handlers for them. A button outside the manager needs <code>CommandTarget</code> set to the manager, because otherwise the command routes from wherever focus is and may never reach it. A button or menu item inside the manager can leave <code>CommandTarget</code> unset.</p>
+<p><code>ToggleFloat</code>, <code>ToggleAutoHide</code>, <code>SaveLayout</code>, and <code>LoadLayout</code> have no default key, so the window adds Ctrl+F and Ctrl+H with key bindings. A <code>KeyBinding</code> adds a gesture without removing the defaults: <code>ClosePane</code> is still Ctrl+F4, <code>NextDocument</code> Ctrl+PageDown, and <code>PreviousDocument</code> Ctrl+PageUp. To change a default, replace the command's <code>InputGestures</code>. <code>DockCommands</code> is static, so the change applies to every manager in the process. See <a href="keyboard.html">Keyboard</a>.</p>
+<p><code>ToggleFloat</code> floats the active pane at (80, 80), 480 by 360, if it's allowed to float, and docks a floating pane back. <code>ToggleAutoHide</code> does nothing when the active pane can't auto-hide, as with the Properties pane here, which leaves <code>CanAutoHide</code> false. <code>SaveLayout</code> writes the current layout to <code>SavedLayout</code>, which <a href="mvvm.html">MVVM</a> binds. <code>LoadLayout</code> reads that string and applies it again, which is how you restore a save after the user has moved panes. It does nothing when <code>SavedLayout</code> is null or empty.</p>
+<h2 id="what-still-needs-code">What still needs code</h2>
+<p><code>RegisterContent</code> can't be called from markup, and a <code>DockPane</code> in XAML doesn't create its control. Either call <code>RegisterContent</code> before <code>Layout</code> is assigned, or wrap it in an attached property the way <code>SampleContent.Prepare</code> does. If you'd rather avoid both, use <code>DocumentsSource</code> and <code>ToolsSource</code>, which don't need it.</p>
+<p>Next: <a href="mvvm.html">MVVM</a>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -177,10 +177,6 @@
     DockToolBar.SetAlignment(bar, ToolBarAlignment.End);
     bar.Items.Add(new Button { Name = &quot;save&quot;, Content = &quot;Save&quot; });
     dock.ToolBars.Add(bar);
-
-    DockToolBar.SetIsVisible(bar, false);
-    DockToolBar.SetIsVisible(bar, true);
-    dock.ToolBarCustomizationEnabled = true;
 }
 </code></pre>
 <p>To bind toolbars from view models, use <code>ToolBarsSource</code>. Each item becomes a <code>ToolBar</code> built from <code>ToolBarTemplateSelector</code> if set, else <code>ToolBarTemplate</code>, else the implicit data template. Placement comes from <code>DockToolBarItem</code> instead of the attached properties: bind its properties in a style assigned to <code>ToolBarItemStyle</code>. The buttons themselves stay in each toolbar's own <code>Items</code> or <code>ItemsSource</code>.</p>

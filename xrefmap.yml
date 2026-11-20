@@ -949,6 +949,12 @@ references:
   commentId: F:SmartDock.DockCommands.ClosePane
   fullName: SmartDock.DockCommands.ClosePane
   nameWithType: DockCommands.ClosePane
+- uid: SmartDock.DockCommands.LoadLayout
+  name: LoadLayout
+  href: api/generated/SmartDock.DockCommands.html#SmartDock_DockCommands_LoadLayout
+  commentId: F:SmartDock.DockCommands.LoadLayout
+  fullName: SmartDock.DockCommands.LoadLayout
+  nameWithType: DockCommands.LoadLayout
 - uid: SmartDock.DockCommands.NextDocument
   name: NextDocument
   href: api/generated/SmartDock.DockCommands.html#SmartDock_DockCommands_NextDocument
@@ -961,6 +967,12 @@ references:
   commentId: F:SmartDock.DockCommands.PreviousDocument
   fullName: SmartDock.DockCommands.PreviousDocument
   nameWithType: DockCommands.PreviousDocument
+- uid: SmartDock.DockCommands.SaveLayout
+  name: SaveLayout
+  href: api/generated/SmartDock.DockCommands.html#SmartDock_DockCommands_SaveLayout
+  commentId: F:SmartDock.DockCommands.SaveLayout
+  fullName: SmartDock.DockCommands.SaveLayout
+  nameWithType: DockCommands.SaveLayout
 - uid: SmartDock.DockCommands.ToggleAutoHide
   name: ToggleAutoHide
   href: api/generated/SmartDock.DockCommands.html#SmartDock_DockCommands_ToggleAutoHide
@@ -3052,6 +3064,18 @@ references:
   commentId: Overload:SmartDock.DockManager.OnPreviewMouseMove
   fullName: SmartDock.DockManager.OnPreviewMouseMove
   nameWithType: DockManager.OnPreviewMouseMove
+- uid: SmartDock.DockManager.OnVisualParentChanged(System.Windows.DependencyObject)
+  name: OnVisualParentChanged(DependencyObject)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_OnVisualParentChanged_System_Windows_DependencyObject_
+  commentId: M:SmartDock.DockManager.OnVisualParentChanged(System.Windows.DependencyObject)
+  fullName: SmartDock.DockManager.OnVisualParentChanged(System.Windows.DependencyObject)
+  nameWithType: DockManager.OnVisualParentChanged(DependencyObject)
+- uid: SmartDock.DockManager.OnVisualParentChanged*
+  name: OnVisualParentChanged
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_OnVisualParentChanged_
+  commentId: Overload:SmartDock.DockManager.OnVisualParentChanged
+  fullName: SmartDock.DockManager.OnVisualParentChanged
+  nameWithType: DockManager.OnVisualParentChanged
 - uid: SmartDock.DockManager.PaneClosed
   name: PaneClosed
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed
@@ -3190,6 +3214,24 @@ references:
   commentId: Overload:SmartDock.DockManager.SaveLayout
   fullName: SmartDock.DockManager.SaveLayout
   nameWithType: DockManager.SaveLayout
+- uid: SmartDock.DockManager.SavedLayout
+  name: SavedLayout
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout
+  commentId: P:SmartDock.DockManager.SavedLayout
+  fullName: SmartDock.DockManager.SavedLayout
+  nameWithType: DockManager.SavedLayout
+- uid: SmartDock.DockManager.SavedLayout*
+  name: SavedLayout
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout_
+  commentId: Overload:SmartDock.DockManager.SavedLayout
+  fullName: SmartDock.DockManager.SavedLayout
+  nameWithType: DockManager.SavedLayout
+- uid: SmartDock.DockManager.SavedLayoutProperty
+  name: SavedLayoutProperty
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SavedLayoutProperty
+  commentId: F:SmartDock.DockManager.SavedLayoutProperty
+  fullName: SmartDock.DockManager.SavedLayoutProperty
+  nameWithType: DockManager.SavedLayoutProperty
 - uid: SmartDock.DockManager.SelectPane(System.String)
   name: SelectPane(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SelectPane_System_String_
@@ -3295,6 +3337,12 @@ references:
   commentId: Overload:SmartDock.DockManager.Theme
   fullName: SmartDock.DockManager.Theme
   nameWithType: DockManager.Theme
+- uid: SmartDock.DockManager.ThemeProperty
+  name: ThemeProperty
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_ThemeProperty
+  commentId: F:SmartDock.DockManager.ThemeProperty
+  fullName: SmartDock.DockManager.ThemeProperty
+  nameWithType: DockManager.ThemeProperty
 - uid: SmartDock.DockManager.ToolBarCustomizationChanged
   name: ToolBarCustomizationChanged
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_ToolBarCustomizationChanged

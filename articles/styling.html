@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Styling and templates | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Styling and templates | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="styling-and-templates">Styling and templates</h1>
+
+<p>To restyle the chrome, put an implicit style in <code>DockManager.Resources</code>. Floating windows, the guide overlay, the auto-hide flyout, and toolbar windows are separate visual trees and can't see the manager's resources, so the manager copies styles for these types onto each of them: <code>DockTabHeader</code>, <code>DockCaption</code>, <code>DockDropPreview</code>, <code>DockGuideButton</code>, <code>DockToolBarGrip</code>, <code>DockToolBarTray</code>, <code>DockToolBarCaption</code>, <code>DockToolBarDrop</code>, and <code>DockToolBarCustomize</code>. A style in <code>Application.Resources</code> doesn't need copying, because every window already sees it.</p>
+<p>Each of those controls picks up the implicit style from its manager when it loads, and assigning <code>Theme</code> makes chrome that is already open pick it up again. If you remove a style from the manager, the control drops it and goes back to the template in <code>Themes/Generic.xaml</code>.</p>
+<h2 id="theme-brushes">Theme brushes</h2>
+<p>The chrome reads these keys: <code>Dock.Workspace</code>, <code>Dock.Panel</code>, <code>Dock.Chrome</code>, <code>Dock.Header</code>, <code>Dock.Border</code>, <code>Dock.Text</code>, <code>Dock.Muted</code>, <code>Dock.Accent</code>, <code>Dock.AccentSoft</code>, <code>Dock.Guide</code>, <code>Dock.GuideButton</code>, <code>Dock.GuideBorder</code>, <code>Dock.Hover</code>, and <code>Dock.Font</code>. <code>DockTheme</code> has a <code>*Key</code> constant for each one, such as <code>DockTheme.AccentKey</code>. <code>Dock.FocusVisual</code> is the focus rectangle, drawn with <code>Dock.Accent</code>. <code>Dock.GuideBorder</code> is transparent in every built-in theme.</p>
+<p>The theme palette lives in a dictionary that the manager merges into its resources. A <code>Dock.*</code> key you add to <code>DockManager.Resources</code> sits above that dictionary, so it wins over the theme and keeps winning after the manager loads and after <code>Theme</code> changes. Your overrides are also copied onto floating windows, the guide overlay, the auto-hide flyout, and toolbar windows. If you add an override after one of those windows is open, it reaches that window the next time <code>Theme</code> is assigned (assigning the current value is enough) and every new window gets it when it is created.</p>
+<p><code>StylingWindow</code> binds <code>Theme</code> and replaces the two accent brushes:</p>
+<pre><code class="lang-xml">&lt;Window.DataContext&gt;
+  &lt;local:ThemeChoice /&gt;
+&lt;/Window.DataContext&gt;
+&lt;dock:DockManager x:Name=&quot;Dock&quot; local:SampleContent.Prepare=&quot;True&quot; Theme=&quot;{Binding Theme}&quot;&gt;
+  &lt;dock:DockManager.Resources&gt;
+    &lt;SolidColorBrush x:Key=&quot;{x:Static dock:DockTheme.AccentKey}&quot; Color=&quot;#FFC45C26&quot; /&gt;
+    &lt;SolidColorBrush x:Key=&quot;{x:Static dock:DockTheme.AccentSoftKey}&quot; Color=&quot;#FFF0D3C2&quot; /&gt;
+</code></pre>
+<p>The Blue button switches the bound property to <code>DockThemeKind.Blue</code>, and the copper accent stays. Don't point <code>x:Static</code> at <code>DockTheme.Border</code> or <code>DockTheme.Panel</code>, because those names clash with WPF types; use the <code>*Key</code> constants. <a href="themes.html">Themes</a> covers <code>DockTheme.Apply</code>, the menu dictionary, and the scroll bar dictionary.</p>
+<p>The panes in this sample get their controls from <code>SampleContent.Prepare</code>, because <code>RegisterContent</code> can't be called from markup. <a href="xaml.html">Working in XAML</a> explains why.</p>
+<h2 id="tab-headers">Tab headers</h2>
+<pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockTabHeader&quot;&gt;
+  &lt;Setter Property=&quot;Focusable&quot; Value=&quot;False&quot; /&gt;
+  &lt;Setter Property=&quot;Margin&quot; Value=&quot;2,4,2,0&quot; /&gt;
+  &lt;Setter Property=&quot;Padding&quot; Value=&quot;8,4&quot; /&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Header}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Border}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderThickness&quot; Value=&quot;0,0,0,2&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockTabHeader&quot;&gt;
+        &lt;Border x:Name=&quot;PART_Chrome&quot;
+                Background=&quot;{TemplateBinding Background}&quot;
+                BorderBrush=&quot;{TemplateBinding BorderBrush}&quot;
+                BorderThickness=&quot;{TemplateBinding BorderThickness}&quot;
+                Padding=&quot;{TemplateBinding Padding}&quot;&gt;
+          &lt;StackPanel x:Name=&quot;PART_ButtonHost&quot; Orientation=&quot;Horizontal&quot;&gt;
+            &lt;TextBlock Text=&quot;{TemplateBinding Title}&quot;
+                       VerticalAlignment=&quot;Center&quot;
+                       Margin=&quot;4,0&quot;
+                       Foreground=&quot;{DynamicResource Dock.Text}&quot;
+                       FontFamily=&quot;{DynamicResource Dock.Font}&quot; /&gt;
+          &lt;/StackPanel&gt;
+        &lt;/Border&gt;
+        &lt;ControlTemplate.Triggers&gt;
+          &lt;Trigger Property=&quot;IsSelected&quot; Value=&quot;True&quot;&gt;
+            &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Panel}&quot; /&gt;
+            &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+          &lt;/Trigger&gt;
+          &lt;Trigger Property=&quot;Placement&quot; Value=&quot;Bottom&quot;&gt;
+            &lt;Setter Property=&quot;Margin&quot; Value=&quot;2,0,2,4&quot; /&gt;
+          &lt;/Trigger&gt;
+        &lt;/ControlTemplate.Triggers&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<p><code>PART_ButtonHost</code> is where the header puts its buttons when the template doesn't provide its own. It gets a close button if the pane can close or has <code>HideOnClose</code>, and a pin if the pane can auto-hide. They're added after the template's own children, in the order pin, close, menu. To supply your own button, name a <code>Button</code> <code>PART_Close</code>, <code>PART_Pin</code>, or <code>PART_Menu</code>; the header collapses it whenever that action isn't available. <code>ShowMenu</code> stays false, so a <code>PART_Menu</code> button stays collapsed.</p>
+<p><code>PART_Face</code> is optional. If the template names both <code>PART_Face</code> and <code>PART_ButtonHost</code>, the header lays the face over the accent stroke and the padding; otherwise the template keeps its own layout. <code>PART_Chrome</code> is the outer border. The default style fills it with theme brushes, and a replaced style is left to paint itself.</p>
+<p>The header exposes <code>Title</code>, <code>Icon</code>, <code>IsSelected</code>, <code>IsActive</code>, <code>Kind</code>, <code>Placement</code>, <code>IsHovered</code>, <code>ShowClose</code>, <code>ShowPin</code>, and <code>ShowMenu</code> for your template to bind. Dragging, selecting, and closing are handled by the control, so they keep working with any template.</p>
+<h2 id="captions">Captions</h2>
+<pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockCaption&quot;&gt;
+  &lt;Setter Property=&quot;Focusable&quot; Value=&quot;False&quot; /&gt;
+  &lt;Setter Property=&quot;MinHeight&quot; Value=&quot;32&quot; /&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Chrome}&quot; /&gt;
+  &lt;Setter Property=&quot;Foreground&quot; Value=&quot;{DynamicResource Dock.Text}&quot; /&gt;
+  &lt;Setter Property=&quot;FontFamily&quot; Value=&quot;{DynamicResource Dock.Font}&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockCaption&quot;&gt;
+        &lt;Border x:Name=&quot;PART_Chrome&quot;
+                Background=&quot;{TemplateBinding Background}&quot;
+                MinHeight=&quot;{TemplateBinding MinHeight}&quot;&gt;
+          &lt;DockPanel x:Name=&quot;PART_Bar&quot; LastChildFill=&quot;True&quot;&gt;
+            &lt;StackPanel x:Name=&quot;PART_Buttons&quot;
+                        DockPanel.Dock=&quot;Right&quot;
+                        Orientation=&quot;Horizontal&quot;
+                        VerticalAlignment=&quot;Center&quot; /&gt;
+            &lt;Border x:Name=&quot;PART_Grip&quot; Background=&quot;{TemplateBinding Background}&quot;&gt;
+              &lt;Grid&gt;
+                &lt;ContentPresenter /&gt;
+                &lt;StackPanel x:Name=&quot;TitleRow&quot; Orientation=&quot;Horizontal&quot; IsHitTestVisible=&quot;False&quot;&gt;
+                  &lt;TextBlock x:Name=&quot;PART_Title&quot;
+                             Text=&quot;{TemplateBinding Title}&quot;
+                             Margin=&quot;10,0,8,0&quot;
+                             VerticalAlignment=&quot;Center&quot;
+                             Foreground=&quot;{TemplateBinding Foreground}&quot;
+                             FontFamily=&quot;{TemplateBinding FontFamily}&quot; /&gt;
+                &lt;/StackPanel&gt;
+              &lt;/Grid&gt;
+            &lt;/Border&gt;
+          &lt;/DockPanel&gt;
+        &lt;/Border&gt;
+        &lt;ControlTemplate.Triggers&gt;
+          &lt;Trigger Property=&quot;Role&quot; Value=&quot;Strip&quot;&gt;
+            &lt;Setter TargetName=&quot;TitleRow&quot; Property=&quot;Visibility&quot; Value=&quot;Collapsed&quot; /&gt;
+          &lt;/Trigger&gt;
+          &lt;Trigger Property=&quot;IsAccented&quot; Value=&quot;True&quot;&gt;
+            &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Panel}&quot; /&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderThickness&quot; Value=&quot;0,2,0,0&quot; /&gt;
+          &lt;/Trigger&gt;
+        &lt;/ControlTemplate.Triggers&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<p>A custom caption style hosts the library's button cluster in <code>PART_Buttons</code>. If you name a <code>Button</code> <code>PART_Close</code>, <code>PART_Pin</code>, <code>PART_Maximize</code>, or <code>PART_Menu</code>, the caption gives it the library button's automation name, tooltip, glyph, and visibility, and takes the library button out of the cluster so it doesn't show twice. A template with neither the named button nor <code>PART_Buttons</code> simply has no such button. The default template, used while <code>Style</code> is null, puts the cluster in <code>PART_Bar</code> instead.</p>
+<p><code>PART_Grip</code> is the drag surface; without it, the whole caption is. A strip caption (<code>Role</code> is <code>Strip</code>) shows the tab strip as its content, so its template needs a <code>ContentPresenter</code>. The sample hides the title row for that role. <code>PART_Title</code> shows <code>Title</code>, and a template without it shows no title.</p>
+<p><code>IsAccented</code> is true for the top accent of a lone pane. The default style draws a 2px accent edge over a panel fill, and a replaced style reads <code>IsAccented</code> and paints whatever it wants. A flyout caption is 28px high unless your style sets a height.</p>
+<h2 id="drop-preview-and-guides">Drop preview and guides</h2>
+<pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockDropPreview&quot;&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Guide}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderThickness&quot; Value=&quot;1&quot; /&gt;
+  &lt;Setter Property=&quot;CornerRadius&quot; Value=&quot;2&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockDropPreview&quot;&gt;
+        &lt;Border Background=&quot;{TemplateBinding Background}&quot;
+                BorderBrush=&quot;{TemplateBinding BorderBrush}&quot;
+                BorderThickness=&quot;{TemplateBinding BorderThickness}&quot;
+                CornerRadius=&quot;{TemplateBinding CornerRadius}&quot; /&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<p><code>DockDropPreview</code> has no named parts. SmartDock.Core decides where the rectangle goes, and the template only paints it. <code>CornerRadius</code> is a property on the control. The default border thickness is 0 and <code>Dock.GuideBorder</code> is transparent, so the stock preview is a plain fill; the sample adds a 1px accent edge. The preview never takes mouse input.</p>
+<p><code>DockGuideButton</code> names <code>PART_Chrome</code>, <code>PART_Plate</code>, and <code>PART_Mark</code>. Hit testing uses the guide rectangles in SmartDock.Core, so the button doesn't take mouse input either. The library moves <code>PART_Mark</code> only while <code>Style</code> is null; a replaced style draws its own icon. <code>Side</code> is <code>Left</code>, <code>Right</code>, <code>Top</code>, <code>Bottom</code>, or <code>Center</code>, where <code>Center</code> tabs the pane into the group. <code>IsRootEdge</code> is true for the buttons in the middle of a host edge, and <code>IsHot</code> is true while the pointer is over the guide. The default template switches to the accent fill when <code>IsHot</code> is true.</p>
+<h2 id="toolbar-chrome">Toolbar chrome</h2>
+<pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockToolBarTray&quot;&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Chrome}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Border}&quot; /&gt;
+  &lt;Setter Property=&quot;BorderThickness&quot; Value=&quot;0,0,0,1&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockToolBarTray&quot;&gt;
+        &lt;Border Background=&quot;{TemplateBinding Background}&quot;
+                BorderBrush=&quot;{TemplateBinding BorderBrush}&quot;
+                BorderThickness=&quot;{TemplateBinding BorderThickness}&quot;&gt;
+          &lt;StackPanel x:Name=&quot;PART_Bands&quot; /&gt;
+        &lt;/Border&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+
+&lt;Style TargetType=&quot;dock:DockToolBarGrip&quot;&gt;
+  &lt;Setter Property=&quot;MinWidth&quot; Value=&quot;14&quot; /&gt;
+  &lt;Setter Property=&quot;MinHeight&quot; Value=&quot;14&quot; /&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Header}&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockToolBarGrip&quot;&gt;
+        &lt;Border Background=&quot;{TemplateBinding Background}&quot; /&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+
+&lt;Style TargetType=&quot;dock:DockToolBarCaption&quot;&gt;
+  &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Chrome}&quot; /&gt;
+  &lt;Setter Property=&quot;MinHeight&quot; Value=&quot;22&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockToolBarCaption&quot;&gt;
+        &lt;Border Background=&quot;{TemplateBinding Background}&quot;&gt;
+          &lt;DockPanel LastChildFill=&quot;True&quot;&gt;
+            &lt;Button x:Name=&quot;PART_Close&quot;
+                    DockPanel.Dock=&quot;Right&quot;
+                    Width=&quot;22&quot;
+                    Focusable=&quot;False&quot;
+                    Content=&quot;&amp;#x00D7;&quot;
+                    Foreground=&quot;{DynamicResource Dock.Text}&quot; /&gt;
+            &lt;dock:DockToolBarGrip x:Name=&quot;PART_Grip&quot; DockPanel.Dock=&quot;Left&quot; /&gt;
+            &lt;TextBlock x:Name=&quot;PART_Title&quot;
+                       Text=&quot;{TemplateBinding Title}&quot;
+                       Margin=&quot;6,0&quot;
+                       VerticalAlignment=&quot;Center&quot;
+                       Foreground=&quot;{DynamicResource Dock.Text}&quot;
+                       FontFamily=&quot;{DynamicResource Dock.Font}&quot; /&gt;
+          &lt;/DockPanel&gt;
+        &lt;/Border&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+
+&lt;Style TargetType=&quot;dock:DockToolBarCustomize&quot;&gt;
+  &lt;Setter Property=&quot;Foreground&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+  &lt;Setter Property=&quot;Template&quot;&gt;
+    &lt;Setter.Value&gt;
+      &lt;ControlTemplate TargetType=&quot;dock:DockToolBarCustomize&quot;&gt;
+        &lt;Border Background=&quot;Transparent&quot;&gt;
+          &lt;Path Data=&quot;M 1,1 L 5,5 L 9,1&quot;
+                Stroke=&quot;{TemplateBinding Foreground}&quot;
+                StrokeThickness=&quot;1.2&quot;
+                HorizontalAlignment=&quot;Center&quot;
+                VerticalAlignment=&quot;Center&quot;
+                Width=&quot;10&quot;
+                Height=&quot;6&quot; /&gt;
+        &lt;/Border&gt;
+      &lt;/ControlTemplate&gt;
+    &lt;/Setter.Value&gt;
+  &lt;/Setter&gt;
+&lt;/Style&gt;
+</code></pre>
+<p><code>DockToolBarTray</code> adds one child per band to <code>PART_Bands</code>, which must be a <code>Panel</code>. If it's a <code>StackPanel</code>, the tray sets it to <code>Horizontal</code> on the left and right edges and <code>Vertical</code> on the top and bottom. Without <code>PART_Bands</code> the tray has nowhere to put bands, so it is removed and its toolbars don't appear.</p>
+<p><code>DockToolBarGrip</code> has no named parts. Its <code>Orientation</code> is <code>Horizontal</code> in a top or bottom band and <code>Vertical</code> in a left or right band, where the grip sits at the top.</p>
+<p><code>DockToolBarCaption</code> is the title bar of a floating toolbar. <code>PART_Close</code> hides the toolbar, <code>PART_Grip</code> drags it, and double-clicking <code>PART_Grip</code> docks it back. <code>PART_Title</code> shows <code>Title</code>. Pressing anywhere on the caption except a button also starts a drag, even without <code>PART_Grip</code>, and double-clicking the caption docks the toolbar back too. Without <code>PART_Close</code> there is no close button.</p>
+<p><code>DockToolBarCustomize</code> is the chevron that opens the Add or Remove Buttons menu. It has no named parts, and <code>Click</code> is handled by the control, so a replaced template still opens the menu. <code>DockToolBarDrop</code> is the line shown while you drag a toolbar. It has no named parts, doesn't take mouse input, and is filled with <code>Dock.Accent</code> by default.</p>
+<h2 id="leaving-parts-out">Leaving parts out</h2>
+<pre><code class="lang-xml">&lt;ResourceDictionary xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+                    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+                    xmlns:dock=&quot;clr-namespace:SmartDock;assembly=SmartDock&quot;&gt;
+  &lt;!-- Not merged by StylingWindow. A header template with neither PART_Close nor PART_ButtonHost has no close button. --&gt;
+  &lt;Style TargetType=&quot;dock:DockTabHeader&quot;&gt;
+    &lt;Setter Property=&quot;Template&quot;&gt;
+      &lt;Setter.Value&gt;
+        &lt;ControlTemplate TargetType=&quot;dock:DockTabHeader&quot;&gt;
+          &lt;TextBlock Text=&quot;{TemplateBinding Title}&quot;
+                     Margin=&quot;8,4&quot;
+                     VerticalAlignment=&quot;Center&quot;
+                     Foreground=&quot;{DynamicResource Dock.Text}&quot;
+                     FontFamily=&quot;{DynamicResource Dock.Font}&quot; /&gt;
+        &lt;/ControlTemplate&gt;
+      &lt;/Setter.Value&gt;
+    &lt;/Setter&gt;
+  &lt;/Style&gt;
+&lt;/ResourceDictionary&gt;
+</code></pre>
+<p><code>StylingWindow</code> doesn't use this dictionary. It's here to show what happens when a part is missing. Used as the implicit <code>DockTabHeader</code> style, it gives headers with no close button and no pin, because the template names neither the buttons nor <code>PART_ButtonHost</code>. Dragging and selecting still work. A caption works the same way: if it names neither <code>PART_Buttons</code> nor <code>PART_Close</code>, it has no close button.</p>
+<p>Next: <a href="xaml.html">Working in XAML</a>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

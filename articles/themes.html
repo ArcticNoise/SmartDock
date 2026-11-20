@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="themes">Themes</h1>
 
-<p>Set <code>DockManager.Theme</code> to <code>DockThemeKind.Dark</code> (the default), <code>Light</code>, or <code>Blue</code>. The new brushes replace the old ones in the manager, its floating windows, the guide overlay, the pane switcher, and the auto-hide flyout, and everything repaints in place. The theme is not saved with the layout.</p>
+<p><code>DockManager.Theme</code> is a dependency property. Set it to <code>DockThemeKind.Dark</code> (the default), <code>Light</code>, or <code>Blue</code>, or bind it. The palette lives in a dictionary the manager merges. A <code>Dock.*</code> entry in <code>DockManager.Resources</code> is left in place and wins, including after the manager loads and after <code>Theme</code> changes. The same entry is copied onto floating windows, the guide overlay, the auto-hide flyout, and toolbar windows. An override added after one of those windows exists is copied the next time <code>Theme</code> is assigned, including to the value it already has, and when that window is created. The pane switcher follows the theme. Open chrome repaints in place. The theme is not saved with the layout.</p>
 <pre><code class="lang-csharp">public static void UseLight(DockManager dock)
 {
     dock.Theme = DockThemeKind.Light;

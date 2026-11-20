@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DockCommands | SmartDock ">
       
-      <meta name="description" content="Commands a host can bind or rebind. Default keys live in  and are read when the key is pressed, so replacing a gesture takes effect on the next key. Close is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp. Float and auto-hide have no default key.">
+      <meta name="description" content="Commands a host can bind or rebind. Default keys live in  and are read when the key is pressed, so replacing a gesture takes effect on the next key. Close is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp. Float, auto-hide, save layout, and load layout have no default key.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -100,7 +100,7 @@ Class DockCommands
   <div class="markdown summary"><p>Commands a host can bind or rebind. Default keys live in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.routedcommand.inputgestures">InputGestures</a>
 and are read when the key is pressed, so replacing a gesture takes effect on the next key.
 Close is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp.
-Float and auto-hide have no default key.</p>
+Float, auto-hide, save layout, and load layout have no default key.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -188,6 +188,42 @@ Float and auto-hide have no default key.</p>
 
 
 
+  <h3 id="SmartDock_DockCommands_LoadLayout" data-uid="SmartDock.DockCommands.LoadLayout">
+  LoadLayout
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a> the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> does.
+No default gesture. <a class="xref" href="SmartDock.DockManager.html">DockManager</a> handles it, and so does each floating window.
+Nothing is loaded when <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a> is null or empty.
+A non-empty command parameter is loaded instead, then written to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a>
+with SetCurrentValue, which does not load a second time.
+Text that cannot be read throws <a class="xref" href="SmartDock.DockLayoutException.html">DockLayoutException</a> and leaves the current tree in place.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedCommand LoadLayout</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.routedcommand">RoutedCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="SmartDock_DockCommands_NextDocument" data-uid="SmartDock.DockCommands.NextDocument">
   NextDocument
   
@@ -230,6 +266,39 @@ Float and auto-hide have no default key.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static readonly RoutedCommand PreviousDocument</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.routedcommand">RoutedCommand</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockCommands_SaveLayout" data-uid="SmartDock.DockCommands.SaveLayout">
+  SaveLayout
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the current layout into <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a>.
+No default gesture. <a class="xref" href="SmartDock.DockManager.html">DockManager</a> handles it, and so does each floating window.
+Nothing is written when no layout is assigned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly RoutedCommand SaveLayout</code></pre>
   </div>
 
 

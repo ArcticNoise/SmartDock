@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class DockManager | SmartDock ">
       
-      <meta name="description" content="Hosts a . Register content by id, assign , and the control builds the splits, tabs, floating windows, and auto-hide bars. Only the selected tab&#39;s content is in the tree. Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it. A tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview are drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer shows that float&#39;s compass and edge guides; the topmost one wins, and the dragged window is skipped. A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target. The same gesture is covered by the internal drag methods, which call  with coordinates and no mouse. Ctrl+Tab switches panes.  closes, cycles document tabs, and toggles float and auto-hide. When  is set and Windows animations are on, reordered tab headers slide and the dock guides fade. The auto-hide flyout is a child window so it paints above an  pane. It opens and closes at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.  is the hit zone of a splitter, a flyout edge, and a float&#39;s border.  applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.">
+      <meta name="description" content="Hosts a . Register content by id, assign , and the control builds the splits, tabs, floating windows, and auto-hide bars. Only the selected tab&#39;s content is in the tree. Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it. A tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview are drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer shows that float&#39;s compass and edge guides; the topmost one wins, and the dragged window is skipped. A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target. The same gesture is covered by the internal drag methods, which call  with coordinates and no mouse. Ctrl+Tab switches panes.  closes, cycles document tabs, toggles float and auto-hide, and saves the layout. When  is set and Windows animations are on, reordered tab headers slide and the dock guides fade. The auto-hide flyout is a child window so it paints above an  pane. It opens and closes at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.  is the hit zone of a splitter, a flyout edge, and a float&#39;s border.  applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -105,7 +105,7 @@ are drawn in a topmost overlay so the dragged window cannot cover them. Another 
 shows that float's compass and edge guides; the topmost one wins, and the dragged window is skipped.
 A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target.
 The same gesture is covered by the internal drag methods, which call <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> with coordinates and no mouse.
-Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, and toggles float and auto-hide.
+Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, toggles float and auto-hide, and saves the layout.
 When <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.
 The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. It opens and closes
 at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.
@@ -1613,9 +1613,12 @@ is the source item, so a setter can write <code>Value=&quot;{Binding Title}&quot
   </h3>
 
   <div class="markdown level1 summary"><p>Template for a document view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>.
-<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. A null template uses the
-implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type, from this manager or application resources,
-resolved when the item is added.</p>
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. When both are null, the
+implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type is used. The lookup walks this manager,
+then parents such as the window, then application resources. It runs when the item is added.
+An item added before this manager is in a window is looked up again when the manager is parented
+and when it loads. A template added to a parent after that is not applied to items that are already
+open. A template from this property or from the selector is not rebuilt by that lookup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1801,6 +1804,48 @@ An item whose content id is already docked, floating, auto-hidden, or hidden sta
 
 
 
+  <h3 id="SmartDock_DockManager_SavedLayoutProperty" data-uid="SmartDock.DockManager.SavedLayoutProperty">
+  SavedLayoutProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a> dependency property.
+Null by default. Binds both ways by default.
+<a class="xref" href="SmartDock.DockCommands.html#SmartDock_DockCommands_SaveLayout">SaveLayout</a> writes the current layout with
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a>, which updates a binding
+and does not load the tree again.
+<a class="xref" href="SmartDock.DockCommands.html#SmartDock_DockCommands_LoadLayout">LoadLayout</a> loads the current value the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> does,
+including when the text has not changed. A non-empty command parameter is loaded instead and then stored
+with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a>, so that write does not load again.
+Any other change loads the text the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> does. That includes a value
+set before this manager is loaded and before content factories exist, so the first frame is that layout.
+Null or an empty string does nothing. Text <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> cannot read throws
+<a class="xref" href="SmartDock.DockLayoutException.html">DockLayoutException</a> and leaves the current tree in place. A string of spaces is not empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty SavedLayoutProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="SmartDock_DockManager_TabPlacementProperty" data-uid="SmartDock.DockManager.TabPlacementProperty">
   TabPlacementProperty
   
@@ -1812,6 +1857,37 @@ An item whose content id is already docked, floating, auto-hidden, or hidden sta
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static readonly DependencyProperty TabPlacementProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ThemeProperty" data-uid="SmartDock.DockManager.ThemeProperty">
+  ThemeProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a> dependency property. The default is <a class="xref" href="SmartDock.DockThemeKind.html#SmartDock_DockThemeKind_Dark">Dark</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ThemeProperty</code></pre>
   </div>
 
 
@@ -2400,9 +2476,12 @@ A tabs-on-top group with one pane shows the caption instead of that strip.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Template for a document view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>.
-<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. A null template uses the
-implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type, from this manager or application resources,
-resolved when the item is added.</p>
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. When both are null, the
+implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type is used. The lookup walks this manager,
+then parents such as the window, then application resources. It runs when the item is added.
+An item added before this manager is in a window is looked up again when the manager is parented
+and when it loads. A template added to a parent after that is not applied to items that are already
+open. A template from this property or from the selector is not rebuilt by that lookup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2633,6 +2712,49 @@ This is not part of the layout JSON.</p>
 
 
 
+  <a id="SmartDock_DockManager_SavedLayout_" data-uid="SmartDock.DockManager.SavedLayout*"></a>
+
+  <h3 id="SmartDock_DockManager_SavedLayout" data-uid="SmartDock.DockManager.SavedLayout">
+  SavedLayout
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SavedLayout">SavedLayout</a> dependency property.
+Null by default. Binds both ways by default.
+<a class="xref" href="SmartDock.DockCommands.html#SmartDock_DockCommands_SaveLayout">SaveLayout</a> writes the current layout with
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a>, which updates a binding
+and does not load the tree again.
+<a class="xref" href="SmartDock.DockCommands.html#SmartDock_DockCommands_LoadLayout">LoadLayout</a> loads the current value the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> does,
+including when the text has not changed. A non-empty command parameter is loaded instead and then stored
+with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a>, so that write does not load again.
+Any other change loads the text the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> does. That includes a value
+set before this manager is loaded and before content factories exist, so the first frame is that layout.
+Null or an empty string does nothing. Text <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a> cannot read throws
+<a class="xref" href="SmartDock.DockLayoutException.html">DockLayoutException</a> and leaves the current tree in place. A string of spaces is not empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SavedLayout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_TabPlacement_" data-uid="SmartDock.DockManager.TabPlacement*"></a>
 
   <h3 id="SmartDock_DockManager_TabPlacement" data-uid="SmartDock.DockManager.TabPlacement">
@@ -2674,10 +2796,16 @@ A tabs-on-top group with one pane shows the caption instead of that strip.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Palette for this manager, its floating windows, the guide overlay, the pane switcher, and the scrollbars merged into them.
-The default is <a class="xref" href="SmartDock.DockThemeKind.html#SmartDock_DockThemeKind_Dark">Dark</a>. Assigning a kind replaces the brush resources
-those windows already hold, so open floats and popups repaint.
-A menu dictionary merged into the host window is updated with them. Call
+  <div class="markdown level1 summary"><p>Palette for this manager, its floating windows, the guide overlay, the auto-hide flyout, toolbar windows,
+the pane switcher, and the scrollbars merged into them.
+The default is <a class="xref" href="SmartDock.DockThemeKind.html#SmartDock_DockThemeKind_Dark">Dark</a>. This is a dependency property, so it can be bound.
+The brushes live in a dictionary this manager merges. A key in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.resources">Resources</a>,
+such as <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey">AccentKey</a>, is left in place and wins over the theme, including after load
+and after a later change. The same keys are copied onto floating windows, the guide overlay, the auto-hide
+flyout, and toolbar windows. An override added after one of those windows exists is copied the next time
+this property is assigned, including to the value it already has, and when that window is created.
+Assigning the current value updates chrome that is already open.
+A menu dictionary merged into the host window is updated with the theme. Call
 <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Apply_System_Windows_ResourceDictionary_SmartDock_DockThemeKind_">Apply(ResourceDictionary, DockThemeKind)</a> for any other dictionary,
 including one merged into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.application.resources">Resources</a>.</p>
 </div>
@@ -3791,6 +3919,38 @@ Does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockMa
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.mouseeventargs">MouseEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnVisualParentChanged_" data-uid="SmartDock.DockManager.OnVisualParentChanged*"></a>
+
+  <h3 id="SmartDock_DockManager_OnVisualParentChanged_System_Windows_DependencyObject_" data-uid="SmartDock.DockManager.OnVisualParentChanged(System.Windows.DependencyObject)">
+  OnVisualParentChanged(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Looks up implicit item templates again once this manager has a parent.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnVisualParentChanged(DependencyObject oldParent)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>oldParent</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
     <dd></dd>
   </dl>
 

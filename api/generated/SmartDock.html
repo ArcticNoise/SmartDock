@@ -130,7 +130,7 @@ Drag, double-click, and the window buttons stay on this control. A missing part 
       <dd><p>Commands a host can bind or rebind. Default keys live in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.routedcommand.inputgestures">InputGestures</a>
 and are read when the key is pressed, so replacing a gesture takes effect on the next key.
 Close is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp.
-Float and auto-hide have no default key.</p>
+Float, auto-hide, save layout, and load layout have no default key.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -222,7 +222,7 @@ are drawn in a topmost overlay so the dragged window cannot cover them. Another 
 shows that float's compass and edge guides; the topmost one wins, and the dragged window is skipped.
 A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target.
 The same gesture is covered by the internal drag methods, which call <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> with coordinates and no mouse.
-Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, and toggles float and auto-hide.
+Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, toggles float and auto-hide, and saves the layout.
 When <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.
 The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. It opens and closes
 at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.
