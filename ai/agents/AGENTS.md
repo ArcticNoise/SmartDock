@@ -1,0 +1,275 @@
+# SmartDock
+
+SmartDock is a docking library for WPF on .NET 8. A layout is a tree of splits and tab groups. Every pane has a stable `ContentId`, and the dock maps that id back to a control in your app.
+
+Full documentation and API reference: https://arcticnoise.github.io/SmartDock/
+
+## Packages
+
+- `SmartDock` targets `net8.0-windows`. It has the WPF control `DockManager` and pulls in `SmartDock.Core`.
+- `SmartDock.Core` targets `net8.0` and does not reference WPF. It has the layout model, the edits in `DockEdit`, and the JSON serializer. Reference it alone when a project only builds or stores layouts.
+
+```bash
+dotnet add package SmartDock
+```
+
+Both packages use the `SmartDock` namespace.
+
+## Build a layout
+
+Proportions are positive weights. They do not have to sum to 1. A horizontal split lays children out left to right. A vertical split stacks them top to bottom. Content ids are case-sensitive and must be unique.
+
+```csharp
+using SmartDock;
+
+var layout = DockTree.Create(DockTree.Split("root", SplitOrientation.Horizontal,
+    DockTree.Weighted(0.22, DockTree.Tabs("left", DockKind.Tool,
+        DockTree.Tool("solution", "Solution Explorer", canClose: false),
+        DockTree.Tool("classes", "Class View"))),
+    DockTree.Weighted(0.78, DockTree.Tabs("docs", DockKind.Document,
+        DockTree.Document("program", "Program.cs"),
+        DockTree.Document("readme", "README.md")))));
+```
+
+`DockTree.Document` cannot auto-hide. `DockTree.Tool` can. Object initializers and XAML work on the same types: `DockLayout`, `SplitNode`, `SplitChild`, `TabGroupNode`, and `DockPane`. In XAML the enum values are `Document` and `Horizontal`. In JSON they are `document` and `horizontal`.
+
+`DockTree.Anchor` is an empty tab group. It is a place to restore hidden panes to. The dock does not draw it, and it stays in the tree only while a hidden entry's `GroupId` names it.
+
+```csharp
+var layout = DockTree.Create(DockTree.Split("root", SplitOrientation.Horizontal,
+    DockTree.Weighted(0.25, DockTree.Anchor("left", DockKind.Tool)),
+    DockTree.Weighted(0.75, DockTree.Tabs("docs", DockKind.Document,
+        DockTree.Document("program", "Program.cs")))));
+layout.Hidden = new List<HiddenEntry>
+{
+    new() { Pane = DockTree.Tool("solution", "Solution Explorer"), GroupId = "left" }
+};
+```
+
+`DockEdit.Show(layout, "solution")` puts the tool back in `left` at index 0, and that column keeps its weight of 0.25.
+
+## Edit a layout
+
+`DockEdit` changes the tree and returns `DockEditResult`. A refused edit, such as closing a pane with `CanClose == false` or naming an unknown id, does not throw and does not change the tree. After a successful edit the tree is valid to save.
+
+```csharp
+DockEdit.Dock(layout, "readme", "docs", DockSide.Right);          // takes 25% of the anchor
+DockEdit.Dock(layout, "classes", "docs", DockSide.Center);        // new selected tab
+DockEdit.Reorder(layout, "program", insertionIndex: 1);           // gap in the current list
+DockEdit.Move(layout, "program", index: 0);                       // slot in the current group; stays selected
+DockEdit.Float(layout, "readme", x: 80, y: 60, width: 480, height: 320);
+DockEdit.FloatGroup(layout, "tools", x: 40, y: 50, width: 320, height: 240); // whole group, same id
+DockEdit.DockWindow(layout, windowId, "docs", DockSide.Right);   // whole window; Center merges its panes
+DockEdit.SetFloatMaximized(layout, "readme", true);              // x, y, width, height stay the restored bounds
+DockEdit.DockBack(layout, "readme");
+DockEdit.AutoHide(layout, "classes", DockEdit.SuggestEdge(layout, "classes"));
+DockEdit.AutoHideFloat(layout, windowId);                        // every pane in that float
+DockEdit.AutoHideFloat(layout, windowId, AutoHideEdge.Bottom);
+DockEdit.Pin(layout, "classes");
+DockEdit.Close(layout, "readme");
+DockEdit.Hide(layout, "readme");    // ignores CanClose
+DockEdit.Show(layout, "readme");    // selects it in the group it returns to
+DockEdit.Remove(layout, "readme");  // ignores CanClose; also drops a hidden pane
+DockEdit.CloseFloat(layout, windowId); // closable panes close; the rest return to the main tree
+DockEdit.Select(layout, "program");
+DockEdit.SetSplitWeights(layout, "root", new[] { 1d, 3d });
+```
+
+- `DockSide.Center` needs a tab group as the anchor. Use anchor `""` to drop onto an empty main area.
+- `Move` takes the slot the pane will occupy. `Reorder` takes the gap in the current list, so either gap next to the pane does nothing.
+- `DockBack` returns a floating pane to its previous group. If that group is gone, it uses the first main-tree group of the same kind, then a new group on the right.
+- `Hide` adds the pane to `layout.Hidden` and remembers where it was. `Show` puts it back at the same index in the same tab group. If that group is gone, `Show` tries the same float, then the same auto-hide edge, then the same rule as `DockBack`.
+- Hiding a hidden pane, or showing a visible one, succeeds with `Changed` false. An unknown id fails.
+- `DockEdit.SetFlyoutSize` sets the flyout size of an auto-hidden pane. A pane auto-hidden by a drop or a float pin gets a flyout size of 240.
+
+`layout.TryLocate(contentId, out PaneLocation location)` reports the group, floating window, or auto-hide edge of a visible pane. `layout.TryGetHidden(contentId, out DockPane pane)` finds a hidden one. `DockPaneStates.Collect` reports `DockPaneState.Hidden` for it. `LayoutMap.Build(layout, knownIds)` lists the visible panes in walk order and fills `MissingContentIds` and `UnplacedContentIds`.
+
+## Save and load JSON
+
+```csharp
+string json = DockSerializer.Serialize(layout);          // compact, version 1
+byte[] utf8 = DockSerializer.SerializeUtf8(layout);
+DockLayout restored = DockSerializer.Deserialize(json);  // throws DockLayoutException on bad input
+```
+
+A round trip keeps ids, weights, selection, float bounds, the maximized state, auto-hide flyout sizes, hidden panes, toolbar positions, and an empty group that a hidden entry names. The version must be `1`. Optional fields are left out when they hold the default, so older version 1 files still load. Deserializing does not move any window.
+
+Do not hand-edit a split down to one child, or leave an empty tab group that no hidden entry names. `Serialize` rejects the empty group. Node JSON uses `"type":"split"` and `"type":"tabs"`.
+
+The JSON does not hold the theme, pane icons, or the activation order. Save the theme yourself if the app lets users change it.
+
+## DockManager
+
+Register every content id before you assign `Layout`. A pane with no factory shows a "Missing content" placeholder. The dock creates the element the first time the pane is shown and moves the same element when the pane moves.
+
+```csharp
+var dock = new DockManager();
+dock.RegisterContent("solution", () => solutionTree);
+dock.RegisterContent("program", () => programEditor);
+dock.Layout = layout;
+
+dock.FloatPane("program", 120, 80);
+dock.SetFloatMaximized("program", true);
+if (dock.IsFloatMaximized("program"))
+    dock.SetFloatMaximized("program", false);
+dock.DockBackPane("program");
+dock.DockPaneTo("program", "docs", DockSide.Center);
+dock.AutoHidePane("solution");
+dock.PinPane("solution");
+dock.ClosePane("program");
+dock.HidePane("readme");
+dock.ShowPane("readme");
+dock.ActivatePane("readme");
+dock.SetPaneTitle("readme", "README.md*");
+dock.SetPaneIcon("readme", icon);
+dock.RegisterContent("notes", () => notesEditor);
+dock.AddPane(DockTree.Document("notes", "Notes.txt"), "docs", DockSide.Center);
+dock.RemovePane("notes");
+dock.EditLayout(layout =>
+{
+    DockEdit.Insert(layout, DockTree.Document("a", "A.txt"), "docs", DockSide.Center);
+    DockEdit.Insert(layout, DockTree.Document("b", "B.txt"), "docs", DockSide.Center);
+    return DockEditResult.Ok();
+});
+
+File.WriteAllText(path, dock.SaveLayout());
+dock.LoadLayout(File.ReadAllText(path));
+```
+
+Content lifetime:
+
+- `ClosePane`, the tab close button, `RemovePane`, and `HidePane` keep the cached element. Showing the id again returns the same control.
+- `ReleaseContent` drops the cached element and detaches it. It returns false when nothing is cached, and while the pane is docked, floating, auto-hidden, or hidden. Remove the pane first.
+- The dock never disposes a content element. Your app owns the control.
+- To swap a factory, call `dock.Content.Unregister(id)` and then `RegisterContent` again. There is no replace method. If the pane is still open or hidden, the old control stays cached until you call `ReleaseContent` after the pane leaves.
+
+Startup:
+
+- Call `LoadLayout`, assign `Layout`, or set `SavedLayout` before `Window.Show`. The dock has no default layout, and this builds the tree once, so the first frame shows the right layout.
+- Floating windows appear once the manager is visible. A float whose bounds miss every current monitor work area is moved onto one.
+- To load the file asynchronously, keep the manager `Visibility="Hidden"` until `LoadLayout` returns, then show it.
+
+Other members:
+
+- `EditLayout` runs several `DockEdit` calls on the live layout and rebuilds once. Return `DockEditResult.Ok()` to commit. A failed result or an exception restores the layout from a snapshot.
+- `AddPane` inserts one pane and updates the view. Use it or `EditLayout` after inserting panes. Reloading the layout is not needed.
+- `SetPaneTitle` and `SetPaneIcon` update every place the pane is shown without rebuilding the tree. A new title raises `LayoutChanged` because titles are saved. Icons are not saved.
+- `DockBackPane` docks a floating pane back with the same rule as `DockEdit.DockBack`. A hidden pane fails.
+- A caption double-click on a float docks it back when its previous group still exists. Otherwise it maximizes the window.
+- `ActiveContentId` is the last selected tab, or the content that last got keyboard focus.
+- `ResizeMode` is `DockResizeMode.Live` by default. `DockResizeMode.Preview` draws a line while dragging a splitter, the flyout edge, or a float edge, and applies the size on release. Escape cancels a drag. `ResizeGripThickness` is the hit size of those edges, 6 DIP at minimum.
+- `AnimationsEnabled` is true by default. It fades in the dock guides and slides neighbouring tabs during a tab drag. Set it to false to turn that off.
+- `TabPlacement` and `DocumentTabPlacement` are `Top` by default. `Bottom` puts the tab strip under the content of tool groups or document groups.
+- A tab strip that is too narrow shows an overflow button. Its menu lists every tab, and picking one selects it.
+
+Native content such as `HwndHost` or `WindowsFormsHost` works in panes, floats, and the auto-hide flyout. An `HwndHost` covers any WPF element drawn on top of it, so do not put an adorner or overlay over hosted native content and expect it to show.
+
+## XAML
+
+```xml
+xmlns:dock="clr-namespace:SmartDock;assembly=SmartDock"
+xmlns:model="clr-namespace:SmartDock;assembly=SmartDock.Core"
+```
+
+The chrome controls can be restyled with an implicit `Style` or a new `Template`:
+
+- `DockTabHeader` is a tab header. `DockCaption` is a caption bar.
+- `DockDropPreview` is the landing rectangle shown while dragging.
+- `DockGuideButton` is one dock guide button, with `Side`, `IsRootEdge`, and `IsHot`.
+
+Read-only properties for templates are `Title`, `IsSelected`, `IsActive`, `Kind`, `Placement`, `IsHovered`, `ShowClose`, `ShowPin`, `ShowMenu`, and `Icon`. A caption also has `IsAccented`, `IsMaximized`, `ShowMaximize`, and `Role`. Template parts are `PART_Close`, `PART_Pin`, `PART_Menu`, `PART_Maximize`, `PART_Buttons`, `PART_ButtonHost`, `PART_Grip`, `PART_Bar`, `PART_Title`, `PART_Chrome`, and `PART_Face`. A guide button uses `PART_Chrome`, `PART_Plate`, and `PART_Mark`. Leave a part out and that piece is not shown. The default templates use `DynamicResource` on `Dock.*` keys.
+
+Put these styles in `Application.Resources` or `DockManager.Resources`. Both reach floating windows and the guide overlay. The host window's resources do not. A style added to `DockManager.Resources` after floats exist reaches them the next time `Theme` is assigned, even to the same value.
+
+## Themes
+
+`DockManager.Theme` is a dependency property of type `DockThemeKind`: `Dark` by default, `Light`, or `Blue`. Set or bind it to switch the palette. Open floats and popups repaint.
+
+- A `Dock.*` key in `DockManager.Resources` overrides the theme brush, also after a later `Theme` change. It is copied to floating windows, the guide overlay, the auto-hide flyout, and toolbar windows. An override added after those windows exist is copied the next time `Theme` is assigned.
+- The key names are static fields such as `DockTheme.WorkspaceKey`.
+- `DockTheme.Apply(element, kind)` and `DockTheme.Apply(dictionary, kind)` write the palette into an element or a dictionary of your own.
+- Merge `DockTheme.CreateMenuResources()` and `DockTheme.CreateScrollBarResources()` into the application resources to give the menu bar, context menus, and their scrollbars the dock colors. Scrollbars inside the dock are already themed.
+- In XAML, do not use `x:Static` on `DockTheme.Border` or `DockTheme.Panel`. Those names match WPF types and the markup compiler resolves the type instead.
+
+## MVVM
+
+Bind collections instead of calling `AddPane` for every document. `DocumentsSource` and `ToolsSource` take an `IEnumerable` of view models, or of `UIElement`s used as the pane body. With `INotifyCollectionChanged`, Add opens a pane, Remove removes it, Replace swaps it, and Reset reads the list again.
+
+`DocumentItemStyle` and `ToolItemStyle` target `DockItem`. Its `DataContext` is the item, so the setters are plain bindings for `Title`, `ContentId`, `Icon`, `CanClose`, `CanFloat`, `CanAutoHide`, and `HideOnClose`. `Title` and `Icon` update the open tab. `ContentId` is read when the item is added and is the key a saved layout matches. Leave it empty and the dock makes up an id, so a saved layout will not find that pane next time. Give each view model a stable id.
+
+`DocumentTemplate` and `ToolTemplate` are `DataTemplate`s whose content is the view model. `DocumentTemplateSelector` and `ToolTemplateSelector` are tried first. With neither set, the implicit `DataTemplate` for the item type is used, found in the manager, a parent such as the window, or the application resources. One element is built per item and then moved with the pane.
+
+New documents join the document group that last held the active document. New tools join the first tool group.
+
+`ActiveContent` binds two ways. Selecting a bound pane sets it to that item, and setting it activates the pane. It is null when the active pane came from `RegisterContent`.
+
+When the user closes a pane, the dock removes the item from the source if the source is a writable `IList`. `PaneClosing` runs first and can cancel. `HideOnClose` hides the pane and leaves the item. `RemovePane` does not touch the source.
+
+`SavedLayout` is a string property that binds two ways:
+
+- `DockCommands.SaveLayout` writes the current layout into it. The binding updates the view model, and the dock does not reload.
+- Any other change to `SavedLayout` loads that text, including a value set before the window is shown. Null or an empty string does nothing. Assigning the same string again does not reload.
+- `DockCommands.LoadLayout` reloads the current `SavedLayout`, even when the text has not changed. It cannot execute while `SavedLayout` is null or empty. A non-empty command parameter is loaded instead and then stored in `SavedLayout`.
+- Text that cannot be read throws `DockLayoutException` and leaves the current layout in place.
+
+`LoadLayout` restores bound panes by `ContentId`. Bound items the file does not mention open at the default place.
+
+## Toolbars
+
+Put toolbars in `DockManager.ToolBars` or bind `ToolBarsSource`. They dock on the main window, on a floating window, or on a pane.
+
+```csharp
+dock.ToolBars.Add(new ToolBar { Name = "standard" });
+DockToolBar.SetTitle(dock.ToolBars[0], "Standard");
+```
+
+- Attached properties on a plain `ToolBar`: `DockToolBar.Id`, `Title`, `Edge`, `Band`, `BandIndex`, `Offset`, `Alignment`, `PaneId`, `IsVisible`, `ShowOverflow`, and `IsCustomizable`.
+- `Edge`, `Band`, `BandIndex`, `Offset`, `Alignment`, and `PaneId` give the default place. They apply until the toolbar has a saved position or the user moves it.
+- `PaneId` docks the toolbar on that pane, and it follows the pane when the pane floats or moves. Empty means a window tray.
+- `Alignment` is `Start` by default. `End` packs the toolbar against the far end of its band.
+- `IsVisible` false hides the toolbar and keeps its place. `ShowOverflow` is false by default.
+- For view models, use `ToolBarItemStyle` on `DockToolBarItem` and a `DataTemplate` whose root is a `ToolBar`.
+
+Users drag the grip to move a toolbar, pull it out to float it, and Alt+drag a button to move or hide it. Give every button a stable name or id so its place is saved. `ToolBarItemKeyPath` names the key property. `ToolBarCustomizationEnabled` turns customization off. The dock does not reorder your `Items` or `ItemsSource` unless `ToolBarMoveItemsInSource` is true and both lists are writable. `SaveLayout` writes toolbar positions. A file without toolbars still loads.
+
+## Pane events
+
+`DockManager` raises these besides `LayoutChanged`:
+
+- `PaneClosing` (`DockPaneClosingEventArgs`, a `CancelEventArgs` with `ContentId`) before a pane is removed. Cancel keeps the layout as it was.
+- `PaneClosed` (`DockPaneEventArgs`, `ContentId`) after the pane is gone.
+- `PaneStateChanged` (`ContentId`, `OldState`, `NewState`) when a pane moves between `DockPaneState.Docked`, `Floating`, `AutoHidden`, and `Hidden`.
+- `ActivePaneChanged` (`OldContentId`, `NewContentId`, both nullable) when `ActiveContentId` changes.
+- `PaneMounted` (`DockPaneEventArgs`, `ContentId`) after the content element is in a host: the selected tab, a shown float, or an open flyout.
+- `PaneUnmounted` (`DockPaneEventArgs`, `ContentId`) after the element is detached.
+
+```csharp
+dock.PaneClosing += (_, e) =>
+{
+    if (e.ContentId == "readme" && unsaved)
+        e.Cancel = true;
+};
+```
+
+- `PaneClosing` covers the tab close button, the flyout close button, `ClosePane`, Ctrl+F4, and closing a float. A float asks once per pane, and any cancel keeps the window and every pane.
+- With `HideOnClose`, the same actions raise `PaneClosing` and then hide the pane. `PaneClosed` is not raised.
+- Closing the host window closes the floats without raising `PaneClosing`.
+- `LoadLayout`, assigning `Layout`, a `SavedLayout` change, `RemovePane`, `HidePane`, `ShowPane`, and `EditLayout` raise `PaneStateChanged` only. They never raise `PaneClosing` or `PaneClosed`.
+- `ShowPane` selects the pane but does not focus it. `ActivatePane` shows it if hidden, selects it, opens its flyout or activates its float, and focuses the content.
+- `DockPaneState` does not tell you whether the element is in the visual tree. Use `PaneMounted` and `PaneUnmounted` for that. Moving a pane to another host raises `PaneUnmounted` and then `PaneMounted`.
+
+## Keyboard and commands
+
+Ctrl+Tab opens the pane switcher while Ctrl is held. It lists panes in most-recent order. Tab and Down move down, Shift+Tab and Up move up, releasing Ctrl activates the highlighted pane, and Escape cancels.
+
+```csharp
+DockCommands.ClosePane.Execute(null, dock);          // Ctrl+F4; HideOnClose hides instead
+DockCommands.NextDocument.Execute(null, dock);       // Ctrl+PageDown
+DockCommands.PreviousDocument.Execute(null, dock);   // Ctrl+PageUp
+DockCommands.ToggleFloat.Execute(null, dock);        // no default key
+DockCommands.ToggleAutoHide.Execute(null, dock);     // no default key
+DockCommands.SaveLayout.Execute(null, dock);         // no default key; writes SavedLayout
+DockCommands.LoadLayout.Execute(null, dock);         // no default key; reloads SavedLayout
+```
+
+The manager and every floating window handle these commands, so they work from XAML with `Command="{x:Static dock:DockCommands.SaveLayout}"`. Replace a command's `InputGestures` to change its key. `DockMru` keeps the activation order outside WPF and is not saved in the layout.

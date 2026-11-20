@@ -6,6 +6,8 @@ You describe the layout as a tree of splits and tab groups, register a factory f
 
 **Documentation:** <https://arcticnoise.github.io/SmartDock/>
 
+**Instructions for coding agents:** [ai/](ai/)
+
 This repository holds the documentation site and the issue tracker.
 
 ## Reporting a bug
