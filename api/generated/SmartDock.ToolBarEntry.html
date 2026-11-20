@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ToolBarEntry | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ToolBarEntry | SmartDock ">
+      
+      <meta name="description" content="Where one toolbar sits. , , , and  stay the last docked place while  is set, so a double-click can put it back.  and  name the pane or floating window that hosts it. Both null is the main window. Default values are omitted from JSON.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.ToolBarEntry">
+
+
+
+  <h1 id="SmartDock_ToolBarEntry" data-uid="SmartDock.ToolBarEntry" class="text-break">
+Class ToolBarEntry  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Where one toolbar sits. <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Edge">Edge</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Band">Band</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Index">Index</a>, and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Offset">Offset</a>
+stay the last docked place while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is set, so a double-click can put it back.
+<a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a> name the pane or floating window that hosts it.
+Both null is the main window. Default values are omitted from JSON.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ToolBarEntry</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ToolBarEntry</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SmartDock_ToolBarEntry__ctor_" data-uid="SmartDock.ToolBarEntry.#ctor*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry__ctor" data-uid="SmartDock.ToolBarEntry.#ctor">
+  ToolBarEntry()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToolBarEntry()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SmartDock_ToolBarEntry_Alignment_" data-uid="SmartDock.ToolBarEntry.Alignment*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Alignment" data-uid="SmartDock.ToolBarEntry.Alignment">
+  Alignment
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Which end of the band this toolbar packs against. <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_Start">Start</a> is omitted from JSON,
+so a document written before alignment existed stays the same bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public ToolBarAlignment Alignment { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.ToolBarAlignment.html">ToolBarAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Band_" data-uid="SmartDock.ToolBarEntry.Band*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Band" data-uid="SmartDock.ToolBarEntry.Band">
+  Band
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Row on that edge. Band 0 is the outer side: the top of a top tray, the bottom of a bottom tray, the left of a left tray, and the right of a right tray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public int Band { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Edge_" data-uid="SmartDock.ToolBarEntry.Edge*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Edge" data-uid="SmartDock.ToolBarEntry.Edge">
+  Edge
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Edge the toolbar docks to. The default is <a class="xref" href="SmartDock.ToolBarEdge.html#SmartDock_ToolBarEdge_Top">Top</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToolBarEdge Edge { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Floating_" data-uid="SmartDock.ToolBarEntry.Floating*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Floating" data-uid="SmartDock.ToolBarEntry.Floating">
+  Floating
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True while the toolbar is in its own window. The docked edge, band, index, and offset stay so it can dock back. Omitted from JSON when false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public bool Floating { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Height_" data-uid="SmartDock.ToolBarEntry.Height*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Height" data-uid="SmartDock.ToolBarEntry.Height">
+  Height
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Floating window height, in device-independent pixels. Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public double Height { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Hidden_" data-uid="SmartDock.ToolBarEntry.Hidden*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Hidden" data-uid="SmartDock.ToolBarEntry.Hidden">
+  Hidden
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the user hid the toolbar. Omitted from JSON while it is shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public bool Hidden { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Id_" data-uid="SmartDock.ToolBarEntry.Id*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Id" data-uid="SmartDock.ToolBarEntry.Id">
+  Id
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stable id of the toolbar. The host matches a saved entry to a toolbar by this string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Index_" data-uid="SmartDock.ToolBarEntry.Index*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Index" data-uid="SmartDock.ToolBarEntry.Index">
+  Index
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Position within <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Band">Band</a>. For <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_Start">Start</a>, 0 is nearest the start edge.
+For <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_End">End</a>, 0 is nearest the far edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public int Index { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Offset_" data-uid="SmartDock.ToolBarEntry.Offset*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Offset" data-uid="SmartDock.ToolBarEntry.Offset">
+  Offset
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gap before this toolbar, in device-independent pixels.
+A start-aligned toolbar measures the gap from the start edge or the previous start-aligned toolbar.
+An end-aligned toolbar measures it from the far edge or the outer end-aligned neighbour.
+Zero packs it against that neighbour. Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public double Offset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_PaneId_" data-uid="SmartDock.ToolBarEntry.PaneId*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_PaneId" data-uid="SmartDock.ToolBarEntry.PaneId">
+  PaneId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Content id of the pane whose trays hold this toolbar. Null is a window tray.
+Omitted from JSON when null, so a window-tray document stays the same bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public string? PaneId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Visible_" data-uid="SmartDock.ToolBarEntry.Visible*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Visible" data-uid="SmartDock.ToolBarEntry.Visible">
+  Visible
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The opposite of <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Hidden">Hidden</a>. Not written to JSON; <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Hidden">Hidden</a> is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore]
+public bool Visible { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Width_" data-uid="SmartDock.ToolBarEntry.Width*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Width" data-uid="SmartDock.ToolBarEntry.Width">
+  Width
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Floating window width, in device-independent pixels. Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public double Width { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_WindowId_" data-uid="SmartDock.ToolBarEntry.WindowId*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_WindowId" data-uid="SmartDock.ToolBarEntry.WindowId">
+  WindowId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Id of the floating window whose window trays hold this toolbar.
+Null with a null <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> is the main window. A pane and a window are not both set.
+Omitted from JSON when null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public string? WindowId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_X_" data-uid="SmartDock.ToolBarEntry.X*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_X" data-uid="SmartDock.ToolBarEntry.X">
+  X
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Floating window left, in device-independent pixels. Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public double X { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Y_" data-uid="SmartDock.ToolBarEntry.Y*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Y" data-uid="SmartDock.ToolBarEntry.Y">
+  Y
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Floating window top, in device-independent pixels. Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public double Y { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

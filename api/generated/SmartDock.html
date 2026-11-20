@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Namespace SmartDock | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace SmartDock | SmartDock ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock">
+
+  <h1 id="SmartDock" data-uid="SmartDock" class="text-break">Namespace SmartDock</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideEntry.html">AutoHideEntry</a></dt>
+      <dd><p>One auto-hidden pane, plus the size used when it is pinned back or shown as a flyout.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideLayout.html">AutoHideLayout</a></dt>
+      <dd><p>Panes pinned to the four edges as auto-hide tabs.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideTargets.html">AutoHideTargets</a></dt>
+      <dd><p>Picks an auto-hide edge while a tool pane is dragged. Documents and any float that is not tools-only
+are rejected by <a class="xref" href="SmartDock.AutoHideTargets.html#SmartDock_AutoHideTargets_Allows_SmartDock_DockLayout_System_String_System_String_">Allows(DockLayout, string?, string?)</a> and get no target.
+A dock guide that contains the point wins, including a root-edge button that overlaps the hot zone.
+A floating window under the pointer wins as well, including where that window covers the zone:
+the drop stays a float dock, not an auto-hide. No allocations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockActivePaneEventArgs.html">DockActivePaneEventArgs</a></dt>
+      <dd><p>The active pane changed. Either id is null when there was, or is, no active pane.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockCaption.html">DockCaption</a></dt>
+      <dd><p>A caption bar the user drags. The default template paints the dock palette.
+A host replaces the look with an implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> or a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.control.template">Template</a>.
+Drag, double-click, and the window buttons stay on this control. A missing part is simply absent.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockCommands.html">DockCommands</a></dt>
+      <dd><p>Commands a host can bind or rebind. Default keys live in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.routedcommand.inputgestures">InputGestures</a>
+and are read when the key is pressed, so replacing a gesture takes effect on the next key.
+Close is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp.
+Float and auto-hide have no default key.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockCompare.html">DockCompare</a></dt>
+      <dd><p>Structural equality for layouts. Doubles match exactly, which is what a JSON round-trip preserves.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockContentRegistry.html">DockContentRegistry</a></dt>
+      <dd><p>Factories for the controls a layout reconnects by content id.
+<a class="xref" href="SmartDock.DockManager.html">DockManager</a> calls a factory when it has no cached element for that id
+and reuses the element when the pane moves, floats, or the layout is loaded again.
+<a class="xref" href="SmartDock.DockContentRegistry.html#SmartDock_DockContentRegistry_Unregister_System_String_">Unregister(string)</a> removes a factory so <a class="xref" href="SmartDock.DockContentRegistry.html#SmartDock_DockContentRegistry_Register_System_String_System_Func_System_Windows_UIElement__">Register(string, Func&lt;UIElement&gt;)</a> can install another.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a></dt>
+      <dd><p>Deterministic drag gesture. The WPF control feeds coordinates; tests call <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Update_SmartDock_DockLayout_SmartDock_DragPointer_">Update(DockLayout, DragPointer)</a> and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a>
+with the same inputs and no mouse. A horizontal move inside the source strip moves the tab as soon as the pointer
+reaches a neighbor's midpoint. <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a> reports that reorder once. Leaving the strip floats the pane.
+A snapshot taken before the first change is what <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Cancel">Cancel()</a> restores.
+A tool drop on an auto-hide strip hides the dragged pane, or every pane when the gesture is moving a tool-only float.
+<a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_DragGroup">DragGroup()</a> and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_MoveWindow_System_String_">MoveWindow(string)</a> dock the whole window on a guide drop.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockDropPreview.html">DockDropPreview</a></dt>
+      <dd><p>The landing rectangle drawn while a drag is over a guide or an auto-hide edge.
+The default template fills <code>Dock.Guide</code> and draws no border.
+A host replaces the look with an implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> or a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.control.template">Template</a>.
+The rectangle itself is chosen in <code>SmartDock.Core</code>. The template only paints that rectangle.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockEdit.html">DockEdit</a></dt>
+      <dd><p>Mutates a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>. Every successful structural edit leaves a layout that
+<a class="xref" href="SmartDock.DockSerializer.html#SmartDock_DockSerializer_Validate_SmartDock_DockLayout_">Validate(DockLayout)</a> accepts. Empty groups are removed and single-child splits collapse,
+except an empty tab group that a hidden entry still names. That group stays, with its weight, as a restore anchor.
+Proportions are weights. A side dock gives the incoming pane the supplied proportion of the anchor's area.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockGuideButton.html">DockGuideButton</a></dt>
+      <dd><p>One compass slot or root-edge button. The default template paints the dock palette.
+A host replaces the look with an implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> or a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.control.template">Template</a>.
+Hit testing stays on the guide rectangle in <code>SmartDock.Core</code>. The template paints inside this control.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockGuides.html">DockGuides</a></dt>
+      <dd><p>Hit testing for dock guides. A compass is centered on the leaf under the pointer.
+Four buttons sit at the midpoints of the host edges and dock against the root.
+A point that is not on a button is not a target. The preview is a separate rect from
+<a class="xref" href="SmartDock.DockGuides.html#SmartDock_DockGuides_Landing_SmartDock_DockRect_System_ReadOnlySpan_SmartDock_NodeBounds__SmartDock_DropGuide_">Landing(DockRect, ReadOnlySpan&lt;NodeBounds&gt;, DropGuide)</a>, not the button. No allocations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockItem.html">DockItem</a></dt>
+      <dd><p>Bindable pane properties for one item in <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentsSource">DocumentsSource</a> or
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolsSource">ToolsSource</a>. A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> assigned to
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentItemStyle">DocumentItemStyle</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolItemStyle">ToolItemStyle</a>
+targets this type. Its setters bind against the item, which is the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a>.
+The manager reads these values when the item enters the source and again when they change.
+This element is not placed in the visual tree.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+      <dd><p>The whole dock: a main tree, floating windows, auto-hide bars, and hidden panes.
+The object is a plain tree. <a class="xref" href="SmartDock.DockEdit.html">DockEdit</a> mutates it, <a class="xref" href="SmartDock.DockSerializer.html">DockSerializer</a> saves it,
+and the WPF <code>DockManager</code> turns it into controls. It is safe to build on any thread, and it is not
+safe to mutate from two threads at once.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockLayoutException.html">DockLayoutException</a></dt>
+      <dd><p>Invalid layout data, or a layout JSON document this version cannot read.
+Editing methods return <a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a> instead of throwing for ordinary refusals
+such as a missing pane or a disabled close.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockManager.html">DockManager</a></dt>
+      <dd><p>Hosts a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>. Register content by id, assign <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a>, and the control builds
+the splits, tabs, floating windows, and auto-hide bars. Only the selected tab's content is in the tree.
+Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it.
+A tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview
+are drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer
+shows that float's compass and edge guides; the topmost one wins, and the dragged window is skipped.
+A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target.
+The same gesture is covered by the internal drag methods, which call <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> with coordinates and no mouse.
+Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, and toggles float and auto-hide.
+When <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.
+The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. It opens and closes
+at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeGripThickness">ResizeGripThickness</a> is the hit zone of a splitter, a flyout edge, and a float's border.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeMode">ResizeMode</a> applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockMru.html">DockMru</a></dt>
+      <dd><p>Most-recently-activated pane order, and cycling of document tabs.
+Index 0 is the pane activated last. The order is runtime state. It is not written to layout JSON.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockNode.html">DockNode</a></dt>
+      <dd><p>A node in the dock tree. Either a <a class="xref" href="SmartDock.SplitNode.html">SplitNode</a> or a <a class="xref" href="SmartDock.TabGroupNode.html">TabGroupNode</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPane.html">DockPane</a></dt>
+      <dd><p>One piece of content in a layout. <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_ContentId">ContentId</a> is the stable key an application uses
+to reconnect the pane to its control when a layout is restored. Ids are case-sensitive.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneClosingEventArgs.html">DockPaneClosingEventArgs</a></dt>
+      <dd><p>A pane that is about to close. Set <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.canceleventargs.cancel">Cancel</a> to keep it where it is.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneEventArgs.html">DockPaneEventArgs</a></dt>
+      <dd><p>A pane identified by <a class="xref" href="SmartDock.DockPaneEventArgs.html#SmartDock_DockPaneEventArgs_ContentId">ContentId</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneStateEventArgs.html">DockPaneStateEventArgs</a></dt>
+      <dd><p>A pane moved between the main tree, a floating window, an auto-hide strip, and the hidden list.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneStates.html">DockPaneStates</a></dt>
+      <dd><p>Reads pane states from a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a> and diffs two snapshots.
+The WPF host uses this where it raises layout notifications. Panes that exist only in the later
+snapshot are new, not a state change. Panes missing from the later snapshot are reported as removed.
+A pane in <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Hidden">Hidden</a> is <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Hidden">Hidden</a>, not removed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockResizeMath.html">DockResizeMath</a></dt>
+      <dd><p>Grip thickness, splitter clamping, and floating-window edge tests.
+Sizes are device-independent pixels. The WPF host paints and applies the result.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockSerializer.html">DockSerializer</a></dt>
+      <dd><p>Compact versioned JSON. System.Text.Json source generation writes the tree directly, with no reflection
+and no extra package. Enums are lowercase strings and node kinds use a &quot;type&quot; discriminator (&quot;split&quot; or &quot;tabs&quot;).
+A document produced by <a class="xref" href="SmartDock.DockSerializer.html#SmartDock_DockSerializer_Serialize_SmartDock_DockLayout_">Serialize(DockLayout)</a> deserializes to an equal layout, including ids,
+weights, selection, floating bounds and maximized state, auto-hide entries, hidden panes, toolbar bands,
+and empty tab groups that a hidden entry names. An empty tab group with no such entry is rejected.
+<a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_ToolBars">ToolBars</a> is omitted when it is null, so a document written before toolbars existed stays the same bytes.
+<a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_HideOnClose">HideOnClose</a> and a hidden entry's restore fields are omitted when they are the default,
+so a document with no hidden panes stays byte-for-byte the same. Unknown version numbers are rejected.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockTabHeader.html">DockTabHeader</a></dt>
+      <dd><p>One tab header. The default template paints the dock palette.
+A host replaces the look with an implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> or a new <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.control.template">Template</a>.
+Drag, select, and close stay on this control. A template that omits a part has no such button.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockTargets.html">DockTargets</a></dt>
+      <dd><p>Picks the dock window under a pointer. The topmost window that contains the point wins.
+The dragged window is skipped. No allocations.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockTheme.html">DockTheme</a></dt>
+      <dd><p>Dock colors. The static brushes are the dark palette and stay the instances they have always been.
+Chrome, floats, guides, the switcher, and menus paint with resource keys, so
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Apply_System_Windows_FrameworkElement_SmartDock_DockThemeKind_">Apply(FrameworkElement, DockThemeKind)</a> can replace those brushes and open windows repaint.
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateMenuResources">CreateMenuResources()</a> is the opt-in menu and context menu. Nothing merges it on its own.
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateScrollBarResources">CreateScrollBarResources()</a> is the scrollbar, tooltip, and focus visual. The dock manager,
+each float, and the switcher merge it themselves. A host merges another copy for bars outside the dock.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBar.html">DockToolBar</a></dt>
+      <dd><p>Attached properties for a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> placed in <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBars">ToolBars</a>.
+A toolbar created from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarsSource">ToolBarsSource</a> reads the same values from
+<a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a> instead. <a class="xref" href="SmartDock.DockToolBar.html#SmartDock_DockToolBar_KeyProperty">KeyProperty</a> identifies one button.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarCaption.html">DockToolBarCaption</a></dt>
+      <dd><p>Caption of a floating toolbar. <code>PART_Grip</code> drags and double-clicks to dock.
+<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <a class="xref" href="SmartDock.DockToolBarCaption.html#SmartDock_DockToolBarCaption_Title">Title</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarCustomize.html">DockToolBarCustomize</a></dt>
+      <dd><p>Chevron that opens the Add or Remove Buttons menu. The default template strokes <code>Dock.Text</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarDrop.html">DockToolBarDrop</a></dt>
+      <dd><p>The line drawn while a toolbar is dragged over a band or an edge.
+The default template fills <code>Dock.Accent</code>. The control does not take the pointer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarGrip.html">DockToolBarGrip</a></dt>
+      <dd><p>The grip drawn at the leading edge of a toolbar. Drag it to move the toolbar.
+Leaving the tray undocks it into a floating window while the button is still held.
+Double-click docks a floating toolbar back to the band it left.
+The default template paints three dots with <code>Dock.Muted</code> on <code>Dock.Chrome</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a></dt>
+      <dd><p>Bindable properties for one toolbar in <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarsSource">ToolBarsSource</a>.
+A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a> assigned to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarItemStyle">ToolBarItemStyle</a> targets this type.
+Its setters bind against the item, which is the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a>.
+The manager reads these values when the toolbar enters the source and again when they change.
+This element is not placed in the visual tree.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockToolBarTray.html">DockToolBarTray</a></dt>
+      <dd><p>One edge of the dock that hosts toolbar bands. The template's <code>PART_Bands</code> panel
+receives one child per band. The default template fills <code>Dock.Chrome</code>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockTree.html">DockTree</a></dt>
+      <dd><p>Short constructors for a layout tree. The same tree can be built with object initializers or XAML.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DragPointer.html">DragPointer</a></dt>
+      <dd><p>Reused pointer state for <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a>. Fill <a class="xref" href="SmartDock.DragPointer.html#SmartDock_DragPointer_Leaves">Leaves</a> and <a class="xref" href="SmartDock.DragPointer.html#SmartDock_DragPointer_Headers">Headers</a>
+in place so a drag move does not allocate those lists.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.FloatWindow.html">FloatWindow</a></dt>
+      <dd><p>A floating window. Coordinates are device-independent pixels.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.HiddenEntry.html">HiddenEntry</a></dt>
+      <dd><p>A pane <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Hide_SmartDock_DockLayout_System_String_">Hide(DockLayout, string)</a> took out of the tree, plus the place <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Show_SmartDock_DockLayout_System_String_">Show(DockLayout, string)</a> returns it to.
+Default place fields are omitted from JSON.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.LayoutMap.html">LayoutMap</a></dt>
+      <dd><p>Resolves a layout to content ids. Pass the ids the application can create and the map reports which saved panes
+have no factory (<a class="xref" href="SmartDock.LayoutMap.html#SmartDock_LayoutMap_MissingContentIds">MissingContentIds</a>) and which factories the layout does not use (<a class="xref" href="SmartDock.LayoutMap.html#SmartDock_LayoutMap_UnplacedContentIds">UnplacedContentIds</a>).
+Both of those lists are sorted. <a class="xref" href="SmartDock.LayoutMap.html#SmartDock_LayoutMap_Panels">Panels</a> follows the visible tree: main, then floating windows, then auto-hide edges.
+Hidden panes are not listed. A known id that is only hidden is not unplaced. An unknown hidden id is missing.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.SplitChild.html">SplitChild</a></dt>
+      <dd><p>One cell of a <a class="xref" href="SmartDock.SplitNode.html">SplitNode</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.SplitNode.html">SplitNode</a></dt>
+      <dd><p>A resizable split. Proportions are positive weights, not required to sum to 1.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.TabGroupNode.html">TabGroupNode</a></dt>
+      <dd><p>A tabbed group of panes. The selected index is part of the saved layout.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.TabStrip.html">TabStrip</a></dt>
+      <dd><p>Header geometry for a tab strip, in the same coordinates as the pointer.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarBands.html">ToolBarBands</a></dt>
+      <dd><p>Hit testing and placement for toolbar bands. The host measures the trays and passes the rectangles.
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> does not allocate.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarCustomizationEventArgs.html">ToolBarCustomizationEventArgs</a></dt>
+      <dd><p>The toolbar and button a customization change refers to.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarDrag.html">ToolBarDrag</a></dt>
+      <dd><p>Along-axis offsets that open a gap while a toolbar button is dragged.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+      <dd><p>Where one toolbar sits. <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Edge">Edge</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Band">Band</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Index">Index</a>, and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Offset">Offset</a>
+stay the last docked place while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is set, so a double-click can put it back.
+<a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a> name the pane or floating window that hosts it.
+Both null is the main window. Default values are omitted from JSON.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a></dt>
+      <dd><p>One customized button. <a class="xref" href="SmartDock.ToolBarItemEntry.html#SmartDock_ToolBarItemEntry_Key">Key</a> is the host's item key.
+<a class="xref" href="SmartDock.ToolBarItemEntry.html#SmartDock_ToolBarItemEntry_HomeId">HomeId</a> is the toolbar whose collection owns the item; null means <a class="xref" href="SmartDock.ToolBarItemEntry.html#SmartDock_ToolBarItemEntry_BarId">BarId</a>.
+Items with no entry stay in collection order on their own toolbar.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarItems.html">ToolBarItems</a></dt>
+      <dd><p>Ordering and visibility overlay for toolbar buttons. The host collection is not modified.
+An item with no entry stays on its own toolbar. A new item is inserted after the nearest
+preceding collection neighbor that is still on that toolbar. Unknown keys are ignored.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarLayout.html">ToolBarLayout</a></dt>
+      <dd><p>Toolbar bands and button customization stored with a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>.
+Null on the layout, and omitted from JSON, when the host has no toolbar state.
+A document written before toolbars existed has no <code>toolBars</code> object and still loads.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.WorkAreas.html">WorkAreas</a></dt>
+      <dd><p>Places a floating window that lies entirely outside every monitor onto the nearest work area.
+A window that intersects any work area is left where it is. Coordinates are device-independent pixels,
+the same space as <a class="xref" href="SmartDock.FloatWindow.html">FloatWindow</a> bounds.</p>
+</dd>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideHit.html">AutoHideHit</a></dt>
+      <dd><p>An auto-hide drop. <a class="xref" href="SmartDock.AutoHideHit.html#SmartDock_AutoHideHit_Preview">Preview</a> is the strip, or the hot zone when the strip is collapsed.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideStrip.html">AutoHideStrip</a></dt>
+      <dd><p>One auto-hide strip in the same coordinates as the pointer.
+<a class="xref" href="SmartDock.AutoHideStrip.html#SmartDock_AutoHideStrip_Collapsed">Collapsed</a> is an empty strip: the hit test uses <a class="xref" href="SmartDock.AutoHideTargets.html#SmartDock_AutoHideTargets_HotZoneOf_SmartDock_DockRect_SmartDock_AutoHideEdge_">HotZoneOf(DockRect, AutoHideEdge)</a> instead of <a class="xref" href="SmartDock.AutoHideStrip.html#SmartDock_AutoHideStrip_Bounds">Bounds</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+      <dd><p>Result of a layout edit. Refusals such as &quot;cannot close&quot; do not throw.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneStateChange.html">DockPaneStateChange</a></dt>
+      <dd><p>One pane whose <a class="xref" href="SmartDock.DockPaneState.html">DockPaneState</a> differs between two layouts.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+      <dd><p>A rectangle in the same coordinate space the host uses for pointer positions.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockTarget.html">DockTarget</a></dt>
+      <dd><p>A window that can receive a dock drop. <a class="xref" href="SmartDock.DockTarget.html#SmartDock_DockTarget_WindowId">WindowId</a> is empty for the main host.
+A larger <a class="xref" href="SmartDock.DockTarget.html#SmartDock_DockTarget_ZOrder">ZOrder</a> is painted above a smaller one. <a class="xref" href="SmartDock.DockTarget.html#SmartDock_DockTarget_RootId">RootId</a> is the node
+edge guides dock against.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DragStep.html">DragStep</a></dt>
+      <dd><p>What a drag update did to the layout. Structure changes need a view rebuild; a follow only moves a window.
+<a class="xref" href="SmartDock.DragStep.html#SmartDock_DragStep_TabsMoved">TabsMoved</a> means the dragged tab changed slots. The host redraws that strip and does not publish yet.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DropGuide.html">DropGuide</a></dt>
+      <dd><p>A dock target. Root-edge buttons dock against the whole host; other buttons dock against one leaf.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.NodeBounds.html">NodeBounds</a></dt>
+      <dd><p>Bounds of a leaf tab group, supplied by the view.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.PaneLocation.html">PaneLocation</a></dt>
+      <dd><p>Where a pane currently lives. Group is null for auto-hidden panes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.PlacedPanel.html">PlacedPanel</a></dt>
+      <dd><p>A pane located by <a class="xref" href="SmartDock.LayoutMap.html#SmartDock_LayoutMap_Build_SmartDock_DockLayout_System_Collections_Generic_ISet_System_String__">Build(DockLayout, ISet&lt;string&gt;?)</a> so a host can reattach content by <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_ContentId">ContentId</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ScreenDip.html">ScreenDip</a></dt>
+      <dd><p>A point in device-independent pixels (1/96 inch), the units stored on a <a class="xref" href="SmartDock.FloatWindow.html">FloatWindow</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.TabStrip.Header.html">TabStrip.Header</a></dt>
+      <dd><p>One header along the strip. <a class="xref" href="SmartDock.TabStrip.Header.html#SmartDock_TabStrip_Header_Index">Index</a> is the pane's index in its group.
+A negative index means this list is the whole group in order, and the list position is the model index.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.TabStrip.Range.html">TabStrip.Range</a></dt>
+      <dd><p>Contiguous headers that fit in a strip. <a class="xref" href="SmartDock.TabStrip.Range.html#SmartDock_TabStrip_Range_First">First</a> is the model index of the leftmost one.
+<a class="xref" href="SmartDock.TabStrip.Range.html#SmartDock_TabStrip_Range_Overflow">Overflow</a> is true when at least one header is hidden.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarBandRect.html">ToolBarBandRect</a></dt>
+      <dd><p>Arranged bounds of one band. Bands on an edge are passed in band order.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarBarRect.html">ToolBarBarRect</a></dt>
+      <dd><p>Arranged bounds of one docked toolbar, in the same coordinates as the pointer.
+<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarDrop.html">ToolBarDrop</a></dt>
+      <dd><p>A drop target. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Float">Float</a> tears the toolbar off. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_InsertBand">InsertBand</a> opens a new band
+and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarItemRef.html">ToolBarItemRef</a></dt>
+      <dd><p>An item as the host collection currently holds it.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarPackItem.html">ToolBarPackItem</a></dt>
+      <dd><p>One toolbar to place in a band. <a class="xref" href="SmartDock.ToolBarPackItem.html#SmartDock_ToolBarPackItem_Offset">Offset</a> and <a class="xref" href="SmartDock.ToolBarPackItem.html#SmartDock_ToolBarPackItem_Size">Size</a> are along the band.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarSite.html">ToolBarSite</a></dt>
+      <dd><p>One place a toolbar can dock. An empty <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_WindowId">WindowId</a> is the main window.
+A pane id is that pane's content. A window id is a floating window's id.
+A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_ZOrder">ZOrder</a> is painted above one with a smaller value.
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarSlot.html">ToolBarSlot</a></dt>
+      <dd><p>One slot in a toolbar after the customization overlay is applied. Hidden slots stay in the list.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarTrayRect.html">ToolBarTrayRect</a></dt>
+      <dd><p>Arranged bounds of one edge tray.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a></dt>
+      <dd><p>Edge of the dock root that holds auto-hidden panes.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockCaptionRole.html">DockCaptionRole</a></dt>
+      <dd><p>Which caption this bar is. The default template hides the title row on a strip caption.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockGesturePhase.html">DockGesturePhase</a></dt>
+      <dd><p>Where a <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> is in its gesture.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockKind.html">DockKind</a></dt>
+      <dd><p>Document panes live in the document well. Tool panes are tool windows and may auto-hide.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockPaneState.html">DockPaneState</a></dt>
+      <dd><p>Whether a pane is in the main tree, a floating window, an auto-hide strip, or hidden.
+The first three match <a class="xref" href="SmartDock.PanelPlacement.html">PanelPlacement</a>. <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Hidden">Hidden</a> is a pane kept in
+<a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Hidden">Hidden</a>, which is not a placement the host shows.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockResizeHit.html">DockResizeHit</a></dt>
+      <dd><p>Which edge of a floating window a pointer is on. <a class="xref" href="SmartDock.DockResizeHit.html#SmartDock_DockResizeHit_None">None</a> is the client area.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockResizeMode.html">DockResizeMode</a></dt>
+      <dd><p>Whether a splitter, a flyout edge, or a floating window resizes during the drag or on release.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+      <dd><p>Where a pane is docked relative to an anchor node.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockThemeKind.html">DockThemeKind</a></dt>
+      <dd><p>Dark, light, or blue dock chrome. Dark is the default.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.PanelPlacement.html">PanelPlacement</a></dt>
+      <dd><p>Where a pane sits after a layout is applied.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.SplitOrientation.html">SplitOrientation</a></dt>
+      <dd><p>Children of a horizontal split sit left to right. A vertical split stacks them top to bottom.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.TabPlacement.html">TabPlacement</a></dt>
+      <dd><p>Which edge of a tab group draws the tab strip.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarAlignment.html">ToolBarAlignment</a></dt>
+      <dd><p>Which end of a band a toolbar packs against.
+<a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_Start">Start</a> is the left of a horizontal band and the top of a vertical one.
+<a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_End">End</a> is the right of a horizontal band and the bottom of a vertical one.
+<a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_Start">Start</a> is the default and is omitted from JSON.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarCustomizationChange.html">ToolBarCustomizationChange</a></dt>
+      <dd><p>What changed in a toolbar or in its buttons.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+      <dd><p>Which edge of the dock hosts a toolbar band. A floating toolbar keeps the edge it left.</p>
+</dd>
+    </dl>
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

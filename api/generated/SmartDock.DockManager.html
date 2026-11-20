@@ -1,0 +1,4507 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DockManager | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DockManager | SmartDock ">
+      
+      <meta name="description" content="Hosts a . Register content by id, assign , and the control builds the splits, tabs, floating windows, and auto-hide bars. Only the selected tab&#39;s content is in the tree. Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it. A tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview are drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer shows that float&#39;s compass and edge guides; the topmost one wins, and the dragged window is skipped. A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target. The same gesture is covered by the internal drag methods, which call  with coordinates and no mouse. Ctrl+Tab switches panes.  closes, cycles document tabs, and toggles float and auto-hide. When  is set and Windows animations are on, reordered tab headers slide and the dock guides fade. The auto-hide flyout is a child window so it paints above an  pane. It opens and closes at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.  is the hit zone of a splitter, a flyout edge, and a float&#39;s border.  applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.DockManager">
+
+
+
+  <h1 id="SmartDock_DockManager" data-uid="SmartDock.DockManager" class="text-break">
+Class DockManager  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Hosts a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>. Register content by id, assign <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a>, and the control builds
+the splits, tabs, floating windows, and auto-hide bars. Only the selected tab's content is in the tree.
+Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it.
+A tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview
+are drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer
+shows that float's compass and edge guides; the topmost one wins, and the dragged window is skipped.
+A dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target.
+The same gesture is covered by the internal drag methods, which call <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> with coordinates and no mouse.
+Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, and toggles float and auto-hide.
+When <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.
+The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. It opens and closes
+at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeGripThickness">ResizeGripThickness</a> is the hit zone of a splitter, a flyout edge, and a float's border.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeMode">ResizeMode</a> applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DockManager : Border, IAnimatable, ISupportInitialize, IFrameworkInputElement, IInputElement, IQueryAmbient, IAddChild</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.threading.dispatcherobject">DispatcherObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual">Visual</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement">FrameworkElement</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.decorator">Decorator</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border">Border</a></div>
+      <div><span class="xref">DockManager</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.animation.ianimatable">IAnimatable</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize">ISupportInitialize</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.iframeworkinputelement">IFrameworkInputElement</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.iinputelement">IInputElement</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.iqueryambient">IQueryAmbient</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.iaddchild">IAddChild</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.backgroundproperty">Border.BackgroundProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.borderbrushproperty">Border.BorderBrushProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.borderthicknessproperty">Border.BorderThicknessProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.cornerradiusproperty">Border.CornerRadiusProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.paddingproperty">Border.PaddingProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.background">Border.Background</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.borderbrush">Border.BorderBrush</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.borderthickness">Border.BorderThickness</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.cornerradius">Border.CornerRadius</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.border.padding">Border.Padding</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.decorator.child">Decorator.Child</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.actualheightproperty">FrameworkElement.ActualHeightProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.actualwidthproperty">FrameworkElement.ActualWidthProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.bindinggroupproperty">FrameworkElement.BindingGroupProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenuclosingevent">FrameworkElement.ContextMenuClosingEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenuopeningevent">FrameworkElement.ContextMenuOpeningEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenuproperty">FrameworkElement.ContextMenuProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.cursorproperty">FrameworkElement.CursorProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontextproperty">FrameworkElement.DataContextProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.flowdirectionproperty">FrameworkElement.FlowDirectionProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.focusvisualstyleproperty">FrameworkElement.FocusVisualStyleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.forcecursorproperty">FrameworkElement.ForceCursorProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.heightproperty">FrameworkElement.HeightProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.horizontalalignmentproperty">FrameworkElement.HorizontalAlignmentProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.inputscopeproperty">FrameworkElement.InputScopeProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.languageproperty">FrameworkElement.LanguageProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.layouttransformproperty">FrameworkElement.LayoutTransformProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.loadedevent">FrameworkElement.LoadedEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.marginproperty">FrameworkElement.MarginProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.maxheightproperty">FrameworkElement.MaxHeightProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.maxwidthproperty">FrameworkElement.MaxWidthProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.minheightproperty">FrameworkElement.MinHeightProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.minwidthproperty">FrameworkElement.MinWidthProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.nameproperty">FrameworkElement.NameProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.overridesdefaultstyleproperty">FrameworkElement.OverridesDefaultStyleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.requestbringintoviewevent">FrameworkElement.RequestBringIntoViewEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.sizechangedevent">FrameworkElement.SizeChangedEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.styleproperty">FrameworkElement.StyleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tagproperty">FrameworkElement.TagProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltipclosingevent">FrameworkElement.ToolTipClosingEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltipopeningevent">FrameworkElement.ToolTipOpeningEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltipproperty">FrameworkElement.ToolTipProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.unloadedevent">FrameworkElement.UnloadedEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.uselayoutroundingproperty">FrameworkElement.UseLayoutRoundingProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.verticalalignmentproperty">FrameworkElement.VerticalAlignmentProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.widthproperty">FrameworkElement.WidthProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.applytemplate">FrameworkElement.ApplyTemplate()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.begininit">FrameworkElement.BeginInit()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.beginstoryboard#system-windows-frameworkelement-beginstoryboard(system-windows-media-animation-storyboard)">FrameworkElement.BeginStoryboard(Storyboard)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.beginstoryboard#system-windows-frameworkelement-beginstoryboard(system-windows-media-animation-storyboard-system-windows-media-animation-handoffbehavior)">FrameworkElement.BeginStoryboard(Storyboard, HandoffBehavior)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.beginstoryboard#system-windows-frameworkelement-beginstoryboard(system-windows-media-animation-storyboard-system-windows-media-animation-handoffbehavior-system-boolean)">FrameworkElement.BeginStoryboard(Storyboard, HandoffBehavior, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.bringintoview#system-windows-frameworkelement-bringintoview">FrameworkElement.BringIntoView()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.bringintoview#system-windows-frameworkelement-bringintoview(system-windows-rect)">FrameworkElement.BringIntoView(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.endinit">FrameworkElement.EndInit()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.findname">FrameworkElement.FindName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.findresource">FrameworkElement.FindResource(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.getbindingexpression">FrameworkElement.GetBindingExpression(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.getflowdirection">FrameworkElement.GetFlowDirection(DependencyObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.movefocus">FrameworkElement.MoveFocus(TraversalRequest)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.onapplytemplate">FrameworkElement.OnApplyTemplate()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.predictfocus">FrameworkElement.PredictFocus(FocusNavigationDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.registername">FrameworkElement.RegisterName(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.setbinding#system-windows-frameworkelement-setbinding(system-windows-dependencyproperty-system-string)">FrameworkElement.SetBinding(DependencyProperty, string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.setbinding#system-windows-frameworkelement-setbinding(system-windows-dependencyproperty-system-windows-data-bindingbase)">FrameworkElement.SetBinding(DependencyProperty, BindingBase)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.setflowdirection">FrameworkElement.SetFlowDirection(DependencyObject, FlowDirection)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.setresourcereference">FrameworkElement.SetResourceReference(DependencyProperty, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tryfindresource">FrameworkElement.TryFindResource(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.unregistername">FrameworkElement.UnregisterName(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.updatedefaultstyle">FrameworkElement.UpdateDefaultStyle()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.actualheight">FrameworkElement.ActualHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.actualwidth">FrameworkElement.ActualWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.bindinggroup">FrameworkElement.BindingGroup</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenu">FrameworkElement.ContextMenu</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.cursor">FrameworkElement.Cursor</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">FrameworkElement.DataContext</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.flowdirection">FrameworkElement.FlowDirection</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.focusvisualstyle">FrameworkElement.FocusVisualStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.forcecursor">FrameworkElement.ForceCursor</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.height">FrameworkElement.Height</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.horizontalalignment">FrameworkElement.HorizontalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.inputscope">FrameworkElement.InputScope</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.isinitialized">FrameworkElement.IsInitialized</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.isloaded">FrameworkElement.IsLoaded</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.language">FrameworkElement.Language</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.layouttransform">FrameworkElement.LayoutTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.margin">FrameworkElement.Margin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.maxheight">FrameworkElement.MaxHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.maxwidth">FrameworkElement.MaxWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.minheight">FrameworkElement.MinHeight</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.minwidth">FrameworkElement.MinWidth</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.name">FrameworkElement.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.overridesdefaultstyle">FrameworkElement.OverridesDefaultStyle</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.parent">FrameworkElement.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.resources">FrameworkElement.Resources</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.style">FrameworkElement.Style</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tag">FrameworkElement.Tag</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.templatedparent">FrameworkElement.TemplatedParent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltip">FrameworkElement.ToolTip</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.triggers">FrameworkElement.Triggers</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.uselayoutrounding">FrameworkElement.UseLayoutRounding</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.verticalalignment">FrameworkElement.VerticalAlignment</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.width">FrameworkElement.Width</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenuclosing">FrameworkElement.ContextMenuClosing</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.contextmenuopening">FrameworkElement.ContextMenuOpening</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontextchanged">FrameworkElement.DataContextChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.initialized">FrameworkElement.Initialized</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.loaded">FrameworkElement.Loaded</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.requestbringintoview">FrameworkElement.RequestBringIntoView</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.sizechanged">FrameworkElement.SizeChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.sourceupdated">FrameworkElement.SourceUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.targetupdated">FrameworkElement.TargetUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltipclosing">FrameworkElement.ToolTipClosing</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.tooltipopening">FrameworkElement.ToolTipOpening</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.unloaded">FrameworkElement.Unloaded</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.allowdropproperty">UIElement.AllowDropProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchescapturedproperty">UIElement.AreAnyTouchesCapturedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchescapturedwithinproperty">UIElement.AreAnyTouchesCapturedWithinProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchesdirectlyoverproperty">UIElement.AreAnyTouchesDirectlyOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchesoverproperty">UIElement.AreAnyTouchesOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.bitmapeffectinputproperty">UIElement.BitmapEffectInputProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.bitmapeffectproperty">UIElement.BitmapEffectProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.cachemodeproperty">UIElement.CacheModeProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.clipproperty">UIElement.ClipProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.cliptoboundsproperty">UIElement.ClipToBoundsProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragenterevent">UIElement.DragEnterEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragleaveevent">UIElement.DragLeaveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragoverevent">UIElement.DragOverEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dropevent">UIElement.DropEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.effectproperty">UIElement.EffectProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.focusableproperty">UIElement.FocusableProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.givefeedbackevent">UIElement.GiveFeedbackEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotfocusevent">UIElement.GotFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotkeyboardfocusevent">UIElement.GotKeyboardFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotmousecaptureevent">UIElement.GotMouseCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotstyluscaptureevent">UIElement.GotStylusCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gottouchcaptureevent">UIElement.GotTouchCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isenabledproperty">UIElement.IsEnabledProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isfocusedproperty">UIElement.IsFocusedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ishittestvisibleproperty">UIElement.IsHitTestVisibleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocusedproperty">UIElement.IsKeyboardFocusedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocuswithinproperty">UIElement.IsKeyboardFocusWithinProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismanipulationenabledproperty">UIElement.IsManipulationEnabledProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecapturedproperty">UIElement.IsMouseCapturedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecapturewithinproperty">UIElement.IsMouseCaptureWithinProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousedirectlyoverproperty">UIElement.IsMouseDirectlyOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismouseoverproperty">UIElement.IsMouseOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscapturedproperty">UIElement.IsStylusCapturedProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscapturewithinproperty">UIElement.IsStylusCaptureWithinProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstylusdirectlyoverproperty">UIElement.IsStylusDirectlyOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstylusoverproperty">UIElement.IsStylusOverProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isvisibleproperty">UIElement.IsVisibleProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.keydownevent">UIElement.KeyDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.keyupevent">UIElement.KeyUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostfocusevent">UIElement.LostFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostkeyboardfocusevent">UIElement.LostKeyboardFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostmousecaptureevent">UIElement.LostMouseCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.loststyluscaptureevent">UIElement.LostStylusCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.losttouchcaptureevent">UIElement.LostTouchCaptureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationboundaryfeedbackevent">UIElement.ManipulationBoundaryFeedbackEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationcompletedevent">UIElement.ManipulationCompletedEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationdeltaevent">UIElement.ManipulationDeltaEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationinertiastartingevent">UIElement.ManipulationInertiaStartingEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationstartedevent">UIElement.ManipulationStartedEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationstartingevent">UIElement.ManipulationStartingEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousedownevent">UIElement.MouseDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseenterevent">UIElement.MouseEnterEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleaveevent">UIElement.MouseLeaveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleftbuttondownevent">UIElement.MouseLeftButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleftbuttonupevent">UIElement.MouseLeftButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousemoveevent">UIElement.MouseMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouserightbuttondownevent">UIElement.MouseRightButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouserightbuttonupevent">UIElement.MouseRightButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseupevent">UIElement.MouseUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousewheelevent">UIElement.MouseWheelEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.opacitymaskproperty">UIElement.OpacityMaskProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.opacityproperty">UIElement.OpacityProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragenterevent">UIElement.PreviewDragEnterEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragleaveevent">UIElement.PreviewDragLeaveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragoverevent">UIElement.PreviewDragOverEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdropevent">UIElement.PreviewDropEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewgivefeedbackevent">UIElement.PreviewGiveFeedbackEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewgotkeyboardfocusevent">UIElement.PreviewGotKeyboardFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewkeydownevent">UIElement.PreviewKeyDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewkeyupevent">UIElement.PreviewKeyUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewlostkeyboardfocusevent">UIElement.PreviewLostKeyboardFocusEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousedownevent">UIElement.PreviewMouseDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseleftbuttondownevent">UIElement.PreviewMouseLeftButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseleftbuttonupevent">UIElement.PreviewMouseLeftButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousemoveevent">UIElement.PreviewMouseMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouserightbuttondownevent">UIElement.PreviewMouseRightButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouserightbuttonupevent">UIElement.PreviewMouseRightButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseupevent">UIElement.PreviewMouseUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousewheelevent">UIElement.PreviewMouseWheelEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewquerycontinuedragevent">UIElement.PreviewQueryContinueDragEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusbuttondownevent">UIElement.PreviewStylusButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusbuttonupevent">UIElement.PreviewStylusButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusdownevent">UIElement.PreviewStylusDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusinairmoveevent">UIElement.PreviewStylusInAirMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusinrangeevent">UIElement.PreviewStylusInRangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusmoveevent">UIElement.PreviewStylusMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusoutofrangeevent">UIElement.PreviewStylusOutOfRangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylussystemgestureevent">UIElement.PreviewStylusSystemGestureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusupevent">UIElement.PreviewStylusUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtextinputevent">UIElement.PreviewTextInputEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchdownevent">UIElement.PreviewTouchDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchmoveevent">UIElement.PreviewTouchMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchupevent">UIElement.PreviewTouchUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.querycontinuedragevent">UIElement.QueryContinueDragEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.querycursorevent">UIElement.QueryCursorEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.rendertransformoriginproperty">UIElement.RenderTransformOriginProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.rendertransformproperty">UIElement.RenderTransformProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.snapstodevicepixelsproperty">UIElement.SnapsToDevicePixelsProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusbuttondownevent">UIElement.StylusButtonDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusbuttonupevent">UIElement.StylusButtonUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusdownevent">UIElement.StylusDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusenterevent">UIElement.StylusEnterEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusinairmoveevent">UIElement.StylusInAirMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusinrangeevent">UIElement.StylusInRangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusleaveevent">UIElement.StylusLeaveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusmoveevent">UIElement.StylusMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusoutofrangeevent">UIElement.StylusOutOfRangeEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylussystemgestureevent">UIElement.StylusSystemGestureEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusupevent">UIElement.StylusUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.textinputevent">UIElement.TextInputEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchdownevent">UIElement.TouchDownEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchenterevent">UIElement.TouchEnterEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchleaveevent">UIElement.TouchLeaveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchmoveevent">UIElement.TouchMoveEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchupevent">UIElement.TouchUpEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.uidproperty">UIElement.UidProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.visibilityproperty">UIElement.VisibilityProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.addhandler#system-windows-uielement-addhandler(system-windows-routedevent-system-delegate)">UIElement.AddHandler(RoutedEvent, Delegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.addhandler#system-windows-uielement-addhandler(system-windows-routedevent-system-delegate-system-boolean)">UIElement.AddHandler(RoutedEvent, Delegate, bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.addtoeventroute">UIElement.AddToEventRoute(EventRoute, RoutedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.applyanimationclock#system-windows-uielement-applyanimationclock(system-windows-dependencyproperty-system-windows-media-animation-animationclock)">UIElement.ApplyAnimationClock(DependencyProperty, AnimationClock)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.applyanimationclock#system-windows-uielement-applyanimationclock(system-windows-dependencyproperty-system-windows-media-animation-animationclock-system-windows-media-animation-handoffbehavior)">UIElement.ApplyAnimationClock(DependencyProperty, AnimationClock, HandoffBehavior)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.arrange">UIElement.Arrange(Rect)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.beginanimation#system-windows-uielement-beginanimation(system-windows-dependencyproperty-system-windows-media-animation-animationtimeline)">UIElement.BeginAnimation(DependencyProperty, AnimationTimeline)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.beginanimation#system-windows-uielement-beginanimation(system-windows-dependencyproperty-system-windows-media-animation-animationtimeline-system-windows-media-animation-handoffbehavior)">UIElement.BeginAnimation(DependencyProperty, AnimationTimeline, HandoffBehavior)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.capturemouse">UIElement.CaptureMouse()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.capturestylus">UIElement.CaptureStylus()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.capturetouch">UIElement.CaptureTouch(TouchDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.focus">UIElement.Focus()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.getanimationbasevalue">UIElement.GetAnimationBaseValue(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.inputhittest">UIElement.InputHitTest(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.invalidatearrange">UIElement.InvalidateArrange()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.invalidatemeasure">UIElement.InvalidateMeasure()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.invalidatevisual">UIElement.InvalidateVisual()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.measure">UIElement.Measure(Size)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.raiseevent">UIElement.RaiseEvent(RoutedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.releasealltouchcaptures">UIElement.ReleaseAllTouchCaptures()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.releasemousecapture">UIElement.ReleaseMouseCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.releasestyluscapture">UIElement.ReleaseStylusCapture()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.releasetouchcapture">UIElement.ReleaseTouchCapture(TouchDevice)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.removehandler">UIElement.RemoveHandler(RoutedEvent, Delegate)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.translatepoint">UIElement.TranslatePoint(Point, UIElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.updatelayout">UIElement.UpdateLayout()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.allowdrop">UIElement.AllowDrop</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchescaptured">UIElement.AreAnyTouchesCaptured</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchescapturedwithin">UIElement.AreAnyTouchesCapturedWithin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchesdirectlyover">UIElement.AreAnyTouchesDirectlyOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.areanytouchesover">UIElement.AreAnyTouchesOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.bitmapeffect">UIElement.BitmapEffect</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.bitmapeffectinput">UIElement.BitmapEffectInput</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.cachemode">UIElement.CacheMode</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.clip">UIElement.Clip</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.cliptobounds">UIElement.ClipToBounds</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.commandbindings">UIElement.CommandBindings</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.desiredsize">UIElement.DesiredSize</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.effect">UIElement.Effect</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.focusable">UIElement.Focusable</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.hasanimatedproperties">UIElement.HasAnimatedProperties</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.inputbindings">UIElement.InputBindings</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isarrangevalid">UIElement.IsArrangeValid</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isenabled">UIElement.IsEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isfocused">UIElement.IsFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ishittestvisible">UIElement.IsHitTestVisible</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isinputmethodenabled">UIElement.IsInputMethodEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocused">UIElement.IsKeyboardFocused</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocuswithin">UIElement.IsKeyboardFocusWithin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismanipulationenabled">UIElement.IsManipulationEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismeasurevalid">UIElement.IsMeasureValid</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecaptured">UIElement.IsMouseCaptured</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecapturewithin">UIElement.IsMouseCaptureWithin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousedirectlyover">UIElement.IsMouseDirectlyOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismouseover">UIElement.IsMouseOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscaptured">UIElement.IsStylusCaptured</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscapturewithin">UIElement.IsStylusCaptureWithin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstylusdirectlyover">UIElement.IsStylusDirectlyOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstylusover">UIElement.IsStylusOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isvisible">UIElement.IsVisible</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.opacity">UIElement.Opacity</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.opacitymask">UIElement.OpacityMask</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.persistid">UIElement.PersistId</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.rendersize">UIElement.RenderSize</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.rendertransform">UIElement.RenderTransform</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.rendertransformorigin">UIElement.RenderTransformOrigin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.snapstodevicepixels">UIElement.SnapsToDevicePixels</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchescaptured">UIElement.TouchesCaptured</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchescapturedwithin">UIElement.TouchesCapturedWithin</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchesdirectlyover">UIElement.TouchesDirectlyOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchesover">UIElement.TouchesOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.uid">UIElement.Uid</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.visibility">UIElement.Visibility</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragenter">UIElement.DragEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragleave">UIElement.DragLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.dragover">UIElement.DragOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.drop">UIElement.Drop</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.focusablechanged">UIElement.FocusableChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.givefeedback">UIElement.GiveFeedback</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotfocus">UIElement.GotFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotkeyboardfocus">UIElement.GotKeyboardFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotmousecapture">UIElement.GotMouseCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gotstyluscapture">UIElement.GotStylusCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.gottouchcapture">UIElement.GotTouchCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isenabledchanged">UIElement.IsEnabledChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ishittestvisiblechanged">UIElement.IsHitTestVisibleChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocusedchanged">UIElement.IsKeyboardFocusedChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.iskeyboardfocuswithinchanged">UIElement.IsKeyboardFocusWithinChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecapturedchanged">UIElement.IsMouseCapturedChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousecapturewithinchanged">UIElement.IsMouseCaptureWithinChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.ismousedirectlyoverchanged">UIElement.IsMouseDirectlyOverChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscapturedchanged">UIElement.IsStylusCapturedChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstyluscapturewithinchanged">UIElement.IsStylusCaptureWithinChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isstylusdirectlyoverchanged">UIElement.IsStylusDirectlyOverChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.isvisiblechanged">UIElement.IsVisibleChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.keydown">UIElement.KeyDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.keyup">UIElement.KeyUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.layoutupdated">UIElement.LayoutUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostfocus">UIElement.LostFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostkeyboardfocus">UIElement.LostKeyboardFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.lostmousecapture">UIElement.LostMouseCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.loststyluscapture">UIElement.LostStylusCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.losttouchcapture">UIElement.LostTouchCapture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationboundaryfeedback">UIElement.ManipulationBoundaryFeedback</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationcompleted">UIElement.ManipulationCompleted</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationdelta">UIElement.ManipulationDelta</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationinertiastarting">UIElement.ManipulationInertiaStarting</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationstarted">UIElement.ManipulationStarted</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.manipulationstarting">UIElement.ManipulationStarting</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousedown">UIElement.MouseDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseenter">UIElement.MouseEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleave">UIElement.MouseLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleftbuttondown">UIElement.MouseLeftButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseleftbuttonup">UIElement.MouseLeftButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousemove">UIElement.MouseMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouserightbuttondown">UIElement.MouseRightButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouserightbuttonup">UIElement.MouseRightButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mouseup">UIElement.MouseUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.mousewheel">UIElement.MouseWheel</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragenter">UIElement.PreviewDragEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragleave">UIElement.PreviewDragLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdragover">UIElement.PreviewDragOver</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewdrop">UIElement.PreviewDrop</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewgivefeedback">UIElement.PreviewGiveFeedback</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewgotkeyboardfocus">UIElement.PreviewGotKeyboardFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewkeydown">UIElement.PreviewKeyDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewkeyup">UIElement.PreviewKeyUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewlostkeyboardfocus">UIElement.PreviewLostKeyboardFocus</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousedown">UIElement.PreviewMouseDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseleftbuttondown">UIElement.PreviewMouseLeftButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseleftbuttonup">UIElement.PreviewMouseLeftButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousemove">UIElement.PreviewMouseMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouserightbuttondown">UIElement.PreviewMouseRightButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouserightbuttonup">UIElement.PreviewMouseRightButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmouseup">UIElement.PreviewMouseUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewmousewheel">UIElement.PreviewMouseWheel</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewquerycontinuedrag">UIElement.PreviewQueryContinueDrag</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusbuttondown">UIElement.PreviewStylusButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusbuttonup">UIElement.PreviewStylusButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusdown">UIElement.PreviewStylusDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusinairmove">UIElement.PreviewStylusInAirMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusinrange">UIElement.PreviewStylusInRange</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusmove">UIElement.PreviewStylusMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusoutofrange">UIElement.PreviewStylusOutOfRange</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylussystemgesture">UIElement.PreviewStylusSystemGesture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewstylusup">UIElement.PreviewStylusUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtextinput">UIElement.PreviewTextInput</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchdown">UIElement.PreviewTouchDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchmove">UIElement.PreviewTouchMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.previewtouchup">UIElement.PreviewTouchUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.querycontinuedrag">UIElement.QueryContinueDrag</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.querycursor">UIElement.QueryCursor</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusbuttondown">UIElement.StylusButtonDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusbuttonup">UIElement.StylusButtonUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusdown">UIElement.StylusDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusenter">UIElement.StylusEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusinairmove">UIElement.StylusInAirMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusinrange">UIElement.StylusInRange</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusleave">UIElement.StylusLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusmove">UIElement.StylusMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusoutofrange">UIElement.StylusOutOfRange</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylussystemgesture">UIElement.StylusSystemGesture</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.stylusup">UIElement.StylusUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.textinput">UIElement.TextInput</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchdown">UIElement.TouchDown</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchenter">UIElement.TouchEnter</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchleave">UIElement.TouchLeave</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchmove">UIElement.TouchMove</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement.touchup">UIElement.TouchUp</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.findcommonvisualancestor">Visual.FindCommonVisualAncestor(DependencyObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.isancestorof">Visual.IsAncestorOf(DependencyObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.isdescendantof">Visual.IsDescendantOf(DependencyObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.pointfromscreen">Visual.PointFromScreen(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.pointtoscreen">Visual.PointToScreen(Point)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.transformtoancestor#system-windows-media-visual-transformtoancestor(system-windows-media-media3d-visual3d)">Visual.TransformToAncestor(Visual3D)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.transformtoancestor#system-windows-media-visual-transformtoancestor(system-windows-media-visual)">Visual.TransformToAncestor(Visual)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.transformtodescendant">Visual.TransformToDescendant(Visual)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.visual.transformtovisual">Visual.TransformToVisual(Visual)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.clearvalue#system-windows-dependencyobject-clearvalue(system-windows-dependencyproperty)">DependencyObject.ClearValue(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.clearvalue#system-windows-dependencyobject-clearvalue(system-windows-dependencypropertykey)">DependencyObject.ClearValue(DependencyPropertyKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.coercevalue">DependencyObject.CoerceValue(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.equals">DependencyObject.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.gethashcode">DependencyObject.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.getlocalvalueenumerator">DependencyObject.GetLocalValueEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.getvalue">DependencyObject.GetValue(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.invalidateproperty">DependencyObject.InvalidateProperty(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.readlocalvalue">DependencyObject.ReadLocalValue(DependencyProperty)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">DependencyObject.SetCurrentValue(DependencyProperty, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setvalue#system-windows-dependencyobject-setvalue(system-windows-dependencyproperty-system-object)">DependencyObject.SetValue(DependencyProperty, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setvalue#system-windows-dependencyobject-setvalue(system-windows-dependencypropertykey-system-object)">DependencyObject.SetValue(DependencyPropertyKey, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.dependencyobjecttype">DependencyObject.DependencyObjectType</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.issealed">DependencyObject.IsSealed</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.threading.dispatcherobject.dispatcher">DispatcherObject.Dispatcher</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SmartDock_DockManager__ctor_" data-uid="SmartDock.DockManager.#ctor*"></a>
+
+  <h3 id="SmartDock_DockManager__ctor" data-uid="SmartDock.DockManager.#ctor">
+  DockManager()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a manager with the dark theme, themed scrollbars, and no layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockManager()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_DockManager_ActiveContentProperty" data-uid="SmartDock.DockManager.ActiveContentProperty">
+  ActiveContentProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The source item of the active pane. Setting it shows and activates that pane, including a hidden
+or auto-hidden one, through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActivatePane_System_String_">ActivatePane(string)</a>. The value is null when the active pane
+was not opened from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentsSource">DocumentsSource</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolsSource">ToolsSource</a>.
+Binds two-way. The manager writes it with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a> so the binding stays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ActiveContentProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_AnimationsEnabledProperty" data-uid="SmartDock.DockManager.AnimationsEnabledProperty">
+  AnimationsEnabledProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty AnimationsEnabledProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_DocumentItemStyleProperty" data-uid="SmartDock.DockManager.DocumentItemStyleProperty">
+  DocumentItemStyleProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockItem.html">DockItem</a> of each document. <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a>
+is the source item, so a setter can write <code>Value=&quot;{Binding Title}&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty DocumentItemStyleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_DocumentTabPlacementProperty" data-uid="SmartDock.DockManager.DocumentTabPlacementProperty">
+  DocumentTabPlacementProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTabPlacement">DocumentTabPlacement</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty DocumentTabPlacementProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_DocumentTemplateProperty" data-uid="SmartDock.DockManager.DocumentTemplateProperty">
+  DocumentTemplateProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a document view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. A null template uses the
+implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type, from this manager or application resources,
+resolved when the item is added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty DocumentTemplateProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_DocumentTemplateSelectorProperty" data-uid="SmartDock.DockManager.DocumentTemplateSelectorProperty">
+  DocumentTemplateSelectorProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a document template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplate">DocumentTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty DocumentTemplateSelectorProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_DocumentsSourceProperty" data-uid="SmartDock.DockManager.DocumentsSourceProperty">
+  DocumentsSourceProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Documents to show. Each item is a view model, or a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a> used directly as the pane body.
+A change that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> opens, closes, and re-reads panes.
+Documents join the main-tree document group that last held the active document, or else the first
+document group in the main tree. When there is none, the document is placed on the right of the root
+and takes three quarters of that space. The first pane of an empty manager becomes the root.
+An item whose content id is already docked, floating, auto-hidden, or hidden stays where the layout put it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty DocumentsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_LayoutProperty" data-uid="SmartDock.DockManager.LayoutProperty">
+  LayoutProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty LayoutProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ResizeGripThicknessProperty" data-uid="SmartDock.DockManager.ResizeGripThicknessProperty">
+  ResizeGripThicknessProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeGripThickness">ResizeGripThickness</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ResizeGripThicknessProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ResizeModeProperty" data-uid="SmartDock.DockManager.ResizeModeProperty">
+  ResizeModeProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeMode">ResizeMode</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ResizeModeProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_TabPlacementProperty" data-uid="SmartDock.DockManager.TabPlacementProperty">
+  TabPlacementProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_TabPlacement">TabPlacement</a> dependency property.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty TabPlacementProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarCustomizationEnabledProperty" data-uid="SmartDock.DockManager.ToolBarCustomizationEnabledProperty">
+  ToolBarCustomizationEnabledProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>When false, Alt+drag, the Add or Remove Buttons menu, and the tray show/hide menu do nothing.
+The default is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarCustomizationEnabledProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarItemKeyPathProperty" data-uid="SmartDock.DockManager.ToolBarItemKeyPathProperty">
+  ToolBarItemKeyPathProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Property path used as the key of a button in an items-bound toolbar.
+<a class="xref" href="SmartDock.DockToolBar.html#SmartDock_DockToolBar_KeyProperty">KeyProperty</a> wins. When that and the path are empty, name,
+<code>ContentId</code>, <code>Id</code>, and a string <code>ToolTip</code> or <code>ToolTipText</code> are tried.
+Buttons with none of those get a session key that is not saved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarItemKeyPathProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarItemStyleProperty" data-uid="SmartDock.DockManager.ToolBarItemStyleProperty">
+  ToolBarItemStyleProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a> of each source toolbar.
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a> is the source item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarItemStyleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarMoveItemsInSourceProperty" data-uid="SmartDock.DockManager.ToolBarMoveItemsInSourceProperty">
+  ToolBarMoveItemsInSourceProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>When true, a reorder or a move between toolbars also moves the item in the source lists
+when both are writable <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a> collections.
+Hide and load do not change the lists. The default is false, which keeps an order overlay
+and leaves the host collections alone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarMoveItemsInSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarTemplateProperty" data-uid="SmartDock.DockManager.ToolBarTemplateProperty">
+  ToolBarTemplateProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a toolbar view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarTemplateProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarTemplateSelectorProperty" data-uid="SmartDock.DockManager.ToolBarTemplateSelectorProperty">
+  ToolBarTemplateSelectorProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a toolbar template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplate">ToolBarTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarTemplateSelectorProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarsSourceProperty" data-uid="SmartDock.DockManager.ToolBarsSourceProperty">
+  ToolBarsSourceProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Toolbar view models. Each item becomes a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplateSelector">ToolBarTemplateSelector</a>,
+then <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplate">ToolBarTemplate</a>, then the implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a>. An item that is already
+a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> is used as it is. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarItemStyle">ToolBarItemStyle</a> targets <a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a>
+and the item is its data context. Shown together with <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBars">ToolBars</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolBarsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolItemStyleProperty" data-uid="SmartDock.DockManager.ToolItemStyleProperty">
+  ToolItemStyleProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockItem.html">DockItem</a> of each tool. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentItemStyle">DocumentItemStyle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolItemStyleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolTemplateProperty" data-uid="SmartDock.DockManager.ToolTemplateProperty">
+  ToolTemplateProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a tool view model. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplate">DocumentTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolTemplateProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolTemplateSelectorProperty" data-uid="SmartDock.DockManager.ToolTemplateSelectorProperty">
+  ToolTemplateSelectorProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a tool template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolTemplate">ToolTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolTemplateSelectorProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolsSourceProperty" data-uid="SmartDock.DockManager.ToolsSourceProperty">
+  ToolsSourceProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tools to show. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentsSource">DocumentsSource</a>.
+Tools join the first tool group in the main tree. When there is none, the tool is placed on the left
+of the root at a quarter of that space. A tool whose item style does not set
+<a class="xref" href="SmartDock.DockItem.html#SmartDock_DockItem_CanAutoHide">CanAutoHide</a> can auto-hide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ToolsSourceProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SmartDock_DockManager_ActiveContent_" data-uid="SmartDock.DockManager.ActiveContent*"></a>
+
+  <h3 id="SmartDock_DockManager_ActiveContent" data-uid="SmartDock.DockManager.ActiveContent">
+  ActiveContent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The source item of the active pane. Setting it shows and activates that pane, including a hidden
+or auto-hidden one, through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActivatePane_System_String_">ActivatePane(string)</a>. The value is null when the active pane
+was not opened from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentsSource">DocumentsSource</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolsSource">ToolsSource</a>.
+Binds two-way. The manager writes it with <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject.setcurrentvalue">SetCurrentValue(DependencyProperty, object)</a> so the binding stays.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object? ActiveContent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ActiveContentId_" data-uid="SmartDock.DockManager.ActiveContentId*"></a>
+
+  <h3 id="SmartDock_DockManager_ActiveContentId" data-uid="SmartDock.DockManager.ActiveContentId">
+  ActiveContentId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Content id of the pane whose tab was last selected, or whose content last received keyboard focus.
+Null until that happens, and null again after that pane leaves the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ActiveContentId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_AnimationsEnabled_" data-uid="SmartDock.DockManager.AnimationsEnabled*"></a>
+
+  <h3 id="SmartDock_DockManager_AnimationsEnabled" data-uid="SmartDock.DockManager.AnimationsEnabled">
+  AnimationsEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fades the dock guides when this is true and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.systemparameters.clientareaanimation">ClientAreaAnimation</a> is true.
+The auto-hide flyout is a child window and opens at its arranged size either way: a render transform
+does not move that HWND. The default is true. Focus, events, and the saved layout change immediately.
+False matches a build with no animation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AnimationsEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_Content_" data-uid="SmartDock.DockManager.Content*"></a>
+
+  <h3 id="SmartDock_DockManager_Content" data-uid="SmartDock.DockManager.Content">
+  Content
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Factories for content ids. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RegisterContent_System_String_System_Func_System_Windows_UIElement__">RegisterContent(string, Func&lt;UIElement&gt;)</a> is the usual way to add one.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockContentRegistry Content { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockContentRegistry.html">DockContentRegistry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DocumentItemStyle_" data-uid="SmartDock.DockManager.DocumentItemStyle*"></a>
+
+  <h3 id="SmartDock_DockManager_DocumentItemStyle" data-uid="SmartDock.DockManager.DocumentItemStyle">
+  DocumentItemStyle
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockItem.html">DockItem</a> of each document. <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a>
+is the source item, so a setter can write <code>Value=&quot;{Binding Title}&quot;</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Style? DocumentItemStyle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DocumentTabPlacement_" data-uid="SmartDock.DockManager.DocumentTabPlacement*"></a>
+
+  <h3 id="SmartDock_DockManager_DocumentTabPlacement" data-uid="SmartDock.DockManager.DocumentTabPlacement">
+  DocumentTabPlacement
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where document tab strips sit. Tool tabs follow <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_TabPlacement">TabPlacement</a>.
+A floating window that uses its tab strip as the caption keeps that strip on top so it can still move the window.
+A tabs-on-top group with one pane shows the caption instead of that strip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TabPlacement DocumentTabPlacement { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.TabPlacement.html">TabPlacement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DocumentTemplate_" data-uid="SmartDock.DockManager.DocumentTemplate*"></a>
+
+  <h3 id="SmartDock_DockManager_DocumentTemplate" data-uid="SmartDock.DockManager.DocumentTemplate">
+  DocumentTemplate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a document view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplateSelector">DocumentTemplateSelector</a> wins when it returns a template. A null template uses the
+implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a> for the item's type, from this manager or application resources,
+resolved when the item is added.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplate? DocumentTemplate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DocumentTemplateSelector_" data-uid="SmartDock.DockManager.DocumentTemplateSelector*"></a>
+
+  <h3 id="SmartDock_DockManager_DocumentTemplateSelector" data-uid="SmartDock.DockManager.DocumentTemplateSelector">
+  DocumentTemplateSelector
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a document template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplate">DocumentTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplateSelector? DocumentTemplateSelector { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.datatemplateselector">DataTemplateSelector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DocumentsSource_" data-uid="SmartDock.DockManager.DocumentsSource*"></a>
+
+  <h3 id="SmartDock_DockManager_DocumentsSource" data-uid="SmartDock.DockManager.DocumentsSource">
+  DocumentsSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Documents to show. Each item is a view model, or a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a> used directly as the pane body.
+A change that implements <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.specialized.inotifycollectionchanged">INotifyCollectionChanged</a> opens, closes, and re-reads panes.
+Documents join the main-tree document group that last held the active document, or else the first
+document group in the main tree. When there is none, the document is placed on the right of the root
+and takes three quarters of that space. The first pane of an empty manager becomes the root.
+An item whose content id is already docked, floating, auto-hidden, or hidden stays where the layout put it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? DocumentsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_Layout_" data-uid="SmartDock.DockManager.Layout*"></a>
+
+  <h3 id="SmartDock_DockManager_Layout" data-uid="SmartDock.DockManager.Layout">
+  Layout
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The layout on screen. Null until you assign one. Assigning a layout builds its views.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockLayout? Layout { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_LogicalChildren_" data-uid="SmartDock.DockManager.LogicalChildren*"></a>
+
+  <h3 id="SmartDock_DockManager_LogicalChildren" data-uid="SmartDock.DockManager.LogicalChildren">
+  LogicalChildren
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The docked child, then floating toolbars adopted by this manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override IEnumerator LogicalChildren { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerator">IEnumerator</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ResizeGripThickness_" data-uid="SmartDock.DockManager.ResizeGripThickness*"></a>
+
+  <h3 id="SmartDock_DockManager_ResizeGripThickness" data-uid="SmartDock.DockManager.ResizeGripThickness">
+  ResizeGripThickness
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hit thickness, in device-independent pixels, of a splitter, a flyout resize edge, and a floating
+window's edges and corners. The default is 6. A smaller or non-finite value is raised to 6.
+The splitter stays a panel-colored gap and the flyout and float keep their 1px border.
+The float insets its client by this thickness, filled with the chrome color, so a native child
+cannot cover the edge. A maximized float has no band.
+This is not part of the layout JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ResizeGripThickness { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ResizeMode_" data-uid="SmartDock.DockManager.ResizeMode*"></a>
+
+  <h3 id="SmartDock_DockManager_ResizeMode" data-uid="SmartDock.DockManager.ResizeMode">
+  ResizeMode
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>How a splitter, an auto-hide flyout edge, or a floating window's edges and corners resize.
+<a class="xref" href="SmartDock.DockResizeMode.html#SmartDock_DockResizeMode_Live">Live</a> writes the size at most once per rendered frame.
+<a class="xref" href="SmartDock.DockResizeMode.html#SmartDock_DockResizeMode_Preview">Preview</a> moves a preview and writes the size on release.
+The default is <a class="xref" href="SmartDock.DockResizeMode.html#SmartDock_DockResizeMode_Live">Live</a>. A maximized float does not resize.
+This is not part of the layout JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockResizeMode ResizeMode { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockResizeMode.html">DockResizeMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_TabPlacement_" data-uid="SmartDock.DockManager.TabPlacement*"></a>
+
+  <h3 id="SmartDock_DockManager_TabPlacement" data-uid="SmartDock.DockManager.TabPlacement">
+  TabPlacement
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Where tool-window tab strips sit. Document tabs follow <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTabPlacement">DocumentTabPlacement</a>.
+A floating window that uses its tab strip as the caption keeps that strip on top so it can still move the window.
+A tabs-on-top group with one pane shows the caption instead of that strip.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TabPlacement TabPlacement { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.TabPlacement.html">TabPlacement</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_Theme_" data-uid="SmartDock.DockManager.Theme*"></a>
+
+  <h3 id="SmartDock_DockManager_Theme" data-uid="SmartDock.DockManager.Theme">
+  Theme
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Palette for this manager, its floating windows, the guide overlay, the pane switcher, and the scrollbars merged into them.
+The default is <a class="xref" href="SmartDock.DockThemeKind.html#SmartDock_DockThemeKind_Dark">Dark</a>. Assigning a kind replaces the brush resources
+those windows already hold, so open floats and popups repaint.
+A menu dictionary merged into the host window is updated with them. Call
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Apply_System_Windows_ResourceDictionary_SmartDock_DockThemeKind_">Apply(ResourceDictionary, DockThemeKind)</a> for any other dictionary,
+including one merged into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.application.resources">Resources</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockThemeKind Theme { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockThemeKind.html">DockThemeKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarCustomizationEnabled_" data-uid="SmartDock.DockManager.ToolBarCustomizationEnabled*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarCustomizationEnabled" data-uid="SmartDock.DockManager.ToolBarCustomizationEnabled">
+  ToolBarCustomizationEnabled
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>When false, Alt+drag, the Add or Remove Buttons menu, and the tray show/hide menu do nothing.
+The default is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ToolBarCustomizationEnabled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarItemKeyPath_" data-uid="SmartDock.DockManager.ToolBarItemKeyPath*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarItemKeyPath" data-uid="SmartDock.DockManager.ToolBarItemKeyPath">
+  ToolBarItemKeyPath
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Property path used as the key of a button in an items-bound toolbar.
+<a class="xref" href="SmartDock.DockToolBar.html#SmartDock_DockToolBar_KeyProperty">KeyProperty</a> wins. When that and the path are empty, name,
+<code>ContentId</code>, <code>Id</code>, and a string <code>ToolTip</code> or <code>ToolTipText</code> are tried.
+Buttons with none of those get a session key that is not saved.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ToolBarItemKeyPath { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarItemStyle_" data-uid="SmartDock.DockManager.ToolBarItemStyle*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarItemStyle" data-uid="SmartDock.DockManager.ToolBarItemStyle">
+  ToolBarItemStyle
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a> of each source toolbar.
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.datacontext">DataContext</a> is the source item.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Style? ToolBarItemStyle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarMoveItemsInSource_" data-uid="SmartDock.DockManager.ToolBarMoveItemsInSource*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarMoveItemsInSource" data-uid="SmartDock.DockManager.ToolBarMoveItemsInSource">
+  ToolBarMoveItemsInSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>When true, a reorder or a move between toolbars also moves the item in the source lists
+when both are writable <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ilist">IList</a> collections.
+Hide and load do not change the lists. The default is false, which keeps an order overlay
+and leaves the host collections alone.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ToolBarMoveItemsInSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarTemplate_" data-uid="SmartDock.DockManager.ToolBarTemplate*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarTemplate" data-uid="SmartDock.DockManager.ToolBarTemplate">
+  ToolBarTemplate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a toolbar view model. Ignored when the item is a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplate? ToolBarTemplate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarTemplateSelector_" data-uid="SmartDock.DockManager.ToolBarTemplateSelector*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarTemplateSelector" data-uid="SmartDock.DockManager.ToolBarTemplateSelector">
+  ToolBarTemplateSelector
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a toolbar template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplate">ToolBarTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplateSelector? ToolBarTemplateSelector { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.datatemplateselector">DataTemplateSelector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBars_" data-uid="SmartDock.DockManager.ToolBars*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBars" data-uid="SmartDock.DockManager.ToolBars">
+  ToolBars
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Toolbars hosted on the four edges of this dock. Each item is an ordinary
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a>; <span class="xref">SmartDock.DockManager.DockToolBar(System.String)</span> carries its id, title, and default place.
+The collection is empty until the host adds one. A manager that never touches this
+or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarsSource">ToolBarsSource</a> does not build a tray.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;ToolBar&gt; ToolBars { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.observablecollection-1">ObservableCollection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolBarsSource_" data-uid="SmartDock.DockManager.ToolBarsSource*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolBarsSource" data-uid="SmartDock.DockManager.ToolBarsSource">
+  ToolBarsSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Toolbar view models. Each item becomes a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplateSelector">ToolBarTemplateSelector</a>,
+then <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarTemplate">ToolBarTemplate</a>, then the implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a>. An item that is already
+a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> is used as it is. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarItemStyle">ToolBarItemStyle</a> targets <a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a>
+and the item is its data context. Shown together with <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBars">ToolBars</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? ToolBarsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolItemStyle_" data-uid="SmartDock.DockManager.ToolItemStyle*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolItemStyle" data-uid="SmartDock.DockManager.ToolItemStyle">
+  ToolItemStyle
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Style applied to the <a class="xref" href="SmartDock.DockItem.html">DockItem</a> of each tool. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentItemStyle">DocumentItemStyle</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Style? ToolItemStyle { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.style">Style</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolTemplate_" data-uid="SmartDock.DockManager.ToolTemplate*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolTemplate" data-uid="SmartDock.DockManager.ToolTemplate">
+  ToolTemplate
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Template for a tool view model. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentTemplate">DocumentTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplate? ToolTemplate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.datatemplate">DataTemplate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolTemplateSelector_" data-uid="SmartDock.DockManager.ToolTemplateSelector*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolTemplateSelector" data-uid="SmartDock.DockManager.ToolTemplateSelector">
+  ToolTemplateSelector
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Chooses a tool template per item. A null result falls through to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolTemplate">ToolTemplate</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTemplateSelector? ToolTemplateSelector { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.datatemplateselector">DataTemplateSelector</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ToolsSource_" data-uid="SmartDock.DockManager.ToolsSource*"></a>
+
+  <h3 id="SmartDock_DockManager_ToolsSource" data-uid="SmartDock.DockManager.ToolsSource">
+  ToolsSource
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tools to show. The same rules as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_DocumentsSource">DocumentsSource</a>.
+Tools join the first tool group in the main tree. When there is none, the tool is placed on the left
+of the root at a quarter of that space. A tool whose item style does not set
+<a class="xref" href="SmartDock.DockItem.html#SmartDock_DockItem_CanAutoHide">CanAutoHide</a> can auto-hide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable? ToolsSource { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_DockManager_ActivatePane_" data-uid="SmartDock.DockManager.ActivatePane*"></a>
+
+  <h3 id="SmartDock_DockManager_ActivatePane_System_String_" data-uid="SmartDock.DockManager.ActivatePane(System.String)">
+  ActivatePane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Brings a pane to the user and moves keyboard focus into its content when that content is focusable.
+A hidden pane is shown first, through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ShowPane_System_String_">ShowPane(string)</a>. A docked or floating tab is selected.
+A floating window is activated, and restored when it is minimized. An auto-hidden pane opens its flyout.
+The pane becomes <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActiveContentId">ActiveContentId</a>. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActivePaneChanged">ActivePaneChanged</a> and the Ctrl+Tab order
+update through the same path as selecting the tab. An unknown id fails and changes nothing.
+Activating the already active pane does not change the layout and still moves focus back into it.
+<a class="xref" href="SmartDock.DockEditResult.html#SmartDock_DockEditResult_Changed">Changed</a> is true when the layout changed, the same rule as <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_SelectPane_System_String_">SelectPane(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult ActivatePane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_AddPane_" data-uid="SmartDock.DockManager.AddPane*"></a>
+
+  <h3 id="SmartDock_DockManager_AddPane_SmartDock_DockPane_System_String_SmartDock_DockSide_System_Double_" data-uid="SmartDock.DockManager.AddPane(SmartDock.DockPane,System.String,SmartDock.DockSide,System.Double)">
+  AddPane(DockPane, string?, DockSide, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Inserts a pane into the open layout and updates the chrome once.
+A successful change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> once, and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a>
+for any pane the insert moved between docked, floating, and auto-hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult AddPane(DockPane pane, string? anchorId, DockSide side, double proportion = 0.25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pane</code> <a class="xref" href="SmartDock.DockPane.html">DockPane</a></dt>
+    <dd></dd>
+    <dt><code>anchorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+    <dd></dd>
+    <dt><code>proportion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_AutoHideFloat_" data-uid="SmartDock.DockManager.AutoHideFloat*"></a>
+
+  <h3 id="SmartDock_DockManager_AutoHideFloat_System_String_" data-uid="SmartDock.DockManager.AutoHideFloat(System.String)">
+  AutoHideFloat(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Auto-hides every pane of a floating window through <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_AutoHideFloat_SmartDock_DockLayout_System_String_">AutoHideFloat(DockLayout, string)</a> and removes the window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult AutoHideFloat(string windowId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_AutoHidePane_" data-uid="SmartDock.DockManager.AutoHidePane*"></a>
+
+  <h3 id="SmartDock_DockManager_AutoHidePane_System_String_System_Nullable_SmartDock_AutoHideEdge__" data-uid="SmartDock.DockManager.AutoHidePane(System.String,System.Nullable{SmartDock.AutoHideEdge})">
+  AutoHidePane(string, AutoHideEdge?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Auto-hides a pane. A null <code class="paramref">edge</code> uses <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_SuggestEdge_SmartDock_DockLayout_System_String_">SuggestEdge(DockLayout, string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult AutoHidePane(string contentId, AutoHideEdge? edge = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>edge</code> <a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a>?</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ClosePane_" data-uid="SmartDock.DockManager.ClosePane*"></a>
+
+  <h3 id="SmartDock_DockManager_ClosePane_System_String_" data-uid="SmartDock.DockManager.ClosePane(System.String)">
+  ClosePane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a pane that can close. Raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> first.
+A handler that cancels leaves the pane where it was: the result is unchanged and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> is not raised.
+A pane that cannot close does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a>, unless <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_HideOnClose">HideOnClose</a> is set.
+When that flag is set, the pane is hidden instead of removed: <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> still runs first,
+and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a> is not raised.
+Use <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RemovePane_System_String_">RemovePane(string)</a> when the application is dropping the pane from its model.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult ClosePane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DockBackPane_" data-uid="SmartDock.DockManager.DockBackPane*"></a>
+
+  <h3 id="SmartDock_DockManager_DockBackPane_System_String_" data-uid="SmartDock.DockManager.DockBackPane(System.String)">
+  DockBackPane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks a floating pane back into the main tree through <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_DockBack_SmartDock_DockLayout_System_String_">DockBack(DockLayout, string)</a>.
+The pane returns to <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a> when that tab group is still in the main tree.
+Otherwise it joins the first main-tree group of the same <a class="xref" href="SmartDock.DockKind.html">DockKind</a>, or a new group on the right.
+A docked or auto-hidden pane succeeds and the layout stays as it was.
+A hidden pane fails. An unknown id fails.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> from floating to docked.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a> are not raised.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult DockBackPane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DockPaneTo_" data-uid="SmartDock.DockManager.DockPaneTo*"></a>
+
+  <h3 id="SmartDock_DockManager_DockPaneTo_System_String_System_String_SmartDock_DockSide_System_Double_" data-uid="SmartDock.DockManager.DockPaneTo(System.String,System.String,SmartDock.DockSide,System.Double)">
+  DockPaneTo(string, string, DockSide, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a pane with <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Dock_SmartDock_DockLayout_System_String_System_String_SmartDock_DockSide_System_Double_">Dock(DockLayout, string, string, DockSide, double)</a>. A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> once.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult DockPaneTo(string contentId, string anchorId, DockSide side, double proportion = 0.25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>anchorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+    <dd></dd>
+    <dt><code>proportion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_EditLayout_" data-uid="SmartDock.DockManager.EditLayout*"></a>
+
+  <h3 id="SmartDock_DockManager_EditLayout_System_Func_SmartDock_DockLayout_SmartDock_DockEditResult__" data-uid="SmartDock.DockManager.EditLayout(System.Func{SmartDock.DockLayout,SmartDock.DockEditResult})">
+  EditLayout(Func&lt;DockLayout, DockEditResult&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs several <a class="xref" href="SmartDock.DockEdit.html">DockEdit</a> operations as one change against the open layout.
+Return <a class="xref" href="SmartDock.DockEditResult.html#SmartDock_DockEditResult_Ok_System_Boolean_">Ok(bool)</a> when the batch changed the tree: the chrome updates once,
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> is raised once, and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> is raised for panes that moved.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a> are not raised. Panes already in the layout stay the same instances.
+<a class="xref" href="SmartDock.DockEditResult.html#SmartDock_DockEditResult_Ok_System_Boolean_">Ok(bool)</a> with <code>changed: false</code> leaves the layout as it was.
+A failed result restores <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Root">Root</a>, <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Floating">Floating</a>,
+<a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_AutoHide">AutoHide</a>, <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Hidden">Hidden</a>, and <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Version">Version</a>
+from a <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Clone">Clone()</a>, including <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a>, and raises nothing.
+An exception does the same, then propagates.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult EditLayout(Func&lt;DockLayout, DockEditResult&gt; edit)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>edit</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>, <a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_FloatPane_" data-uid="SmartDock.DockManager.FloatPane*"></a>
+
+  <h3 id="SmartDock_DockManager_FloatPane_System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.DockManager.FloatPane(System.String,System.Double,System.Double,System.Double,System.Double)">
+  FloatPane(string, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Floats a pane with <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Float_SmartDock_DockLayout_System_String_System_Double_System_Double_System_Double_System_Double_">Float(DockLayout, string, double, double, double, double)</a>. Width and height default to 480 and 360.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult FloatPane(string contentId, double x, double y, double width = 480, double height = 360)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_HidePane_" data-uid="SmartDock.DockManager.HidePane*"></a>
+
+  <h3 id="SmartDock_DockManager_HidePane_System_String_" data-uid="SmartDock.DockManager.HidePane(System.String)">
+  HidePane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hides a pane. It stays in the layout, and it is not shown in a tab, an auto-hide strip, a float, or the pane switcher.
+Raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> to <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Hidden">Hidden</a>.
+Does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a>.
+Hiding the active pane clears <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActiveContentId">ActiveContentId</a>.
+A pane that is already hidden is left as it is. <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanClose">CanClose</a> is ignored.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult HidePane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_IsFloatMaximized_" data-uid="SmartDock.DockManager.IsFloatMaximized*"></a>
+
+  <h3 id="SmartDock_DockManager_IsFloatMaximized_System_String_" data-uid="SmartDock.DockManager.IsFloatMaximized(System.String)">
+  IsFloatMaximized(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the floating window that holds the pane is maximized in the model.
+False when the pane is docked, auto-hidden, hidden, or unknown.
+The caption button, a maximizing caption double-click, and a system maximize or restore
+write the same flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFloatMaximized(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_LoadLayout_" data-uid="SmartDock.DockManager.LoadLayout*"></a>
+
+  <h3 id="SmartDock_DockManager_LoadLayout_System_String_" data-uid="SmartDock.DockManager.LoadLayout(System.String)">
+  LoadLayout(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a> from JSON.
+Call this before the host window is shown, or while this manager's visibility is hidden,
+so the first visible frame is the saved layout.
+Raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> for panes that moved between docked, floating, and auto-hidden.
+Does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadLayout(string json)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>json</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_MeasureOverride_" data-uid="SmartDock.DockManager.MeasureOverride*"></a>
+
+  <h3 id="SmartDock_DockManager_MeasureOverride_System_Windows_Size_" data-uid="SmartDock.DockManager.MeasureOverride(System.Windows.Size)">
+  MeasureOverride(Size)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Attaches the toolbar host, then measures the dock.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Size MeasureOverride(Size constraint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>constraint</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.size">Size</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.size">Size</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnPreviewKeyDown_" data-uid="SmartDock.DockManager.OnPreviewKeyDown*"></a>
+
+  <h3 id="SmartDock_DockManager_OnPreviewKeyDown_System_Windows_Input_KeyEventArgs_" data-uid="SmartDock.DockManager.OnPreviewKeyDown(System.Windows.Input.KeyEventArgs)">
+  OnPreviewKeyDown(KeyEventArgs)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles dock keys when this manager is not yet in a window. The host window handles the same keys first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPreviewKeyDown(KeyEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.keyeventargs">KeyEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnPreviewKeyUp_" data-uid="SmartDock.DockManager.OnPreviewKeyUp*"></a>
+
+  <h3 id="SmartDock_DockManager_OnPreviewKeyUp_System_Windows_Input_KeyEventArgs_" data-uid="SmartDock.DockManager.OnPreviewKeyUp(System.Windows.Input.KeyEventArgs)">
+  OnPreviewKeyUp(KeyEventArgs)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Handles a key release, including Ctrl leaving the pane switcher, when this manager is not yet in a window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPreviewKeyUp(KeyEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.keyeventargs">KeyEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnPreviewMouseDown_" data-uid="SmartDock.DockManager.OnPreviewMouseDown*"></a>
+
+  <h3 id="SmartDock_DockManager_OnPreviewMouseDown_System_Windows_Input_MouseButtonEventArgs_" data-uid="SmartDock.DockManager.OnPreviewMouseDown(System.Windows.Input.MouseButtonEventArgs)">
+  OnPreviewMouseDown(MouseButtonEventArgs)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes an open auto-hide flyout when the press is outside it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPreviewMouseDown(MouseButtonEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.mousebuttoneventargs">MouseButtonEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnPreviewMouseLeftButtonUp_" data-uid="SmartDock.DockManager.OnPreviewMouseLeftButtonUp*"></a>
+
+  <h3 id="SmartDock_DockManager_OnPreviewMouseLeftButtonUp_System_Windows_Input_MouseButtonEventArgs_" data-uid="SmartDock.DockManager.OnPreviewMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)">
+  OnPreviewMouseLeftButtonUp(MouseButtonEventArgs)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Ends a pane drag captured by this manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.mousebuttoneventargs">MouseButtonEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_OnPreviewMouseMove_" data-uid="SmartDock.DockManager.OnPreviewMouseMove*"></a>
+
+  <h3 id="SmartDock_DockManager_OnPreviewMouseMove_System_Windows_Input_MouseEventArgs_" data-uid="SmartDock.DockManager.OnPreviewMouseMove(System.Windows.Input.MouseEventArgs)">
+  OnPreviewMouseMove(MouseEventArgs)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Continues a pane drag captured by this manager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnPreviewMouseMove(MouseEventArgs e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.mouseeventargs">MouseEventArgs</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_PinPane_" data-uid="SmartDock.DockManager.PinPane*"></a>
+
+  <h3 id="SmartDock_DockManager_PinPane_System_String_" data-uid="SmartDock.DockManager.PinPane(System.String)">
+  PinPane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks an auto-hidden pane back with <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Pin_SmartDock_DockLayout_System_String_">Pin(DockLayout, string)</a>. An open flyout of that pane is closed first.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult PinPane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_RegisterContent_" data-uid="SmartDock.DockManager.RegisterContent*"></a>
+
+  <h3 id="SmartDock_DockManager_RegisterContent_System_String_System_Func_System_Windows_UIElement__" data-uid="SmartDock.DockManager.RegisterContent(System.String,System.Func{System.Windows.UIElement})">
+  RegisterContent(string, Func&lt;UIElement&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Registers <code class="paramref">factory</code> for <code class="paramref">contentId</code>. Throws when the id is empty or whitespace, the factory is null, or the id is already registered. A pane shown without a factory gets a &quot;Missing content&quot; placeholder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterContent(string contentId, Func&lt;UIElement&gt; factory)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>factory</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.uielement">UIElement</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ReleaseContent_" data-uid="SmartDock.DockManager.ReleaseContent*"></a>
+
+  <h3 id="SmartDock_DockManager_ReleaseContent_System_String_" data-uid="SmartDock.DockManager.ReleaseContent(System.String)">
+  ReleaseContent(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drops the cached element for <code class="paramref">contentId</code> and detaches it from this manager
+or from a floating window that still holds it. The next time that pane is shown, the factory runs again.
+Returns false when nothing is cached.
+Returns false, and keeps the element, when the pane is still docked, floating, auto-hidden, or hidden.
+Remove it with <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RemovePane_System_String_">RemovePane(string)</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ClosePane_System_String_">ClosePane(string)</a> first. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_HidePane_System_String_">HidePane(string)</a> keeps it.
+Does not dispose the element. The application owns the control.
+When the element is still in a content host, detaching it raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneUnmounted">PaneUnmounted</a>.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ClosePane_System_String_">ClosePane(string)</a>, the tab close button, and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RemovePane_System_String_">RemovePane(string)</a> leave the cache in place,
+so opening the same id again returns the same element until this is called.
+<a class="xref" href="SmartDock.DockContentRegistry.html#SmartDock_DockContentRegistry_Unregister_System_String_">Unregister(string)</a> drops the cache too, when the pane is not in the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReleaseContent(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_RemovePane_" data-uid="SmartDock.DockManager.RemovePane*"></a>
+
+  <h3 id="SmartDock_DockManager_RemovePane_System_String_" data-uid="SmartDock.DockManager.RemovePane(System.String)">
+  RemovePane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a pane from the open layout wherever it sits, including when <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanClose">CanClose</a> is false.
+The chrome updates once. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> is raised once on success.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> is raised for panes that moved. <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a> are not.
+An active pane, or an open flyout of the removed pane, is cleared the same way <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ClosePane_System_String_">ClosePane(string)</a> clears it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult RemovePane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SaveLayout_" data-uid="SmartDock.DockManager.SaveLayout*"></a>
+
+  <h3 id="SmartDock_DockManager_SaveLayout" data-uid="SmartDock.DockManager.SaveLayout">
+  SaveLayout()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the current toolbar positions into <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a>, then returns <a class="xref" href="SmartDock.DockSerializer.html#SmartDock_DockSerializer_Serialize_SmartDock_DockLayout_">Serialize(DockLayout)</a>. Throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a> when no layout is assigned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string SaveLayout()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SelectPane_" data-uid="SmartDock.DockManager.SelectPane*"></a>
+
+  <h3 id="SmartDock_DockManager_SelectPane_System_String_" data-uid="SmartDock.DockManager.SelectPane(System.String)">
+  SelectPane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects the pane's tab. <a class="xref" href="SmartDock.DockEditResult.html#SmartDock_DockEditResult_Changed">Changed</a> is false when that tab was already selected.
+The pane still becomes <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActiveContentId">ActiveContentId</a>, and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActivePaneChanged">ActivePaneChanged</a> is raised when it was not already active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult SelectPane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SetFloatMaximized_" data-uid="SmartDock.DockManager.SetFloatMaximized*"></a>
+
+  <h3 id="SmartDock_DockManager_SetFloatMaximized_System_String_System_Boolean_" data-uid="SmartDock.DockManager.SetFloatMaximized(System.String,System.Boolean)">
+  SetFloatMaximized(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Maximizes or restores the floating window that holds the pane.
+The pane must already be floating. A docked, auto-hidden, hidden, or unknown pane fails.
+<a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_X">X</a>, <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Y">Y</a>, <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Width">Width</a>,
+and <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Height">Height</a> stay the restored bounds.
+A visible window changes state with the flag. A window that is not shown yet, including when
+<span class="xref">SmartDock.DockManager.ShowFloatWindows</span> is false, keeps <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.windowstate#system-windows-windowstate-normal">Normal</a> until it is shown,
+and is maximized then when the flag is set.
+The same value succeeds and does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a>.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and does not rebuild the tree.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult SetFloatMaximized(string contentId, bool maximized)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>maximized</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SetPaneIcon_" data-uid="SmartDock.DockManager.SetPaneIcon*"></a>
+
+  <h3 id="SmartDock_DockManager_SetPaneIcon_System_String_System_Windows_Media_ImageSource_" data-uid="SmartDock.DockManager.SetPaneIcon(System.String,System.Windows.Media.ImageSource)">
+  SetPaneIcon(string, ImageSource?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows <code class="paramref">icon</code> on the tab, float caption, auto-hide button, and switcher for this content id.
+Null removes it. Icons are kept on the manager, not in the layout JSON, and survive
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a>, hide, show, float, and dock. An unknown id fails.
+A header with no icon keeps its previous width. The layout is not rebuilt and content stays mounted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult SetPaneIcon(string contentId, ImageSource? icon)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>icon</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.imagesource">ImageSource</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SetPaneTitle_" data-uid="SmartDock.DockManager.SetPaneTitle*"></a>
+
+  <h3 id="SmartDock_DockManager_SetPaneTitle_System_String_System_String_" data-uid="SmartDock.DockManager.SetPaneTitle(System.String,System.String)">
+  SetPaneTitle(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_Title">Title</a>, including a hidden pane, and updates the tab, float caption,
+auto-hide button, flyout header, switcher, and overflow menu that show it.
+The tree is not rebuilt and the content element stays mounted.
+Raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> when the title changes, because the title is saved.
+An unknown id fails and changes nothing. The same title succeeds without raising.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult SetPaneTitle(string contentId, string title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_ShowPane_" data-uid="SmartDock.DockManager.ShowPane*"></a>
+
+  <h3 id="SmartDock_DockManager_ShowPane_System_String_" data-uid="SmartDock.DockManager.ShowPane(System.String)">
+  ShowPane(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows a hidden pane where it was and selects it in its group.
+Raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a>. Does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a>,
+and does not change <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActiveContentId">ActiveContentId</a>.
+A pane that is already visible is left as it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockEditResult ShowPane(string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="SmartDock_DockManager_ActivePaneChanged" data-uid="SmartDock.DockManager.ActivePaneChanged">
+  ActivePaneChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ActiveContentId">ActiveContentId</a> changes. The old and new ids are null when there is no active pane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockActivePaneEventArgs&gt;? ActivePaneChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockActivePaneEventArgs.html">DockActivePaneEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_LayoutChanged" data-uid="SmartDock.DockManager.LayoutChanged">
+  LayoutChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised after a structural edit, a selection change, or a splitter move.
+A sideways tab drag raises this once, on release, not on each swap.
+A drag that tears a pane out into a float raises this when the pane leaves its group.
+Moving a float window does not raise it. A close cancelled through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> does not raise it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler? LayoutChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler">EventHandler</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_PaneClosed" data-uid="SmartDock.DockManager.PaneClosed">
+  PaneClosed
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised after a pane is removed from the layout by a user close.
+Not raised when <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a> is replaced, including <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LoadLayout_System_String_">LoadLayout(string)</a>,
+and not raised by <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RemovePane_System_String_">RemovePane(string)</a> or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_EditLayout_System_Func_SmartDock_DockLayout_SmartDock_DockEditResult__">EditLayout(Func&lt;DockLayout, DockEditResult&gt;)</a>:
+those report <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneStateChanged">PaneStateChanged</a> for panes that moved and skip panes the new tree omits.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPaneEventArgs&gt;? PaneClosed</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockPaneEventArgs.html">DockPaneEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_PaneClosing" data-uid="SmartDock.DockManager.PaneClosing">
+  PaneClosing
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised before a pane is removed. Set <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.canceleventargs.cancel">Cancel</a> to leave the layout unchanged.
+Raised for the tab close button, the auto-hide flyout close button, <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ClosePane_System_String_">ClosePane(string)</a>,
+and a floating window's caption button, Alt+F4, or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.window.close">Close()</a>.
+A float close raises this once per closable pane. If any handler cancels, the window stays and nothing closes.
+Panes that cannot close are docked back and do not raise this event.
+Closing the host window does not raise this event: that path only dismisses the floating HWNDs.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_RemovePane_System_String_">RemovePane(string)</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_EditLayout_System_Func_SmartDock_DockLayout_SmartDock_DockEditResult__">EditLayout(Func&lt;DockLayout, DockEditResult&gt;)</a> do not raise this event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPaneClosingEventArgs&gt;? PaneClosing</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockPaneClosingEventArgs.html">DockPaneClosingEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_PaneMounted" data-uid="SmartDock.DockManager.PaneMounted">
+  PaneMounted
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised after a pane's content element is placed into a content host: the selected tab of a docked group,
+a floating window, or an open auto-hide flyout. The element is already in that host, under this manager
+or one of its float windows. The next event for that content id is <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneUnmounted">PaneUnmounted</a>.
+A move to a different host raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneUnmounted">PaneUnmounted</a> and then this event.
+An element that stays in the same parent raises neither.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPaneEventArgs&gt;? PaneMounted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockPaneEventArgs.html">DockPaneEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_PaneStateChanged" data-uid="SmartDock.DockManager.PaneStateChanged">
+  PaneStateChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised when a pane moves between <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Docked">Docked</a>, <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Floating">Floating</a>,
+<a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_AutoHidden">AutoHidden</a>, and <a class="xref" href="SmartDock.DockPaneState.html#SmartDock_DockPaneState_Hidden">Hidden</a>. Computed by diffing the tree
+where <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> is raised, including drag, float, dock, pin, auto-hide, hide, and show.
+Replacing <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Layout">Layout</a> raises this for panes that changed state and does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosed">PaneClosed</a>.
+This is not <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneMounted">PaneMounted</a>: an unselected tab, a closed flyout, a float that has not placed its content,
+and a hidden pane are not in a content host.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPaneStateEventArgs&gt;? PaneStateChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockPaneStateEventArgs.html">DockPaneStateEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_PaneUnmounted" data-uid="SmartDock.DockManager.PaneUnmounted">
+  PaneUnmounted
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised after a pane's content element is taken out of its host. The element is already detached.
+The next event for that content id is <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneMounted">PaneMounted</a>.
+Raised when a tab is deselected, a pane leaves its group, a pane is closed, removed, or hidden,
+a flyout or float closes, or <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ReleaseContent_System_String_">ReleaseContent(string)</a> detaches a mounted element.
+A selected pane whose group view stays is left in that host and does not raise this.
+Unloading this manager raises it only when that unload detaches the element.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockPaneEventArgs&gt;? PaneUnmounted</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockPaneEventArgs.html">DockPaneEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockManager_ToolBarCustomizationChanged" data-uid="SmartDock.DockManager.ToolBarCustomizationChanged">
+  ToolBarCustomizationChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised after a button is reordered, moved, hidden, shown, or reset, and when a toolbar is shown or hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;ToolBarCustomizationEventArgs&gt;? ToolBarCustomizationChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.ToolBarCustomizationEventArgs.html">ToolBarCustomizationEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

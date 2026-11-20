@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DockTheme | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DockTheme | SmartDock ">
+      
+      <meta name="description" content="Dock colors. The static brushes are the dark palette and stay the instances they have always been. Chrome, floats, guides, the switcher, and menus paint with resource keys, so  can replace those brushes and open windows repaint.  is the opt-in menu and context menu. Nothing merges it on its own.  is the scrollbar, tooltip, and focus visual. The dock manager, each float, and the switcher merge it themselves. A host merges another copy for bars outside the dock.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.DockTheme">
+
+
+
+  <h1 id="SmartDock_DockTheme" data-uid="SmartDock.DockTheme" class="text-break">
+Class DockTheme  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Dock colors. The static brushes are the dark palette and stay the instances they have always been.
+Chrome, floats, guides, the switcher, and menus paint with resource keys, so
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Apply_System_Windows_FrameworkElement_SmartDock_DockThemeKind_">Apply(FrameworkElement, DockThemeKind)</a> can replace those brushes and open windows repaint.
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateMenuResources">CreateMenuResources()</a> is the opt-in menu and context menu. Nothing merges it on its own.
+<a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateScrollBarResources">CreateScrollBarResources()</a> is the scrollbar, tooltip, and focus visual. The dock manager,
+each float, and the switcher merge it themselves. A host merges another copy for bars outside the dock.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DockTheme</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DockTheme</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_DockTheme_AccentKey" data-uid="SmartDock.DockTheme.AccentKey">
+  AccentKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Accent</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AccentKey = &quot;Dock.Accent&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_AccentSoftKey" data-uid="SmartDock.DockTheme.AccentSoftKey">
+  AccentSoftKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.AccentSoft</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string AccentSoftKey = &quot;Dock.AccentSoft&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_BorderKey" data-uid="SmartDock.DockTheme.BorderKey">
+  BorderKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Border</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string BorderKey = &quot;Dock.Border&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_ChromeKey" data-uid="SmartDock.DockTheme.ChromeKey">
+  ChromeKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Chrome</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string ChromeKey = &quot;Dock.Chrome&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_FocusVisualKey" data-uid="SmartDock.DockTheme.FocusVisualKey">
+  FocusVisualKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Focus rectangle used by dock chrome that can take keyboard focus. Stroke is <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey">AccentKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FocusVisualKey = &quot;Dock.FocusVisual&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_FontKey" data-uid="SmartDock.DockTheme.FontKey">
+  FontKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Font</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FontKey = &quot;Dock.Font&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_GuideBorderKey" data-uid="SmartDock.DockTheme.GuideBorderKey">
+  GuideBorderKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Border brush of the drop preview. Transparent in every theme, and the default template uses a thickness of zero,
+so the preview stays a fill. A host sets the thickness, or replaces this key, to draw a border.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string GuideBorderKey = &quot;Dock.GuideBorder&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_GuideButtonKey" data-uid="SmartDock.DockTheme.GuideButtonKey">
+  GuideButtonKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.GuideButton</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string GuideButtonKey = &quot;Dock.GuideButton&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_GuideKey" data-uid="SmartDock.DockTheme.GuideKey">
+  GuideKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Guide</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string GuideKey = &quot;Dock.Guide&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_HeaderKey" data-uid="SmartDock.DockTheme.HeaderKey">
+  HeaderKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Header</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string HeaderKey = &quot;Dock.Header&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_HoverKey" data-uid="SmartDock.DockTheme.HoverKey">
+  HoverKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Hover</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string HoverKey = &quot;Dock.Hover&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuAccentSoftKey" data-uid="SmartDock.DockTheme.MenuAccentSoftKey">
+  MenuAccentSoftKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.AccentSoft</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuAccentSoftKey = &quot;DockMenu.AccentSoft&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuBorderKey" data-uid="SmartDock.DockTheme.MenuBorderKey">
+  MenuBorderKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Border</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuBorderKey = &quot;DockMenu.Border&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuChromeKey" data-uid="SmartDock.DockTheme.MenuChromeKey">
+  MenuChromeKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Chrome</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuChromeKey = &quot;DockMenu.Chrome&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuFontKey" data-uid="SmartDock.DockTheme.MenuFontKey">
+  MenuFontKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Font</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuFontKey = &quot;DockMenu.Font&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuMutedKey" data-uid="SmartDock.DockTheme.MenuMutedKey">
+  MenuMutedKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Muted</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuMutedKey = &quot;DockMenu.Muted&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuPanelKey" data-uid="SmartDock.DockTheme.MenuPanelKey">
+  MenuPanelKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Panel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuPanelKey = &quot;DockMenu.Panel&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MenuTextKey" data-uid="SmartDock.DockTheme.MenuTextKey">
+  MenuTextKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>DockMenu.Text</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MenuTextKey = &quot;DockMenu.Text&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_MutedKey" data-uid="SmartDock.DockTheme.MutedKey">
+  MutedKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Muted</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string MutedKey = &quot;Dock.Muted&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_PanelKey" data-uid="SmartDock.DockTheme.PanelKey">
+  PanelKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Panel</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string PanelKey = &quot;Dock.Panel&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_TextKey" data-uid="SmartDock.DockTheme.TextKey">
+  TextKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Text</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string TextKey = &quot;Dock.Text&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockTheme_WorkspaceKey" data-uid="SmartDock.DockTheme.WorkspaceKey">
+  WorkspaceKey
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resource key <code>Dock.Workspace</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string WorkspaceKey = &quot;Dock.Workspace&quot;</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SmartDock_DockTheme_Accent_" data-uid="SmartDock.DockTheme.Accent*"></a>
+
+  <h3 id="SmartDock_DockTheme_Accent" data-uid="SmartDock.DockTheme.Accent">
+  Accent
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark accent brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey">AccentKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Accent { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_AccentSoft_" data-uid="SmartDock.DockTheme.AccentSoft*"></a>
+
+  <h3 id="SmartDock_DockTheme_AccentSoft" data-uid="SmartDock.DockTheme.AccentSoft">
+  AccentSoft
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark soft accent brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentSoftKey">AccentSoftKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush AccentSoft { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Border_" data-uid="SmartDock.DockTheme.Border*"></a>
+
+  <h3 id="SmartDock_DockTheme_Border" data-uid="SmartDock.DockTheme.Border">
+  Border
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark border brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_BorderKey">BorderKey</a>. Do not point <code>x:Static</code> at this member: the name matches a WPF type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Border { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Chrome_" data-uid="SmartDock.DockTheme.Chrome*"></a>
+
+  <h3 id="SmartDock_DockTheme_Chrome" data-uid="SmartDock.DockTheme.Chrome">
+  Chrome
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark chrome brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_ChromeKey">ChromeKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Chrome { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Font_" data-uid="SmartDock.DockTheme.Font*"></a>
+
+  <h3 id="SmartDock_DockTheme_Font" data-uid="SmartDock.DockTheme.Font">
+  Font
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Segoe UI. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_FontKey">FontKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static FontFamily Font { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.fontfamily">FontFamily</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Guide_" data-uid="SmartDock.DockTheme.Guide*"></a>
+
+  <h3 id="SmartDock_DockTheme_Guide" data-uid="SmartDock.DockTheme.Guide">
+  Guide
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark guide brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_GuideKey">GuideKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Guide { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_GuideBorder_" data-uid="SmartDock.DockTheme.GuideBorder*"></a>
+
+  <h3 id="SmartDock_DockTheme_GuideBorder" data-uid="SmartDock.DockTheme.GuideBorder">
+  GuideBorder
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Transparent in every theme. <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_GuideBorderKey">GuideBorderKey</a> is this brush.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush GuideBorder { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_GuideButton_" data-uid="SmartDock.DockTheme.GuideButton*"></a>
+
+  <h3 id="SmartDock_DockTheme_GuideButton" data-uid="SmartDock.DockTheme.GuideButton">
+  GuideButton
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark guide-button brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_GuideButtonKey">GuideButtonKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush GuideButton { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Header_" data-uid="SmartDock.DockTheme.Header*"></a>
+
+  <h3 id="SmartDock_DockTheme_Header" data-uid="SmartDock.DockTheme.Header">
+  Header
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark header brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_HeaderKey">HeaderKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Header { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_MenuResourcesUri_" data-uid="SmartDock.DockTheme.MenuResourcesUri*"></a>
+
+  <h3 id="SmartDock_DockTheme_MenuResourcesUri" data-uid="SmartDock.DockTheme.MenuResourcesUri">
+  MenuResourcesUri
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.menu">Menu</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.contextmenu">ContextMenu</a>, menu item, and menu separator styles.
+Load it with <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateMenuResources">CreateMenuResources()</a>, which also adds the brush keys.
+A host that does not merge that dictionary keeps the system menu and context menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Uri MenuResourcesUri { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Uri</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Muted_" data-uid="SmartDock.DockTheme.Muted*"></a>
+
+  <h3 id="SmartDock_DockTheme_Muted" data-uid="SmartDock.DockTheme.Muted">
+  Muted
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark muted brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_MutedKey">MutedKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Muted { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Panel_" data-uid="SmartDock.DockTheme.Panel*"></a>
+
+  <h3 id="SmartDock_DockTheme_Panel" data-uid="SmartDock.DockTheme.Panel">
+  Panel
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark panel brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_PanelKey">PanelKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Panel { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_ScrollResourcesUri_" data-uid="SmartDock.DockTheme.ScrollResourcesUri*"></a>
+
+  <h3 id="SmartDock_DockTheme_ScrollResourcesUri" data-uid="SmartDock.DockTheme.ScrollResourcesUri">
+  ScrollResourcesUri
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scroll bar, scroll viewer, tooltip, and focus-visual styles. <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_CreateScrollBarResources">CreateScrollBarResources()</a> loads it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Uri ScrollResourcesUri { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Uri</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Text_" data-uid="SmartDock.DockTheme.Text*"></a>
+
+  <h3 id="SmartDock_DockTheme_Text" data-uid="SmartDock.DockTheme.Text">
+  Text
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark text brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_TextKey">TextKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Text { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Workspace_" data-uid="SmartDock.DockTheme.Workspace*"></a>
+
+  <h3 id="SmartDock_DockTheme_Workspace" data-uid="SmartDock.DockTheme.Workspace">
+  Workspace
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Dark workspace brush. Open chrome reads <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_WorkspaceKey">WorkspaceKey</a>, so this instance stays the dark color.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SolidColorBrush Workspace { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.media.solidcolorbrush">SolidColorBrush</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_DockTheme_Apply_" data-uid="SmartDock.DockTheme.Apply*"></a>
+
+  <h3 id="SmartDock_DockTheme_Apply_System_Windows_FrameworkElement_SmartDock_DockThemeKind_" data-uid="SmartDock.DockTheme.Apply(System.Windows.FrameworkElement,SmartDock.DockThemeKind)">
+  Apply(FrameworkElement, DockThemeKind)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes <code class="paramref">kind</code> into <code class="paramref">element</code> and into any merged dictionary
+that already carries <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_WorkspaceKey">WorkspaceKey</a>. Open visuals that use the keys repaint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Apply(FrameworkElement element, DockThemeKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement">FrameworkElement</a></dt>
+    <dd></dd>
+    <dt><code>kind</code> <a class="xref" href="SmartDock.DockThemeKind.html">DockThemeKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_Apply_" data-uid="SmartDock.DockTheme.Apply*"></a>
+
+  <h3 id="SmartDock_DockTheme_Apply_System_Windows_ResourceDictionary_SmartDock_DockThemeKind_" data-uid="SmartDock.DockTheme.Apply(System.Windows.ResourceDictionary,SmartDock.DockThemeKind)">
+  Apply(ResourceDictionary, DockThemeKind)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes <code class="paramref">kind</code> into <code class="paramref">dictionary</code> and into merged dictionaries
+that already carry <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_WorkspaceKey">WorkspaceKey</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Apply(ResourceDictionary dictionary, DockThemeKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dictionary</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
+    <dd></dd>
+    <dt><code>kind</code> <a class="xref" href="SmartDock.DockThemeKind.html">DockThemeKind</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_CreateMenuResources_" data-uid="SmartDock.DockTheme.CreateMenuResources*"></a>
+
+  <h3 id="SmartDock_DockTheme_CreateMenuResources" data-uid="SmartDock.DockTheme.CreateMenuResources">
+  CreateMenuResources()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A new copy of <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_MenuResourcesUri">MenuResourcesUri</a> plus the dock brushes under string keys.
+One dictionary instance can be merged into one owner. The XAML uses those keys
+because <code>x:Static</code> on <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Border">Border</a> or <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Panel">Panel</a> is stored as a type id.
+A context menu is a separate tree. Merge the dictionary into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.application.resources">Resources</a>
+or into a window the menu's placement target can see.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ResourceDictionary CreateMenuResources()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_CreateResources_" data-uid="SmartDock.DockTheme.CreateResources*"></a>
+
+  <h3 id="SmartDock_DockTheme_CreateResources_SmartDock_DockThemeKind_" data-uid="SmartDock.DockTheme.CreateResources(SmartDock.DockThemeKind)">
+  CreateResources(DockThemeKind)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A new dictionary holding every brush and the font for <code class="paramref">kind</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ResourceDictionary CreateResources(DockThemeKind kind)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kind</code> <a class="xref" href="SmartDock.DockThemeKind.html">DockThemeKind</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockTheme_CreateScrollBarResources_" data-uid="SmartDock.DockTheme.CreateScrollBarResources*"></a>
+
+  <h3 id="SmartDock_DockTheme_CreateScrollBarResources" data-uid="SmartDock.DockTheme.CreateScrollBarResources">
+  CreateScrollBarResources()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scroll bar and scroll viewer styles, plus the dock tooltip and focus visual.
+One dictionary instance can be merged into one owner. The manager, each float, the
+switcher, and the tab overflow menu each merge their own, so pane content is themed
+without a host having to ask. Merge another copy for scrollbars that live outside the dock.
+The returned dictionary is a copy of the XAML. It has no brush keys. Brushes stay on the owner,
+because writing into the shared source dictionary drops the implicit <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.primitives.scrollbar">ScrollBar</a> style.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ResourceDictionary CreateScrollBarResources()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DockDragSession | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DockDragSession | SmartDock ">
+      
+      <meta name="description" content="Deterministic drag gesture. The WPF control feeds coordinates; tests call  and  with the same inputs and no mouse. A horizontal move inside the source strip moves the tab as soon as the pointer reaches a neighbor&#39;s midpoint.  reports that reorder once. Leaving the strip floats the pane. A snapshot taken before the first change is what  restores. A tool drop on an auto-hide strip hides the dragged pane, or every pane when the gesture is moving a tool-only float.  and  dock the whole window on a guide drop.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.DockDragSession">
+
+
+
+  <h1 id="SmartDock_DockDragSession" data-uid="SmartDock.DockDragSession" class="text-break">
+Class DockDragSession  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Deterministic drag gesture. The WPF control feeds coordinates; tests call <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Update_SmartDock_DockLayout_SmartDock_DragPointer_">Update(DockLayout, DragPointer)</a> and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a>
+with the same inputs and no mouse. A horizontal move inside the source strip moves the tab as soon as the pointer
+reaches a neighbor's midpoint. <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a> reports that reorder once. Leaving the strip floats the pane.
+A snapshot taken before the first change is what <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Cancel">Cancel()</a> restores.
+A tool drop on an auto-hide strip hides the dragged pane, or every pane when the gesture is moving a tool-only float.
+<a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_DragGroup">DragGroup()</a> and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_MoveWindow_System_String_">MoveWindow(string)</a> dock the whole window on a guide drop.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DockDragSession</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DockDragSession</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SmartDock_DockDragSession__ctor_" data-uid="SmartDock.DockDragSession.#ctor*"></a>
+
+  <h3 id="SmartDock_DockDragSession__ctor" data-uid="SmartDock.DockDragSession.#ctor">
+  DockDragSession()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockDragSession()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_DockDragSession_FloatDistance" data-uid="SmartDock.DockDragSession.FloatDistance">
+  FloatDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Vertical travel, in device-independent pixels, that floats a pane while the pointer is still over the source strip,
+when that travel is also greater than the horizontal travel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double FloatDistance = 12</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockDragSession_StartDistance" data-uid="SmartDock.DockDragSession.StartDistance">
+  StartDistance
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pointer travel, in device-independent pixels, before a press becomes a reorder or a float.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double StartDistance = 6</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SmartDock_DockDragSession_AutoHideTarget_" data-uid="SmartDock.DockDragSession.AutoHideTarget*"></a>
+
+  <h3 id="SmartDock_DockDragSession_AutoHideTarget" data-uid="SmartDock.DockDragSession.AutoHideTarget">
+  AutoHideTarget
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Auto-hide edge under the pointer. Null when a dock guide or a float owns the point, or the drag cannot auto-hide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AutoHideEdge? AutoHideTarget { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_ContentId_" data-uid="SmartDock.DockDragSession.ContentId*"></a>
+
+  <h3 id="SmartDock_DockDragSession_ContentId" data-uid="SmartDock.DockDragSession.ContentId">
+  ContentId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Content id passed to <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Begin_System_String_System_String_System_Double_System_Double_">Begin(string, string, double, double)</a>. Null when the session is idle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? ContentId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_FloatWindowId_" data-uid="SmartDock.DockDragSession.FloatWindowId*"></a>
+
+  <h3 id="SmartDock_DockDragSession_FloatWindowId" data-uid="SmartDock.DockDragSession.FloatWindowId">
+  FloatWindowId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Id of the floating window this gesture is moving. Null until the pane, group, or caption drag has a window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? FloatWindowId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Guides_" data-uid="SmartDock.DockDragSession.Guides*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Guides" data-uid="SmartDock.DockDragSession.Guides">
+  Guides
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Guide buttons for the current hit. Empty unless the gesture is floating and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Retarget_SmartDock_DragPointer_">Retarget(DragPointer)</a> or <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Update_SmartDock_DockLayout_SmartDock_DragPointer_">Update(DockLayout, DragPointer)</a> has filled them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;DropGuide&gt; Guides { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.DropGuide.html">DropGuide</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Hot_" data-uid="SmartDock.DockDragSession.Hot*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Hot" data-uid="SmartDock.DockDragSession.Hot">
+  Hot
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Guide button under the pointer during a float, or null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DropGuide? Hot { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DropGuide.html">DropGuide</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Phase_" data-uid="SmartDock.DockDragSession.Phase*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Phase" data-uid="SmartDock.DockDragSession.Phase">
+  Phase
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The current phase. <a class="xref" href="SmartDock.DockGesturePhase.html#SmartDock_DockGesturePhase_Idle">Idle</a> after <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Reset">Reset()</a>, <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a>, or <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Cancel">Cancel()</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockGesturePhase Phase { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockGesturePhase.html">DockGesturePhase</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Preview_" data-uid="SmartDock.DockDragSession.Preview*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Preview" data-uid="SmartDock.DockDragSession.Preview">
+  Preview
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Landing rect for <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Hot">Hot</a>, or the auto-hide strip when <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_AutoHideTarget">AutoHideTarget</a> is set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockRect? Preview { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_ReorderIndex_" data-uid="SmartDock.DockDragSession.ReorderIndex*"></a>
+
+  <h3 id="SmartDock_DockDragSession_ReorderIndex" data-uid="SmartDock.DockDragSession.ReorderIndex">
+  ReorderIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Slot the dragged tab occupies while reordering, or null when the gesture is not reordering.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? ReorderIndex { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_SourceGroupId_" data-uid="SmartDock.DockDragSession.SourceGroupId*"></a>
+
+  <h3 id="SmartDock_DockDragSession_SourceGroupId" data-uid="SmartDock.DockDragSession.SourceGroupId">
+  SourceGroupId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Tab group id passed to <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Begin_System_String_System_String_System_Double_System_Double_">Begin(string, string, double, double)</a>. Null when the session is idle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? SourceGroupId { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_DockDragSession_Begin_" data-uid="SmartDock.DockDragSession.Begin*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Begin_System_String_System_String_System_Double_System_Double_" data-uid="SmartDock.DockDragSession.Begin(System.String,System.String,System.Double,System.Double)">
+  Begin(string, string, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Starts a gesture on <code class="paramref">contentId</code> in <code class="paramref">sourceGroupId</code>.
+The phase becomes <a class="xref" href="SmartDock.DockGesturePhase.html#SmartDock_DockGesturePhase_Pending">Pending</a> until the pointer moves <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_StartDistance">StartDistance</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Begin(string contentId, string sourceGroupId, double x, double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>sourceGroupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Cancel_" data-uid="SmartDock.DockDragSession.Cancel*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Cancel" data-uid="SmartDock.DockDragSession.Cancel">
+  Cancel()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Restores the layout captured before the first reorder or float. Returns null when nothing was changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockLayout? Cancel()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_DragGroup_" data-uid="SmartDock.DockDragSession.DragGroup*"></a>
+
+  <h3 id="SmartDock_DockDragSession_DragGroup" data-uid="SmartDock.DockDragSession.DragGroup">
+  DragGroup()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The gesture floats <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_SourceGroupId">SourceGroupId</a> as one window. A guide drop then docks that window.
+Call after <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Begin_System_String_System_String_System_Double_System_Double_">Begin(string, string, double, double)</a>. A tab drag does not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DragGroup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_End_" data-uid="SmartDock.DockDragSession.End*"></a>
+
+  <h3 id="SmartDock_DockDragSession_End_SmartDock_DockLayout_" data-uid="SmartDock.DockDragSession.End(SmartDock.DockLayout)">
+  End(DockLayout)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Commits the gesture. A reorder reports whether the order changed. A float on an auto-hide target
+calls <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_AutoHide_SmartDock_DockLayout_System_String_SmartDock_AutoHideEdge_">AutoHide(DockLayout, string, AutoHideEdge)</a> or <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_AutoHideFloat_SmartDock_DockLayout_System_String_SmartDock_AutoHideEdge_">AutoHideFloat(DockLayout, string, AutoHideEdge)</a>. A float on <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Hot">Hot</a>
+calls <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Dock_SmartDock_DockLayout_System_String_System_String_SmartDock_DockSide_System_Double_">Dock(DockLayout, string, string, DockSide, double)</a> or <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_DockWindow_SmartDock_DockLayout_System_String_System_String_SmartDock_DockSide_System_Double_">DockWindow(DockLayout, string, string, DockSide, double)</a>. Then the session is reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DragStep End(DockLayout layout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DragStep.html">DragStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_MoveWindow_" data-uid="SmartDock.DockDragSession.MoveWindow*"></a>
+
+  <h3 id="SmartDock_DockDragSession_MoveWindow_System_String_" data-uid="SmartDock.DockDragSession.MoveWindow(System.String)">
+  MoveWindow(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The gesture moves an existing floating window instead of tearing <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_ContentId">ContentId</a> out of it.
+Call after <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Begin_System_String_System_String_System_Double_System_Double_">Begin(string, string, double, double)</a>. A guide drop docks the whole window. An auto-hide drop hides every pane in it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MoveWindow(string windowId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Reset_" data-uid="SmartDock.DockDragSession.Reset*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Reset" data-uid="SmartDock.DockDragSession.Reset">
+  Reset()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drops the gesture, the snapshot, and the hit without restoring the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Reset()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Retarget_" data-uid="SmartDock.DockDragSession.Retarget*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Retarget_SmartDock_DragPointer_" data-uid="SmartDock.DockDragSession.Retarget(SmartDock.DragPointer)">
+  Retarget(DragPointer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hit-tests again after the host has rebuilt the tree. Call this after a promotion, with leaves taken from the new layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Retarget(DragPointer pointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pointer</code> <a class="xref" href="SmartDock.DragPointer.html">DragPointer</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockDragSession_Update_" data-uid="SmartDock.DockDragSession.Update*"></a>
+
+  <h3 id="SmartDock_DockDragSession_Update_SmartDock_DockLayout_SmartDock_DragPointer_" data-uid="SmartDock.DockDragSession.Update(SmartDock.DockLayout,SmartDock.DragPointer)">
+  Update(DockLayout, DragPointer)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Advances the gesture. Past <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_StartDistance">StartDistance</a>, a move along the strip reorders and a move off it floats.
+A reorder writes the slot and sets <a class="xref" href="SmartDock.DragStep.html#SmartDock_DragStep_TabsMoved">TabsMoved</a>. A new float sets
+<a class="xref" href="SmartDock.DragStep.html#SmartDock_DragStep_PromotedToFloat">PromotedToFloat</a> and <a class="xref" href="SmartDock.DragStep.html#SmartDock_DragStep_FollowWindow">FollowWindow</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DragStep Update(DockLayout layout, DragPointer pointer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>pointer</code> <a class="xref" href="SmartDock.DragPointer.html">DragPointer</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DragStep.html">DragStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

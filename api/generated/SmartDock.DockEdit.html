@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DockEdit | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DockEdit | SmartDock ">
+      
+      <meta name="description" content="Mutates a . Every successful structural edit leaves a layout that  accepts. Empty groups are removed and single-child splits collapse, except an empty tab group that a hidden entry still names. That group stays, with its weight, as a restore anchor. Proportions are weights. A side dock gives the incoming pane the supplied proportion of the anchor&#39;s area.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.DockEdit">
+
+
+
+  <h1 id="SmartDock_DockEdit" data-uid="SmartDock.DockEdit" class="text-break">
+Class DockEdit  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Mutates a <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a>. Every successful structural edit leaves a layout that
+<a class="xref" href="SmartDock.DockSerializer.html#SmartDock_DockSerializer_Validate_SmartDock_DockLayout_">Validate(DockLayout)</a> accepts. Empty groups are removed and single-child splits collapse,
+except an empty tab group that a hidden entry still names. That group stays, with its weight, as a restore anchor.
+Proportions are weights. A side dock gives the incoming pane the supplied proportion of the anchor's area.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DockEdit</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DockEdit</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_DockEdit_DefaultProportion" data-uid="SmartDock.DockEdit.DefaultProportion">
+  DefaultProportion
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Share of the anchor given to a side dock when the caller does not pass a proportion. One quarter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double DefaultProportion = 0.25</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_DockEdit_AutoHide_" data-uid="SmartDock.DockEdit.AutoHide*"></a>
+
+  <h3 id="SmartDock_DockEdit_AutoHide_SmartDock_DockLayout_System_String_SmartDock_AutoHideEdge_" data-uid="SmartDock.DockEdit.AutoHide(SmartDock.DockLayout,System.String,SmartDock.AutoHideEdge)">
+  AutoHide(DockLayout, string, AutoHideEdge)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the pane onto <code class="paramref">edge</code>. The entry's preferred proportion is the pane's current split share,
+and the flyout size is 240. The same edge succeeds without a change. Fails when the pane cannot auto-hide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult AutoHide(DockLayout layout, string contentId, AutoHideEdge edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>edge</code> <a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_AutoHideFloat_" data-uid="SmartDock.DockEdit.AutoHideFloat*"></a>
+
+  <h3 id="SmartDock_DockEdit_AutoHideFloat_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.AutoHideFloat(SmartDock.DockLayout,System.String)">
+  AutoHideFloat(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Auto-hides every pane in a floating window and removes the window.
+Each pane uses the edge of its <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a> when that group is still
+in the main tree; otherwise it uses the right edge. Refuses when any pane cannot auto-hide.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult AutoHideFloat(DockLayout layout, string windowId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_AutoHideFloat_" data-uid="SmartDock.DockEdit.AutoHideFloat*"></a>
+
+  <h3 id="SmartDock_DockEdit_AutoHideFloat_SmartDock_DockLayout_System_String_SmartDock_AutoHideEdge_" data-uid="SmartDock.DockEdit.AutoHideFloat(SmartDock.DockLayout,System.String,SmartDock.AutoHideEdge)">
+  AutoHideFloat(DockLayout, string, AutoHideEdge)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Auto-hides every pane in a floating window onto <code class="paramref">edge</code> and removes the window.
+Each entry is the same as <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_AutoHide_SmartDock_DockLayout_System_String_SmartDock_AutoHideEdge_">AutoHide(DockLayout, string, AutoHideEdge)</a>, including flyout size 240.
+Refuses when any pane is not a tool or cannot auto-hide, and leaves the layout unchanged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult AutoHideFloat(DockLayout layout, string windowId, AutoHideEdge edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>edge</code> <a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Close_" data-uid="SmartDock.DockEdit.Close*"></a>
+
+  <h3 id="SmartDock_DockEdit_Close_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Close(SmartDock.DockLayout,System.String)">
+  Close(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the pane when <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanClose">CanClose</a> is true. Otherwise fails and leaves the layout unchanged.
+Ignores <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_HideOnClose">HideOnClose</a>. <code>DockManager.ClosePane</code> checks that flag and hides the pane instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Close(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_CloseFloat_" data-uid="SmartDock.DockEdit.CloseFloat*"></a>
+
+  <h3 id="SmartDock_DockEdit_CloseFloat_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.CloseFloat(SmartDock.DockLayout,System.String)">
+  CloseFloat(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Closes a floating window. Panes that can close are removed. Panes with
+<a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_HideOnClose">HideOnClose</a> are hidden, the same way the host close hides them.
+Panes that can neither close nor hide are docked into the main tree.
+The visible window goes away. A hidden pane keeps its empty group and these bounds so
+<a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Show_SmartDock_DockLayout_System_String_">Show(DockLayout, string)</a> can open that window again. The host does not show a window with no pane.
+A docked pane returns to <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a> when that tab group is still in
+the main tree. Otherwise it joins the first main-tree tab group of the same
+<a class="xref" href="SmartDock.DockKind.html">DockKind</a>, or a new group on the right edge when the main tree has none.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult CloseFloat(DockLayout layout, string windowId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Dock_" data-uid="SmartDock.DockEdit.Dock*"></a>
+
+  <h3 id="SmartDock_DockEdit_Dock_SmartDock_DockLayout_System_String_System_String_SmartDock_DockSide_System_Double_" data-uid="SmartDock.DockEdit.Dock(SmartDock.DockLayout,System.String,System.String,SmartDock.DockSide,System.Double)">
+  Dock(DockLayout, string, string, DockSide, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves the pane to <code class="paramref">anchorId</code>. <a class="xref" href="SmartDock.DockSide.html#SmartDock_DockSide_Center">Center</a> requires a tab-group anchor and selects the pane.
+Docking the only pane of a group onto that same group does nothing. An empty anchor fails when the layout already has a root.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Dock(DockLayout layout, string contentId, string anchorId, DockSide side, double proportion = 0.25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>anchorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+    <dd></dd>
+    <dt><code>proportion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_DockBack_" data-uid="SmartDock.DockEdit.DockBack*"></a>
+
+  <h3 id="SmartDock_DockEdit_DockBack_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.DockBack(SmartDock.DockLayout,System.String)">
+  DockBack(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks a floating or auto-hidden pane into the main tree.
+The pane returns to <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a> when that tab group is still in the main tree.
+Otherwise it joins the first main-tree tab group of the same <a class="xref" href="SmartDock.DockKind.html">DockKind</a>,
+or a new group on the right edge when the main tree has none.
+A pane that is already in the main tree is left where it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult DockBack(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_DockWindow_" data-uid="SmartDock.DockEdit.DockWindow*"></a>
+
+  <h3 id="SmartDock_DockEdit_DockWindow_SmartDock_DockLayout_System_String_System_String_SmartDock_DockSide_System_Double_" data-uid="SmartDock.DockEdit.DockWindow(SmartDock.DockLayout,System.String,System.String,SmartDock.DockSide,System.Double)">
+  DockWindow(DockLayout, string, string, DockSide, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks every pane in a floating window and removes the window.
+A side drop keeps the window root, so a tab group stays that group and a split stays a split.
+<a class="xref" href="SmartDock.DockSide.html#SmartDock_DockSide_Center">Center</a> appends those panes to the anchor tab group and selects the pane
+the window had selected. Panes that land in the main tree clear <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a>.
+A window cannot dock into itself. An unknown window or anchor fails and the layout stays as it was.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult DockWindow(DockLayout layout, string windowId, string anchorId, DockSide side, double proportion = 0.25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>anchorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+    <dd></dd>
+    <dt><code>proportion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Float_" data-uid="SmartDock.DockEdit.Float*"></a>
+
+  <h3 id="SmartDock_DockEdit_Float_SmartDock_DockLayout_System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.DockEdit.Float(SmartDock.DockLayout,System.String,System.Double,System.Double,System.Double,System.Double)">
+  Float(DockLayout, string, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts the pane in a new floating window at the given bounds, in device-independent pixels.
+A pane that is already the only pane of a float only moves that window.
+A pane leaving the main tree stores its tab group on <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a>.
+Fails when the pane cannot float, is missing, or the bounds are not a finite position and a positive size.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Float(DockLayout layout, string contentId, double x, double y, double width, double height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_FloatGroup_" data-uid="SmartDock.DockEdit.FloatGroup*"></a>
+
+  <h3 id="SmartDock_DockEdit_FloatGroup_SmartDock_DockLayout_System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.DockEdit.FloatGroup(SmartDock.DockLayout,System.String,System.Double,System.Double,System.Double,System.Double)">
+  FloatGroup(DockLayout, string, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a tab group into a floating window. The group keeps its id, its panes, and its selection.
+Panes that leave the main tree store that group on <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a>.
+A group that is already the root of a float only moves that window.
+Fails when any pane cannot float, and the layout stays as it was.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult FloatGroup(DockLayout layout, string groupId, double x, double y, double width, double height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>groupId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Hide_" data-uid="SmartDock.DockEdit.Hide*"></a>
+
+  <h3 id="SmartDock_DockEdit_Hide_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Hide(SmartDock.DockLayout,System.String)">
+  Hide(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes a pane out of the visible tree and keeps it in <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Hidden">Hidden</a>.
+<a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanClose">CanClose</a> is ignored. Hiding a pane that is already hidden does not change the layout.
+An unknown id fails. The pane's <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a> is left as it was.
+Hiding the last pane of a tab group leaves that group in place so <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Show_SmartDock_DockLayout_System_String_">Show(DockLayout, string)</a> can put the pane back.
+A float whose only group is that empty group stays in the model, including its bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Hide(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Insert_" data-uid="SmartDock.DockEdit.Insert*"></a>
+
+  <h3 id="SmartDock_DockEdit_Insert_SmartDock_DockLayout_SmartDock_DockPane_System_String_SmartDock_DockSide_System_Double_" data-uid="SmartDock.DockEdit.Insert(SmartDock.DockLayout,SmartDock.DockPane,System.String,SmartDock.DockSide,System.Double)">
+  Insert(DockLayout, DockPane, string?, DockSide, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds <code class="paramref">pane</code> beside <code class="paramref">anchorId</code>, or as a tab when <code class="paramref">side</code> is
+<a class="xref" href="SmartDock.DockSide.html#SmartDock_DockSide_Center">Center</a>. An empty anchor is allowed only when the layout has no content, and the pane
+becomes the root. Fails when the content id is missing or already present, including a hidden pane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Insert(DockLayout layout, DockPane pane, string? anchorId, DockSide side, double proportion = 0.25)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>pane</code> <a class="xref" href="SmartDock.DockPane.html">DockPane</a></dt>
+    <dd></dd>
+    <dt><code>anchorId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>side</code> <a class="xref" href="SmartDock.DockSide.html">DockSide</a></dt>
+    <dd></dd>
+    <dt><code>proportion</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Move_" data-uid="SmartDock.DockEdit.Move*"></a>
+
+  <h3 id="SmartDock_DockEdit_Move_SmartDock_DockLayout_System_String_System_Int32_" data-uid="SmartDock.DockEdit.Move(SmartDock.DockLayout,System.String,System.Int32)">
+  Move(DockLayout, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a pane to <code class="paramref">index</code> within its tab group and selects it.
+<code class="paramref">index</code> is the slot the pane occupies afterwards, from 0 through the last pane.
+The same slot does not change the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Move(DockLayout layout, string contentId, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Normalize_" data-uid="SmartDock.DockEdit.Normalize*"></a>
+
+  <h3 id="SmartDock_DockEdit_Normalize_SmartDock_DockLayout_" data-uid="SmartDock.DockEdit.Normalize(SmartDock.DockLayout)">
+  Normalize(DockLayout)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes empty tab groups and empty floating windows, and replaces a split that has a single
+remaining child with that child. An empty tab group stays while a hidden entry's
+<a class="xref" href="SmartDock.HiddenEntry.html#SmartDock_HiddenEntry_GroupId">GroupId</a> names it, and a float stays with it, bounds included.
+Proportions of surviving children are left as they are.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Normalize(DockLayout layout)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Pin_" data-uid="SmartDock.DockEdit.Pin*"></a>
+
+  <h3 id="SmartDock_DockEdit_Pin_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Pin(SmartDock.DockLayout,System.String)">
+  Pin(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks an auto-hidden pane back onto the matching side of the root.
+The share is the entry's preferred proportion, or 0.22 when that value is outside (0, 1).
+Fails when the pane is not auto-hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Pin(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_PlaceFloat_" data-uid="SmartDock.DockEdit.PlaceFloat*"></a>
+
+  <h3 id="SmartDock_DockEdit_PlaceFloat_SmartDock_DockLayout_System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.DockEdit.PlaceFloat(SmartDock.DockLayout,System.String,System.Double,System.Double,System.Double,System.Double)">
+  PlaceFloat(DockLayout, string, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the restored bounds of an existing floating window. <a class="xref" href="SmartDock.DockEditResult.html#SmartDock_DockEditResult_Changed">Changed</a> is false when
+the bounds are already those values. Does not change <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_IsMaximized">IsMaximized</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult PlaceFloat(DockLayout layout, string windowId, double x, double y, double width, double height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Remove_" data-uid="SmartDock.DockEdit.Remove*"></a>
+
+  <h3 id="SmartDock_DockEdit_Remove_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Remove(SmartDock.DockLayout,System.String)">
+  Remove(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a pane from the main tree, a floating window, an auto-hide strip, or <a class="xref" href="SmartDock.DockLayout.html#SmartDock_DockLayout_Hidden">Hidden</a>.
+<a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanClose">CanClose</a> is ignored: the application is dropping the pane from its model.
+An unknown id fails and the layout stays as it was.
+Empty groups and floating windows are dropped, and a single-child split collapses, through <a class="xref" href="SmartDock.DockEdit.html#SmartDock_DockEdit_Normalize_SmartDock_DockLayout_">Normalize(DockLayout)</a>.
+An empty group that another hidden entry still names is kept.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Remove(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Reorder_" data-uid="SmartDock.DockEdit.Reorder*"></a>
+
+  <h3 id="SmartDock_DockEdit_Reorder_SmartDock_DockLayout_System_String_System_Int32_" data-uid="SmartDock.DockEdit.Reorder(SmartDock.DockLayout,System.String,System.Int32)">
+  Reorder(DockLayout, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a pane within its tab group. <code class="paramref">insertionIndex</code> is the gap in the current
+list, from 0 through the pane count. Dropping a pane on its own gap does not change the list.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Reorder(DockLayout layout, string contentId, int insertionIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>insertionIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Select_" data-uid="SmartDock.DockEdit.Select*"></a>
+
+  <h3 id="SmartDock_DockEdit_Select_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Select(SmartDock.DockLayout,System.String)">
+  Select(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Selects the pane in its tab group. Fails when the pane is not in a tab group.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Select(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_SetFloatMaximized_" data-uid="SmartDock.DockEdit.SetFloatMaximized*"></a>
+
+  <h3 id="SmartDock_DockEdit_SetFloatMaximized_SmartDock_DockLayout_System_String_System_Boolean_" data-uid="SmartDock.DockEdit.SetFloatMaximized(SmartDock.DockLayout,System.String,System.Boolean)">
+  SetFloatMaximized(DockLayout, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_IsMaximized">IsMaximized</a> on the floating window that holds the pane.
+<a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_X">X</a>, <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Y">Y</a>, <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Width">Width</a>,
+and <a class="xref" href="SmartDock.FloatWindow.html#SmartDock_FloatWindow_Height">Height</a> stay the restored bounds.
+A pane that is not floating fails, including a hidden pane. An unknown id fails.
+The same value succeeds and does not change the window.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult SetFloatMaximized(DockLayout layout, string contentId, bool maximized)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>maximized</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_SetFlyoutSize_" data-uid="SmartDock.DockEdit.SetFlyoutSize*"></a>
+
+  <h3 id="SmartDock_DockEdit_SetFlyoutSize_SmartDock_DockLayout_System_String_System_Double_" data-uid="SmartDock.DockEdit.SetFlyoutSize(SmartDock.DockLayout,System.String,System.Double)">
+  SetFlyoutSize(DockLayout, string, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the flyout length of an auto-hidden pane. The size is already clamped by the host.
+A docked, floating, or hidden pane is refused. The value is the existing <a class="xref" href="SmartDock.AutoHideEntry.html#SmartDock_AutoHideEntry_FlyoutSize">FlyoutSize</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult SetFlyoutSize(DockLayout layout, string contentId, double size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_SetSplitWeights_" data-uid="SmartDock.DockEdit.SetSplitWeights*"></a>
+
+  <h3 id="SmartDock_DockEdit_SetSplitWeights_SmartDock_DockLayout_System_String_System_Collections_Generic_IReadOnlyList_System_Double__" data-uid="SmartDock.DockEdit.SetSplitWeights(SmartDock.DockLayout,System.String,System.Collections.Generic.IReadOnlyList{System.Double})">
+  SetSplitWeights(DockLayout, string, IReadOnlyList&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces every child proportion of the split. The list length must match the children, and each weight
+must be finite and positive. Weights do not have to sum to 1.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult SetSplitWeights(DockLayout layout, string splitId, IReadOnlyList&lt;double&gt; weights)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>splitId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>weights</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_Show_" data-uid="SmartDock.DockEdit.Show*"></a>
+
+  <h3 id="SmartDock_DockEdit_Show_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.Show(SmartDock.DockLayout,System.String)">
+  Show(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts a hidden pane back and selects it in its group.
+The same tab group is used when it is still in the tree, including an empty restore anchor,
+at the saved index when that index still fits.
+Otherwise the same floating window is used, otherwise the same auto-hide edge.
+Otherwise the pane is docked with <a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_PreviousGroupId">PreviousGroupId</a>, then the first main-tree group
+of its <a class="xref" href="SmartDock.DockKind.html">DockKind</a>, then a new group on the right.
+An empty group that no remaining hidden entry names is removed.
+Showing a pane that is already visible does not change the layout. An unknown id fails.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockEditResult Show(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockEdit_SuggestEdge_" data-uid="SmartDock.DockEdit.SuggestEdge*"></a>
+
+  <h3 id="SmartDock_DockEdit_SuggestEdge_SmartDock_DockLayout_System_String_" data-uid="SmartDock.DockEdit.SuggestEdge(SmartDock.DockLayout,System.String)">
+  SuggestEdge(DockLayout, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Suggests the auto-hide edge from the split that directly contains the pane's group.
+A left-hand tool group hides left; a bottom group hides bottom. Panes that are not in a split use the right edge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AutoHideEdge SuggestEdge(DockLayout layout, string contentId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Toolbars | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Toolbars | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="toolbars">Toolbars</h1>
+
+<p>Put ordinary WPF <code>ToolBar</code> controls in <code>DockManager.ToolBars</code> and the dock lays them out in trays on the main window, on a floating window, or on a pane. If you never touch <code>ToolBars</code> or <code>ToolBarsSource</code>, no tray is built.</p>
+<p>Set <code>DockToolBar</code> attached properties on each toolbar to say where it goes:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Id</code></td>
+<td>Stable id. A saved entry is matched to the toolbar by this string. The toolbar's <code>Name</code> is used when <code>Id</code> is empty.</td>
+</tr>
+<tr>
+<td><code>Title</code></td>
+<td>Caption of a floating toolbar, and the label in the tray menu.</td>
+</tr>
+<tr>
+<td><code>Edge</code></td>
+<td><code>Top</code>, <code>Bottom</code>, <code>Left</code>, or <code>Right</code>. The default is <code>Top</code>.</td>
+</tr>
+<tr>
+<td><code>Band</code></td>
+<td>Row or column on that edge. Band 0 is the outer side: the top of a top tray, the bottom of a bottom tray, the left of a left tray, and the right of a right tray.</td>
+</tr>
+<tr>
+<td><code>BandIndex</code></td>
+<td>Position within the band.</td>
+</tr>
+<tr>
+<td><code>Offset</code></td>
+<td>Gap before the toolbar, in device-independent pixels.</td>
+</tr>
+<tr>
+<td><code>Alignment</code></td>
+<td><code>Start</code> packs from the left of a horizontal band or the top of a vertical one. <code>End</code> packs from the right or the bottom. <code>Start</code> is the default.</td>
+</tr>
+<tr>
+<td><code>PaneId</code></td>
+<td>Content id of the pane that hosts the toolbar. Empty means a window tray. A pane that is not in the layout uses the main window's top tray.</td>
+</tr>
+<tr>
+<td><code>IsVisible</code></td>
+<td>False hides the toolbar and keeps a floating window's bounds. True shows it again.</td>
+</tr>
+<tr>
+<td><code>ShowOverflow</code></td>
+<td>When true, the toolbar uses the leftover space in the band and shows an overflow chevron. The default is false.</td>
+</tr>
+<tr>
+<td><code>IsCustomizable</code></td>
+<td>When false, that toolbar has no customize menu and ignores Alt+drag. The default is true.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Edge</code>, <code>Band</code>, <code>BandIndex</code>, <code>Offset</code>, <code>Alignment</code>, and <code>PaneId</code> only set the starting place. Once the toolbar has been shown or dragged, its layout entry decides where it is, and changing these properties no longer moves it.</p>
+<pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.ToolbarWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:dock=&quot;clr-namespace:SmartDock;assembly=SmartDock&quot;
+        Title=&quot;SmartDock&quot;
+        Height=&quot;640&quot;
+        Width=&quot;960&quot;&gt;
+  &lt;dock:DockManager x:Name=&quot;Dock&quot;&gt;
+    &lt;dock:DockManager.ToolBars&gt;
+      &lt;ToolBar dock:DockToolBar.Id=&quot;standard&quot;
+               dock:DockToolBar.Title=&quot;Standard&quot;
+               dock:DockToolBar.Edge=&quot;Top&quot;
+               dock:DockToolBar.Band=&quot;0&quot;
+               dock:DockToolBar.Alignment=&quot;Start&quot;&gt;
+        &lt;Button Content=&quot;Save&quot; /&gt;
+      &lt;/ToolBar&gt;
+    &lt;/dock:DockManager.ToolBars&gt;
+  &lt;/dock:DockManager&gt;
+&lt;/Window&gt;
+</code></pre>
+<p>The same thing in code:</p>
+<pre><code class="lang-csharp">public static void AddAligned(DockManager dock)
+{
+    var bar = new ToolBar();
+    DockToolBar.SetId(bar, &quot;standard&quot;);
+    DockToolBar.SetTitle(bar, &quot;Standard&quot;);
+    DockToolBar.SetEdge(bar, ToolBarEdge.Top);
+    DockToolBar.SetBand(bar, 0);
+    DockToolBar.SetBandIndex(bar, 0);
+    DockToolBar.SetOffset(bar, 0);
+    DockToolBar.SetAlignment(bar, ToolBarAlignment.End);
+    bar.Items.Add(new Button { Name = &quot;save&quot;, Content = &quot;Save&quot; });
+    dock.ToolBars.Add(bar);
+
+    DockToolBar.SetIsVisible(bar, false);
+    DockToolBar.SetIsVisible(bar, true);
+    dock.ToolBarCustomizationEnabled = true;
+}
+</code></pre>
+<p>To bind toolbars from view models, use <code>ToolBarsSource</code>. Each item becomes a <code>ToolBar</code> built from <code>ToolBarTemplateSelector</code> if set, else <code>ToolBarTemplate</code>, else the implicit data template. Placement comes from <code>DockToolBarItem</code> instead of the attached properties: bind its properties in a style assigned to <code>ToolBarItemStyle</code>. The buttons themselves stay in each toolbar's own <code>Items</code> or <code>ItemsSource</code>.</p>
+<h2 id="floating-toolbars">Floating toolbars</h2>
+<p>Drag the grip along the band to slide the toolbar. Drag it out of the tray and it turns into a floating window that follows the pointer; release to leave it there. Moving back over a tray in the same drag docks it again. Double-click the grip of a floating toolbar to send it back to the band it came from. The close button on the caption hides the toolbar, and showing it again reopens the window at the same bounds.</p>
+<p>A toolbar with <code>PaneId</code> set travels with its pane when the pane floats, docks somewhere else, changes tabs, or auto-hides. When the pane closes, the toolbar goes back to its declared place.</p>
+<h2 id="customize-menu-and-hide-or-show">Customize menu and hide or show</h2>
+<p>Users can customize toolbars unless you turn it off. <code>ToolBarCustomizationEnabled</code> is true by default.</p>
+<ul>
+<li>Right-click an empty part of a tray to get a menu of all toolbars, listed by title (or id when the title is empty). Visible ones are checked; uncheck one to hide it.</li>
+<li>The customize button on a toolbar opens &quot;Add or Remove Buttons&quot;. Every button with a stable key has a check item there; uncheck it to hide the button. Reset undoes all button changes on that toolbar.</li>
+<li>Alt+drag a button to reorder it, move it to another toolbar, or drop it outside the toolbars to hide it.</li>
+</ul>
+<p>Customization is saved per button key. The key is <code>DockToolBar.Key</code> if set. Otherwise it comes from <code>ToolBarItemKeyPath</code>, then the element's <code>Name</code>, <code>ContentId</code>, <code>Id</code>, or a string <code>ToolTip</code> or <code>ToolTipText</code>. A button with none of these gets a key for the current session only: its changes are not saved, and it doesn't appear in the customize menu. Give your buttons names or keys.</p>
+<p>Set <code>ToolBarCustomizationEnabled</code> to false to turn off Alt+drag, the customize menu, and the tray menu everywhere. Set <code>IsCustomizable</code> to false to do the same for one toolbar.</p>
+<p>By default the dock keeps the user's button order as an overlay and leaves your item collections alone. Set <code>ToolBarMoveItemsInSource</code> to true if a reorder or a move between toolbars should edit the source lists too. Only do that when those lists are writable.</p>
+<p><code>ToolBarCustomizationChanged</code> fires after a button is reordered, moved, hidden, shown, or reset, and when a whole toolbar is shown or hidden. <code>ToolBarId</code> names the toolbar. <code>ItemKey</code> is the button's key, or null when the change is about the toolbar itself. <code>FromToolBarId</code> is set when a button came from another toolbar.</p>
+<h2 id="layout-persistence">Layout persistence</h2>
+<p><code>DockManager.SaveLayout</code> writes bands, alignment, floating bounds, visibility, and button order to <code>DockLayout.ToolBars</code>, and <code>LoadLayout</code> restores them. A file without a <code>toolBars</code> object loads fine. See <a href="saving-layouts.html">Saving and loading layouts</a>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

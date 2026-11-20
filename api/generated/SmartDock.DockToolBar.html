@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class DockToolBar | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class DockToolBar | SmartDock ">
+      
+      <meta name="description" content="Attached properties for a  placed in . A toolbar created from  reads the same values from  instead.  identifies one button.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.DockToolBar">
+
+
+
+  <h1 id="SmartDock_DockToolBar" data-uid="SmartDock.DockToolBar" class="text-break">
+Class DockToolBar  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Attached properties for a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.toolbar">ToolBar</a> placed in <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBars">ToolBars</a>.
+A toolbar created from <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarsSource">ToolBarsSource</a> reads the same values from
+<a class="xref" href="SmartDock.DockToolBarItem.html">DockToolBarItem</a> instead. <a class="xref" href="SmartDock.DockToolBar.html#SmartDock_DockToolBar_KeyProperty">KeyProperty</a> identifies one button.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class DockToolBar</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">DockToolBar</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_DockToolBar_AlignmentProperty" data-uid="SmartDock.DockToolBar.AlignmentProperty">
+  AlignmentProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Default end of the band. <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_End">End</a> pins the toolbar to the far end
+(right on a top or bottom band, bottom on a left or right band) until the user docks it somewhere else.
+The default is <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_Start">Start</a>. Applied only while the toolbar has no place yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty AlignmentProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_BandIndexProperty" data-uid="SmartDock.DockToolBar.BandIndexProperty">
+  BandIndexProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the BandIndex attached property: the toolbar's position within its band.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty BandIndexProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_BandProperty" data-uid="SmartDock.DockToolBar.BandProperty">
+  BandProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the Band attached property: the row or column on the edge. Band 0 is the outermost.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty BandProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_EdgeProperty" data-uid="SmartDock.DockToolBar.EdgeProperty">
+  EdgeProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the Edge attached property: the edge used until the toolbar has a place. The default is <a class="xref" href="SmartDock.ToolBarEdge.html#SmartDock_ToolBarEdge_Top">Top</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty EdgeProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_IdProperty" data-uid="SmartDock.DockToolBar.IdProperty">
+  IdProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the Id attached property: the stable id a saved entry is matched by. When empty, the toolbar's Name is used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty IdProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_IsCustomizableProperty" data-uid="SmartDock.DockToolBar.IsCustomizableProperty">
+  IsCustomizableProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the IsCustomizable attached property. False turns off Alt+drag and the button menu for this toolbar. The default is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty IsCustomizableProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_IsVisibleProperty" data-uid="SmartDock.DockToolBar.IsVisibleProperty">
+  IsVisibleProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the IsVisible attached property. False hides the toolbar; a floating toolbar keeps its window bounds. The default is true.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty IsVisibleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_KeyProperty" data-uid="SmartDock.DockToolBar.KeyProperty">
+  KeyProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stable key for one button. Wins over <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarItemKeyPath">ToolBarItemKeyPath</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty KeyProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_OffsetProperty" data-uid="SmartDock.DockToolBar.OffsetProperty">
+  OffsetProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the Offset attached property: the gap before the toolbar, in device-independent pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty OffsetProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_PaneIdProperty" data-uid="SmartDock.DockToolBar.PaneIdProperty">
+  PaneIdProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Content id of the pane that owns this toolbar when it has no saved or current place.
+Empty means a window tray, on <a class="xref" href="SmartDock.DockToolBar.html#SmartDock_DockToolBar_EdgeProperty">EdgeProperty</a>. A pane that is not in the layout
+uses the main window's top tray instead. Applied only while the toolbar has no place yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty PaneIdProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_ShowOverflowProperty" data-uid="SmartDock.DockToolBar.ShowOverflowProperty">
+  ShowOverflowProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the ShowOverflow attached property. True gives the toolbar a share of the band's leftover length, so items that do not fit go behind the overflow chevron. False, the default, sizes it to its content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty ShowOverflowProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SmartDock_DockToolBar_TitleProperty" data-uid="SmartDock.DockToolBar.TitleProperty">
+  TitleProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the Title attached property: the floating caption and the label in the tray menu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty TitleProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_DockToolBar_GetAlignment_" data-uid="SmartDock.DockToolBar.GetAlignment*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetAlignment_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetAlignment(System.Windows.DependencyObject)">
+  GetAlignment(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default alignment stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ToolBarAlignment GetAlignment(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.ToolBarAlignment.html">ToolBarAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetBand_" data-uid="SmartDock.DockToolBar.GetBand*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetBand_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetBand(System.Windows.DependencyObject)">
+  GetBand(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default band stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetBand(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetBandIndex_" data-uid="SmartDock.DockToolBar.GetBandIndex*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetBandIndex_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetBandIndex(System.Windows.DependencyObject)">
+  GetBandIndex(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default index within the band stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int GetBandIndex(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetEdge_" data-uid="SmartDock.DockToolBar.GetEdge*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetEdge_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetEdge(System.Windows.DependencyObject)">
+  GetEdge(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default edge stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ToolBarEdge GetEdge(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetId_" data-uid="SmartDock.DockToolBar.GetId*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetId_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetId(System.Windows.DependencyObject)">
+  GetId(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the toolbar id stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetId(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetIsCustomizable_" data-uid="SmartDock.DockToolBar.GetIsCustomizable*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetIsCustomizable_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetIsCustomizable(System.Windows.DependencyObject)">
+  GetIsCustomizable(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether buttons on <code class="paramref">element</code> can be reordered and hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetIsCustomizable(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetIsVisible_" data-uid="SmartDock.DockToolBar.GetIsVisible*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetIsVisible_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetIsVisible(System.Windows.DependencyObject)">
+  GetIsVisible(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the toolbar on <code class="paramref">element</code> is shown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetIsVisible(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetKey_" data-uid="SmartDock.DockToolBar.GetKey*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetKey_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetKey(System.Windows.DependencyObject)">
+  GetKey(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the button key stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetKey(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetOffset_" data-uid="SmartDock.DockToolBar.GetOffset*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetOffset_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetOffset(System.Windows.DependencyObject)">
+  GetOffset(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default gap, in device-independent pixels, stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetOffset(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetPaneId_" data-uid="SmartDock.DockToolBar.GetPaneId*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetPaneId_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetPaneId(System.Windows.DependencyObject)">
+  GetPaneId(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the default pane content id stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetPaneId(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetShowOverflow_" data-uid="SmartDock.DockToolBar.GetShowOverflow*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetShowOverflow_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetShowOverflow(System.Windows.DependencyObject)">
+  GetShowOverflow(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets whether the toolbar on <code class="paramref">element</code> shares the band's leftover length and overflows into its chevron.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetShowOverflow(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_GetTitle_" data-uid="SmartDock.DockToolBar.GetTitle*"></a>
+
+  <h3 id="SmartDock_DockToolBar_GetTitle_System_Windows_DependencyObject_" data-uid="SmartDock.DockToolBar.GetTitle(System.Windows.DependencyObject)">
+  GetTitle(DependencyObject)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the caption text stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetTitle(DependencyObject element)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetAlignment_" data-uid="SmartDock.DockToolBar.SetAlignment*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetAlignment_System_Windows_DependencyObject_SmartDock_ToolBarAlignment_" data-uid="SmartDock.DockToolBar.SetAlignment(System.Windows.DependencyObject,SmartDock.ToolBarAlignment)">
+  SetAlignment(DependencyObject, ToolBarAlignment)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default alignment stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAlignment(DependencyObject element, ToolBarAlignment value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="SmartDock.ToolBarAlignment.html">ToolBarAlignment</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetBand_" data-uid="SmartDock.DockToolBar.SetBand*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetBand_System_Windows_DependencyObject_System_Int32_" data-uid="SmartDock.DockToolBar.SetBand(System.Windows.DependencyObject,System.Int32)">
+  SetBand(DependencyObject, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default band stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBand(DependencyObject element, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetBandIndex_" data-uid="SmartDock.DockToolBar.SetBandIndex*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetBandIndex_System_Windows_DependencyObject_System_Int32_" data-uid="SmartDock.DockToolBar.SetBandIndex(System.Windows.DependencyObject,System.Int32)">
+  SetBandIndex(DependencyObject, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default index within the band stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetBandIndex(DependencyObject element, int value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetEdge_" data-uid="SmartDock.DockToolBar.SetEdge*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetEdge_System_Windows_DependencyObject_SmartDock_ToolBarEdge_" data-uid="SmartDock.DockToolBar.SetEdge(System.Windows.DependencyObject,SmartDock.ToolBarEdge)">
+  SetEdge(DependencyObject, ToolBarEdge)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default edge stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetEdge(DependencyObject element, ToolBarEdge value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetId_" data-uid="SmartDock.DockToolBar.SetId*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetId_System_Windows_DependencyObject_System_String_" data-uid="SmartDock.DockToolBar.SetId(System.Windows.DependencyObject,System.String)">
+  SetId(DependencyObject, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the toolbar id stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetId(DependencyObject element, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetIsCustomizable_" data-uid="SmartDock.DockToolBar.SetIsCustomizable*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetIsCustomizable_System_Windows_DependencyObject_System_Boolean_" data-uid="SmartDock.DockToolBar.SetIsCustomizable(System.Windows.DependencyObject,System.Boolean)">
+  SetIsCustomizable(DependencyObject, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether buttons on <code class="paramref">element</code> can be reordered and hidden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetIsCustomizable(DependencyObject element, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetIsVisible_" data-uid="SmartDock.DockToolBar.SetIsVisible*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetIsVisible_System_Windows_DependencyObject_System_Boolean_" data-uid="SmartDock.DockToolBar.SetIsVisible(System.Windows.DependencyObject,System.Boolean)">
+  SetIsVisible(DependencyObject, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Shows or hides the toolbar on <code class="paramref">element</code>. A hidden floating toolbar keeps its window bounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetIsVisible(DependencyObject element, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetKey_" data-uid="SmartDock.DockToolBar.SetKey*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetKey_System_Windows_DependencyObject_System_String_" data-uid="SmartDock.DockToolBar.SetKey(System.Windows.DependencyObject,System.String)">
+  SetKey(DependencyObject, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the button key stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetKey(DependencyObject element, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetOffset_" data-uid="SmartDock.DockToolBar.SetOffset*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetOffset_System_Windows_DependencyObject_System_Double_" data-uid="SmartDock.DockToolBar.SetOffset(System.Windows.DependencyObject,System.Double)">
+  SetOffset(DependencyObject, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default gap, in device-independent pixels, stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetOffset(DependencyObject element, double value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetPaneId_" data-uid="SmartDock.DockToolBar.SetPaneId*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetPaneId_System_Windows_DependencyObject_System_String_" data-uid="SmartDock.DockToolBar.SetPaneId(System.Windows.DependencyObject,System.String)">
+  SetPaneId(DependencyObject, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the default pane content id stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPaneId(DependencyObject element, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetShowOverflow_" data-uid="SmartDock.DockToolBar.SetShowOverflow*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetShowOverflow_System_Windows_DependencyObject_System_Boolean_" data-uid="SmartDock.DockToolBar.SetShowOverflow(System.Windows.DependencyObject,System.Boolean)">
+  SetShowOverflow(DependencyObject, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether the toolbar on <code class="paramref">element</code> shares the band's leftover length and overflows into its chevron.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetShowOverflow(DependencyObject element, bool value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockToolBar_SetTitle_" data-uid="SmartDock.DockToolBar.SetTitle*"></a>
+
+  <h3 id="SmartDock_DockToolBar_SetTitle_System_Windows_DependencyObject_System_String_" data-uid="SmartDock.DockToolBar.SetTitle(System.Windows.DependencyObject,System.String)">
+  SetTitle(DependencyObject, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the caption text stored on <code class="paramref">element</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetTitle(DependencyObject element, string value)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyobject">DependencyObject</a></dt>
+    <dd></dd>
+    <dt><code>value</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

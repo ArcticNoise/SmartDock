@@ -1,0 +1,1436 @@
+{
+  "docfx_version": "2.81.0+ba844df625370a6bd7c1ecab0d0ec4d1d9128ac4",
+  "source_base_path": "",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideEdge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideEdge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideEdge",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideEdge.yml\" sourcestartlinenumber=\"1\">Edge of the dock root that holds auto-hidden panes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideEntry",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideEntry.yml\" sourcestartlinenumber=\"1\">One auto-hidden pane, plus the size used when it is pinned back or shown as a flyout.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideHit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideHit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideHit",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideHit.yml\" sourcestartlinenumber=\"1\">An auto-hide drop. <xref href=\"SmartDock.AutoHideHit.Preview\" data-throw-if-not-resolved=\"false\"></xref> is the strip, or the hot zone when the strip is collapsed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideLayout",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideLayout.yml\" sourcestartlinenumber=\"1\">Panes pinned to the four edges as auto-hide tabs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideStrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideStrip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideStrip",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideStrip.yml\" sourcestartlinenumber=\"1\">One auto-hide strip in the same coordinates as the pointer.\n<xref href=\"SmartDock.AutoHideStrip.Collapsed\" data-throw-if-not-resolved=\"false\"></xref> is an empty strip: the hit test uses <xref href=\"SmartDock.AutoHideTargets.HotZoneOf(SmartDock.DockRect%2cSmartDock.AutoHideEdge)\" data-throw-if-not-resolved=\"false\"></xref> instead of <xref href=\"SmartDock.AutoHideStrip.Bounds\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.AutoHideTargets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.AutoHideTargets.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.AutoHideTargets",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.AutoHideTargets.yml\" sourcestartlinenumber=\"1\">Picks an auto-hide edge while a tool pane is dragged. Documents and any float that is not tools-only\nare rejected by <xref href=\"SmartDock.AutoHideTargets.Allows(SmartDock.DockLayout%2cSystem.String%2cSystem.String)\" data-throw-if-not-resolved=\"false\"></xref> and get no target.\nA dock guide that contains the point wins, including a root-edge button that overlaps the hot zone.\nA floating window under the pointer wins as well, including where that window covers the zone:\nthe drop stays a float dock, not an auto-hide. No allocations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockActivePaneEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockActivePaneEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockActivePaneEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockActivePaneEventArgs.yml\" sourcestartlinenumber=\"1\">The active pane changed. Either id is null when there was, or is, no active pane.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockCaption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockCaption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockCaption",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockCaption.yml\" sourcestartlinenumber=\"1\">A caption bar the user drags. The default template paints the dock palette.\nA host replaces the look with an implicit <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> or a new <xref href=\"System.Windows.Controls.Control.Template\" data-throw-if-not-resolved=\"false\"></xref>.\nDrag, double-click, and the window buttons stay on this control. A missing part is simply absent.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockCaptionRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockCaptionRole.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockCaptionRole",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockCaptionRole.yml\" sourcestartlinenumber=\"1\">Which caption this bar is. The default template hides the title row on a strip caption.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockCommands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockCommands.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockCommands",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockCommands.yml\" sourcestartlinenumber=\"1\">Commands a host can bind or rebind. Default keys live in <xref href=\"System.Windows.Input.RoutedCommand.InputGestures\" data-throw-if-not-resolved=\"false\"></xref>\nand are read when the key is pressed, so replacing a gesture takes effect on the next key.\nClose is Ctrl+F4. Next and previous document are Ctrl+PageDown and Ctrl+PageUp.\nFloat and auto-hide have no default key.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockCompare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockCompare.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockCompare",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockCompare.yml\" sourcestartlinenumber=\"1\">Structural equality for layouts. Doubles match exactly, which is what a JSON round-trip preserves.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockContentRegistry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockContentRegistry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockContentRegistry",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockContentRegistry.yml\" sourcestartlinenumber=\"1\">Factories for the controls a layout reconnects by content id.\n<xref href=\"SmartDock.DockManager\" data-throw-if-not-resolved=\"false\"></xref> calls a factory when it has no cached element for that id\nand reuses the element when the pane moves, floats, or the layout is loaded again.\n<xref href=\"SmartDock.DockContentRegistry.Unregister(System.String)\" data-throw-if-not-resolved=\"false\"></xref> removes a factory so <xref href=\"SmartDock.DockContentRegistry.Register(System.String%2cSystem.Func%7bSystem.Windows.UIElement%7d)\" data-throw-if-not-resolved=\"false\"></xref> can install another.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockDragSession.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockDragSession.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockDragSession",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockDragSession.yml\" sourcestartlinenumber=\"1\">Deterministic drag gesture. The WPF control feeds coordinates; tests call <xref href=\"SmartDock.DockDragSession.Update(SmartDock.DockLayout%2cSmartDock.DragPointer)\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.DockDragSession.End(SmartDock.DockLayout)\" data-throw-if-not-resolved=\"false\"></xref>\nwith the same inputs and no mouse. A horizontal move inside the source strip moves the tab as soon as the pointer\nreaches a neighbor's midpoint. <xref href=\"SmartDock.DockDragSession.End(SmartDock.DockLayout)\" data-throw-if-not-resolved=\"false\"></xref> reports that reorder once. Leaving the strip floats the pane.\nA snapshot taken before the first change is what <xref href=\"SmartDock.DockDragSession.Cancel\" data-throw-if-not-resolved=\"false\"></xref> restores.\nA tool drop on an auto-hide strip hides the dragged pane, or every pane when the gesture is moving a tool-only float.\n<xref href=\"SmartDock.DockDragSession.DragGroup\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.DockDragSession.MoveWindow(System.String)\" data-throw-if-not-resolved=\"false\"></xref> dock the whole window on a guide drop.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockDropPreview.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockDropPreview.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockDropPreview",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockDropPreview.yml\" sourcestartlinenumber=\"1\">The landing rectangle drawn while a drag is over a guide or an auto-hide edge.\nThe default template fills <code>Dock.Guide</code> and draws no border.\nA host replaces the look with an implicit <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> or a new <xref href=\"System.Windows.Controls.Control.Template\" data-throw-if-not-resolved=\"false\"></xref>.\nThe rectangle itself is chosen in <code>SmartDock.Core</code>. The template only paints that rectangle.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockEdit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockEdit",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockEdit.yml\" sourcestartlinenumber=\"1\">Mutates a <xref href=\"SmartDock.DockLayout\" data-throw-if-not-resolved=\"false\"></xref>. Every successful structural edit leaves a layout that\n<xref href=\"SmartDock.DockSerializer.Validate(SmartDock.DockLayout)\" data-throw-if-not-resolved=\"false\"></xref> accepts. Empty groups are removed and single-child splits collapse,\nexcept an empty tab group that a hidden entry still names. That group stays, with its weight, as a restore anchor.\nProportions are weights. A side dock gives the incoming pane the supplied proportion of the anchor's area.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockEditResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockEditResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockEditResult",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockEditResult.yml\" sourcestartlinenumber=\"1\">Result of a layout edit. Refusals such as &quot;cannot close&quot; do not throw.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockGesturePhase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockGesturePhase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockGesturePhase",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockGesturePhase.yml\" sourcestartlinenumber=\"1\">Where a <xref href=\"SmartDock.DockDragSession\" data-throw-if-not-resolved=\"false\"></xref> is in its gesture.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockGuideButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockGuideButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockGuideButton",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockGuideButton.yml\" sourcestartlinenumber=\"1\">One compass slot or root-edge button. The default template paints the dock palette.\nA host replaces the look with an implicit <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> or a new <xref href=\"System.Windows.Controls.Control.Template\" data-throw-if-not-resolved=\"false\"></xref>.\nHit testing stays on the guide rectangle in <code>SmartDock.Core</code>. The template paints inside this control.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockGuides.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockGuides.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockGuides",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockGuides.yml\" sourcestartlinenumber=\"1\">Hit testing for dock guides. A compass is centered on the leaf under the pointer.\nFour buttons sit at the midpoints of the host edges and dock against the root.\nA point that is not on a button is not a target. The preview is a separate rect from\n<xref href=\"SmartDock.DockGuides.Landing(SmartDock.DockRect%2cSystem.ReadOnlySpan%7bSmartDock.NodeBounds%7d%2cSmartDock.DropGuide)\" data-throw-if-not-resolved=\"false\"></xref>, not the button. No allocations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockItem",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockItem.yml\" sourcestartlinenumber=\"1\">Bindable pane properties for one item in <xref href=\"SmartDock.DockManager.DocumentsSource\" data-throw-if-not-resolved=\"false\"></xref> or\n<xref href=\"SmartDock.DockManager.ToolsSource\" data-throw-if-not-resolved=\"false\"></xref>. A <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> assigned to\n<xref href=\"SmartDock.DockManager.DocumentItemStyle\" data-throw-if-not-resolved=\"false\"></xref> or <xref href=\"SmartDock.DockManager.ToolItemStyle\" data-throw-if-not-resolved=\"false\"></xref>\ntargets this type. Its setters bind against the item, which is the <xref href=\"System.Windows.FrameworkElement.DataContext\" data-throw-if-not-resolved=\"false\"></xref>.\nThe manager reads these values when the item enters the source and again when they change.\nThis element is not placed in the visual tree.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockKind",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockKind.yml\" sourcestartlinenumber=\"1\">Document panes live in the document well. Tool panes are tool windows and may auto-hide.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockLayout",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockLayout.yml\" sourcestartlinenumber=\"1\">The whole dock: a main tree, floating windows, auto-hide bars, and hidden panes.\nThe object is a plain tree. <xref href=\"SmartDock.DockEdit\" data-throw-if-not-resolved=\"false\"></xref> mutates it, <xref href=\"SmartDock.DockSerializer\" data-throw-if-not-resolved=\"false\"></xref> saves it,\nand the WPF <code>DockManager</code> turns it into controls. It is safe to build on any thread, and it is not\nsafe to mutate from two threads at once.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockLayoutException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockLayoutException.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockLayoutException",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockLayoutException.yml\" sourcestartlinenumber=\"1\">Invalid layout data, or a layout JSON document this version cannot read.\nEditing methods return <xref href=\"SmartDock.DockEditResult\" data-throw-if-not-resolved=\"false\"></xref> instead of throwing for ordinary refusals\nsuch as a missing pane or a disabled close.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockManager.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockManager",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockManager.yml\" sourcestartlinenumber=\"1\">Hosts a <xref href=\"SmartDock.DockLayout\" data-throw-if-not-resolved=\"false\"></xref>. Register content by id, assign <xref href=\"SmartDock.DockManager.Layout\" data-throw-if-not-resolved=\"false\"></xref>, and the control builds\nthe splits, tabs, floating windows, and auto-hide bars. Only the selected tab's content is in the tree.\nDrag a tab along its strip to reorder it, or off the strip to float it, then drop it on a guide to dock it.\nA tool, or a float of tools, can also drop on an auto-hide strip. Guides and the landing preview\nare drawn in a topmost overlay so the dragged window cannot cover them. Another float under the pointer\nshows that float's compass and edge guides; the topmost one wins, and the dragged window is skipped.\nA dock guide or that float wins where it overlaps an auto-hide hot zone. Documents are not an auto-hide target.\nThe same gesture is covered by the internal drag methods, which call <xref href=\"SmartDock.DockDragSession\" data-throw-if-not-resolved=\"false\"></xref> with coordinates and no mouse.\nCtrl+Tab switches panes. <xref href=\"SmartDock.DockCommands\" data-throw-if-not-resolved=\"false\"></xref> closes, cycles document tabs, and toggles float and auto-hide.\nWhen <xref href=\"SmartDock.DockManager.AnimationsEnabled\" data-throw-if-not-resolved=\"false\"></xref> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.\nThe auto-hide flyout is a child window so it paints above an <xref href=\"System.Windows.Interop.HwndHost\" data-throw-if-not-resolved=\"false\"></xref> pane. It opens and closes\nat its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.\n<xref href=\"SmartDock.DockManager.ResizeGripThickness\" data-throw-if-not-resolved=\"false\"></xref> is the hit zone of a splitter, a flyout edge, and a float's border.\n<xref href=\"SmartDock.DockManager.ResizeMode\" data-throw-if-not-resolved=\"false\"></xref> applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockMru.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockMru.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockMru",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockMru.yml\" sourcestartlinenumber=\"1\">Most-recently-activated pane order, and cycling of document tabs.\nIndex 0 is the pane activated last. The order is runtime state. It is not written to layout JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockNode",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockNode.yml\" sourcestartlinenumber=\"1\">A node in the dock tree. Either a <xref href=\"SmartDock.SplitNode\" data-throw-if-not-resolved=\"false\"></xref> or a <xref href=\"SmartDock.TabGroupNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPane.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPane",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPane.yml\" sourcestartlinenumber=\"1\">One piece of content in a layout. <xref href=\"SmartDock.DockPane.ContentId\" data-throw-if-not-resolved=\"false\"></xref> is the stable key an application uses\nto reconnect the pane to its control when a layout is restored. Ids are case-sensitive.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneClosingEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneClosingEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneClosingEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneClosingEventArgs.yml\" sourcestartlinenumber=\"1\">A pane that is about to close. Set <xref href=\"System.ComponentModel.CancelEventArgs.Cancel\" data-throw-if-not-resolved=\"false\"></xref> to keep it where it is.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneEventArgs.yml\" sourcestartlinenumber=\"1\">A pane identified by <xref href=\"SmartDock.DockPaneEventArgs.ContentId\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneState",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneState.yml\" sourcestartlinenumber=\"1\">Whether a pane is in the main tree, a floating window, an auto-hide strip, or hidden.\nThe first three match <xref href=\"SmartDock.PanelPlacement\" data-throw-if-not-resolved=\"false\"></xref>. <xref href=\"SmartDock.DockPaneState.Hidden\" data-throw-if-not-resolved=\"false\"></xref> is a pane kept in\n<xref href=\"SmartDock.DockLayout.Hidden\" data-throw-if-not-resolved=\"false\"></xref>, which is not a placement the host shows.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneStateChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneStateChange.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneStateChange",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneStateChange.yml\" sourcestartlinenumber=\"1\">One pane whose <xref href=\"SmartDock.DockPaneState\" data-throw-if-not-resolved=\"false\"></xref> differs between two layouts.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneStateEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneStateEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneStateEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneStateEventArgs.yml\" sourcestartlinenumber=\"1\">A pane moved between the main tree, a floating window, an auto-hide strip, and the hidden list.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockPaneStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockPaneStates.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockPaneStates",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockPaneStates.yml\" sourcestartlinenumber=\"1\">Reads pane states from a <xref href=\"SmartDock.DockLayout\" data-throw-if-not-resolved=\"false\"></xref> and diffs two snapshots.\nThe WPF host uses this where it raises layout notifications. Panes that exist only in the later\nsnapshot are new, not a state change. Panes missing from the later snapshot are reported as removed.\nA pane in <xref href=\"SmartDock.DockLayout.Hidden\" data-throw-if-not-resolved=\"false\"></xref> is <xref href=\"SmartDock.DockPaneState.Hidden\" data-throw-if-not-resolved=\"false\"></xref>, not removed.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockRect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockRect",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockRect.yml\" sourcestartlinenumber=\"1\">A rectangle in the same coordinate space the host uses for pointer positions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockResizeHit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockResizeHit.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockResizeHit",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockResizeHit.yml\" sourcestartlinenumber=\"1\">Which edge of a floating window a pointer is on. <xref href=\"SmartDock.DockResizeHit.None\" data-throw-if-not-resolved=\"false\"></xref> is the client area.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockResizeMath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockResizeMath.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockResizeMath",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockResizeMath.yml\" sourcestartlinenumber=\"1\">Grip thickness, splitter clamping, and floating-window edge tests.\nSizes are device-independent pixels. The WPF host paints and applies the result.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockResizeMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockResizeMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockResizeMode",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockResizeMode.yml\" sourcestartlinenumber=\"1\">Whether a splitter, a flyout edge, or a floating window resizes during the drag or on release.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockSerializer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockSerializer",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockSerializer.yml\" sourcestartlinenumber=\"1\">Compact versioned JSON. System.Text.Json source generation writes the tree directly, with no reflection\nand no extra package. Enums are lowercase strings and node kinds use a &quot;type&quot; discriminator (&quot;split&quot; or &quot;tabs&quot;).\nA document produced by <xref href=\"SmartDock.DockSerializer.Serialize(SmartDock.DockLayout)\" data-throw-if-not-resolved=\"false\"></xref> deserializes to an equal layout, including ids,\nweights, selection, floating bounds and maximized state, auto-hide entries, hidden panes, toolbar bands,\nand empty tab groups that a hidden entry names. An empty tab group with no such entry is rejected.\n<xref href=\"SmartDock.DockLayout.ToolBars\" data-throw-if-not-resolved=\"false\"></xref> is omitted when it is null, so a document written before toolbars existed stays the same bytes.\n<xref href=\"SmartDock.DockPane.HideOnClose\" data-throw-if-not-resolved=\"false\"></xref> and a hidden entry's restore fields are omitted when they are the default,\nso a document with no hidden panes stays byte-for-byte the same. Unknown version numbers are rejected.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockSide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockSide.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockSide",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockSide.yml\" sourcestartlinenumber=\"1\">Where a pane is docked relative to an anchor node.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockTabHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockTabHeader.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockTabHeader",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockTabHeader.yml\" sourcestartlinenumber=\"1\">One tab header. The default template paints the dock palette.\nA host replaces the look with an implicit <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> or a new <xref href=\"System.Windows.Controls.Control.Template\" data-throw-if-not-resolved=\"false\"></xref>.\nDrag, select, and close stay on this control. A template that omits a part has no such button.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockTarget.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockTarget.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockTarget",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockTarget.yml\" sourcestartlinenumber=\"1\">A window that can receive a dock drop. <xref href=\"SmartDock.DockTarget.WindowId\" data-throw-if-not-resolved=\"false\"></xref> is empty for the main host.\nA larger <xref href=\"SmartDock.DockTarget.ZOrder\" data-throw-if-not-resolved=\"false\"></xref> is painted above a smaller one. <xref href=\"SmartDock.DockTarget.RootId\" data-throw-if-not-resolved=\"false\"></xref> is the node\nedge guides dock against.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockTargets.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockTargets.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockTargets",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockTargets.yml\" sourcestartlinenumber=\"1\">Picks the dock window under a pointer. The topmost window that contains the point wins.\nThe dragged window is skipped. No allocations.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockTheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockTheme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockTheme",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockTheme.yml\" sourcestartlinenumber=\"1\">Dock colors. The static brushes are the dark palette and stay the instances they have always been.\nChrome, floats, guides, the switcher, and menus paint with resource keys, so\n<xref href=\"SmartDock.DockTheme.Apply(System.Windows.FrameworkElement%2cSmartDock.DockThemeKind)\" data-throw-if-not-resolved=\"false\"></xref> can replace those brushes and open windows repaint.\n<xref href=\"SmartDock.DockTheme.CreateMenuResources\" data-throw-if-not-resolved=\"false\"></xref> is the opt-in menu and context menu. Nothing merges it on its own.\n<xref href=\"SmartDock.DockTheme.CreateScrollBarResources\" data-throw-if-not-resolved=\"false\"></xref> is the scrollbar, tooltip, and focus visual. The dock manager,\neach float, and the switcher merge it themselves. A host merges another copy for bars outside the dock.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockThemeKind.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockThemeKind.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockThemeKind",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockThemeKind.yml\" sourcestartlinenumber=\"1\">Dark, light, or blue dock chrome. Dark is the default.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBar.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBar",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBar.yml\" sourcestartlinenumber=\"1\">Attached properties for a <xref href=\"System.Windows.Controls.ToolBar\" data-throw-if-not-resolved=\"false\"></xref> placed in <xref href=\"SmartDock.DockManager.ToolBars\" data-throw-if-not-resolved=\"false\"></xref>.\nA toolbar created from <xref href=\"SmartDock.DockManager.ToolBarsSource\" data-throw-if-not-resolved=\"false\"></xref> reads the same values from\n<xref href=\"SmartDock.DockToolBarItem\" data-throw-if-not-resolved=\"false\"></xref> instead. <xref href=\"SmartDock.DockToolBar.KeyProperty\" data-throw-if-not-resolved=\"false\"></xref> identifies one button.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarCaption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarCaption.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarCaption",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarCaption.yml\" sourcestartlinenumber=\"1\">Caption of a floating toolbar. <code>PART_Grip</code> drags and double-clicks to dock.\n<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <xref href=\"SmartDock.DockToolBarCaption.Title\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarCustomize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarCustomize.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarCustomize",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarCustomize.yml\" sourcestartlinenumber=\"1\">Chevron that opens the Add or Remove Buttons menu. The default template strokes <code>Dock.Text</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarDrop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarDrop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarDrop",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarDrop.yml\" sourcestartlinenumber=\"1\">The line drawn while a toolbar is dragged over a band or an edge.\nThe default template fills <code>Dock.Accent</code>. The control does not take the pointer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarGrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarGrip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarGrip",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarGrip.yml\" sourcestartlinenumber=\"1\">The grip drawn at the leading edge of a toolbar. Drag it to move the toolbar.\nLeaving the tray undocks it into a floating window while the button is still held.\nDouble-click docks a floating toolbar back to the band it left.\nThe default template paints three dots with <code>Dock.Muted</code> on <code>Dock.Chrome</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarItem",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarItem.yml\" sourcestartlinenumber=\"1\">Bindable properties for one toolbar in <xref href=\"SmartDock.DockManager.ToolBarsSource\" data-throw-if-not-resolved=\"false\"></xref>.\nA <xref href=\"System.Windows.Style\" data-throw-if-not-resolved=\"false\"></xref> assigned to <xref href=\"SmartDock.DockManager.ToolBarItemStyle\" data-throw-if-not-resolved=\"false\"></xref> targets this type.\nIts setters bind against the item, which is the <xref href=\"System.Windows.FrameworkElement.DataContext\" data-throw-if-not-resolved=\"false\"></xref>.\nThe manager reads these values when the toolbar enters the source and again when they change.\nThis element is not placed in the visual tree.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockToolBarTray.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockToolBarTray.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockToolBarTray",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarTray.yml\" sourcestartlinenumber=\"1\">One edge of the dock that hosts toolbar bands. The template's <code>PART_Bands</code> panel\nreceives one child per band. The default template fills <code>Dock.Chrome</code>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockTree.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockTree.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockTree",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockTree.yml\" sourcestartlinenumber=\"1\">Short constructors for a layout tree. The same tree can be built with object initializers or XAML.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DragPointer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DragPointer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DragPointer",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DragPointer.yml\" sourcestartlinenumber=\"1\">Reused pointer state for <xref href=\"SmartDock.DockDragSession\" data-throw-if-not-resolved=\"false\"></xref>. Fill <xref href=\"SmartDock.DragPointer.Leaves\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.DragPointer.Headers\" data-throw-if-not-resolved=\"false\"></xref>\nin place so a drag move does not allocate those lists.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DragStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DragStep.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DragStep",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DragStep.yml\" sourcestartlinenumber=\"1\">What a drag update did to the layout. Structure changes need a view rebuild; a follow only moves a window.\n<xref href=\"SmartDock.DragStep.TabsMoved\" data-throw-if-not-resolved=\"false\"></xref> means the dragged tab changed slots. The host redraws that strip and does not publish yet.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DropGuide.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DropGuide.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DropGuide",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DropGuide.yml\" sourcestartlinenumber=\"1\">A dock target. Root-edge buttons dock against the whole host; other buttons dock against one leaf.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.FloatWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.FloatWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.FloatWindow",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.FloatWindow.yml\" sourcestartlinenumber=\"1\">A floating window. Coordinates are device-independent pixels.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.HiddenEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.HiddenEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.HiddenEntry",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.HiddenEntry.yml\" sourcestartlinenumber=\"1\">A pane <xref href=\"SmartDock.DockEdit.Hide(SmartDock.DockLayout%2cSystem.String)\" data-throw-if-not-resolved=\"false\"></xref> took out of the tree, plus the place <xref href=\"SmartDock.DockEdit.Show(SmartDock.DockLayout%2cSystem.String)\" data-throw-if-not-resolved=\"false\"></xref> returns it to.\nDefault place fields are omitted from JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.LayoutMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.LayoutMap.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.LayoutMap",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.LayoutMap.yml\" sourcestartlinenumber=\"1\">Resolves a layout to content ids. Pass the ids the application can create and the map reports which saved panes\nhave no factory (<xref href=\"SmartDock.LayoutMap.MissingContentIds\" data-throw-if-not-resolved=\"false\"></xref>) and which factories the layout does not use (<xref href=\"SmartDock.LayoutMap.UnplacedContentIds\" data-throw-if-not-resolved=\"false\"></xref>).\nBoth of those lists are sorted. <xref href=\"SmartDock.LayoutMap.Panels\" data-throw-if-not-resolved=\"false\"></xref> follows the visible tree: main, then floating windows, then auto-hide edges.\nHidden panes are not listed. A known id that is only hidden is not unplaced. An unknown hidden id is missing.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.NodeBounds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.NodeBounds.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.NodeBounds",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.NodeBounds.yml\" sourcestartlinenumber=\"1\">Bounds of a leaf tab group, supplied by the view.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.PaneLocation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.PaneLocation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.PaneLocation",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.PaneLocation.yml\" sourcestartlinenumber=\"1\">Where a pane currently lives. Group is null for auto-hidden panes.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.PanelPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.PanelPlacement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.PanelPlacement",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.PanelPlacement.yml\" sourcestartlinenumber=\"1\">Where a pane sits after a layout is applied.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.PlacedPanel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.PlacedPanel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.PlacedPanel",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.PlacedPanel.yml\" sourcestartlinenumber=\"1\">A pane located by <xref href=\"SmartDock.LayoutMap.Build(SmartDock.DockLayout%2cSystem.Collections.Generic.ISet%7bSystem.String%7d)\" data-throw-if-not-resolved=\"false\"></xref> so a host can reattach content by <xref href=\"SmartDock.DockPane.ContentId\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ScreenDip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ScreenDip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ScreenDip",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ScreenDip.yml\" sourcestartlinenumber=\"1\">A point in device-independent pixels (1/96 inch), the units stored on a <xref href=\"SmartDock.FloatWindow\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.SplitChild.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.SplitChild.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.SplitChild",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.SplitChild.yml\" sourcestartlinenumber=\"1\">One cell of a <xref href=\"SmartDock.SplitNode\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.SplitNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.SplitNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.SplitNode",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.SplitNode.yml\" sourcestartlinenumber=\"1\">A resizable split. Proportions are positive weights, not required to sum to 1.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.SplitOrientation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.SplitOrientation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.SplitOrientation",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.SplitOrientation.yml\" sourcestartlinenumber=\"1\">Children of a horizontal split sit left to right. A vertical split stacks them top to bottom.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.TabGroupNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.TabGroupNode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.TabGroupNode",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.TabGroupNode.yml\" sourcestartlinenumber=\"1\">A tabbed group of panes. The selected index is part of the saved layout.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.TabPlacement.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.TabPlacement.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.TabPlacement",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.TabPlacement.yml\" sourcestartlinenumber=\"1\">Which edge of a tab group draws the tab strip.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.TabStrip.Header.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.TabStrip.Header.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.TabStrip.Header",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.TabStrip.Header.yml\" sourcestartlinenumber=\"1\">One header along the strip. <xref href=\"SmartDock.TabStrip.Header.Index\" data-throw-if-not-resolved=\"false\"></xref> is the pane's index in its group.\nA negative index means this list is the whole group in order, and the list position is the model index.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.TabStrip.Range.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.TabStrip.Range.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.TabStrip.Range",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.TabStrip.Range.yml\" sourcestartlinenumber=\"1\">Contiguous headers that fit in a strip. <xref href=\"SmartDock.TabStrip.Range.First\" data-throw-if-not-resolved=\"false\"></xref> is the model index of the leftmost one.\n<xref href=\"SmartDock.TabStrip.Range.Overflow\" data-throw-if-not-resolved=\"false\"></xref> is true when at least one header is hidden.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.TabStrip.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.TabStrip.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.TabStrip",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.TabStrip.yml\" sourcestartlinenumber=\"1\">Header geometry for a tab strip, in the same coordinates as the pointer.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarAlignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarAlignment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarAlignment",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarAlignment.yml\" sourcestartlinenumber=\"1\">Which end of a band a toolbar packs against.\n<xref href=\"SmartDock.ToolBarAlignment.Start\" data-throw-if-not-resolved=\"false\"></xref> is the left of a horizontal band and the top of a vertical one.\n<xref href=\"SmartDock.ToolBarAlignment.End\" data-throw-if-not-resolved=\"false\"></xref> is the right of a horizontal band and the bottom of a vertical one.\n<xref href=\"SmartDock.ToolBarAlignment.Start\" data-throw-if-not-resolved=\"false\"></xref> is the default and is omitted from JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarBandRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarBandRect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarBandRect",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarBandRect.yml\" sourcestartlinenumber=\"1\">Arranged bounds of one band. Bands on an edge are passed in band order.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarBands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarBands.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarBands",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarBands.yml\" sourcestartlinenumber=\"1\">Hit testing and placement for toolbar bands. The host measures the trays and passes the rectangles.\n<xref href=\"SmartDock.ToolBarBands.Hit(SmartDock.DockRect%2cSystem.String%2cSystem.ReadOnlySpan%7bSmartDock.ToolBarBarRect%7d%2cSystem.ReadOnlySpan%7bSmartDock.ToolBarBandRect%7d%2cSystem.ReadOnlySpan%7bSmartDock.ToolBarTrayRect%7d%2cSystem.Double%2cSystem.Double%2cSystem.String%2cSystem.String)\" data-throw-if-not-resolved=\"false\"></xref> does not allocate.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarBarRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarBarRect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarBarRect",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarBarRect.yml\" sourcestartlinenumber=\"1\">Arranged bounds of one docked toolbar, in the same coordinates as the pointer.\n<code class=\"paramref\">PaneId</code> and <code class=\"paramref\">WindowId</code> are empty for a main-window tray.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarCustomizationChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarCustomizationChange.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarCustomizationChange",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarCustomizationChange.yml\" sourcestartlinenumber=\"1\">What changed in a toolbar or in its buttons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarCustomizationEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarCustomizationEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarCustomizationEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarCustomizationEventArgs.yml\" sourcestartlinenumber=\"1\">The toolbar and button a customization change refers to.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarDrag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarDrag.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarDrag",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarDrag.yml\" sourcestartlinenumber=\"1\">Along-axis offsets that open a gap while a toolbar button is dragged.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarDrop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarDrop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarDrop",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarDrop.yml\" sourcestartlinenumber=\"1\">A drop target. <xref href=\"SmartDock.ToolBarDrop.Float\" data-throw-if-not-resolved=\"false\"></xref> tears the toolbar off. <xref href=\"SmartDock.ToolBarDrop.InsertBand\" data-throw-if-not-resolved=\"false\"></xref> opens a new band\nand shifts bands at <xref href=\"SmartDock.ToolBarDrop.Band\" data-throw-if-not-resolved=\"false\"></xref> and after it. <xref href=\"SmartDock.ToolBarDrop.Indicator\" data-throw-if-not-resolved=\"false\"></xref> is the line to draw.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarEdge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarEdge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarEdge",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarEdge.yml\" sourcestartlinenumber=\"1\">Which edge of the dock hosts a toolbar band. A floating toolbar keeps the edge it left.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarEntry",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarEntry.yml\" sourcestartlinenumber=\"1\">Where one toolbar sits. <xref href=\"SmartDock.ToolBarEntry.Edge\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"SmartDock.ToolBarEntry.Band\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"SmartDock.ToolBarEntry.Index\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"SmartDock.ToolBarEntry.Offset\" data-throw-if-not-resolved=\"false\"></xref>\nstay the last docked place while <xref href=\"SmartDock.ToolBarEntry.Floating\" data-throw-if-not-resolved=\"false\"></xref> is set, so a double-click can put it back.\n<xref href=\"SmartDock.ToolBarEntry.PaneId\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarEntry.WindowId\" data-throw-if-not-resolved=\"false\"></xref> name the pane or floating window that hosts it.\nBoth null is the main window. Default values are omitted from JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarItemEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarItemEntry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarItemEntry",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarItemEntry.yml\" sourcestartlinenumber=\"1\">One customized button. <xref href=\"SmartDock.ToolBarItemEntry.Key\" data-throw-if-not-resolved=\"false\"></xref> is the host's item key.\n<xref href=\"SmartDock.ToolBarItemEntry.HomeId\" data-throw-if-not-resolved=\"false\"></xref> is the toolbar whose collection owns the item; null means <xref href=\"SmartDock.ToolBarItemEntry.BarId\" data-throw-if-not-resolved=\"false\"></xref>.\nItems with no entry stay in collection order on their own toolbar.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarItemRef.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarItemRef.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarItemRef",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarItemRef.yml\" sourcestartlinenumber=\"1\">An item as the host collection currently holds it.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarItems.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarItems.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarItems",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarItems.yml\" sourcestartlinenumber=\"1\">Ordering and visibility overlay for toolbar buttons. The host collection is not modified.\nAn item with no entry stays on its own toolbar. A new item is inserted after the nearest\npreceding collection neighbor that is still on that toolbar. Unknown keys are ignored.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarLayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarLayout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarLayout",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarLayout.yml\" sourcestartlinenumber=\"1\">Toolbar bands and button customization stored with a <xref href=\"SmartDock.DockLayout\" data-throw-if-not-resolved=\"false\"></xref>.\nNull on the layout, and omitted from JSON, when the host has no toolbar state.\nA document written before toolbars existed has no <code>toolBars</code> object and still loads.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarPackItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarPackItem.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarPackItem",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarPackItem.yml\" sourcestartlinenumber=\"1\">One toolbar to place in a band. <xref href=\"SmartDock.ToolBarPackItem.Offset\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarPackItem.Size\" data-throw-if-not-resolved=\"false\"></xref> are along the band.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarSite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarSite.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarSite",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarSite.yml\" sourcestartlinenumber=\"1\">One place a toolbar can dock. An empty <xref href=\"SmartDock.ToolBarSite.PaneId\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarSite.WindowId\" data-throw-if-not-resolved=\"false\"></xref> is the main window.\nA pane id is that pane's content. A window id is a floating window's id.\nA window with a larger <xref href=\"SmartDock.ToolBarSite.ZOrder\" data-throw-if-not-resolved=\"false\"></xref> is painted above one with a smaller value.\n<xref href=\"SmartDock.ToolBarSite.OwnerId\" data-throw-if-not-resolved=\"false\"></xref> is the window that shows a pane: empty for the main window, else a floating window's id.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarSlot.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarSlot",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarSlot.yml\" sourcestartlinenumber=\"1\">One slot in a toolbar after the customization overlay is applied. Hidden slots stay in the list.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarTrayRect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarTrayRect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarTrayRect",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarTrayRect.yml\" sourcestartlinenumber=\"1\">Arranged bounds of one edge tray.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.WorkAreas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.WorkAreas.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.WorkAreas",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.WorkAreas.yml\" sourcestartlinenumber=\"1\">Places a floating window that lies entirely outside every monitor onto the nearest work area.\nA window that intersects any work area is left where it is. Coordinates are device-independent pixels,\nthe same space as <xref href=\"SmartDock.FloatWindow\" data-throw-if-not-resolved=\"false\"></xref> bounds.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/generated/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/generated/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/events.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/events.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/keyboard.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/keyboard.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/layout.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/saving-layouts.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/saving-layouts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/themes.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/themes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/toolbars.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toolbars.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

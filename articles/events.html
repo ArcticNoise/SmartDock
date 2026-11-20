@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Events and callbacks | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Events and callbacks | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="events-and-callbacks">Events and callbacks</h1>
+
+<p>All events are on <code>DockManager</code>. This handler set cancels closing the &quot;readme&quot; pane and records the rest:</p>
+<pre><code class="lang-csharp">public static string? Last { get; private set; }
+
+public static void Watch(DockManager dock)
+{
+    dock.PaneClosing += (_, e) =&gt;
+    {
+        if (e.ContentId == &quot;readme&quot;)
+            e.Cancel = true;
+    };
+    dock.PaneClosed += (_, e) =&gt; Last = e.ContentId;
+    dock.PaneStateChanged += (_, e) =&gt; Last = e.NewState.ToString();
+    dock.ActivePaneChanged += (_, e) =&gt; Last = e.NewContentId;
+    dock.PaneMounted += (_, e) =&gt; Last = e.ContentId;
+    dock.PaneUnmounted += (_, e) =&gt; Last = e.ContentId;
+    dock.LayoutChanged += (_, _) =&gt; Last = &quot;layout&quot;;
+    dock.ToolBarCustomizationChanged += (_, e) =&gt; Last = e.ToolBarId;
+}
+</code></pre>
+<h2 id="layoutchanged">LayoutChanged</h2>
+<p>Fires after a structural edit, a tab selection change, or a splitter move. Use it to know when to save. Reordering a tab by dragging fires it once, on release. Tearing a pane off into a float fires it as soon as the pane leaves its group. Moving a floating window does not fire it, and neither does a close that a <code>PaneClosing</code> handler cancelled.</p>
+<h2 id="paneclosing-and-paneclosed">PaneClosing and PaneClosed</h2>
+<p><code>PaneClosing</code> fires before a pane is removed, with <code>ContentId</code> and <code>Cancel</code>. Set <code>Cancel</code> to keep the pane; the layout stays as it was and <code>LayoutChanged</code> does not fire. This is where you ask about unsaved changes.</p>
+<p>It fires for the tab close button, the flyout close button, <code>ClosePane</code> (and so Ctrl+F4), and for a floating window's close button, Alt+F4, or <code>Window.Close</code>. Closing a floating window fires it once for each pane that can close; if any handler cancels, the window stays open and nothing closes. Panes in that window that can't close are docked back without the event, unless they have <code>HideOnClose</code>.</p>
+<p>A pane with <code>HideOnClose</code> still gets <code>PaneClosing</code> from the same buttons and from <code>ClosePane</code>, but is then hidden rather than removed, so <code>PaneClosed</code> does not fire.</p>
+<p><code>PaneClosed</code> fires after a user close has removed the pane. It does not fire when <code>Layout</code> is replaced (including <code>LoadLayout</code>), or for <code>RemovePane</code>, <code>HidePane</code>, <code>ShowPane</code>, or <code>EditLayout</code>; those report <code>PaneStateChanged</code> instead. Closing the host window doesn't fire <code>PaneClosing</code>; it only dismisses the floating windows.</p>
+<h2 id="panestatechanged">PaneStateChanged</h2>
+<p>Fires when a pane moves between <code>Docked</code>, <code>Floating</code>, <code>AutoHidden</code>, and <code>Hidden</code>, with <code>ContentId</code>, <code>OldState</code>, and <code>NewState</code>. Replacing <code>Layout</code> fires it for every pane whose state changed.</p>
+<p>The state says where the pane is in the layout, not whether its content is on screen. A docked pane in an unselected tab, an auto-hidden pane with its flyout closed, or a float that hasn't placed its content yet has no content in a host. Use <code>PaneMounted</code> and <code>PaneUnmounted</code> for that.</p>
+<h2 id="activepanechanged">ActivePaneChanged</h2>
+<p>Fires when <code>ActiveContentId</code> changes. <code>OldContentId</code> or <code>NewContentId</code> is null when there was, or is, no active pane. The active pane is the one whose tab was selected last or whose content last got keyboard focus.</p>
+<p>To activate a pane from code, call <code>ActivatePane</code>. It selects the tab of a docked or floating pane, opens an auto-hidden pane's flyout, and shows a hidden pane first. An unknown id does nothing.</p>
+<h2 id="panemounted-and-paneunmounted">PaneMounted and PaneUnmounted</h2>
+<p><code>PaneMounted</code> fires after a pane's content element has been put in a host: the selected tab of a docked group, a floating window, or an open flyout. <code>PaneUnmounted</code> fires after it has been taken out again. The two always alternate for a given content id.</p>
+<p>Moving content to a different host fires <code>PaneUnmounted</code>, then <code>PaneMounted</code>. If the element stays in the same parent, neither fires, so changing a title or icon doesn't. A selected pane stays mounted as long as its group's view is kept.</p>
+<h2 id="toolbarcustomizationchanged">ToolBarCustomizationChanged</h2>
+<p>Fires after a toolbar button is reordered, moved, hidden, shown, or reset, and when a toolbar is shown or hidden. See <a href="toolbars.html">Toolbars</a>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

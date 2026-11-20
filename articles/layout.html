@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Layout | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Layout | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="layout">Layout</h1>
+
+<p>A <code>DockLayout</code> holds the main tree, the floating windows, four auto-hide strips, and any hidden panes. You change it with <code>DockEdit</code>. Each call returns a <code>DockEditResult</code> instead of throwing: a refused edit leaves the tree as it was, and a tree produced by a successful structural edit is valid to save.</p>
+<h2 id="splits-and-tabs">Splits and tabs</h2>
+<p>You can build the tree in code or declare it in XAML. In XAML you need two prefixes: the controls live in the SmartDock assembly and the model types in SmartDock.Core, both under the <code>SmartDock</code> namespace.</p>
+<p>Factories still have to be registered before <code>Layout</code> is set. <code>DockManager</code> is sealed, so you can't do that in a subclass constructor. This sample uses an attached property instead: XAML applies attributes on the start tag before property elements, so <code>Prepare</code> runs before the <code>Layout</code> element is assigned.</p>
+<pre><code class="lang-csharp">using System.Windows;
+using System.Windows.Controls;
+
+namespace SmartDock.Docs.Samples;
+
+public static class SampleContent
+{
+    public static readonly DependencyProperty PrepareProperty = DependencyProperty.RegisterAttached(
+        &quot;Prepare&quot;,
+        typeof(bool),
+        typeof(SampleContent),
+        new PropertyMetadata(false, OnPrepare));
+
+    public static void SetPrepare(DependencyObject element, bool value) =&gt; element.SetValue(PrepareProperty, value);
+
+    public static bool GetPrepare(DependencyObject element) =&gt; (bool)element.GetValue(PrepareProperty);
+
+    private static void OnPrepare(DependencyObject element, DependencyPropertyChangedEventArgs args)
+    {
+        if (element is not DockManager dock || args.NewValue is not true)
+            return;
+
+        dock.RegisterContent(&quot;solution&quot;, () =&gt; new TreeView());
+        dock.RegisterContent(&quot;properties&quot;, () =&gt; new TextBox());
+        dock.RegisterContent(&quot;program&quot;, () =&gt; new TextBox());
+        dock.RegisterContent(&quot;readme&quot;, () =&gt; new TextBox());
+    }
+}
+</code></pre>
+<pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.LayoutWindow&quot;
+        xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+        xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
+        xmlns:dock=&quot;clr-namespace:SmartDock;assembly=SmartDock&quot;
+        xmlns:local=&quot;clr-namespace:SmartDock.Docs.Samples&quot;
+        xmlns:model=&quot;clr-namespace:SmartDock;assembly=SmartDock.Core&quot;
+        Title=&quot;SmartDock&quot;
+        Height=&quot;640&quot;
+        Width=&quot;960&quot;&gt;
+  &lt;dock:DockManager local:SampleContent.Prepare=&quot;True&quot;&gt;
+    &lt;dock:DockManager.Layout&gt;
+      &lt;model:DockLayout&gt;
+        &lt;model:DockLayout.Root&gt;
+          &lt;model:SplitNode Id=&quot;root&quot; Orientation=&quot;Horizontal&quot;&gt;
+            &lt;model:SplitNode.Children&gt;
+              &lt;model:SplitChild Proportion=&quot;0.25&quot;&gt;
+                &lt;model:SplitChild.Node&gt;
+                  &lt;model:TabGroupNode Id=&quot;tools&quot; Kind=&quot;Tool&quot;&gt;
+                    &lt;model:TabGroupNode.Panels&gt;
+                      &lt;model:DockPane ContentId=&quot;solution&quot; Title=&quot;Solution Explorer&quot; Kind=&quot;Tool&quot; CanClose=&quot;False&quot; CanAutoHide=&quot;True&quot; /&gt;
+                      &lt;model:DockPane ContentId=&quot;properties&quot; Title=&quot;Properties&quot; Kind=&quot;Tool&quot; /&gt;
+                    &lt;/model:TabGroupNode.Panels&gt;
+                  &lt;/model:TabGroupNode&gt;
+                &lt;/model:SplitChild.Node&gt;
+              &lt;/model:SplitChild&gt;
+              &lt;model:SplitChild Proportion=&quot;0.75&quot;&gt;
+                &lt;model:SplitChild.Node&gt;
+                  &lt;model:TabGroupNode Id=&quot;docs&quot; Kind=&quot;Document&quot;&gt;
+                    &lt;model:TabGroupNode.Panels&gt;
+                      &lt;model:DockPane ContentId=&quot;program&quot; Title=&quot;Program.cs&quot; /&gt;
+                      &lt;model:DockPane ContentId=&quot;readme&quot; Title=&quot;README.md&quot; /&gt;
+                    &lt;/model:TabGroupNode.Panels&gt;
+                  &lt;/model:TabGroupNode&gt;
+                &lt;/model:SplitChild.Node&gt;
+              &lt;/model:SplitChild&gt;
+            &lt;/model:SplitNode.Children&gt;
+          &lt;/model:SplitNode&gt;
+        &lt;/model:DockLayout.Root&gt;
+      &lt;/model:DockLayout&gt;
+    &lt;/dock:DockManager.Layout&gt;
+  &lt;/dock:DockManager&gt;
+&lt;/Window&gt;
+</code></pre>
+<p><code>Proportion</code> is a positive weight. The weights don't need to add up to 1. A tool pane can auto-hide only when <code>CanAutoHide</code> is true. <code>DockTree.Tool</code> sets it for you, but a <code>DockPane</code> declared in XAML leaves it false unless you set it.</p>
+<p><code>TabGroupNode.SelectedIndex</code> is the selected tab, and it is saved with the layout. <code>DockManager.TabPlacement</code> (tool groups) and <code>DocumentTabPlacement</code> (document groups) put the tab strip above or below the content. Both default to <code>Top</code>.</p>
+<p>The same tree in code:</p>
+<pre><code class="lang-csharp">public static DockLayout Build()
+{
+    return DockTree.Create(DockTree.Split(&quot;root&quot;, SplitOrientation.Horizontal,
+        DockTree.Weighted(0.25, DockTree.Tabs(&quot;tools&quot;, DockKind.Tool,
+            DockTree.Tool(&quot;solution&quot;, &quot;Solution Explorer&quot;, canClose: false),
+            DockTree.Tool(&quot;properties&quot;, &quot;Properties&quot;))),
+        DockTree.Weighted(0.75, DockTree.Tabs(&quot;docs&quot;, DockKind.Document,
+            DockTree.Document(&quot;program&quot;, &quot;Program.cs&quot;),
+            DockTree.Document(&quot;readme&quot;, &quot;README.md&quot;)))));
+}
+</code></pre>
+<h2 id="docking">Docking</h2>
+<p><code>DockEdit.Dock</code> moves a pane that is already in the layout. <code>DockSide.Left</code>, <code>Right</code>, <code>Top</code>, and <code>Bottom</code> split the anchor and give the pane <code>DockEdit.DefaultProportion</code> (0.25) unless you pass another weight. <code>DockSide.Center</code> adds the pane as a tab, so the anchor has to be a tab group.</p>
+<p>On a live manager, call <code>DockManager.DockPaneTo</code>. It runs the same edit and raises <code>LayoutChanged</code> if the tree changed.</p>
+<h2 id="floating-windows">Floating windows</h2>
+<p><code>DockEdit.Float</code> takes a pane out of the tree and puts it in a new floating window at the bounds you pass, in device-independent pixels. <code>DockEdit.DockBack</code> puts it back: into the tab group it came from if that group still exists, otherwise into the first main-tree group of the same kind, otherwise into a new group on the right.</p>
+<p>A floating window can be saved maximized. Its x, y, width, and height are then the restored bounds, not the maximized ones.</p>
+<p><code>DockManager.FloatPane</code> and <code>DockManager.DockBackPane</code> do the same on a live manager.</p>
+<p>A floating window draws its own caption. Drag the caption to move the window, or drop it on a guide to dock the whole window. Double-clicking the caption docks the selected pane back if its previous group is still in the main tree, and maximizes the window otherwise.</p>
+<h2 id="auto-hide">Auto-hide</h2>
+<p><code>DockEdit.AutoHide</code> moves a tool onto an auto-hide strip on one edge of the dock root. The pane must have <code>CanAutoHide</code> set. <code>DockEdit.Pin</code> docks it back. A new auto-hide entry gets a flyout size of 240 device-independent pixels.</p>
+<pre><code class="lang-csharp">public static void Move(DockLayout layout)
+{
+    DockEdit.Dock(layout, &quot;readme&quot;, &quot;docs&quot;, DockSide.Right);
+    DockEdit.Float(layout, &quot;readme&quot;, 80, 60, 480, 320);
+    DockEdit.DockBack(layout, &quot;readme&quot;);
+    DockEdit.AutoHide(layout, &quot;solution&quot;, AutoHideEdge.Left);
+    DockEdit.Pin(layout, &quot;solution&quot;);
+    DockEdit.Select(layout, &quot;program&quot;);
+}
+</code></pre>
+<p><code>DockManager.AutoHidePane</code> and <code>DockManager.PinPane</code> do the same on a live manager. The flyout is a native child window of the dock, so it paints above <code>HwndHost</code> content in other panes. Because it is a separate window, it opens at full size instead of sliding in.</p>
+<h2 id="drag-and-drop-guides">Drag and drop guides</h2>
+<p>Drag a tab along its strip to reorder it. Drag it off the strip to float the pane, then release over a guide to dock it.</p>
+<p>While you drag, the dock shows a compass over the tab group under the pointer and one button at the middle of each edge of the host.</p>
+<ul>
+<li>A compass side button splits that leaf in half. The preview shows the same slice the drop inserts.</li>
+<li>The compass center button adds the pane as a tab of that group.</li>
+<li>An edge button docks against the root and takes one quarter of the host.</li>
+<li>A root-edge button wins when it overlaps the compass.</li>
+<li>A tool, or a float made of tools, can also drop on an auto-hide strip. A document has no auto-hide target.</li>
+<li>When the pointer is over another floating window, that window's compass and edge buttons are shown. The topmost window wins, and the window being dragged is skipped.</li>
+</ul>
+<p>Guides and the drop preview are drawn in a topmost overlay, so the window you drag never covers them.</p>
+<p>Dropping a single torn-off pane calls <code>DockEdit.Dock</code>. Dropping a whole window calls <code>DockEdit.DockWindow</code>: a side button keeps the window's tree as it is, and the center button appends its panes to the target group.</p>
+<h2 id="hide-and-show">Hide and show</h2>
+<p><code>DockEdit.Hide</code> takes a pane out of the tree and stores it on <code>DockLayout.Hidden</code>, along with the place <code>DockEdit.Show</code> puts it back. Hiding works even when <code>CanClose</code> is false. A hidden pane isn't drawn and doesn't appear in the Ctrl+Tab switcher. On a live manager, use <code>DockManager.HidePane</code> and <code>DockManager.ShowPane</code>. <a href="events.html">Events and callbacks</a> lists the events a hide raises.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

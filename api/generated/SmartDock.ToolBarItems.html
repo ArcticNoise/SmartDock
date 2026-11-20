@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class ToolBarItems | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class ToolBarItems | SmartDock ">
+      
+      <meta name="description" content="Ordering and visibility overlay for toolbar buttons. The host collection is not modified. An item with no entry stays on its own toolbar. A new item is inserted after the nearest preceding collection neighbor that is still on that toolbar. Unknown keys are ignored.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.ToolBarItems">
+
+
+
+  <h1 id="SmartDock_ToolBarItems" data-uid="SmartDock.ToolBarItems" class="text-break">
+Class ToolBarItems  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Ordering and visibility overlay for toolbar buttons. The host collection is not modified.
+An item with no entry stays on its own toolbar. A new item is inserted after the nearest
+preceding collection neighbor that is still on that toolbar. Unknown keys are ignored.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ToolBarItems</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">ToolBarItems</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_ToolBarItems_Hide_" data-uid="SmartDock.ToolBarItems.Hide*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_Hide_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_String_System_String_System_Boolean_" data-uid="SmartDock.ToolBarItems.Hide(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.String,System.String,System.Boolean)">
+  Hide(List&lt;ToolBarItemEntry&gt;, IReadOnlyList&lt;ToolBarItemRef&gt;, string, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the hidden flag of <code class="paramref">key</code> on <code class="paramref">barId</code> in the customization overlay.
+An unknown key returns without a change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Hide(List&lt;ToolBarItemEntry&gt; entries, IReadOnlyList&lt;ToolBarItemRef&gt; natural, string barId, string key, bool hidden)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>natural</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemRef.html">ToolBarItemRef</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>barId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>hidden</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_Move_" data-uid="SmartDock.ToolBarItems.Move*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_Move_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_String_System_String_System_String_System_Int32_" data-uid="SmartDock.ToolBarItems.Move(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.String,System.String,System.String,System.Int32)">
+  Move(List&lt;ToolBarItemEntry&gt;, IReadOnlyList&lt;ToolBarItemRef&gt;, string, string, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves <code class="paramref">key</code> from <code class="paramref">fromBar</code> onto <code class="paramref">toBar</code> at <code class="paramref">index</code>
+in the customization overlay. The host collections are not edited. An unknown key or an empty destination returns without a change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Move(List&lt;ToolBarItemEntry&gt; entries, IReadOnlyList&lt;ToolBarItemRef&gt; natural, string fromBar, string key, string toBar, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>natural</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemRef.html">ToolBarItemRef</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>fromBar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>toBar</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_Project_" data-uid="SmartDock.ToolBarItems.Project*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_Project_System_String_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_Collections_Generic_List_SmartDock_ToolBarSlot__" data-uid="SmartDock.ToolBarItems.Project(System.String,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.Collections.Generic.List{SmartDock.ToolBarSlot})">
+  Project(string, IReadOnlyList&lt;ToolBarItemRef&gt;, IReadOnlyList&lt;ToolBarItemEntry&gt;?, List&lt;ToolBarSlot&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears <code class="paramref">result</code> and fills it with the slots of <code class="paramref">barId</code>.
+Customized items come first, in <a class="xref" href="SmartDock.ToolBarItemEntry.html#SmartDock_ToolBarItemEntry_Order">Order</a>. Items with no entry follow, inserted after
+the nearest preceding collection neighbor that is still on that toolbar. An empty <code class="paramref">barId</code> leaves the list empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Project(string barId, IReadOnlyList&lt;ToolBarItemRef&gt; natural, IReadOnlyList&lt;ToolBarItemEntry&gt;? entries, List&lt;ToolBarSlot&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>barId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>natural</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemRef.html">ToolBarItemRef</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarSlot.html">ToolBarSlot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_Reset_" data-uid="SmartDock.ToolBarItems.Reset*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_Reset_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_" data-uid="SmartDock.ToolBarItems.Reset(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)">
+  Reset(List&lt;ToolBarItemEntry&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Drops customization for <code class="paramref">barId</code> and sends items back to the toolbar that owns them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Reset(List&lt;ToolBarItemEntry&gt; entries, string barId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>barId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_Write_" data-uid="SmartDock.ToolBarItems.Write*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_Write_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarSlot__" data-uid="SmartDock.ToolBarItems.Write(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarSlot})">
+  Write(List&lt;ToolBarItemEntry&gt;, string, IReadOnlyList&lt;ToolBarSlot&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Replaces entries shown on <code class="paramref">barId</code> with <code class="paramref">slots</code>. Other bars stay.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Write(List&lt;ToolBarItemEntry&gt; entries, string barId, IReadOnlyList&lt;ToolBarSlot&gt; slots)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>barId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>slots</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarSlot.html">ToolBarSlot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

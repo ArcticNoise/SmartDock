@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AutoHideTargets | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AutoHideTargets | SmartDock ">
+      
+      <meta name="description" content="Picks an auto-hide edge while a tool pane is dragged. Documents and any float that is not tools-only are rejected by  and get no target. A dock guide that contains the point wins, including a root-edge button that overlaps the hot zone. A floating window under the pointer wins as well, including where that window covers the zone: the drop stays a float dock, not an auto-hide. No allocations.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.AutoHideTargets">
+
+
+
+  <h1 id="SmartDock_AutoHideTargets" data-uid="SmartDock.AutoHideTargets" class="text-break">
+Class AutoHideTargets  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Picks an auto-hide edge while a tool pane is dragged. Documents and any float that is not tools-only
+are rejected by <a class="xref" href="SmartDock.AutoHideTargets.html#SmartDock_AutoHideTargets_Allows_SmartDock_DockLayout_System_String_System_String_">Allows(DockLayout, string?, string?)</a> and get no target.
+A dock guide that contains the point wins, including a root-edge button that overlaps the hot zone.
+A floating window under the pointer wins as well, including where that window covers the zone:
+the drop stays a float dock, not an auto-hide. No allocations.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class AutoHideTargets</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">AutoHideTargets</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SmartDock_AutoHideTargets_HotZone" data-uid="SmartDock.AutoHideTargets.HotZone">
+  HotZone
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Thickness, in device-independent pixels, of the band used when a strip is empty.
+Wider than <a class="xref" href="SmartDock.DockGuides.html#SmartDock_DockGuides_EdgeInset">EdgeInset</a>, so the outer edge of a root-edge button overlaps the band.
+The guide wins on that overlap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double HotZone = 8</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_AutoHideTargets_Allows_" data-uid="SmartDock.AutoHideTargets.Allows*"></a>
+
+  <h3 id="SmartDock_AutoHideTargets_Allows_SmartDock_DockLayout_System_String_System_String_" data-uid="SmartDock.AutoHideTargets.Allows(SmartDock.DockLayout,System.String,System.String)">
+  Allows(DockLayout, string?, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the drag may auto-hide. A named floating window must contain only tools that can auto-hide.
+Otherwise the single pane must be a tool that can auto-hide. A document is never eligible, even with
+<a class="xref" href="SmartDock.DockPane.html#SmartDock_DockPane_CanAutoHide">CanAutoHide</a> set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Allows(DockLayout layout, string? contentId, string? windowId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>layout</code> <a class="xref" href="SmartDock.DockLayout.html">DockLayout</a></dt>
+    <dd></dd>
+    <dt><code>contentId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_AutoHideTargets_Hit_" data-uid="SmartDock.AutoHideTargets.Hit*"></a>
+
+  <h3 id="SmartDock_AutoHideTargets_Hit_SmartDock_DockRect_System_ReadOnlySpan_SmartDock_AutoHideStrip__System_Double_System_Double_System_Boolean_System_Nullable_SmartDock_DropGuide__System_Boolean_" data-uid="SmartDock.AutoHideTargets.Hit(SmartDock.DockRect,System.ReadOnlySpan{SmartDock.AutoHideStrip},System.Double,System.Double,System.Boolean,System.Nullable{SmartDock.DropGuide},System.Boolean)">
+  Hit(DockRect, ReadOnlySpan&lt;AutoHideStrip&gt;, double, double, bool, DropGuide?, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The edge under (<code class="paramref">x</code>, <code class="paramref">y</code>), or null.
+Visible strips are tested first. A collapsed or missing edge uses <a class="xref" href="SmartDock.AutoHideTargets.html#SmartDock_AutoHideTargets_HotZoneOf_SmartDock_DockRect_SmartDock_AutoHideEdge_">HotZoneOf(DockRect, AutoHideEdge)</a>.
+Left and right bands run the full height, so a corner belongs to the side. Top and bottom are inset by the band.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AutoHideHit? Hit(DockRect manager, ReadOnlySpan&lt;AutoHideStrip&gt; strips, double x, double y, bool canAutoHide, DropGuide? guide, bool overFloat)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>manager</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+    <dt><code>strips</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="SmartDock.AutoHideStrip.html">AutoHideStrip</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>canAutoHide</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>guide</code> <a class="xref" href="SmartDock.DropGuide.html">DropGuide</a>?</dt>
+    <dd></dd>
+    <dt><code>overFloat</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.AutoHideHit.html">AutoHideHit</a>?</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_AutoHideTargets_HotZoneOf_" data-uid="SmartDock.AutoHideTargets.HotZoneOf*"></a>
+
+  <h3 id="SmartDock_AutoHideTargets_HotZoneOf_SmartDock_DockRect_SmartDock_AutoHideEdge_" data-uid="SmartDock.AutoHideTargets.HotZoneOf(SmartDock.DockRect,SmartDock.AutoHideEdge)">
+  HotZoneOf(DockRect, AutoHideEdge)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The band along <code class="paramref">edge</code> of <code class="paramref">manager</code>. Empty when the manager is too small.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DockRect HotZoneOf(DockRect manager, AutoHideEdge edge)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>manager</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+    <dt><code>edge</code> <a class="xref" href="SmartDock.AutoHideEdge.html">AutoHideEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

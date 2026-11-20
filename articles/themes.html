@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Themes | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Themes | SmartDock ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="themes">Themes</h1>
+
+<p>Set <code>DockManager.Theme</code> to <code>DockThemeKind.Dark</code> (the default), <code>Light</code>, or <code>Blue</code>. The new brushes replace the old ones in the manager, its floating windows, the guide overlay, the pane switcher, and the auto-hide flyout, and everything repaints in place. The theme is not saved with the layout.</p>
+<pre><code class="lang-csharp">public static void UseLight(DockManager dock)
+{
+    dock.Theme = DockThemeKind.Light;
+}
+</code></pre>
+<p>To use the dock palette outside the manager, for example in a dictionary merged into <code>Application.Resources</code>, call <code>DockTheme.Apply</code> on any <code>FrameworkElement</code> or <code>ResourceDictionary</code>.</p>
+<pre><code class="lang-csharp">public static void ApplyBlue(FrameworkElement element)
+{
+    DockTheme.Apply(element, DockThemeKind.Blue);
+}
+</code></pre>
+<p>The chrome looks brushes up by resource key, not through the static brush properties. The keys are <code>Dock.Workspace</code>, <code>Dock.Panel</code>, <code>Dock.Chrome</code>, <code>Dock.Header</code>, <code>Dock.Border</code>, <code>Dock.Text</code>, <code>Dock.Muted</code>, <code>Dock.Accent</code>, <code>Dock.AccentSoft</code>, <code>Dock.Guide</code>, <code>Dock.GuideButton</code>, <code>Dock.GuideBorder</code>, <code>Dock.Hover</code>, and <code>Dock.Font</code>. <code>DockTheme</code> exposes each name as a <code>*Key</code> constant, for example <code>DockTheme.WorkspaceKey</code>.</p>
+<p>The static brushes on <code>DockTheme</code> always hold the dark palette, and the chrome doesn't use them. Don't reference <code>DockTheme.Border</code> or <code>DockTheme.Panel</code> with <code>x:Static</code>: those names match WPF types, and the markup compiler resolves them as types.</p>
+<p><code>DockTheme.CreateScrollBarResources</code> returns styles for the scroll bar, tool tip, and focus visual. The manager, each floating window, and the switcher merge it already. Merge your own copy if you want the same scroll bars elsewhere in the app.</p>
+<p><code>DockTheme.CreateMenuResources</code> returns menu, context menu, menu item, and separator styles in the dock colors. Nothing merges it for you. Merge it into application resources if your menus should match the dock, or leave it out to keep the system look. A copy merged into the host window follows <code>Theme</code> changes.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
