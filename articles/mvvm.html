@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="mvvm">MVVM</h1>
 
-<p>Bind <code>DocumentsSource</code>, <code>ToolsSource</code>, <code>ActiveContent</code>, and <code>SavedLayout</code>, and the view model can drive the whole dock without touching the control. In <code>ShellWindow</code> the code-behind only calls <code>InitializeComponent</code>. <code>ShellModel</code> holds the documents, two tools, one toolbar, and the saved layout string, and never references <code>DockManager</code>. You don't need an MVVM framework: the sample uses a small <code>RelayCommand</code>, and the models implement <code>INotifyPropertyChanged</code>.</p>
+<p>Bind <code>DocumentsSource</code>, <code>ToolsSource</code>, <code>ActiveContent</code>, and <code>SavedLayout</code>, and the view model can drive the whole dock without touching the control. In <code>ShellWindow</code> the code-behind only calls <code>InitializeComponent</code>. <code>ShellViewModel</code> holds the documents, two tools, one toolbar, and the saved layout string, and never references <code>DockManager</code>. You don't need an MVVM framework: the sample uses a small <code>RelayCommand</code>, and the view models implement <code>INotifyPropertyChanged</code>.</p>
 <pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.ShellWindow&quot;
         xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
         xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
@@ -97,7 +97,7 @@
         Height=&quot;640&quot;
         Width=&quot;960&quot;&gt;
   &lt;Window.DataContext&gt;
-    &lt;local:ShellModel /&gt;
+    &lt;local:ShellViewModel /&gt;
   &lt;/Window.DataContext&gt;
   &lt;Window.Resources&gt;
     &lt;Style x:Key=&quot;DocumentItem&quot; TargetType=&quot;dock:DockItem&quot;&gt;
@@ -168,12 +168,17 @@
   &lt;/DockPanel&gt;
 &lt;/Window&gt;
 </code></pre><h2 id="pane-items">Pane items</h2>
-<p><code>DocumentItemStyle</code> and <code>ToolItemStyle</code> target <code>DockItem</code>, with the source item as the data context, so the setters bind straight to the model:</p>
-<pre><code class="lang-csharp">public abstract class DocumentModel : INotifyPropertyChanged
+<p><code>DocumentItemStyle</code> and <code>ToolItemStyle</code> target <code>DockItem</code>, with the source item as the data context, so the setters bind straight to the view model:</p>
+<pre><code class="lang-csharp">using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace SmartDock.Docs.Samples;
+
+public abstract class DocumentViewModel : INotifyPropertyChanged
 {
     private string _title;
 
-    protected DocumentModel(string contentId, string title)
+    protected DocumentViewModel(string contentId, string title)
     {
         ContentId = contentId;
         _title = title;
@@ -200,12 +205,17 @@
     protected void OnPropertyChanged([CallerMemberName] string? name = null)
         =&gt; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
-</code></pre><pre><code class="lang-csharp">public sealed class ToolModel : INotifyPropertyChanged
+</code></pre><pre><code class="lang-csharp">using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace SmartDock.Docs.Samples;
+
+public sealed class ToolViewModel : INotifyPropertyChanged
 {
     private string _title;
     private string _text;
 
-    public ToolModel(string contentId, string title, string text, bool canClose, bool canAutoHide, bool hideOnClose)
+    public ToolViewModel(string contentId, string title, string text, bool canClose, bool canAutoHide, bool hideOnClose)
     {
         ContentId = contentId;
         _title = title;
@@ -251,8 +261,8 @@
         =&gt; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
 </code></pre>
-<p><code>DockItem</code> has <code>Title</code>, <code>ContentId</code>, <code>Icon</code>, <code>CanClose</code>, <code>CanFloat</code>, <code>CanAutoHide</code>, and <code>HideOnClose</code>. A pane with an empty title shows its content id. An empty <code>ContentId</code> is replaced with <code>item-</code> followed by eight hex digits. A saved layout matches items by id, so these models use fixed ids. <code>Icon</code> isn't saved in the layout file.</p>
-<p><code>CanAutoHide</code> defaults to true for tools whose style doesn't set it. This style binds it, so the model decides. The close button appears when <code>CanClose</code> or <code>HideOnClose</code> is true. Solution Explorer sets <code>CanClose</code> to false and has no close button. Output sets <code>HideOnClose</code>, so closing it hides the pane and leaves the item in <code>Tools</code>.</p>
+<p><code>DockItem</code> has <code>Title</code>, <code>ContentId</code>, <code>Icon</code>, <code>CanClose</code>, <code>CanFloat</code>, <code>CanAutoHide</code>, and <code>HideOnClose</code>. A pane with an empty title shows its content id. An empty <code>ContentId</code> is replaced with <code>item-</code> followed by eight hex digits. A saved layout matches items by id, so these view models use fixed ids. <code>Icon</code> isn't saved in the layout file.</p>
+<p><code>CanAutoHide</code> defaults to true for tools whose style doesn't set it. This style binds it, so the view model decides. The close button appears when <code>CanClose</code> or <code>HideOnClose</code> is true. Solution Explorer sets <code>CanClose</code> to false and has no close button. Output sets <code>HideOnClose</code>, so closing it hides the pane and leaves the item in <code>Tools</code>.</p>
 <p>When the user closes a pane, the manager removes the item from the source if the source is a writable <code>IList</code>, which <code>ObservableCollection</code> is. If the source isn't a list, the item stays, and the manager remembers that the user closed it, so resetting the same collection won't reopen it until the item is really removed.</p>
 <p>For documents, <code>DocumentTemplateSelector</code> runs first. If it returns null, <code>DocumentTemplate</code> is used, and then the implicit <code>DataTemplate</code> for the item's type. <code>ShellTemplateSelector</code> returns the text template, the note template, or null:</p>
 <pre><code class="lang-csharp">using System.Windows;
@@ -268,37 +278,41 @@ public sealed class ShellTemplateSelector : DataTemplateSelector
 
     public override DataTemplate? SelectTemplate(object item, DependencyObject container)
     {
-        if (item is TextDocument)
+        if (item is TextDocumentViewModel)
             return Text;
-        if (item is NoteDocument)
+        if (item is NoteDocumentViewModel)
             return Note;
         return null;
     }
 }
 </code></pre>
 <p>Tools follow the same order with <code>ToolTemplateSelector</code> and <code>ToolTemplate</code>. This window sets <code>ToolTemplate</code> and no selector. Templates are ignored for items that are themselves a <code>UIElement</code>. Implicit templates in <code>Window.Resources</code> work too, since the manager looks them up again when it gets a parent and when it loads; <a href="xaml.html">Working in XAML</a> uses that approach.</p>
-<p>The manager reads the item style when an item is added and again whenever a bound property changes. <code>Title</code> raises <code>PropertyChanged</code> on the model, so the tab text follows it.</p>
+<p>The manager reads the item style when an item is added and again whenever a bound property changes. <code>Title</code> raises <code>PropertyChanged</code> on the view model, so the tab text follows it.</p>
 <h2 id="active-pane">Active pane</h2>
-<p><code>ActiveContent</code> binds two-way by default. The manager writes it with <code>SetCurrentValue</code>, so your binding stays in place. Setting <code>Active</code> on the model shows and activates that pane, even if it was hidden or auto-hidden. The value is null when the active pane didn't come from <code>DocumentsSource</code> or <code>ToolsSource</code>. <code>ActiveTitle</code> reads the same object, so the status line follows the selection.</p>
+<p><code>ActiveContent</code> binds two-way by default. The manager writes it with <code>SetCurrentValue</code>, so your binding stays in place. Setting <code>Active</code> on the view model shows and activates that pane, even if it was hidden or auto-hidden. The value is null when the active pane didn't come from <code>DocumentsSource</code> or <code>ToolsSource</code>. <code>ActiveTitle</code> reads the same object, so the status line follows the selection.</p>
 <p>If you set the active item before it's in a source, the manager keeps the value and activates the item once it appears.</p>
 <h2 id="where-new-panes-go">Where new panes go</h2>
 <p>The sample never sets <code>DockManager.Layout</code>; the sources build the tree. The first pane of an empty manager becomes the root. A new document joins the main-tree document group that last held the active document. If there isn't one, it joins the first document group, and if there are no document groups, it goes to the right of the root at 0.75. A new tool joins the first tool group, or goes to the left of the root at 0.25. An item whose content id is already in the layout stays where the layout put it, whether that's a floating window, an auto-hide strip, or the hidden list.</p>
-<p><code>NewDocument</code> adds a <code>TextDocument</code> with a new content id and sets <code>Active</code>, which activates the new pane:</p>
+<p><code>NewDocument</code> adds a <code>TextDocumentViewModel</code> with a new content id and sets <code>Active</code>, which activates the new pane:</p>
 <pre><code class="lang-csharp">private void AddDocument()
 {
     _next++;
-    var document = new TextDocument(&quot;doc-&quot; + _next, &quot;Document &quot; + _next, &quot;&quot;);
+    var document = new TextDocumentViewModel(&quot;doc-&quot; + _next, &quot;Document &quot; + _next, &quot;&quot;);
     Documents.Add(document);
     Active = document;
 }
 </code></pre><h2 id="toolbars">Toolbars</h2>
 <p><code>ToolBarsSource</code> builds one <code>ToolBar</code> per item, using <code>ToolBarTemplateSelector</code>, then <code>ToolBarTemplate</code>, then the implicit <code>DataTemplate</code>. The template's root must be a <code>ToolBar</code>; if it isn't, the manager ignores the template and creates an empty toolbar. The toolbar's data context is set to the item unless the toolbar already has one.</p>
 <p>Placement comes from <code>DockToolBarItem</code>, not from the <code>DockToolBar</code> attached properties. <code>ToolBarItemStyle</code> targets <code>DockToolBarItem</code> and here binds <code>Id</code>, <code>Title</code>, and <code>Edge</code>. You can also set <code>Band</code>, <code>BandIndex</code>, <code>Offset</code>, <code>Alignment</code>, <code>PaneId</code>, <code>IsVisible</code>, <code>ShowOverflow</code>, and <code>IsCustomizable</code>. They're read when the toolbar is added and whenever a binding changes, but <code>Edge</code> and the band properties only place a toolbar that doesn't have a position yet. <a href="toolbars.html">Toolbars</a> explains each value.</p>
-<pre><code class="lang-csharp">public sealed class ShellToolBar
-{
-    private readonly ShellModel _shell;
+<pre><code class="lang-csharp">using System.Windows.Input;
 
-    public ShellToolBar(ShellModel shell) =&gt; _shell = shell;
+namespace SmartDock.Docs.Samples;
+
+public sealed class ToolBarViewModel
+{
+    private readonly ShellViewModel _shell;
+
+    public ToolBarViewModel(ShellViewModel shell) =&gt; _shell = shell;
 
     public string Id =&gt; &quot;standard&quot;;
 
@@ -309,9 +323,9 @@ public sealed class ShellTemplateSelector : DataTemplateSelector
     public ICommand NewDocument =&gt; _shell.NewDocument;
 }
 </code></pre>
-<p>The New button binds to <code>NewDocument</code> on the toolbar model, which forwards the shell's command, so it keeps working when the toolbar is torn off into its own window. <code>ElementName</code> bindings don't resolve inside the template.</p>
+<p>The New button binds to <code>NewDocument</code> on the toolbar view model, which forwards the shell's command, so it keeps working when the toolbar is torn off into its own window. <code>ElementName</code> bindings don't resolve inside the template.</p>
 <h2 id="save-and-load">Save and load</h2>
-<p><code>SavedLayout</code> binds two-way by default, here to the model's <code>Layout</code> string. The Save button runs <code>DockCommands.SaveLayout</code> with <code>CommandTarget</code> set to the manager, since the button is outside it; a button or menu item inside the manager doesn't need <code>CommandTarget</code>. The manager and each floating window handle the command. It writes the current layout to <code>SavedLayout</code> with <code>SetCurrentValue</code>, so the binding pushes the JSON into the model's <code>Layout</code> property and the dock doesn't reload. If no layout has been assigned yet, the command does nothing, but by the time the window is shown the sources have already built one.</p>
+<p><code>SavedLayout</code> binds two-way by default, here to the view model's <code>Layout</code> string. The Save button runs <code>DockCommands.SaveLayout</code> with <code>CommandTarget</code> set to the manager, since the button is outside it; a button or menu item inside the manager doesn't need <code>CommandTarget</code>. The manager and each floating window handle the command. It writes the current layout to <code>SavedLayout</code> with <code>SetCurrentValue</code>, so the binding pushes the JSON into the view model's <code>Layout</code> property and the dock doesn't reload. If no layout has been assigned yet, the command does nothing, but by the time the window is shown the sources have already built one.</p>
 <pre><code class="lang-csharp">public string? Layout
 {
     get =&gt; _layout;
