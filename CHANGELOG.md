@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.10.0
+
+First release on nuget.org. 0.9.0 was never published there.
+
+- `DockManager.Theme` is a dependency property, so you can bind it. Setting the current value again still reapplies the theme.
+- Put `Dock.*` keys, such as `DockTheme.AccentKey`, in `DockManager.Resources` to override theme brushes. The overrides win over the palette after the theme changes and also reach floating windows, the guide overlay, the auto-hide flyout, and toolbar windows.
+- New `DockManager.SavedLayout` string property that binds both ways. Setting it loads that layout, also before the window is shown. Null or an empty string does nothing. Text that can't be read throws `DockLayoutException` and leaves the current layout alone.
+- New `DockCommands.SaveLayout` writes the current layout into `SavedLayout` without loading it again.
+- New `DockCommands.LoadLayout` reloads `SavedLayout`, even when the text hasn't changed. A non-empty `CommandParameter` is loaded instead and stored in `SavedLayout`. The command is disabled while `SavedLayout` is null or empty.
+- Items from `DocumentsSource` and `ToolsSource` without an explicit template now pick up an implicit `DataTemplate` from a parent, such as `Window.Resources`.
+- New documentation articles on styling, declaring a layout in XAML, and MVVM, with sample code for each.
+
 ## 0.9.0
 
 First public version.
