@@ -186,6 +186,38 @@ Class ToolBarBands
 
 
 
+  <h3 id="SmartDock_ToolBarBands_EndSnap" data-uid="SmartDock.ToolBarBands.EndSnap">
+  EndSnap
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>A drop pins to <a class="xref" href="SmartDock.ToolBarAlignment.html#SmartDock_ToolBarAlignment_End">End</a> when the toolbar's trailing edge would land
+within this many device-independent pixels of the band's far end, or past it. One grip width.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double EndSnap = 16</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="SmartDock_ToolBarBands_Indicator" data-uid="SmartDock.ToolBarBands.Indicator">
   Indicator
   
@@ -646,6 +678,56 @@ A main-window toolbar is never missing.</p>
 
 
 
+  <a id="SmartDock_ToolBarBands_LandingLead_" data-uid="SmartDock.ToolBarBands.LandingLead*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_LandingLead_System_Double_System_Double_System_Double_System_Double_System_Double_System_Boolean_" data-uid="SmartDock.ToolBarBands.LandingLead(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+  LandingLead(double, double, double, double, double, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Leading edge of a dropped toolbar, measured from the start of the band.
+<code class="paramref">alone</code> is a band with no other docked toolbar: the leading edge stays
+<code class="paramref">grab</code> before <code class="paramref">pointer</code>. Otherwise the edge is the drop line,
+plus <code class="paramref">gap</code> when the pointer is past the last toolbar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double LandingLead(double pointer, double origin, double line, double gap, double grab, bool alone)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>pointer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>origin</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>line</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>gap</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>grab</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>alone</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_Moved_" data-uid="SmartDock.ToolBarBands.Moved*"></a>
 
   <h3 id="SmartDock_ToolBarBands_Moved_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.Moved(System.Double,System.Double,System.Double,System.Double,System.Double)">
@@ -733,24 +815,70 @@ items end. End-aligned items may extend past the band. They do not overlap start
 
 
 
+  <a id="SmartDock_ToolBarBands_PinsToEnd_" data-uid="SmartDock.ToolBarBands.PinsToEnd*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_PinsToEnd_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.PinsToEnd(System.Double,System.Double,System.Double)">
+  PinsToEnd(double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when a toolbar of length <code class="paramref">along</code> whose leading edge is at <code class="paramref">lead</code>
+reaches the far end of a band <code class="paramref">bandLength</code> long.
+The trailing edge pins when it would touch that end, pass it, or stop short by at most <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EndSnap">EndSnap</a>.
+A non-positive band length does not pin.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool PinsToEnd(double lead, double along, double bandLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lead</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>along</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>bandLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_Place_" data-uid="SmartDock.ToolBarBands.Place*"></a>
 
-  <h3 id="SmartDock_ToolBarBands_Place_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double)">
-  Place(List&lt;ToolBarEntry&gt;, string, ToolBarDrop, double, double, double, double)
+  <h3 id="SmartDock_ToolBarBands_Place_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+  Place(List&lt;ToolBarEntry&gt;, string, ToolBarDrop, double, double, double, double, double, double, double)
   
   </h3>
 
   <div class="markdown level1 summary"><p>Writes <code class="paramref">drop</code> onto the toolbar and reindexes that band.
 A float keeps the docked edge, band, index, offset, and alignment for <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockBack_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_">DockBack(List&lt;ToolBarEntry&gt;, string)</a>.
-An end-aligned toolbar dropped on the same band after its start-aligned toolbars keeps that alignment and its
-offset, so it stays packed against the far edge. Dropped before one of them, onto a new band, or onto another
-edge, it packs from the start at the drop index. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Index">Index</a> counts the band's toolbars in
+When <code class="paramref">bandLength</code> is positive, <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_PinsToEnd_System_Double_System_Double_System_Double_">PinsToEnd(double, double, double)</a> decides the end:
+a trailing edge inside <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EndSnap">EndSnap</a> of the far end packs there with the other end-aligned toolbars,
+and a drop that misses that zone packs from the start at the drop index and offset.
+Without a band length, an end-aligned toolbar dropped on the same band after its start-aligned toolbars
+keeps that alignment and its offset. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Index">Index</a> counts the band's toolbars in
 screen order, start-aligned ones first. End-aligned toolbars keep their indexes when a start-aligned one is placed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Place(List&lt;ToolBarEntry&gt; bars, string id, ToolBarDrop drop, double x, double y, double width, double height)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Place(List&lt;ToolBarEntry&gt; bars, string id, ToolBarDrop drop, double x, double y, double width, double height, double lead = NaN, double along = NaN, double bandLength = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -769,8 +897,69 @@ screen order, start-aligned ones first. End-aligned toolbars keep their indexes 
     <dd></dd>
     <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
+    <dt><code>lead</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>along</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>bandLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_ResetPlace_" data-uid="SmartDock.ToolBarBands.ResetPlace*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_ResetPlace_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_ToolBarAlignment_System_Boolean_" data-uid="SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.ToolBarAlignment,System.Boolean)">
+  ResetPlace(List&lt;ToolBarEntry&gt;, string, string?, ToolBarEdge, int, int, double, ToolBarAlignment, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts the toolbar on its declared place and docks it there.
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ApplyDefault_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_ToolBarAlignment_System_Boolean_">ApplyDefault(List&lt;ToolBarEntry&gt;, string, string?, ToolBarEdge, int, int, double, ToolBarAlignment, bool)</a> leaves a float floating and keeps <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Hidden">Hidden</a>.
+This clears both, so a reset shows the toolbar on that place and closes its float.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ResetPlace(List&lt;ToolBarEntry&gt; bars, string id, string? paneId, ToolBarEdge edge, int band, int index, double offset, ToolBarAlignment alignment, bool paneExists)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>paneId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>edge</code> <a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+    <dt><code>band</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>alignment</code> <a class="xref" href="SmartDock.ToolBarAlignment.html">ToolBarAlignment</a></dt>
+    <dd></dd>
+    <dt><code>paneExists</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
 
 
 

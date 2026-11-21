@@ -8941,6 +8941,12 @@ references:
   commentId: F:SmartDock.ToolBarBands.EdgeSlop
   fullName: SmartDock.ToolBarBands.EdgeSlop
   nameWithType: ToolBarBands.EdgeSlop
+- uid: SmartDock.ToolBarBands.EndSnap
+  name: EndSnap
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EndSnap
+  commentId: F:SmartDock.ToolBarBands.EndSnap
+  fullName: SmartDock.ToolBarBands.EndSnap
+  nameWithType: ToolBarBands.EndSnap
 - uid: SmartDock.ToolBarBands.Find(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
   name: Find(List<ToolBarEntry>, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Find_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_
@@ -9022,6 +9028,21 @@ references:
   commentId: F:SmartDock.ToolBarBands.Indicator
   fullName: SmartDock.ToolBarBands.Indicator
   nameWithType: ToolBarBands.Indicator
+- uid: SmartDock.ToolBarBands.LandingLead(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)
+  name: LandingLead(double, double, double, double, double, bool)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_LandingLead_System_Double_System_Double_System_Double_System_Double_System_Double_System_Boolean_
+  commentId: M:SmartDock.ToolBarBands.LandingLead(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)
+  name.vb: LandingLead(Double, Double, Double, Double, Double, Boolean)
+  fullName: SmartDock.ToolBarBands.LandingLead(double, double, double, double, double, bool)
+  fullName.vb: SmartDock.ToolBarBands.LandingLead(Double, Double, Double, Double, Double, Boolean)
+  nameWithType: ToolBarBands.LandingLead(double, double, double, double, double, bool)
+  nameWithType.vb: ToolBarBands.LandingLead(Double, Double, Double, Double, Double, Boolean)
+- uid: SmartDock.ToolBarBands.LandingLead*
+  name: LandingLead
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_LandingLead_
+  commentId: Overload:SmartDock.ToolBarBands.LandingLead
+  fullName: SmartDock.ToolBarBands.LandingLead
+  nameWithType: ToolBarBands.LandingLead
 - uid: SmartDock.ToolBarBands.Moved(System.Double,System.Double,System.Double,System.Double,System.Double)
   name: Moved(double, double, double, double, double)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Moved_System_Double_System_Double_System_Double_System_Double_System_Double_
@@ -9052,21 +9073,51 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.Pack
   fullName: SmartDock.ToolBarBands.Pack
   nameWithType: ToolBarBands.Pack
-- uid: SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double)
-  name: Place(List<ToolBarEntry>, string, ToolBarDrop, double, double, double, double)
-  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Place_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_System_Double_
-  commentId: M:SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double)
-  name.vb: Place(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double, Double)
-  fullName: SmartDock.ToolBarBands.Place(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, SmartDock.ToolBarDrop, double, double, double, double)
-  fullName.vb: SmartDock.ToolBarBands.Place(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, SmartDock.ToolBarDrop, Double, Double, Double, Double)
-  nameWithType: ToolBarBands.Place(List<ToolBarEntry>, string, ToolBarDrop, double, double, double, double)
-  nameWithType.vb: ToolBarBands.Place(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double, Double)
+- uid: SmartDock.ToolBarBands.PinsToEnd(System.Double,System.Double,System.Double)
+  name: PinsToEnd(double, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_PinsToEnd_System_Double_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.PinsToEnd(System.Double,System.Double,System.Double)
+  name.vb: PinsToEnd(Double, Double, Double)
+  fullName: SmartDock.ToolBarBands.PinsToEnd(double, double, double)
+  fullName.vb: SmartDock.ToolBarBands.PinsToEnd(Double, Double, Double)
+  nameWithType: ToolBarBands.PinsToEnd(double, double, double)
+  nameWithType.vb: ToolBarBands.PinsToEnd(Double, Double, Double)
+- uid: SmartDock.ToolBarBands.PinsToEnd*
+  name: PinsToEnd
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_PinsToEnd_
+  commentId: Overload:SmartDock.ToolBarBands.PinsToEnd
+  fullName: SmartDock.ToolBarBands.PinsToEnd
+  nameWithType: ToolBarBands.PinsToEnd
+- uid: SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  name: Place(List<ToolBarEntry>, string, ToolBarDrop, double, double, double, double, double, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Place_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.Place(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  name.vb: Place(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double, Double, Double, Double, Double)
+  fullName: SmartDock.ToolBarBands.Place(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, SmartDock.ToolBarDrop, double, double, double, double, double, double, double)
+  fullName.vb: SmartDock.ToolBarBands.Place(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, SmartDock.ToolBarDrop, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: ToolBarBands.Place(List<ToolBarEntry>, string, ToolBarDrop, double, double, double, double, double, double, double)
+  nameWithType.vb: ToolBarBands.Place(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double, Double, Double, Double, Double)
 - uid: SmartDock.ToolBarBands.Place*
   name: Place
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Place_
   commentId: Overload:SmartDock.ToolBarBands.Place
   fullName: SmartDock.ToolBarBands.Place
   nameWithType: ToolBarBands.Place
+- uid: SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.ToolBarAlignment,System.Boolean)
+  name: ResetPlace(List<ToolBarEntry>, string, string?, ToolBarEdge, int, int, double, ToolBarAlignment, bool)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ResetPlace_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_ToolBarAlignment_System_Boolean_
+  commentId: M:SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.ToolBarAlignment,System.Boolean)
+  name.vb: ResetPlace(List(Of ToolBarEntry), String, String, ToolBarEdge, Integer, Integer, Double, ToolBarAlignment, Boolean)
+  fullName: SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, string?, SmartDock.ToolBarEdge, int, int, double, SmartDock.ToolBarAlignment, bool)
+  fullName.vb: SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, String, SmartDock.ToolBarEdge, Integer, Integer, Double, SmartDock.ToolBarAlignment, Boolean)
+  nameWithType: ToolBarBands.ResetPlace(List<ToolBarEntry>, string, string?, ToolBarEdge, int, int, double, ToolBarAlignment, bool)
+  nameWithType.vb: ToolBarBands.ResetPlace(List(Of ToolBarEntry), String, String, ToolBarEdge, Integer, Integer, Double, ToolBarAlignment, Boolean)
+- uid: SmartDock.ToolBarBands.ResetPlace*
+  name: ResetPlace
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ResetPlace_
+  commentId: Overload:SmartDock.ToolBarBands.ResetPlace
+  fullName: SmartDock.ToolBarBands.ResetPlace
+  nameWithType: ToolBarBands.ResetPlace
 - uid: SmartDock.ToolBarBands.TargetBand
   name: TargetBand
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand

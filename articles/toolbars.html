@@ -123,7 +123,7 @@
 </tr>
 <tr>
 <td><code>Alignment</code></td>
-<td><code>Start</code> packs from the left of a horizontal band or the top of a vertical one. <code>End</code> packs from the right or the bottom. <code>Start</code> is the default.</td>
+<td><code>Start</code> packs from the left of a horizontal band or the top of a vertical one. <code>End</code> packs from the right or the bottom. <code>Start</code> is the default. Dragging a toolbar so its trailing edge reaches the far end, or comes within 16 device-independent pixels of it, pins it to <code>End</code>. Dragging it back off that zone packs it from the start.</td>
 </tr>
 <tr>
 <td><code>PaneId</code></td>
@@ -143,7 +143,7 @@
 </tr>
 </tbody>
 </table>
-<p><code>Edge</code>, <code>Band</code>, <code>BandIndex</code>, <code>Offset</code>, <code>Alignment</code>, and <code>PaneId</code> only set the starting place. Once the toolbar has been shown or dragged, its layout entry decides where it is, and changing these properties no longer moves it.</p>
+<p><code>Edge</code>, <code>Band</code>, <code>BandIndex</code>, <code>Offset</code>, <code>Alignment</code>, and <code>PaneId</code> only set the starting place. Once the toolbar has been shown or dragged, its layout entry decides where it is, and changing these properties no longer moves it. Reset on the customize menu is what puts the toolbar back on this place.</p>
 <pre><code class="lang-xml">&lt;Window x:Class=&quot;SmartDock.Docs.Samples.ToolbarWindow&quot;
         xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
         xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;
@@ -187,7 +187,7 @@
 <p>Users can customize toolbars unless you turn it off. <code>ToolBarCustomizationEnabled</code> is true by default.</p>
 <ul>
 <li>Right-click an empty part of a tray to get a menu of all toolbars, listed by title (or id when the title is empty). Visible ones are checked; uncheck one to hide it.</li>
-<li>The customize button on a toolbar opens &quot;Add or Remove Buttons&quot;. Every button with a stable key has a check item there; uncheck it to hide the button. Reset undoes all button changes on that toolbar.</li>
+<li>The customize button on a toolbar opens &quot;Add or Remove Buttons&quot;. Every button with a stable key has a check item there; uncheck it to hide the button. Reset undoes the button changes and puts the toolbar back on the edge, band, index, offset, and alignment declared on it. A floating toolbar docks there and its window closes. A hidden toolbar is shown.</li>
 <li>Alt+drag a button to reorder it, move it to another toolbar, or drop it outside the toolbars to hide it.</li>
 </ul>
 <p>Customization is saved per button key. The key is <code>DockToolBar.Key</code> if set. Otherwise it comes from <code>ToolBarItemKeyPath</code>, then the element's <code>Name</code>, <code>ContentId</code>, <code>Id</code>, or a string <code>ToolTip</code> or <code>ToolTipText</code>. A button with none of these gets a key for the current session only: its changes are not saved, and it doesn't appear in the customize menu. Give your buttons names or keys.</p>
