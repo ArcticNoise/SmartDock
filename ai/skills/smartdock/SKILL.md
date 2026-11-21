@@ -230,9 +230,9 @@ DockToolBar.SetTitle(dock.ToolBars[0], "Standard");
 ```
 
 - Attached properties on a plain `ToolBar`: `DockToolBar.Id`, `Title`, `Edge`, `Band`, `BandIndex`, `Offset`, `Alignment`, `PaneId`, `IsVisible`, `ShowOverflow`, and `IsCustomizable`.
-- `Edge`, `Band`, `BandIndex`, `Offset`, `Alignment`, and `PaneId` give the default place. They apply until the toolbar has a saved position or the user moves it.
+- `Edge`, `Band`, `BandIndex`, `Offset`, `Alignment`, and `PaneId` give the default place. They apply until the toolbar has a saved position or the user moves it. Reset on the customize menu restores that place, docks a floating toolbar, and shows a hidden one.
 - `PaneId` docks the toolbar on that pane, and it follows the pane when the pane floats or moves. Empty means a window tray.
-- `Alignment` is `Start` by default. `End` packs the toolbar against the far end of its band.
+- `Alignment` is `Start` by default. `End` packs the toolbar against the far end of its band. Dropping a toolbar so its trailing edge lands within 16 device-independent pixels of the far end, or past it, pins it to `End`. Dragging it off that zone packs it from the start. The toolbar moves there while the pointer is still down.
 - `IsVisible` false hides the toolbar and keeps its place. `ShowOverflow` is false by default.
 - For view models, use `ToolBarItemStyle` on `DockToolBarItem` and a `DataTemplate` whose root is a `ToolBar`.
 

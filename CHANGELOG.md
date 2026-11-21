@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0
+
+- Dragging a toolbar so its trailing edge lands within 16 device-independent pixels of a band's far end, or past it, pins that toolbar to the end. Dragging it off that zone packs it from the start at the drop. The toolbar moves there while the pointer is still down.
+- Reset on a toolbar's customize menu restores the edge, band, index, offset, and alignment it was declared with, docks it if it was floating, and shows it. Button changes still reset as before.
+- A toolbar drag no longer crashes when the docking guide window is not shown yet or has already closed.
+
 ## 0.11.0
 
 - `DockManager.CustomTheme` takes a `DockCustomTheme`. Subclass it and return the Uri of a resource dictionary. The manager reads `Dock.*` and `DockMenu.*` from that dictionary, including keys merged into it, and paints them over `Theme`. A key the dictionary does not define stays on the palette. A `Dock.*` key in `DockManager.Resources` still wins. Clearing `CustomTheme` restores the palette. A Uri that cannot be loaded throws when you set it.
