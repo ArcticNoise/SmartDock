@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.0
+
+- `DockManager.CustomTheme` takes a `DockCustomTheme`. Subclass it and return the Uri of a resource dictionary. The manager reads `Dock.*` and `DockMenu.*` from that dictionary, including keys merged into it, and paints them over `Theme`. A key the dictionary does not define stays on the palette. A `Dock.*` key in `DockManager.Resources` still wins. Clearing `CustomTheme` restores the palette. A Uri that cannot be loaded throws when you set it.
+
 ## 0.10.0
 
 First release on nuget.org. 0.9.0 was never published there.
