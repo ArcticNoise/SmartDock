@@ -181,6 +181,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockCustomTheme.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockCustomTheme.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockCustomTheme",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockCustomTheme.yml\" sourcestartlinenumber=\"1\">Base class for a host theme. Subclass it and return the <xref href=\"System.Uri\" data-throw-if-not-resolved=\"false\"></xref> of a resource dictionary\nthat holds Dock and DockMenu brush keys, such as <code>Dock.Chrome</code> and <code>DockMenu.Panel</code>.\nAssign an instance to <xref href=\"SmartDock.DockManager.CustomTheme\" data-throw-if-not-resolved=\"false\"></xref>.\nOne dictionary can be shared by every window. The manager reads those keys from it and does not merge the dictionary.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/generated/SmartDock.DockDragSession.yml",
       "output": {
         ".html": {

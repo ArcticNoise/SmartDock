@@ -1544,6 +1544,37 @@ Binds two-way. The manager writes it with <a class="xref" href="https://learn.mi
 
 
 
+  <h3 id="SmartDock_DockManager_CustomThemeProperty" data-uid="SmartDock.DockManager.CustomThemeProperty">
+  CustomThemeProperty
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Identifies the <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme">CustomTheme</a> dependency property. The default is null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DependencyProperty CustomThemeProperty</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.dependencyproperty">DependencyProperty</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <h3 id="SmartDock_DockManager_DocumentItemStyleProperty" data-uid="SmartDock.DockManager.DocumentItemStyleProperty">
   DocumentItemStyleProperty
   
@@ -2401,6 +2432,49 @@ False matches a build with no animation.</p>
 
 
 
+  <a id="SmartDock_DockManager_CustomTheme_" data-uid="SmartDock.DockManager.CustomTheme*"></a>
+
+  <h3 id="SmartDock_DockManager_CustomTheme" data-uid="SmartDock.DockManager.CustomTheme">
+  CustomTheme
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Host theme, or null when <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a> is the only palette.
+Subclass <a class="xref" href="SmartDock.DockCustomTheme.html">DockCustomTheme</a> and return the Uri of a resource dictionary.
+The dictionary is loaded once each time this property is set. Only Dock and DockMenu brush keys
+are read, such as <code>Dock.Chrome</code> and <code>DockMenu.Panel</code>, including keys that come from its merged dictionaries.
+Every other entry is ignored, so a shared dictionary that also holds unrelated styles is safe to point at.
+A key stored on <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.resources">Resources</a> wins, then this dictionary, then <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a>.
+A key the dictionary does not define stays on <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a>.
+Setting, replacing, or clearing it repaints chrome that is already open: this manager, floating windows,
+the auto-hide flyout, the guide overlay, toolbar windows, and the pane switcher. Windows created later use it too.
+Changing <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a> does not drop these keys.
+A Uri that cannot be loaded throws, and the previous value stays.
+This is not part of the layout JSON.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockCustomTheme? CustomTheme { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockCustomTheme.html">DockCustomTheme</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_DocumentItemStyle_" data-uid="SmartDock.DockManager.DocumentItemStyle*"></a>
 
   <h3 id="SmartDock_DockManager_DocumentItemStyle" data-uid="SmartDock.DockManager.DocumentItemStyle">
@@ -2807,7 +2881,9 @@ this property is assigned, including to the value it already has, and when that 
 Assigning the current value updates chrome that is already open.
 A menu dictionary merged into the host window is updated with the theme. Call
 <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_Apply_System_Windows_ResourceDictionary_SmartDock_DockThemeKind_">Apply(ResourceDictionary, DockThemeKind)</a> for any other dictionary,
-including one merged into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.application.resources">Resources</a>.</p>
+including one merged into <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.application.resources">Resources</a>.
+<a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme">CustomTheme</a> replaces individual keys after this palette is written.
+A key that dictionary does not define stays on this palette.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

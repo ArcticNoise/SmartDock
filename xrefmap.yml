@@ -1087,6 +1087,42 @@ references:
   commentId: Overload:SmartDock.DockContentRegistry.Unregister
   fullName: SmartDock.DockContentRegistry.Unregister
   nameWithType: DockContentRegistry.Unregister
+- uid: SmartDock.DockCustomTheme
+  name: DockCustomTheme
+  href: api/generated/SmartDock.DockCustomTheme.html
+  commentId: T:SmartDock.DockCustomTheme
+  fullName: SmartDock.DockCustomTheme
+  nameWithType: DockCustomTheme
+- uid: SmartDock.DockCustomTheme.#ctor
+  name: DockCustomTheme()
+  href: api/generated/SmartDock.DockCustomTheme.html#SmartDock_DockCustomTheme__ctor
+  commentId: M:SmartDock.DockCustomTheme.#ctor
+  name.vb: New()
+  fullName: SmartDock.DockCustomTheme.DockCustomTheme()
+  fullName.vb: SmartDock.DockCustomTheme.New()
+  nameWithType: DockCustomTheme.DockCustomTheme()
+  nameWithType.vb: DockCustomTheme.New()
+- uid: SmartDock.DockCustomTheme.#ctor*
+  name: DockCustomTheme
+  href: api/generated/SmartDock.DockCustomTheme.html#SmartDock_DockCustomTheme__ctor_
+  commentId: Overload:SmartDock.DockCustomTheme.#ctor
+  name.vb: New
+  fullName: SmartDock.DockCustomTheme.DockCustomTheme
+  fullName.vb: SmartDock.DockCustomTheme.New
+  nameWithType: DockCustomTheme.DockCustomTheme
+  nameWithType.vb: DockCustomTheme.New
+- uid: SmartDock.DockCustomTheme.GetResourceUri
+  name: GetResourceUri()
+  href: api/generated/SmartDock.DockCustomTheme.html#SmartDock_DockCustomTheme_GetResourceUri
+  commentId: M:SmartDock.DockCustomTheme.GetResourceUri
+  fullName: SmartDock.DockCustomTheme.GetResourceUri()
+  nameWithType: DockCustomTheme.GetResourceUri()
+- uid: SmartDock.DockCustomTheme.GetResourceUri*
+  name: GetResourceUri
+  href: api/generated/SmartDock.DockCustomTheme.html#SmartDock_DockCustomTheme_GetResourceUri_
+  commentId: Overload:SmartDock.DockCustomTheme.GetResourceUri
+  fullName: SmartDock.DockCustomTheme.GetResourceUri
+  nameWithType: DockCustomTheme.GetResourceUri
 - uid: SmartDock.DockDragSession
   name: DockDragSession
   href: api/generated/SmartDock.DockDragSession.html
@@ -2761,6 +2797,24 @@ references:
   commentId: Overload:SmartDock.DockManager.Content
   fullName: SmartDock.DockManager.Content
   nameWithType: DockManager.Content
+- uid: SmartDock.DockManager.CustomTheme
+  name: CustomTheme
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme
+  commentId: P:SmartDock.DockManager.CustomTheme
+  fullName: SmartDock.DockManager.CustomTheme
+  nameWithType: DockManager.CustomTheme
+- uid: SmartDock.DockManager.CustomTheme*
+  name: CustomTheme
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme_
+  commentId: Overload:SmartDock.DockManager.CustomTheme
+  fullName: SmartDock.DockManager.CustomTheme
+  nameWithType: DockManager.CustomTheme
+- uid: SmartDock.DockManager.CustomThemeProperty
+  name: CustomThemeProperty
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CustomThemeProperty
+  commentId: F:SmartDock.DockManager.CustomThemeProperty
+  fullName: SmartDock.DockManager.CustomThemeProperty
+  nameWithType: DockManager.CustomThemeProperty
 - uid: SmartDock.DockManager.DockBackPane(System.String)
   name: DockBackPane(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_DockBackPane_System_String_

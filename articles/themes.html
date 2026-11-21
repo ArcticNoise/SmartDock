@@ -103,6 +103,35 @@
 <p>The static brushes on <code>DockTheme</code> always hold the dark palette, and the chrome doesn't use them. Don't reference <code>DockTheme.Border</code> or <code>DockTheme.Panel</code> with <code>x:Static</code>: those names match WPF types, and the markup compiler resolves them as types.</p>
 <p><code>DockTheme.CreateScrollBarResources</code> returns styles for the scroll bar, tool tip, and focus visual. The manager, each floating window, and the switcher merge it already. Merge your own copy if you want the same scroll bars elsewhere in the app.</p>
 <p><code>DockTheme.CreateMenuResources</code> returns menu, context menu, menu item, and separator styles in the dock colors. Nothing merges it for you. Merge it into application resources if your menus should match the dock, or leave it out to keep the system look. A copy merged into the host window follows <code>Theme</code> changes.</p>
+<h2 id="a-shared-dictionary">A shared dictionary</h2>
+<p><code>DockManager.CustomTheme</code> points a manager at a resource dictionary you already share across windows. Subclass <code>DockCustomTheme</code> and return that dictionary's Uri. You do not write the Uri on each window.</p>
+<pre><code class="lang-csharp">public sealed class EditorDockTheme : DockCustomTheme
+{
+    public override Uri GetResourceUri()
+        =&gt; new(&quot;/MyApp;component/Themes/EditorDock.xaml&quot;, UriKind.Relative);
+}
+</code></pre>
+<p>The dictionary can hold other styles. SmartDock reads <code>Dock.*</code> and <code>DockMenu.*</code> only, including keys that come from a dictionary merged into it. A key it does not define stays on <code>Theme</code>.</p>
+<pre><code class="lang-xml">&lt;ResourceDictionary xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot;
+                    xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&gt;
+    &lt;SolidColorBrush x:Key=&quot;Dock.Chrome&quot; Color=&quot;#FF2A241C&quot; /&gt;
+    &lt;SolidColorBrush x:Key=&quot;Dock.Panel&quot; Color=&quot;#FF3A3228&quot; /&gt;
+    &lt;SolidColorBrush x:Key=&quot;DockMenu.Panel&quot; Color=&quot;#FF3A3228&quot; /&gt;
+&lt;/ResourceDictionary&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;sd:DockManager Theme=&quot;Dark&quot;&gt;
+    &lt;sd:DockManager.CustomTheme&gt;
+        &lt;local:EditorDockTheme /&gt;
+    &lt;/sd:DockManager.CustomTheme&gt;
+&lt;/sd:DockManager&gt;
+</code></pre>
+<p>When several brushes define the same key, the winner is:</p>
+<ol>
+<li>A <code>Dock.*</code> or <code>DockMenu.*</code> key set on <code>DockManager.Resources</code> itself.</li>
+<li>The same key in the custom dictionary.</li>
+<li><code>DockManager.Theme</code>.</li>
+</ol>
+<p>Setting, replacing, or clearing <code>CustomTheme</code> repaints chrome that is already open, and windows opened later pick it up. Changing <code>Theme</code> leaves the custom keys in place. Set <code>CustomTheme</code> to null to go back to the palette. A Uri that cannot be loaded throws when you set the property, and the previous theme stays. The choice is not saved with the layout.</p>
 
 </article>
 

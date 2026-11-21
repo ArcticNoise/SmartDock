@@ -147,6 +147,14 @@ and reuses the element when the pane moves, floats, or the layout is loaded agai
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.DockCustomTheme.html">DockCustomTheme</a></dt>
+      <dd><p>Base class for a host theme. Subclass it and return the <span class="xref">System.Uri</span> of a resource dictionary
+that holds Dock and DockMenu brush keys, such as <code>Dock.Chrome</code> and <code>DockMenu.Panel</code>.
+Assign an instance to <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme">CustomTheme</a>.
+One dictionary can be shared by every window. The manager reads those keys from it and does not merge the dictionary.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a></dt>
       <dd><p>Deterministic drag gesture. The WPF control feeds coordinates; tests call <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_Update_SmartDock_DockLayout_SmartDock_DragPointer_">Update(DockLayout, DragPointer)</a> and <a class="xref" href="SmartDock.DockDragSession.html#SmartDock_DockDragSession_End_SmartDock_DockLayout_">End(DockLayout)</a>
 with the same inputs and no mouse. A horizontal move inside the source strip moves the tab as soon as the pointer
