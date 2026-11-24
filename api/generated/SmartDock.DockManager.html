@@ -2649,6 +2649,40 @@ An item whose content id is already docked, floating, auto-hidden, or hidden sta
 
 
 
+  <a id="SmartDock_DockManager_IsToolBarCustomizing_" data-uid="SmartDock.DockManager.IsToolBarCustomizing*"></a>
+
+  <h3 id="SmartDock_DockManager_IsToolBarCustomizing" data-uid="SmartDock.DockManager.IsToolBarCustomizing">
+  IsToolBarCustomizing
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>When true, dragging a toolbar button moves or copies it the way Alt+drag does, without holding Alt.
+The dock shows a hint while this is on. Escape, the Customize Toolbars menu item, and leaving the window turn it off.
+The default is false. This is not saved in the layout.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsToolBarCustomizing { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_Layout_" data-uid="SmartDock.DockManager.Layout*"></a>
 
   <h3 id="SmartDock_DockManager_Layout" data-uid="SmartDock.DockManager.Layout">
@@ -3519,6 +3553,82 @@ Use <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Remov
 
 
 
+  <a id="SmartDock_DockManager_CreateCustomToolBar_" data-uid="SmartDock.DockManager.CreateCustomToolBar*"></a>
+
+  <h3 id="SmartDock_DockManager_CreateCustomToolBar_System_String_" data-uid="SmartDock.DockManager.CreateCustomToolBar(System.String)">
+  CreateCustomToolBar(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates an empty custom toolbar and returns its id.
+The toolbar floats at (48, 48). New Toolbar on the tray menu floats it near the pointer instead.
+Throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a> when <code class="paramref">title</code> is empty or another toolbar already has that title.
+Throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a> when no layout is assigned.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarCustomizationChanged">ToolBarCustomizationChanged</a> with <a class="xref" href="SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Created">Created</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateCustomToolBar(string title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_DeleteCustomToolBar_" data-uid="SmartDock.DockManager.DeleteCustomToolBar*"></a>
+
+  <h3 id="SmartDock_DockManager_DeleteCustomToolBar_System_String_" data-uid="SmartDock.DockManager.DeleteCustomToolBar(System.String)">
+  DeleteCustomToolBar(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a custom toolbar from the layout and the tray menu.
+Buttons that were copied onto it stay on the toolbars they came from.
+Does nothing when <code class="paramref">id</code> is unknown or is not a custom toolbar.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarCustomizationChanged">ToolBarCustomizationChanged</a> with <a class="xref" href="SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Deleted">Deleted</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeleteCustomToolBar(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_DockBackPane_" data-uid="SmartDock.DockManager.DockBackPane*"></a>
 
   <h3 id="SmartDock_DockManager_DockBackPane_System_String_" data-uid="SmartDock.DockManager.DockBackPane(System.String)">
@@ -3776,6 +3886,44 @@ write the same flag.</p>
 
 
 
+  <a id="SmartDock_DockManager_IsToolBarFloatVertical_" data-uid="SmartDock.DockManager.IsToolBarFloatVertical*"></a>
+
+  <h3 id="SmartDock_DockManager_IsToolBarFloatVertical_System_String_" data-uid="SmartDock.DockManager.IsToolBarFloatVertical(System.String)">
+  IsToolBarFloatVertical(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatVertical">FloatVertical</a> is set for this toolbar.
+False when the flag is clear or the id is unknown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsToolBarFloatVertical(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_LoadLayout_" data-uid="SmartDock.DockManager.LoadLayout*"></a>
 
   <h3 id="SmartDock_DockManager_LoadLayout_System_String_" data-uid="SmartDock.DockManager.LoadLayout(System.String)">
@@ -3838,6 +3986,47 @@ Does not raise <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockMa
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.size">Size</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_MergeFloatingToolBars_" data-uid="SmartDock.DockManager.MergeFloatingToolBars*"></a>
+
+  <h3 id="SmartDock_DockManager_MergeFloatingToolBars_System_String_System_String_System_Int32_" data-uid="SmartDock.DockManager.MergeFloatingToolBars(System.String,System.String,System.Int32)">
+  MergeFloatingToolBars(string, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts a toolbar into the floating window that holds <code class="paramref">targetId</code>.
+<code class="paramref">index</code> is the gap in that window, or the end when it is negative.
+The toolbar floats if it was docked and takes that window's bounds and orientation.
+A toolbar already in the window moves to the gap.
+An unknown id, or a target that is not floating, does nothing.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void MergeFloatingToolBars(string id, string targetId, int index = -1)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>targetId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -4198,6 +4387,43 @@ An active pane, or an open flyout of the removed pane, is cleared the same way <
 
 
 
+  <a id="SmartDock_DockManager_RenameCustomToolBar_" data-uid="SmartDock.DockManager.RenameCustomToolBar*"></a>
+
+  <h3 id="SmartDock_DockManager_RenameCustomToolBar_System_String_System_String_" data-uid="SmartDock.DockManager.RenameCustomToolBar(System.String,System.String)">
+  RenameCustomToolBar(string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames a custom toolbar. The tray menu and the floating caption use the new title.
+Throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a> when <code class="paramref">title</code> is empty, another toolbar already has that title,
+or <code class="paramref">id</code> is not a custom toolbar.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarCustomizationChanged">ToolBarCustomizationChanged</a> with <a class="xref" href="SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Renamed">Renamed</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RenameCustomToolBar(string id, string title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_SaveLayout_" data-uid="SmartDock.DockManager.SaveLayout*"></a>
 
   <h3 id="SmartDock_DockManager_SaveLayout" data-uid="SmartDock.DockManager.SaveLayout">
@@ -4400,6 +4626,44 @@ An unknown id fails and changes nothing. The same title succeeds without raising
 
 
 
+  <a id="SmartDock_DockManager_SetToolBarFloatVertical_" data-uid="SmartDock.DockManager.SetToolBarFloatVertical*"></a>
+
+  <h3 id="SmartDock_DockManager_SetToolBarFloatVertical_System_String_System_Boolean_" data-uid="SmartDock.DockManager.SetToolBarFloatVertical(System.String,System.Boolean)">
+  SetToolBarFloatVertical(string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets whether a floating toolbar stacks its buttons. The grip sits on top and the buttons stack.
+Does nothing when the toolbar is docked, the value is unchanged, or the id is unknown.
+A docked toolbar takes its orientation from the edge: left and right are vertical, top and bottom are horizontal.
+Docking, docking back, and reset clear the flag. Load drops it when the toolbar is not floating.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetToolBarFloatVertical(string id, bool vertical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_DockManager_ShowPane_" data-uid="SmartDock.DockManager.ShowPane*"></a>
 
   <h3 id="SmartDock_DockManager_ShowPane_System_String_" data-uid="SmartDock.DockManager.ShowPane(System.String)">
@@ -4429,6 +4693,41 @@ A pane that is already visible is left as it is.</p>
     <dt><a class="xref" href="SmartDock.DockEditResult.html">DockEditResult</a></dt>
     <dd></dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_DockManager_SplitFloatingToolBar_" data-uid="SmartDock.DockManager.SplitFloatingToolBar*"></a>
+
+  <h3 id="SmartDock_DockManager_SplitFloatingToolBar_System_String_" data-uid="SmartDock.DockManager.SplitFloatingToolBar(System.String)">
+  SplitFloatingToolBar(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes a toolbar out of a shared floating window into a window of its own, at the same place and orientation.
+The others stay. When one remains, that window is a single float again.
+A toolbar that is already alone, or is not floating, does nothing.
+A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SplitFloatingToolBar(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
 
 
 
@@ -4693,7 +4992,7 @@ Unloading this manager raises it only when that unload detaches the element.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Raised after a button is reordered, moved, hidden, shown, or reset, and when a toolbar is shown or hidden.</p>
+  <div class="markdown level1 summary"><p>Raised after a button is reordered, moved, copied, removed, hidden, shown, or reset, and when a toolbar is created, renamed, deleted, shown, or hidden.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
