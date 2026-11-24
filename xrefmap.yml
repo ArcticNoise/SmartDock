@@ -2797,6 +2797,21 @@ references:
   commentId: Overload:SmartDock.DockManager.Content
   fullName: SmartDock.DockManager.Content
   nameWithType: DockManager.Content
+- uid: SmartDock.DockManager.CreateCustomToolBar(System.String)
+  name: CreateCustomToolBar(string)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CreateCustomToolBar_System_String_
+  commentId: M:SmartDock.DockManager.CreateCustomToolBar(System.String)
+  name.vb: CreateCustomToolBar(String)
+  fullName: SmartDock.DockManager.CreateCustomToolBar(string)
+  fullName.vb: SmartDock.DockManager.CreateCustomToolBar(String)
+  nameWithType: DockManager.CreateCustomToolBar(string)
+  nameWithType.vb: DockManager.CreateCustomToolBar(String)
+- uid: SmartDock.DockManager.CreateCustomToolBar*
+  name: CreateCustomToolBar
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CreateCustomToolBar_
+  commentId: Overload:SmartDock.DockManager.CreateCustomToolBar
+  fullName: SmartDock.DockManager.CreateCustomToolBar
+  nameWithType: DockManager.CreateCustomToolBar
 - uid: SmartDock.DockManager.CustomTheme
   name: CustomTheme
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_CustomTheme
@@ -2815,6 +2830,21 @@ references:
   commentId: F:SmartDock.DockManager.CustomThemeProperty
   fullName: SmartDock.DockManager.CustomThemeProperty
   nameWithType: DockManager.CustomThemeProperty
+- uid: SmartDock.DockManager.DeleteCustomToolBar(System.String)
+  name: DeleteCustomToolBar(string)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_DeleteCustomToolBar_System_String_
+  commentId: M:SmartDock.DockManager.DeleteCustomToolBar(System.String)
+  name.vb: DeleteCustomToolBar(String)
+  fullName: SmartDock.DockManager.DeleteCustomToolBar(string)
+  fullName.vb: SmartDock.DockManager.DeleteCustomToolBar(String)
+  nameWithType: DockManager.DeleteCustomToolBar(string)
+  nameWithType.vb: DockManager.DeleteCustomToolBar(String)
+- uid: SmartDock.DockManager.DeleteCustomToolBar*
+  name: DeleteCustomToolBar
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_DeleteCustomToolBar_
+  commentId: Overload:SmartDock.DockManager.DeleteCustomToolBar
+  fullName: SmartDock.DockManager.DeleteCustomToolBar
+  nameWithType: DockManager.DeleteCustomToolBar
 - uid: SmartDock.DockManager.DockBackPane(System.String)
   name: DockBackPane(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_DockBackPane_System_String_
@@ -2995,6 +3025,33 @@ references:
   commentId: Overload:SmartDock.DockManager.IsFloatMaximized
   fullName: SmartDock.DockManager.IsFloatMaximized
   nameWithType: DockManager.IsFloatMaximized
+- uid: SmartDock.DockManager.IsToolBarCustomizing
+  name: IsToolBarCustomizing
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarCustomizing
+  commentId: P:SmartDock.DockManager.IsToolBarCustomizing
+  fullName: SmartDock.DockManager.IsToolBarCustomizing
+  nameWithType: DockManager.IsToolBarCustomizing
+- uid: SmartDock.DockManager.IsToolBarCustomizing*
+  name: IsToolBarCustomizing
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarCustomizing_
+  commentId: Overload:SmartDock.DockManager.IsToolBarCustomizing
+  fullName: SmartDock.DockManager.IsToolBarCustomizing
+  nameWithType: DockManager.IsToolBarCustomizing
+- uid: SmartDock.DockManager.IsToolBarFloatVertical(System.String)
+  name: IsToolBarFloatVertical(string)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarFloatVertical_System_String_
+  commentId: M:SmartDock.DockManager.IsToolBarFloatVertical(System.String)
+  name.vb: IsToolBarFloatVertical(String)
+  fullName: SmartDock.DockManager.IsToolBarFloatVertical(string)
+  fullName.vb: SmartDock.DockManager.IsToolBarFloatVertical(String)
+  nameWithType: DockManager.IsToolBarFloatVertical(string)
+  nameWithType.vb: DockManager.IsToolBarFloatVertical(String)
+- uid: SmartDock.DockManager.IsToolBarFloatVertical*
+  name: IsToolBarFloatVertical
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarFloatVertical_
+  commentId: Overload:SmartDock.DockManager.IsToolBarFloatVertical
+  fullName: SmartDock.DockManager.IsToolBarFloatVertical
+  nameWithType: DockManager.IsToolBarFloatVertical
 - uid: SmartDock.DockManager.Layout
   name: Layout
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_Layout
@@ -3058,6 +3115,21 @@ references:
   commentId: Overload:SmartDock.DockManager.MeasureOverride
   fullName: SmartDock.DockManager.MeasureOverride
   nameWithType: DockManager.MeasureOverride
+- uid: SmartDock.DockManager.MergeFloatingToolBars(System.String,System.String,System.Int32)
+  name: MergeFloatingToolBars(string, string, int)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_MergeFloatingToolBars_System_String_System_String_System_Int32_
+  commentId: M:SmartDock.DockManager.MergeFloatingToolBars(System.String,System.String,System.Int32)
+  name.vb: MergeFloatingToolBars(String, String, Integer)
+  fullName: SmartDock.DockManager.MergeFloatingToolBars(string, string, int)
+  fullName.vb: SmartDock.DockManager.MergeFloatingToolBars(String, String, Integer)
+  nameWithType: DockManager.MergeFloatingToolBars(string, string, int)
+  nameWithType.vb: DockManager.MergeFloatingToolBars(String, String, Integer)
+- uid: SmartDock.DockManager.MergeFloatingToolBars*
+  name: MergeFloatingToolBars
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_MergeFloatingToolBars_
+  commentId: Overload:SmartDock.DockManager.MergeFloatingToolBars
+  fullName: SmartDock.DockManager.MergeFloatingToolBars
+  nameWithType: DockManager.MergeFloatingToolBars
 - uid: SmartDock.DockManager.OnPreviewKeyDown(System.Windows.Input.KeyEventArgs)
   name: OnPreviewKeyDown(KeyEventArgs)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_OnPreviewKeyDown_System_Windows_Input_KeyEventArgs_
@@ -3220,6 +3292,21 @@ references:
   commentId: Overload:SmartDock.DockManager.RemovePane
   fullName: SmartDock.DockManager.RemovePane
   nameWithType: DockManager.RemovePane
+- uid: SmartDock.DockManager.RenameCustomToolBar(System.String,System.String)
+  name: RenameCustomToolBar(string, string)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_RenameCustomToolBar_System_String_System_String_
+  commentId: M:SmartDock.DockManager.RenameCustomToolBar(System.String,System.String)
+  name.vb: RenameCustomToolBar(String, String)
+  fullName: SmartDock.DockManager.RenameCustomToolBar(string, string)
+  fullName.vb: SmartDock.DockManager.RenameCustomToolBar(String, String)
+  nameWithType: DockManager.RenameCustomToolBar(string, string)
+  nameWithType.vb: DockManager.RenameCustomToolBar(String, String)
+- uid: SmartDock.DockManager.RenameCustomToolBar*
+  name: RenameCustomToolBar
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_RenameCustomToolBar_
+  commentId: Overload:SmartDock.DockManager.RenameCustomToolBar
+  fullName: SmartDock.DockManager.RenameCustomToolBar
+  nameWithType: DockManager.RenameCustomToolBar
 - uid: SmartDock.DockManager.ResizeGripThickness
   name: ResizeGripThickness
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_ResizeGripThickness
@@ -3346,6 +3433,21 @@ references:
   commentId: Overload:SmartDock.DockManager.SetPaneTitle
   fullName: SmartDock.DockManager.SetPaneTitle
   nameWithType: DockManager.SetPaneTitle
+- uid: SmartDock.DockManager.SetToolBarFloatVertical(System.String,System.Boolean)
+  name: SetToolBarFloatVertical(string, bool)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SetToolBarFloatVertical_System_String_System_Boolean_
+  commentId: M:SmartDock.DockManager.SetToolBarFloatVertical(System.String,System.Boolean)
+  name.vb: SetToolBarFloatVertical(String, Boolean)
+  fullName: SmartDock.DockManager.SetToolBarFloatVertical(string, bool)
+  fullName.vb: SmartDock.DockManager.SetToolBarFloatVertical(String, Boolean)
+  nameWithType: DockManager.SetToolBarFloatVertical(string, bool)
+  nameWithType.vb: DockManager.SetToolBarFloatVertical(String, Boolean)
+- uid: SmartDock.DockManager.SetToolBarFloatVertical*
+  name: SetToolBarFloatVertical
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SetToolBarFloatVertical_
+  commentId: Overload:SmartDock.DockManager.SetToolBarFloatVertical
+  fullName: SmartDock.DockManager.SetToolBarFloatVertical
+  nameWithType: DockManager.SetToolBarFloatVertical
 - uid: SmartDock.DockManager.ShowPane(System.String)
   name: ShowPane(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_ShowPane_System_String_
@@ -3361,6 +3463,21 @@ references:
   commentId: Overload:SmartDock.DockManager.ShowPane
   fullName: SmartDock.DockManager.ShowPane
   nameWithType: DockManager.ShowPane
+- uid: SmartDock.DockManager.SplitFloatingToolBar(System.String)
+  name: SplitFloatingToolBar(string)
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SplitFloatingToolBar_System_String_
+  commentId: M:SmartDock.DockManager.SplitFloatingToolBar(System.String)
+  name.vb: SplitFloatingToolBar(String)
+  fullName: SmartDock.DockManager.SplitFloatingToolBar(string)
+  fullName.vb: SmartDock.DockManager.SplitFloatingToolBar(String)
+  nameWithType: DockManager.SplitFloatingToolBar(string)
+  nameWithType.vb: DockManager.SplitFloatingToolBar(String)
+- uid: SmartDock.DockManager.SplitFloatingToolBar*
+  name: SplitFloatingToolBar
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_SplitFloatingToolBar_
+  commentId: Overload:SmartDock.DockManager.SplitFloatingToolBar
+  fullName: SmartDock.DockManager.SplitFloatingToolBar
+  nameWithType: DockManager.SplitFloatingToolBar
 - uid: SmartDock.DockManager.TabPlacement
   name: TabPlacement
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_TabPlacement
@@ -8920,6 +9037,51 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.CompareInBand
   fullName: SmartDock.ToolBarBands.CompareInBand
   nameWithType: ToolBarBands.CompareInBand
+- uid: SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name: CreateCustom(List<ToolBarEntry>, string, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_CreateCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name.vb: CreateCustom(List(Of ToolBarEntry), String, Double, Double)
+  fullName: SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, double, double)
+  fullName.vb: SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Double, Double)
+  nameWithType: ToolBarBands.CreateCustom(List<ToolBarEntry>, string, double, double)
+  nameWithType.vb: ToolBarBands.CreateCustom(List(Of ToolBarEntry), String, Double, Double)
+- uid: SmartDock.ToolBarBands.CreateCustom*
+  name: CreateCustom
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_CreateCustom_
+  commentId: Overload:SmartDock.ToolBarBands.CreateCustom
+  fullName: SmartDock.ToolBarBands.CreateCustom
+  nameWithType: ToolBarBands.CreateCustom
+- uid: SmartDock.ToolBarBands.CustomTitleTaken(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)
+  name: CustomTitleTaken(List<ToolBarEntry>, string, string?)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_CustomTitleTaken_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_
+  commentId: M:SmartDock.ToolBarBands.CustomTitleTaken(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)
+  name.vb: CustomTitleTaken(List(Of ToolBarEntry), String, String)
+  fullName: SmartDock.ToolBarBands.CustomTitleTaken(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, string?)
+  fullName.vb: SmartDock.ToolBarBands.CustomTitleTaken(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, String)
+  nameWithType: ToolBarBands.CustomTitleTaken(List<ToolBarEntry>, string, string?)
+  nameWithType.vb: ToolBarBands.CustomTitleTaken(List(Of ToolBarEntry), String, String)
+- uid: SmartDock.ToolBarBands.CustomTitleTaken*
+  name: CustomTitleTaken
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_CustomTitleTaken_
+  commentId: Overload:SmartDock.ToolBarBands.CustomTitleTaken
+  fullName: SmartDock.ToolBarBands.CustomTitleTaken
+  nameWithType: ToolBarBands.CustomTitleTaken
+- uid: SmartDock.ToolBarBands.DeleteCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
+  name: DeleteCustom(List<ToolBarEntry>, string)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DeleteCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_
+  commentId: M:SmartDock.ToolBarBands.DeleteCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
+  name.vb: DeleteCustom(List(Of ToolBarEntry), String)
+  fullName: SmartDock.ToolBarBands.DeleteCustom(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string)
+  fullName.vb: SmartDock.ToolBarBands.DeleteCustom(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String)
+  nameWithType: ToolBarBands.DeleteCustom(List<ToolBarEntry>, string)
+  nameWithType.vb: ToolBarBands.DeleteCustom(List(Of ToolBarEntry), String)
+- uid: SmartDock.ToolBarBands.DeleteCustom*
+  name: DeleteCustom
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DeleteCustom_
+  commentId: Overload:SmartDock.ToolBarBands.DeleteCustom
+  fullName: SmartDock.ToolBarBands.DeleteCustom
+  nameWithType: ToolBarBands.DeleteCustom
 - uid: SmartDock.ToolBarBands.DockBack(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
   name: DockBack(List<ToolBarEntry>, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockBack_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_
@@ -8935,6 +9097,36 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.DockBack
   fullName: SmartDock.ToolBarBands.DockBack
   nameWithType: ToolBarBands.DockBack
+- uid: SmartDock.ToolBarBands.DockBackMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
+  name: DockBackMembers(List<ToolBarEntry>, string)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockBackMembers_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_
+  commentId: M:SmartDock.ToolBarBands.DockBackMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)
+  name.vb: DockBackMembers(List(Of ToolBarEntry), String)
+  fullName: SmartDock.ToolBarBands.DockBackMembers(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string)
+  fullName.vb: SmartDock.ToolBarBands.DockBackMembers(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String)
+  nameWithType: ToolBarBands.DockBackMembers(List<ToolBarEntry>, string)
+  nameWithType.vb: ToolBarBands.DockBackMembers(List(Of ToolBarEntry), String)
+- uid: SmartDock.ToolBarBands.DockBackMembers*
+  name: DockBackMembers
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockBackMembers_
+  commentId: Overload:SmartDock.ToolBarBands.DockBackMembers
+  fullName: SmartDock.ToolBarBands.DockBackMembers
+  nameWithType: ToolBarBands.DockBackMembers
+- uid: SmartDock.ToolBarBands.DockMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop)
+  name: DockMembers(List<ToolBarEntry>, string, ToolBarDrop)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockMembers_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_
+  commentId: M:SmartDock.ToolBarBands.DockMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop)
+  name.vb: DockMembers(List(Of ToolBarEntry), String, ToolBarDrop)
+  fullName: SmartDock.ToolBarBands.DockMembers(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, SmartDock.ToolBarDrop)
+  fullName.vb: SmartDock.ToolBarBands.DockMembers(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, SmartDock.ToolBarDrop)
+  nameWithType: ToolBarBands.DockMembers(List<ToolBarEntry>, string, ToolBarDrop)
+  nameWithType.vb: ToolBarBands.DockMembers(List(Of ToolBarEntry), String, ToolBarDrop)
+- uid: SmartDock.ToolBarBands.DockMembers*
+  name: DockMembers
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockMembers_
+  commentId: Overload:SmartDock.ToolBarBands.DockMembers
+  fullName: SmartDock.ToolBarBands.DockMembers
+  nameWithType: ToolBarBands.DockMembers
 - uid: SmartDock.ToolBarBands.EdgeSlop
   name: EdgeSlop
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop
@@ -8962,6 +9154,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.Find
   fullName: SmartDock.ToolBarBands.Find
   nameWithType: ToolBarBands.Find
+- uid: SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)
+  name: FloatOrientation(bool, bool, double, double, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FloatOrientation_System_Boolean_System_Boolean_System_Double_System_Double_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)
+  name.vb: FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
+  fullName: SmartDock.ToolBarBands.FloatOrientation(bool, bool, double, double, double, double)
+  fullName.vb: SmartDock.ToolBarBands.FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
+  nameWithType: ToolBarBands.FloatOrientation(bool, bool, double, double, double, double)
+  nameWithType.vb: ToolBarBands.FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
+- uid: SmartDock.ToolBarBands.FloatOrientation*
+  name: FloatOrientation
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FloatOrientation_
+  commentId: Overload:SmartDock.ToolBarBands.FloatOrientation
+  fullName: SmartDock.ToolBarBands.FloatOrientation
+  nameWithType: ToolBarBands.FloatOrientation
 - uid: SmartDock.ToolBarBands.Hit(SmartDock.DockRect,System.String,System.ReadOnlySpan{SmartDock.ToolBarBarRect},System.ReadOnlySpan{SmartDock.ToolBarBandRect},System.ReadOnlySpan{SmartDock.ToolBarTrayRect},System.Double,System.Double,System.String,System.String)
   name: Hit(DockRect, string, ReadOnlySpan<ToolBarBarRect>, ReadOnlySpan<ToolBarBandRect>, ReadOnlySpan<ToolBarTrayRect>, double, double, string, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_
@@ -9043,6 +9250,36 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.LandingLead
   fullName: SmartDock.ToolBarBands.LandingLead
   nameWithType: ToolBarBands.LandingLead
+- uid: SmartDock.ToolBarBands.Merge(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,System.Int32)
+  name: Merge(List<ToolBarEntry>, string, string, int)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Merge_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_System_Int32_
+  commentId: M:SmartDock.ToolBarBands.Merge(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,System.Int32)
+  name.vb: Merge(List(Of ToolBarEntry), String, String, Integer)
+  fullName: SmartDock.ToolBarBands.Merge(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, string, int)
+  fullName.vb: SmartDock.ToolBarBands.Merge(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, String, Integer)
+  nameWithType: ToolBarBands.Merge(List<ToolBarEntry>, string, string, int)
+  nameWithType.vb: ToolBarBands.Merge(List(Of ToolBarEntry), String, String, Integer)
+- uid: SmartDock.ToolBarBands.Merge*
+  name: Merge
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Merge_
+  commentId: Overload:SmartDock.ToolBarBands.Merge
+  fullName: SmartDock.ToolBarBands.Merge
+  nameWithType: ToolBarBands.Merge
+- uid: SmartDock.ToolBarBands.MoveFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name: MoveFloat(List<ToolBarEntry>, string, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_MoveFloat_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.MoveFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name.vb: MoveFloat(List(Of ToolBarEntry), String, Double, Double)
+  fullName: SmartDock.ToolBarBands.MoveFloat(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, double, double)
+  fullName.vb: SmartDock.ToolBarBands.MoveFloat(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Double, Double)
+  nameWithType: ToolBarBands.MoveFloat(List<ToolBarEntry>, string, double, double)
+  nameWithType.vb: ToolBarBands.MoveFloat(List(Of ToolBarEntry), String, Double, Double)
+- uid: SmartDock.ToolBarBands.MoveFloat*
+  name: MoveFloat
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_MoveFloat_
+  commentId: Overload:SmartDock.ToolBarBands.MoveFloat
+  fullName: SmartDock.ToolBarBands.MoveFloat
+  nameWithType: ToolBarBands.MoveFloat
 - uid: SmartDock.ToolBarBands.Moved(System.Double,System.Double,System.Double,System.Double,System.Double)
   name: Moved(double, double, double, double, double)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Moved_System_Double_System_Double_System_Double_System_Double_System_Double_
@@ -9103,6 +9340,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.Place
   fullName: SmartDock.ToolBarBands.Place
   nameWithType: ToolBarBands.Place
+- uid: SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)
+  name: RenameCustom(List<ToolBarEntry>, string, string)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_RenameCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_
+  commentId: M:SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)
+  name.vb: RenameCustom(List(Of ToolBarEntry), String, String)
+  fullName: SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, string)
+  fullName.vb: SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, String)
+  nameWithType: ToolBarBands.RenameCustom(List<ToolBarEntry>, string, string)
+  nameWithType.vb: ToolBarBands.RenameCustom(List(Of ToolBarEntry), String, String)
+- uid: SmartDock.ToolBarBands.RenameCustom*
+  name: RenameCustom
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_RenameCustom_
+  commentId: Overload:SmartDock.ToolBarBands.RenameCustom
+  fullName: SmartDock.ToolBarBands.RenameCustom
+  nameWithType: ToolBarBands.RenameCustom
 - uid: SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.ToolBarAlignment,System.Boolean)
   name: ResetPlace(List<ToolBarEntry>, string, string?, ToolBarEdge, int, int, double, ToolBarAlignment, bool)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ResetPlace_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_ToolBarAlignment_System_Boolean_
@@ -9118,6 +9370,51 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.ResetPlace
   fullName: SmartDock.ToolBarBands.ResetPlace
   nameWithType: ToolBarBands.ResetPlace
+- uid: SmartDock.ToolBarBands.SetFloatVertical(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Boolean)
+  name: SetFloatVertical(List<ToolBarEntry>, string, bool)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SetFloatVertical_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Boolean_
+  commentId: M:SmartDock.ToolBarBands.SetFloatVertical(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Boolean)
+  name.vb: SetFloatVertical(List(Of ToolBarEntry), String, Boolean)
+  fullName: SmartDock.ToolBarBands.SetFloatVertical(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, bool)
+  fullName.vb: SmartDock.ToolBarBands.SetFloatVertical(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Boolean)
+  nameWithType: ToolBarBands.SetFloatVertical(List<ToolBarEntry>, string, bool)
+  nameWithType.vb: ToolBarBands.SetFloatVertical(List(Of ToolBarEntry), String, Boolean)
+- uid: SmartDock.ToolBarBands.SetFloatVertical*
+  name: SetFloatVertical
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SetFloatVertical_
+  commentId: Overload:SmartDock.ToolBarBands.SetFloatVertical
+  fullName: SmartDock.ToolBarBands.SetFloatVertical
+  nameWithType: ToolBarBands.SetFloatVertical
+- uid: SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name: SizeFloat(List<ToolBarEntry>, string, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SizeFloat_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
+  name.vb: SizeFloat(List(Of ToolBarEntry), String, Double, Double)
+  fullName: SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, double, double)
+  fullName.vb: SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Double, Double)
+  nameWithType: ToolBarBands.SizeFloat(List<ToolBarEntry>, string, double, double)
+  nameWithType.vb: ToolBarBands.SizeFloat(List(Of ToolBarEntry), String, Double, Double)
+- uid: SmartDock.ToolBarBands.SizeFloat*
+  name: SizeFloat
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SizeFloat_
+  commentId: Overload:SmartDock.ToolBarBands.SizeFloat
+  fullName: SmartDock.ToolBarBands.SizeFloat
+  nameWithType: ToolBarBands.SizeFloat
+- uid: SmartDock.ToolBarBands.Split(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double,System.Double,System.Double)
+  name: Split(List<ToolBarEntry>, string, double, double, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Split_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.Split(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double,System.Double,System.Double)
+  name.vb: Split(List(Of ToolBarEntry), String, Double, Double, Double, Double)
+  fullName: SmartDock.ToolBarBands.Split(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, double, double, double, double)
+  fullName.vb: SmartDock.ToolBarBands.Split(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Double, Double, Double, Double)
+  nameWithType: ToolBarBands.Split(List<ToolBarEntry>, string, double, double, double, double)
+  nameWithType.vb: ToolBarBands.Split(List(Of ToolBarEntry), String, Double, Double, Double, Double)
+- uid: SmartDock.ToolBarBands.Split*
+  name: Split
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Split_
+  commentId: Overload:SmartDock.ToolBarBands.Split
+  fullName: SmartDock.ToolBarBands.Split
+  nameWithType: ToolBarBands.Split
 - uid: SmartDock.ToolBarBands.TargetBand
   name: TargetBand
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand
@@ -9142,6 +9439,21 @@ references:
   commentId: F:SmartDock.ToolBarBands.TraySlop
   fullName: SmartDock.ToolBarBands.TraySlop
   nameWithType: ToolBarBands.TraySlop
+- uid: SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan{SmartDock.ToolBarFloatWindow},System.ReadOnlySpan{SmartDock.ToolBarFloatMember},System.String,System.String,System.Double,System.Double,System.String@,System.Int32@,SmartDock.DockRect@)
+  name: TryHitFloat(ReadOnlySpan<ToolBarFloatWindow>, ReadOnlySpan<ToolBarFloatMember>, string, string, double, double, out string, out int, out DockRect)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TryHitFloat_System_ReadOnlySpan_SmartDock_ToolBarFloatWindow__System_ReadOnlySpan_SmartDock_ToolBarFloatMember__System_String_System_String_System_Double_System_Double_System_String__System_Int32__SmartDock_DockRect__
+  commentId: M:SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan{SmartDock.ToolBarFloatWindow},System.ReadOnlySpan{SmartDock.ToolBarFloatMember},System.String,System.String,System.Double,System.Double,System.String@,System.Int32@,SmartDock.DockRect@)
+  name.vb: TryHitFloat(ReadOnlySpan(Of ToolBarFloatWindow), ReadOnlySpan(Of ToolBarFloatMember), String, String, Double, Double, String, Integer, DockRect)
+  fullName: SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan<SmartDock.ToolBarFloatWindow>, System.ReadOnlySpan<SmartDock.ToolBarFloatMember>, string, string, double, double, out string, out int, out SmartDock.DockRect)
+  fullName.vb: SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan(Of SmartDock.ToolBarFloatWindow), System.ReadOnlySpan(Of SmartDock.ToolBarFloatMember), String, String, Double, Double, String, Integer, SmartDock.DockRect)
+  nameWithType: ToolBarBands.TryHitFloat(ReadOnlySpan<ToolBarFloatWindow>, ReadOnlySpan<ToolBarFloatMember>, string, string, double, double, out string, out int, out DockRect)
+  nameWithType.vb: ToolBarBands.TryHitFloat(ReadOnlySpan(Of ToolBarFloatWindow), ReadOnlySpan(Of ToolBarFloatMember), String, String, Double, Double, String, Integer, DockRect)
+- uid: SmartDock.ToolBarBands.TryHitFloat*
+  name: TryHitFloat
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TryHitFloat_
+  commentId: Overload:SmartDock.ToolBarBands.TryHitFloat
+  fullName: SmartDock.ToolBarBands.TryHitFloat
+  nameWithType: ToolBarBands.TryHitFloat
 - uid: SmartDock.ToolBarBands.TryTarget(System.ReadOnlySpan{SmartDock.ToolBarSite},SmartDock.ToolBarDrop,System.Double,System.Double,SmartDock.ToolBarSite@)
   name: TryTarget(ReadOnlySpan<ToolBarSite>, ToolBarDrop, double, double, out ToolBarSite)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TryTarget_System_ReadOnlySpan_SmartDock_ToolBarSite__SmartDock_ToolBarDrop_System_Double_System_Double_SmartDock_ToolBarSite__
@@ -9367,18 +9679,48 @@ references:
   commentId: T:SmartDock.ToolBarCustomizationChange
   fullName: SmartDock.ToolBarCustomizationChange
   nameWithType: ToolBarCustomizationChange
+- uid: SmartDock.ToolBarCustomizationChange.Created
+  name: Created
+  href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Created
+  commentId: F:SmartDock.ToolBarCustomizationChange.Created
+  fullName: SmartDock.ToolBarCustomizationChange.Created
+  nameWithType: ToolBarCustomizationChange.Created
+- uid: SmartDock.ToolBarCustomizationChange.Deleted
+  name: Deleted
+  href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Deleted
+  commentId: F:SmartDock.ToolBarCustomizationChange.Deleted
+  fullName: SmartDock.ToolBarCustomizationChange.Deleted
+  nameWithType: ToolBarCustomizationChange.Deleted
 - uid: SmartDock.ToolBarCustomizationChange.Hide
   name: Hide
   href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Hide
   commentId: F:SmartDock.ToolBarCustomizationChange.Hide
   fullName: SmartDock.ToolBarCustomizationChange.Hide
   nameWithType: ToolBarCustomizationChange.Hide
+- uid: SmartDock.ToolBarCustomizationChange.ItemCopied
+  name: ItemCopied
+  href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_ItemCopied
+  commentId: F:SmartDock.ToolBarCustomizationChange.ItemCopied
+  fullName: SmartDock.ToolBarCustomizationChange.ItemCopied
+  nameWithType: ToolBarCustomizationChange.ItemCopied
+- uid: SmartDock.ToolBarCustomizationChange.ItemRemoved
+  name: ItemRemoved
+  href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_ItemRemoved
+  commentId: F:SmartDock.ToolBarCustomizationChange.ItemRemoved
+  fullName: SmartDock.ToolBarCustomizationChange.ItemRemoved
+  nameWithType: ToolBarCustomizationChange.ItemRemoved
 - uid: SmartDock.ToolBarCustomizationChange.Move
   name: Move
   href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Move
   commentId: F:SmartDock.ToolBarCustomizationChange.Move
   fullName: SmartDock.ToolBarCustomizationChange.Move
   nameWithType: ToolBarCustomizationChange.Move
+- uid: SmartDock.ToolBarCustomizationChange.Renamed
+  name: Renamed
+  href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Renamed
+  commentId: F:SmartDock.ToolBarCustomizationChange.Renamed
+  fullName: SmartDock.ToolBarCustomizationChange.Renamed
+  nameWithType: ToolBarCustomizationChange.Renamed
 - uid: SmartDock.ToolBarCustomizationChange.Reorder
   name: Reorder
   href: api/generated/SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Reorder
@@ -9802,6 +10144,18 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.Band
   fullName: SmartDock.ToolBarEntry.Band
   nameWithType: ToolBarEntry.Band
+- uid: SmartDock.ToolBarEntry.Custom
+  name: Custom
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Custom
+  commentId: P:SmartDock.ToolBarEntry.Custom
+  fullName: SmartDock.ToolBarEntry.Custom
+  nameWithType: ToolBarEntry.Custom
+- uid: SmartDock.ToolBarEntry.Custom*
+  name: Custom
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Custom_
+  commentId: Overload:SmartDock.ToolBarEntry.Custom
+  fullName: SmartDock.ToolBarEntry.Custom
+  nameWithType: ToolBarEntry.Custom
 - uid: SmartDock.ToolBarEntry.Edge
   name: Edge
   href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Edge
@@ -9814,6 +10168,42 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.Edge
   fullName: SmartDock.ToolBarEntry.Edge
   nameWithType: ToolBarEntry.Edge
+- uid: SmartDock.ToolBarEntry.FloatId
+  name: FloatId
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId
+  commentId: P:SmartDock.ToolBarEntry.FloatId
+  fullName: SmartDock.ToolBarEntry.FloatId
+  nameWithType: ToolBarEntry.FloatId
+- uid: SmartDock.ToolBarEntry.FloatId*
+  name: FloatId
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId_
+  commentId: Overload:SmartDock.ToolBarEntry.FloatId
+  fullName: SmartDock.ToolBarEntry.FloatId
+  nameWithType: ToolBarEntry.FloatId
+- uid: SmartDock.ToolBarEntry.FloatIndex
+  name: FloatIndex
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatIndex
+  commentId: P:SmartDock.ToolBarEntry.FloatIndex
+  fullName: SmartDock.ToolBarEntry.FloatIndex
+  nameWithType: ToolBarEntry.FloatIndex
+- uid: SmartDock.ToolBarEntry.FloatIndex*
+  name: FloatIndex
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatIndex_
+  commentId: Overload:SmartDock.ToolBarEntry.FloatIndex
+  fullName: SmartDock.ToolBarEntry.FloatIndex
+  nameWithType: ToolBarEntry.FloatIndex
+- uid: SmartDock.ToolBarEntry.FloatVertical
+  name: FloatVertical
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatVertical
+  commentId: P:SmartDock.ToolBarEntry.FloatVertical
+  fullName: SmartDock.ToolBarEntry.FloatVertical
+  nameWithType: ToolBarEntry.FloatVertical
+- uid: SmartDock.ToolBarEntry.FloatVertical*
+  name: FloatVertical
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatVertical_
+  commentId: Overload:SmartDock.ToolBarEntry.FloatVertical
+  fullName: SmartDock.ToolBarEntry.FloatVertical
+  nameWithType: ToolBarEntry.FloatVertical
 - uid: SmartDock.ToolBarEntry.Floating
   name: Floating
   href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating
@@ -9874,6 +10264,18 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.Index
   fullName: SmartDock.ToolBarEntry.Index
   nameWithType: ToolBarEntry.Index
+- uid: SmartDock.ToolBarEntry.Items
+  name: Items
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Items
+  commentId: P:SmartDock.ToolBarEntry.Items
+  fullName: SmartDock.ToolBarEntry.Items
+  nameWithType: ToolBarEntry.Items
+- uid: SmartDock.ToolBarEntry.Items*
+  name: Items
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Items_
+  commentId: Overload:SmartDock.ToolBarEntry.Items
+  fullName: SmartDock.ToolBarEntry.Items
+  nameWithType: ToolBarEntry.Items
 - uid: SmartDock.ToolBarEntry.Offset
   name: Offset
   href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Offset
@@ -9898,6 +10300,18 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.PaneId
   fullName: SmartDock.ToolBarEntry.PaneId
   nameWithType: ToolBarEntry.PaneId
+- uid: SmartDock.ToolBarEntry.Title
+  name: Title
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Title
+  commentId: P:SmartDock.ToolBarEntry.Title
+  fullName: SmartDock.ToolBarEntry.Title
+  nameWithType: ToolBarEntry.Title
+- uid: SmartDock.ToolBarEntry.Title*
+  name: Title
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Title_
+  commentId: Overload:SmartDock.ToolBarEntry.Title
+  fullName: SmartDock.ToolBarEntry.Title
+  nameWithType: ToolBarEntry.Title
 - uid: SmartDock.ToolBarEntry.Visible
   name: Visible
   href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Visible
@@ -9958,6 +10372,342 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.Y
   fullName: SmartDock.ToolBarEntry.Y
   nameWithType: ToolBarEntry.Y
+- uid: SmartDock.ToolBarFloatMember
+  name: ToolBarFloatMember
+  href: api/generated/SmartDock.ToolBarFloatMember.html
+  commentId: T:SmartDock.ToolBarFloatMember
+  fullName: SmartDock.ToolBarFloatMember
+  nameWithType: ToolBarFloatMember
+- uid: SmartDock.ToolBarFloatMember.#ctor(System.String,System.String,System.Int32,SmartDock.DockRect)
+  name: ToolBarFloatMember(string, string, int, DockRect)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember__ctor_System_String_System_String_System_Int32_SmartDock_DockRect_
+  commentId: M:SmartDock.ToolBarFloatMember.#ctor(System.String,System.String,System.Int32,SmartDock.DockRect)
+  name.vb: New(String, String, Integer, DockRect)
+  fullName: SmartDock.ToolBarFloatMember.ToolBarFloatMember(string, string, int, SmartDock.DockRect)
+  fullName.vb: SmartDock.ToolBarFloatMember.New(String, String, Integer, SmartDock.DockRect)
+  nameWithType: ToolBarFloatMember.ToolBarFloatMember(string, string, int, DockRect)
+  nameWithType.vb: ToolBarFloatMember.New(String, String, Integer, DockRect)
+- uid: SmartDock.ToolBarFloatMember.#ctor*
+  name: ToolBarFloatMember
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember__ctor_
+  commentId: Overload:SmartDock.ToolBarFloatMember.#ctor
+  name.vb: New
+  fullName: SmartDock.ToolBarFloatMember.ToolBarFloatMember
+  fullName.vb: SmartDock.ToolBarFloatMember.New
+  nameWithType: ToolBarFloatMember.ToolBarFloatMember
+  nameWithType.vb: ToolBarFloatMember.New
+- uid: SmartDock.ToolBarFloatMember.BarId
+  name: BarId
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_BarId
+  commentId: P:SmartDock.ToolBarFloatMember.BarId
+  fullName: SmartDock.ToolBarFloatMember.BarId
+  nameWithType: ToolBarFloatMember.BarId
+- uid: SmartDock.ToolBarFloatMember.BarId*
+  name: BarId
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_BarId_
+  commentId: Overload:SmartDock.ToolBarFloatMember.BarId
+  fullName: SmartDock.ToolBarFloatMember.BarId
+  nameWithType: ToolBarFloatMember.BarId
+- uid: SmartDock.ToolBarFloatMember.Bounds
+  name: Bounds
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Bounds
+  commentId: P:SmartDock.ToolBarFloatMember.Bounds
+  fullName: SmartDock.ToolBarFloatMember.Bounds
+  nameWithType: ToolBarFloatMember.Bounds
+- uid: SmartDock.ToolBarFloatMember.Bounds*
+  name: Bounds
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Bounds_
+  commentId: Overload:SmartDock.ToolBarFloatMember.Bounds
+  fullName: SmartDock.ToolBarFloatMember.Bounds
+  nameWithType: ToolBarFloatMember.Bounds
+- uid: SmartDock.ToolBarFloatMember.Deconstruct(System.String@,System.String@,System.Int32@,SmartDock.DockRect@)
+  name: Deconstruct(out string, out string, out int, out DockRect)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Deconstruct_System_String__System_String__System_Int32__SmartDock_DockRect__
+  commentId: M:SmartDock.ToolBarFloatMember.Deconstruct(System.String@,System.String@,System.Int32@,SmartDock.DockRect@)
+  name.vb: Deconstruct(String, String, Integer, DockRect)
+  fullName: SmartDock.ToolBarFloatMember.Deconstruct(out string, out string, out int, out SmartDock.DockRect)
+  fullName.vb: SmartDock.ToolBarFloatMember.Deconstruct(String, String, Integer, SmartDock.DockRect)
+  nameWithType: ToolBarFloatMember.Deconstruct(out string, out string, out int, out DockRect)
+  nameWithType.vb: ToolBarFloatMember.Deconstruct(String, String, Integer, DockRect)
+- uid: SmartDock.ToolBarFloatMember.Deconstruct*
+  name: Deconstruct
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Deconstruct_
+  commentId: Overload:SmartDock.ToolBarFloatMember.Deconstruct
+  fullName: SmartDock.ToolBarFloatMember.Deconstruct
+  nameWithType: ToolBarFloatMember.Deconstruct
+- uid: SmartDock.ToolBarFloatMember.Equals(SmartDock.ToolBarFloatMember)
+  name: Equals(ToolBarFloatMember)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Equals_SmartDock_ToolBarFloatMember_
+  commentId: M:SmartDock.ToolBarFloatMember.Equals(SmartDock.ToolBarFloatMember)
+  fullName: SmartDock.ToolBarFloatMember.Equals(SmartDock.ToolBarFloatMember)
+  nameWithType: ToolBarFloatMember.Equals(ToolBarFloatMember)
+- uid: SmartDock.ToolBarFloatMember.Equals(System.Object)
+  name: Equals(object)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Equals_System_Object_
+  commentId: M:SmartDock.ToolBarFloatMember.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SmartDock.ToolBarFloatMember.Equals(object)
+  fullName.vb: SmartDock.ToolBarFloatMember.Equals(Object)
+  nameWithType: ToolBarFloatMember.Equals(object)
+  nameWithType.vb: ToolBarFloatMember.Equals(Object)
+- uid: SmartDock.ToolBarFloatMember.Equals*
+  name: Equals
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Equals_
+  commentId: Overload:SmartDock.ToolBarFloatMember.Equals
+  fullName: SmartDock.ToolBarFloatMember.Equals
+  nameWithType: ToolBarFloatMember.Equals
+- uid: SmartDock.ToolBarFloatMember.GetHashCode
+  name: GetHashCode()
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_GetHashCode
+  commentId: M:SmartDock.ToolBarFloatMember.GetHashCode
+  fullName: SmartDock.ToolBarFloatMember.GetHashCode()
+  nameWithType: ToolBarFloatMember.GetHashCode()
+- uid: SmartDock.ToolBarFloatMember.GetHashCode*
+  name: GetHashCode
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_GetHashCode_
+  commentId: Overload:SmartDock.ToolBarFloatMember.GetHashCode
+  fullName: SmartDock.ToolBarFloatMember.GetHashCode
+  nameWithType: ToolBarFloatMember.GetHashCode
+- uid: SmartDock.ToolBarFloatMember.Index
+  name: Index
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Index
+  commentId: P:SmartDock.ToolBarFloatMember.Index
+  fullName: SmartDock.ToolBarFloatMember.Index
+  nameWithType: ToolBarFloatMember.Index
+- uid: SmartDock.ToolBarFloatMember.Index*
+  name: Index
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Index_
+  commentId: Overload:SmartDock.ToolBarFloatMember.Index
+  fullName: SmartDock.ToolBarFloatMember.Index
+  nameWithType: ToolBarFloatMember.Index
+- uid: SmartDock.ToolBarFloatMember.ToString
+  name: ToString()
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_ToString
+  commentId: M:SmartDock.ToolBarFloatMember.ToString
+  fullName: SmartDock.ToolBarFloatMember.ToString()
+  nameWithType: ToolBarFloatMember.ToString()
+- uid: SmartDock.ToolBarFloatMember.ToString*
+  name: ToString
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_ToString_
+  commentId: Overload:SmartDock.ToolBarFloatMember.ToString
+  fullName: SmartDock.ToolBarFloatMember.ToString
+  nameWithType: ToolBarFloatMember.ToString
+- uid: SmartDock.ToolBarFloatMember.WindowId
+  name: WindowId
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_WindowId
+  commentId: P:SmartDock.ToolBarFloatMember.WindowId
+  fullName: SmartDock.ToolBarFloatMember.WindowId
+  nameWithType: ToolBarFloatMember.WindowId
+- uid: SmartDock.ToolBarFloatMember.WindowId*
+  name: WindowId
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_WindowId_
+  commentId: Overload:SmartDock.ToolBarFloatMember.WindowId
+  fullName: SmartDock.ToolBarFloatMember.WindowId
+  nameWithType: ToolBarFloatMember.WindowId
+- uid: SmartDock.ToolBarFloatMember.op_Equality(SmartDock.ToolBarFloatMember,SmartDock.ToolBarFloatMember)
+  name: operator ==(ToolBarFloatMember, ToolBarFloatMember)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_op_Equality_SmartDock_ToolBarFloatMember_SmartDock_ToolBarFloatMember_
+  commentId: M:SmartDock.ToolBarFloatMember.op_Equality(SmartDock.ToolBarFloatMember,SmartDock.ToolBarFloatMember)
+  name.vb: =(ToolBarFloatMember, ToolBarFloatMember)
+  fullName: SmartDock.ToolBarFloatMember.operator ==(SmartDock.ToolBarFloatMember, SmartDock.ToolBarFloatMember)
+  fullName.vb: SmartDock.ToolBarFloatMember.=(SmartDock.ToolBarFloatMember, SmartDock.ToolBarFloatMember)
+  nameWithType: ToolBarFloatMember.operator ==(ToolBarFloatMember, ToolBarFloatMember)
+  nameWithType.vb: ToolBarFloatMember.=(ToolBarFloatMember, ToolBarFloatMember)
+- uid: SmartDock.ToolBarFloatMember.op_Equality*
+  name: operator ==
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_op_Equality_
+  commentId: Overload:SmartDock.ToolBarFloatMember.op_Equality
+  name.vb: =
+  fullName: SmartDock.ToolBarFloatMember.operator ==
+  fullName.vb: SmartDock.ToolBarFloatMember.=
+  nameWithType: ToolBarFloatMember.operator ==
+  nameWithType.vb: ToolBarFloatMember.=
+- uid: SmartDock.ToolBarFloatMember.op_Inequality(SmartDock.ToolBarFloatMember,SmartDock.ToolBarFloatMember)
+  name: operator !=(ToolBarFloatMember, ToolBarFloatMember)
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_op_Inequality_SmartDock_ToolBarFloatMember_SmartDock_ToolBarFloatMember_
+  commentId: M:SmartDock.ToolBarFloatMember.op_Inequality(SmartDock.ToolBarFloatMember,SmartDock.ToolBarFloatMember)
+  name.vb: <>(ToolBarFloatMember, ToolBarFloatMember)
+  fullName: SmartDock.ToolBarFloatMember.operator !=(SmartDock.ToolBarFloatMember, SmartDock.ToolBarFloatMember)
+  fullName.vb: SmartDock.ToolBarFloatMember.<>(SmartDock.ToolBarFloatMember, SmartDock.ToolBarFloatMember)
+  nameWithType: ToolBarFloatMember.operator !=(ToolBarFloatMember, ToolBarFloatMember)
+  nameWithType.vb: ToolBarFloatMember.<>(ToolBarFloatMember, ToolBarFloatMember)
+- uid: SmartDock.ToolBarFloatMember.op_Inequality*
+  name: operator !=
+  href: api/generated/SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_op_Inequality_
+  commentId: Overload:SmartDock.ToolBarFloatMember.op_Inequality
+  name.vb: <>
+  fullName: SmartDock.ToolBarFloatMember.operator !=
+  fullName.vb: SmartDock.ToolBarFloatMember.<>
+  nameWithType: ToolBarFloatMember.operator !=
+  nameWithType.vb: ToolBarFloatMember.<>
+- uid: SmartDock.ToolBarFloatWindow
+  name: ToolBarFloatWindow
+  href: api/generated/SmartDock.ToolBarFloatWindow.html
+  commentId: T:SmartDock.ToolBarFloatWindow
+  fullName: SmartDock.ToolBarFloatWindow
+  nameWithType: ToolBarFloatWindow
+- uid: SmartDock.ToolBarFloatWindow.#ctor(System.String,SmartDock.DockRect,System.Int32,System.Boolean)
+  name: ToolBarFloatWindow(string, DockRect, int, bool)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow__ctor_System_String_SmartDock_DockRect_System_Int32_System_Boolean_
+  commentId: M:SmartDock.ToolBarFloatWindow.#ctor(System.String,SmartDock.DockRect,System.Int32,System.Boolean)
+  name.vb: New(String, DockRect, Integer, Boolean)
+  fullName: SmartDock.ToolBarFloatWindow.ToolBarFloatWindow(string, SmartDock.DockRect, int, bool)
+  fullName.vb: SmartDock.ToolBarFloatWindow.New(String, SmartDock.DockRect, Integer, Boolean)
+  nameWithType: ToolBarFloatWindow.ToolBarFloatWindow(string, DockRect, int, bool)
+  nameWithType.vb: ToolBarFloatWindow.New(String, DockRect, Integer, Boolean)
+- uid: SmartDock.ToolBarFloatWindow.#ctor*
+  name: ToolBarFloatWindow
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow__ctor_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.#ctor
+  name.vb: New
+  fullName: SmartDock.ToolBarFloatWindow.ToolBarFloatWindow
+  fullName.vb: SmartDock.ToolBarFloatWindow.New
+  nameWithType: ToolBarFloatWindow.ToolBarFloatWindow
+  nameWithType.vb: ToolBarFloatWindow.New
+- uid: SmartDock.ToolBarFloatWindow.Bounds
+  name: Bounds
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Bounds
+  commentId: P:SmartDock.ToolBarFloatWindow.Bounds
+  fullName: SmartDock.ToolBarFloatWindow.Bounds
+  nameWithType: ToolBarFloatWindow.Bounds
+- uid: SmartDock.ToolBarFloatWindow.Bounds*
+  name: Bounds
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Bounds_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.Bounds
+  fullName: SmartDock.ToolBarFloatWindow.Bounds
+  nameWithType: ToolBarFloatWindow.Bounds
+- uid: SmartDock.ToolBarFloatWindow.Deconstruct(System.String@,SmartDock.DockRect@,System.Int32@,System.Boolean@)
+  name: Deconstruct(out string, out DockRect, out int, out bool)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Deconstruct_System_String__SmartDock_DockRect__System_Int32__System_Boolean__
+  commentId: M:SmartDock.ToolBarFloatWindow.Deconstruct(System.String@,SmartDock.DockRect@,System.Int32@,System.Boolean@)
+  name.vb: Deconstruct(String, DockRect, Integer, Boolean)
+  fullName: SmartDock.ToolBarFloatWindow.Deconstruct(out string, out SmartDock.DockRect, out int, out bool)
+  fullName.vb: SmartDock.ToolBarFloatWindow.Deconstruct(String, SmartDock.DockRect, Integer, Boolean)
+  nameWithType: ToolBarFloatWindow.Deconstruct(out string, out DockRect, out int, out bool)
+  nameWithType.vb: ToolBarFloatWindow.Deconstruct(String, DockRect, Integer, Boolean)
+- uid: SmartDock.ToolBarFloatWindow.Deconstruct*
+  name: Deconstruct
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Deconstruct_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.Deconstruct
+  fullName: SmartDock.ToolBarFloatWindow.Deconstruct
+  nameWithType: ToolBarFloatWindow.Deconstruct
+- uid: SmartDock.ToolBarFloatWindow.Equals(SmartDock.ToolBarFloatWindow)
+  name: Equals(ToolBarFloatWindow)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Equals_SmartDock_ToolBarFloatWindow_
+  commentId: M:SmartDock.ToolBarFloatWindow.Equals(SmartDock.ToolBarFloatWindow)
+  fullName: SmartDock.ToolBarFloatWindow.Equals(SmartDock.ToolBarFloatWindow)
+  nameWithType: ToolBarFloatWindow.Equals(ToolBarFloatWindow)
+- uid: SmartDock.ToolBarFloatWindow.Equals(System.Object)
+  name: Equals(object)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Equals_System_Object_
+  commentId: M:SmartDock.ToolBarFloatWindow.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SmartDock.ToolBarFloatWindow.Equals(object)
+  fullName.vb: SmartDock.ToolBarFloatWindow.Equals(Object)
+  nameWithType: ToolBarFloatWindow.Equals(object)
+  nameWithType.vb: ToolBarFloatWindow.Equals(Object)
+- uid: SmartDock.ToolBarFloatWindow.Equals*
+  name: Equals
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Equals_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.Equals
+  fullName: SmartDock.ToolBarFloatWindow.Equals
+  nameWithType: ToolBarFloatWindow.Equals
+- uid: SmartDock.ToolBarFloatWindow.GetHashCode
+  name: GetHashCode()
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_GetHashCode
+  commentId: M:SmartDock.ToolBarFloatWindow.GetHashCode
+  fullName: SmartDock.ToolBarFloatWindow.GetHashCode()
+  nameWithType: ToolBarFloatWindow.GetHashCode()
+- uid: SmartDock.ToolBarFloatWindow.GetHashCode*
+  name: GetHashCode
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_GetHashCode_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.GetHashCode
+  fullName: SmartDock.ToolBarFloatWindow.GetHashCode
+  nameWithType: ToolBarFloatWindow.GetHashCode
+- uid: SmartDock.ToolBarFloatWindow.Id
+  name: Id
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id
+  commentId: P:SmartDock.ToolBarFloatWindow.Id
+  fullName: SmartDock.ToolBarFloatWindow.Id
+  nameWithType: ToolBarFloatWindow.Id
+- uid: SmartDock.ToolBarFloatWindow.Id*
+  name: Id
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.Id
+  fullName: SmartDock.ToolBarFloatWindow.Id
+  nameWithType: ToolBarFloatWindow.Id
+- uid: SmartDock.ToolBarFloatWindow.ToString
+  name: ToString()
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ToString
+  commentId: M:SmartDock.ToolBarFloatWindow.ToString
+  fullName: SmartDock.ToolBarFloatWindow.ToString()
+  nameWithType: ToolBarFloatWindow.ToString()
+- uid: SmartDock.ToolBarFloatWindow.ToString*
+  name: ToString
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ToString_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.ToString
+  fullName: SmartDock.ToolBarFloatWindow.ToString
+  nameWithType: ToolBarFloatWindow.ToString
+- uid: SmartDock.ToolBarFloatWindow.Vertical
+  name: Vertical
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical
+  commentId: P:SmartDock.ToolBarFloatWindow.Vertical
+  fullName: SmartDock.ToolBarFloatWindow.Vertical
+  nameWithType: ToolBarFloatWindow.Vertical
+- uid: SmartDock.ToolBarFloatWindow.Vertical*
+  name: Vertical
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.Vertical
+  fullName: SmartDock.ToolBarFloatWindow.Vertical
+  nameWithType: ToolBarFloatWindow.Vertical
+- uid: SmartDock.ToolBarFloatWindow.ZOrder
+  name: ZOrder
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder
+  commentId: P:SmartDock.ToolBarFloatWindow.ZOrder
+  fullName: SmartDock.ToolBarFloatWindow.ZOrder
+  nameWithType: ToolBarFloatWindow.ZOrder
+- uid: SmartDock.ToolBarFloatWindow.ZOrder*
+  name: ZOrder
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.ZOrder
+  fullName: SmartDock.ToolBarFloatWindow.ZOrder
+  nameWithType: ToolBarFloatWindow.ZOrder
+- uid: SmartDock.ToolBarFloatWindow.op_Equality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)
+  name: operator ==(ToolBarFloatWindow, ToolBarFloatWindow)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_op_Equality_SmartDock_ToolBarFloatWindow_SmartDock_ToolBarFloatWindow_
+  commentId: M:SmartDock.ToolBarFloatWindow.op_Equality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)
+  name.vb: =(ToolBarFloatWindow, ToolBarFloatWindow)
+  fullName: SmartDock.ToolBarFloatWindow.operator ==(SmartDock.ToolBarFloatWindow, SmartDock.ToolBarFloatWindow)
+  fullName.vb: SmartDock.ToolBarFloatWindow.=(SmartDock.ToolBarFloatWindow, SmartDock.ToolBarFloatWindow)
+  nameWithType: ToolBarFloatWindow.operator ==(ToolBarFloatWindow, ToolBarFloatWindow)
+  nameWithType.vb: ToolBarFloatWindow.=(ToolBarFloatWindow, ToolBarFloatWindow)
+- uid: SmartDock.ToolBarFloatWindow.op_Equality*
+  name: operator ==
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_op_Equality_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.op_Equality
+  name.vb: =
+  fullName: SmartDock.ToolBarFloatWindow.operator ==
+  fullName.vb: SmartDock.ToolBarFloatWindow.=
+  nameWithType: ToolBarFloatWindow.operator ==
+  nameWithType.vb: ToolBarFloatWindow.=
+- uid: SmartDock.ToolBarFloatWindow.op_Inequality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)
+  name: operator !=(ToolBarFloatWindow, ToolBarFloatWindow)
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_op_Inequality_SmartDock_ToolBarFloatWindow_SmartDock_ToolBarFloatWindow_
+  commentId: M:SmartDock.ToolBarFloatWindow.op_Inequality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)
+  name.vb: <>(ToolBarFloatWindow, ToolBarFloatWindow)
+  fullName: SmartDock.ToolBarFloatWindow.operator !=(SmartDock.ToolBarFloatWindow, SmartDock.ToolBarFloatWindow)
+  fullName.vb: SmartDock.ToolBarFloatWindow.<>(SmartDock.ToolBarFloatWindow, SmartDock.ToolBarFloatWindow)
+  nameWithType: ToolBarFloatWindow.operator !=(ToolBarFloatWindow, ToolBarFloatWindow)
+  nameWithType.vb: ToolBarFloatWindow.<>(ToolBarFloatWindow, ToolBarFloatWindow)
+- uid: SmartDock.ToolBarFloatWindow.op_Inequality*
+  name: operator !=
+  href: api/generated/SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_op_Inequality_
+  commentId: Overload:SmartDock.ToolBarFloatWindow.op_Inequality
+  name.vb: <>
+  fullName: SmartDock.ToolBarFloatWindow.operator !=
+  fullName.vb: SmartDock.ToolBarFloatWindow.<>
+  nameWithType: ToolBarFloatWindow.operator !=
+  nameWithType.vb: ToolBarFloatWindow.<>
 - uid: SmartDock.ToolBarItemEntry
   name: ToolBarItemEntry
   href: api/generated/SmartDock.ToolBarItemEntry.html
@@ -10204,6 +10954,36 @@ references:
   commentId: T:SmartDock.ToolBarItems
   fullName: SmartDock.ToolBarItems
   nameWithType: ToolBarItems
+- uid: SmartDock.ToolBarItems.ClearItems(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry})
+  name: ClearItems(ToolBarEntry, List<ToolBarItemEntry>?)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ClearItems_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__
+  commentId: M:SmartDock.ToolBarItems.ClearItems(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry})
+  name.vb: ClearItems(ToolBarEntry, List(Of ToolBarItemEntry))
+  fullName: SmartDock.ToolBarItems.ClearItems(SmartDock.ToolBarEntry, System.Collections.Generic.List<SmartDock.ToolBarItemEntry>?)
+  fullName.vb: SmartDock.ToolBarItems.ClearItems(SmartDock.ToolBarEntry, System.Collections.Generic.List(Of SmartDock.ToolBarItemEntry))
+  nameWithType: ToolBarItems.ClearItems(ToolBarEntry, List<ToolBarItemEntry>?)
+  nameWithType.vb: ToolBarItems.ClearItems(ToolBarEntry, List(Of ToolBarItemEntry))
+- uid: SmartDock.ToolBarItems.ClearItems*
+  name: ClearItems
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ClearItems_
+  commentId: Overload:SmartDock.ToolBarItems.ClearItems
+  fullName: SmartDock.ToolBarItems.ClearItems
+  nameWithType: ToolBarItems.ClearItems
+- uid: SmartDock.ToolBarItems.CopyItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)
+  name: CopyItem(ToolBarEntry, IReadOnlyList<ToolBarItemEntry>?, string, int)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_CopyItem_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_String_System_Int32_
+  commentId: M:SmartDock.ToolBarItems.CopyItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)
+  name.vb: CopyItem(ToolBarEntry, IReadOnlyList(Of ToolBarItemEntry), String, Integer)
+  fullName: SmartDock.ToolBarItems.CopyItem(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList<SmartDock.ToolBarItemEntry>?, string, int)
+  fullName.vb: SmartDock.ToolBarItems.CopyItem(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList(Of SmartDock.ToolBarItemEntry), String, Integer)
+  nameWithType: ToolBarItems.CopyItem(ToolBarEntry, IReadOnlyList<ToolBarItemEntry>?, string, int)
+  nameWithType.vb: ToolBarItems.CopyItem(ToolBarEntry, IReadOnlyList(Of ToolBarItemEntry), String, Integer)
+- uid: SmartDock.ToolBarItems.CopyItem*
+  name: CopyItem
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_CopyItem_
+  commentId: Overload:SmartDock.ToolBarItems.CopyItem
+  fullName: SmartDock.ToolBarItems.CopyItem
+  nameWithType: ToolBarItems.CopyItem
 - uid: SmartDock.ToolBarItems.Hide(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.String,System.String,System.Boolean)
   name: Hide(List<ToolBarItemEntry>, IReadOnlyList<ToolBarItemRef>, string, string, bool)
   href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_Hide_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_String_System_String_System_Boolean_
@@ -10249,6 +11029,51 @@ references:
   commentId: Overload:SmartDock.ToolBarItems.Project
   fullName: SmartDock.ToolBarItems.Project
   nameWithType: ToolBarItems.Project
+- uid: SmartDock.ToolBarItems.ProjectCustom(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.Collections.Generic.List{SmartDock.ToolBarSlot})
+  name: ProjectCustom(ToolBarEntry, IReadOnlyList<ToolBarItemRef>, IReadOnlyList<ToolBarItemEntry>?, List<ToolBarSlot>)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ProjectCustom_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_Collections_Generic_List_SmartDock_ToolBarSlot__
+  commentId: M:SmartDock.ToolBarItems.ProjectCustom(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.Collections.Generic.List{SmartDock.ToolBarSlot})
+  name.vb: ProjectCustom(ToolBarEntry, IReadOnlyList(Of ToolBarItemRef), IReadOnlyList(Of ToolBarItemEntry), List(Of ToolBarSlot))
+  fullName: SmartDock.ToolBarItems.ProjectCustom(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList<SmartDock.ToolBarItemRef>, System.Collections.Generic.IReadOnlyList<SmartDock.ToolBarItemEntry>?, System.Collections.Generic.List<SmartDock.ToolBarSlot>)
+  fullName.vb: SmartDock.ToolBarItems.ProjectCustom(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList(Of SmartDock.ToolBarItemRef), System.Collections.Generic.IReadOnlyList(Of SmartDock.ToolBarItemEntry), System.Collections.Generic.List(Of SmartDock.ToolBarSlot))
+  nameWithType: ToolBarItems.ProjectCustom(ToolBarEntry, IReadOnlyList<ToolBarItemRef>, IReadOnlyList<ToolBarItemEntry>?, List<ToolBarSlot>)
+  nameWithType.vb: ToolBarItems.ProjectCustom(ToolBarEntry, IReadOnlyList(Of ToolBarItemRef), IReadOnlyList(Of ToolBarItemEntry), List(Of ToolBarSlot))
+- uid: SmartDock.ToolBarItems.ProjectCustom*
+  name: ProjectCustom
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ProjectCustom_
+  commentId: Overload:SmartDock.ToolBarItems.ProjectCustom
+  fullName: SmartDock.ToolBarItems.ProjectCustom
+  nameWithType: ToolBarItems.ProjectCustom
+- uid: SmartDock.ToolBarItems.RemoveItem(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)
+  name: RemoveItem(ToolBarEntry, List<ToolBarItemEntry>?, string)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_RemoveItem_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_
+  commentId: M:SmartDock.ToolBarItems.RemoveItem(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)
+  name.vb: RemoveItem(ToolBarEntry, List(Of ToolBarItemEntry), String)
+  fullName: SmartDock.ToolBarItems.RemoveItem(SmartDock.ToolBarEntry, System.Collections.Generic.List<SmartDock.ToolBarItemEntry>?, string)
+  fullName.vb: SmartDock.ToolBarItems.RemoveItem(SmartDock.ToolBarEntry, System.Collections.Generic.List(Of SmartDock.ToolBarItemEntry), String)
+  nameWithType: ToolBarItems.RemoveItem(ToolBarEntry, List<ToolBarItemEntry>?, string)
+  nameWithType.vb: ToolBarItems.RemoveItem(ToolBarEntry, List(Of ToolBarItemEntry), String)
+- uid: SmartDock.ToolBarItems.RemoveItem*
+  name: RemoveItem
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_RemoveItem_
+  commentId: Overload:SmartDock.ToolBarItems.RemoveItem
+  fullName: SmartDock.ToolBarItems.RemoveItem
+  nameWithType: ToolBarItems.RemoveItem
+- uid: SmartDock.ToolBarItems.ReorderItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)
+  name: ReorderItem(ToolBarEntry, IReadOnlyList<ToolBarItemEntry>?, string, int)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ReorderItem_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_String_System_Int32_
+  commentId: M:SmartDock.ToolBarItems.ReorderItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)
+  name.vb: ReorderItem(ToolBarEntry, IReadOnlyList(Of ToolBarItemEntry), String, Integer)
+  fullName: SmartDock.ToolBarItems.ReorderItem(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList<SmartDock.ToolBarItemEntry>?, string, int)
+  fullName.vb: SmartDock.ToolBarItems.ReorderItem(SmartDock.ToolBarEntry, System.Collections.Generic.IReadOnlyList(Of SmartDock.ToolBarItemEntry), String, Integer)
+  nameWithType: ToolBarItems.ReorderItem(ToolBarEntry, IReadOnlyList<ToolBarItemEntry>?, string, int)
+  nameWithType.vb: ToolBarItems.ReorderItem(ToolBarEntry, IReadOnlyList(Of ToolBarItemEntry), String, Integer)
+- uid: SmartDock.ToolBarItems.ReorderItem*
+  name: ReorderItem
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_ReorderItem_
+  commentId: Overload:SmartDock.ToolBarItems.ReorderItem
+  fullName: SmartDock.ToolBarItems.ReorderItem
+  nameWithType: ToolBarItems.ReorderItem
 - uid: SmartDock.ToolBarItems.Reset(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)
   name: Reset(List<ToolBarItemEntry>, string)
   href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_Reset_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_
@@ -10264,6 +11089,21 @@ references:
   commentId: Overload:SmartDock.ToolBarItems.Reset
   fullName: SmartDock.ToolBarItems.Reset
   nameWithType: ToolBarItems.Reset
+- uid: SmartDock.ToolBarItems.SetCopyHidden(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String,System.Boolean)
+  name: SetCopyHidden(ToolBarEntry, List<ToolBarItemEntry>, string, bool)
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_SetCopyHidden_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_System_Boolean_
+  commentId: M:SmartDock.ToolBarItems.SetCopyHidden(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String,System.Boolean)
+  name.vb: SetCopyHidden(ToolBarEntry, List(Of ToolBarItemEntry), String, Boolean)
+  fullName: SmartDock.ToolBarItems.SetCopyHidden(SmartDock.ToolBarEntry, System.Collections.Generic.List<SmartDock.ToolBarItemEntry>, string, bool)
+  fullName.vb: SmartDock.ToolBarItems.SetCopyHidden(SmartDock.ToolBarEntry, System.Collections.Generic.List(Of SmartDock.ToolBarItemEntry), String, Boolean)
+  nameWithType: ToolBarItems.SetCopyHidden(ToolBarEntry, List<ToolBarItemEntry>, string, bool)
+  nameWithType.vb: ToolBarItems.SetCopyHidden(ToolBarEntry, List(Of ToolBarItemEntry), String, Boolean)
+- uid: SmartDock.ToolBarItems.SetCopyHidden*
+  name: SetCopyHidden
+  href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_SetCopyHidden_
+  commentId: Overload:SmartDock.ToolBarItems.SetCopyHidden
+  fullName: SmartDock.ToolBarItems.SetCopyHidden
+  nameWithType: ToolBarItems.SetCopyHidden
 - uid: SmartDock.ToolBarItems.Write(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarSlot})
   name: Write(List<ToolBarItemEntry>, string, IReadOnlyList<ToolBarSlot>)
   href: api/generated/SmartDock.ToolBarItems.html#SmartDock_ToolBarItems_Write_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarSlot__
