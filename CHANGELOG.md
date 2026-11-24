@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.15.0 (2026-11-25)
+
+- Closing the docking guides now repaints a native pane the drop preview covered. Before, the preview could stay drawn on that pane.
+- The bright edge follows the active pane. A selected tab or a lone caption keeps the panel fill. The 2px edge is `Dock.Accent` while that pane is active and `Dock.AccentInactive` otherwise. Docked groups, floating windows, and the auto-hide flyout use the same rule. `IsAccented` still means the one-pane top bar. `IsActive` is what a custom style reads for the bright edge. Dark, light, and blue each define `Dock.AccentInactive`. A `DockCustomTheme` dictionary may set `Dock.AccentInactive`, and a `Dock.*` key on the manager wins over that dictionary.
+- A click or focus inside hosted native content, including a child of that window, activates the pane. The message stays with the native window, and focus is not moved.
+- A floating toolbar window is as wide as its caption, buttons, and chevron. A vertical float with several buttons fits that column. An empty horizontal custom toolbar fits the grip and the chevron, and switching it to vertical and back measures it again. Two vertical toolbars in one window share that width.
+
 ## 0.14.0 (2026-11-24)
 
 - Dragging a toolbar over an edge that has no band shows the drop line, and the edge guides when the pointer is over a pane or a floating window, and does not open a tray until you drop it there. Escape, or dropping somewhere else, leaves the edge empty. A band that is already there still takes the toolbar while the pointer is down. A new row in a tray waits for the drop as well, because that row would make the tray taller.
