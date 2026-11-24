@@ -5308,6 +5308,24 @@ references:
   commentId: Overload:SmartDock.DockTheme.Accent
   fullName: SmartDock.DockTheme.Accent
   nameWithType: DockTheme.Accent
+- uid: SmartDock.DockTheme.AccentInactive
+  name: AccentInactive
+  href: api/generated/SmartDock.DockTheme.html#SmartDock_DockTheme_AccentInactive
+  commentId: P:SmartDock.DockTheme.AccentInactive
+  fullName: SmartDock.DockTheme.AccentInactive
+  nameWithType: DockTheme.AccentInactive
+- uid: SmartDock.DockTheme.AccentInactive*
+  name: AccentInactive
+  href: api/generated/SmartDock.DockTheme.html#SmartDock_DockTheme_AccentInactive_
+  commentId: Overload:SmartDock.DockTheme.AccentInactive
+  fullName: SmartDock.DockTheme.AccentInactive
+  nameWithType: DockTheme.AccentInactive
+- uid: SmartDock.DockTheme.AccentInactiveKey
+  name: AccentInactiveKey
+  href: api/generated/SmartDock.DockTheme.html#SmartDock_DockTheme_AccentInactiveKey
+  commentId: F:SmartDock.DockTheme.AccentInactiveKey
+  fullName: SmartDock.DockTheme.AccentInactiveKey
+  nameWithType: DockTheme.AccentInactiveKey
 - uid: SmartDock.DockTheme.AccentKey
   name: AccentKey
   href: api/generated/SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey
