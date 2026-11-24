@@ -155,6 +155,85 @@ preceding collection neighbor that is still on that toolbar. Unknown keys are ig
 </h2>
 
 
+  <a id="SmartDock_ToolBarItems_ClearItems_" data-uid="SmartDock.ToolBarItems.ClearItems*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_ClearItems_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__" data-uid="SmartDock.ToolBarItems.ClearItems(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry})">
+  ClearItems(ToolBarEntry, List&lt;ToolBarItemEntry&gt;?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Clears every copied key and its hidden flag. The toolbar stays where it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearItems(ToolBarEntry bar, List&lt;ToolBarItemEntry&gt;? entries)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_CopyItem_" data-uid="SmartDock.ToolBarItems.CopyItem*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_CopyItem_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_String_System_Int32_" data-uid="SmartDock.ToolBarItems.CopyItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)">
+  CopyItem(ToolBarEntry, IReadOnlyList&lt;ToolBarItemEntry&gt;?, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Copies <code class="paramref">key</code> onto a custom toolbar at the visible gap <code class="paramref">visibleIndex</code>.
+A key that is already there moves to that gap. Returns false when the toolbar is not custom or the key is empty.
+The host collection is not edited.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CopyItem(ToolBarEntry bar, IReadOnlyList&lt;ToolBarItemEntry&gt;? entries, string key, int visibleIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>visibleIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarItems_Hide_" data-uid="SmartDock.ToolBarItems.Hide*"></a>
 
   <h3 id="SmartDock_ToolBarItems_Hide_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_String_System_String_System_Boolean_" data-uid="SmartDock.ToolBarItems.Hide(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.String,System.String,System.Boolean)">
@@ -279,6 +358,131 @@ the nearest preceding collection neighbor that is still on that toolbar. An empt
 
 
 
+  <a id="SmartDock_ToolBarItems_ProjectCustom_" data-uid="SmartDock.ToolBarItems.ProjectCustom*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_ProjectCustom_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemRef__System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_Collections_Generic_List_SmartDock_ToolBarSlot__" data-uid="SmartDock.ToolBarItems.ProjectCustom(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemRef},System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.Collections.Generic.List{SmartDock.ToolBarSlot})">
+  ProjectCustom(ToolBarEntry, IReadOnlyList&lt;ToolBarItemRef&gt;, IReadOnlyList&lt;ToolBarItemEntry&gt;?, List&lt;ToolBarSlot&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Fills <code class="paramref">result</code> with the copies on a custom toolbar, in <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Items">Items</a> order.
+A key whose button is not in <code class="paramref">natural</code> is skipped and left in the list.
+Hidden copies stay in the list with <a class="xref" href="SmartDock.ToolBarSlot.html#SmartDock_ToolBarSlot_Hidden">Hidden</a> set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ProjectCustom(ToolBarEntry bar, IReadOnlyList&lt;ToolBarItemRef&gt; natural, IReadOnlyList&lt;ToolBarItemEntry&gt;? entries, List&lt;ToolBarSlot&gt; result)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>natural</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemRef.html">ToolBarItemRef</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarSlot.html">ToolBarSlot</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_RemoveItem_" data-uid="SmartDock.ToolBarItems.RemoveItem*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_RemoveItem_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_" data-uid="SmartDock.ToolBarItems.RemoveItem(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)">
+  RemoveItem(ToolBarEntry, List&lt;ToolBarItemEntry&gt;?, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a copied key. Returns false when it was not on the toolbar. An empty list is stored as null.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RemoveItem(ToolBarEntry bar, List&lt;ToolBarItemEntry&gt;? entries, string key)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_ReorderItem_" data-uid="SmartDock.ToolBarItems.ReorderItem*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_ReorderItem_SmartDock_ToolBarEntry_System_Collections_Generic_IReadOnlyList_SmartDock_ToolBarItemEntry__System_String_System_Int32_" data-uid="SmartDock.ToolBarItems.ReorderItem(SmartDock.ToolBarEntry,System.Collections.Generic.IReadOnlyList{SmartDock.ToolBarItemEntry},System.String,System.Int32)">
+  ReorderItem(ToolBarEntry, IReadOnlyList&lt;ToolBarItemEntry&gt;?, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a copied key to the visible gap <code class="paramref">visibleIndex</code>.
+Returns false when the key is not on the toolbar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReorderItem(ToolBarEntry bar, IReadOnlyList&lt;ToolBarItemEntry&gt;? entries, string key, int visibleIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>visibleIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarItems_Reset_" data-uid="SmartDock.ToolBarItems.Reset*"></a>
 
   <h3 id="SmartDock_ToolBarItems_Reset_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_" data-uid="SmartDock.ToolBarItems.Reset(System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String)">
@@ -302,6 +506,50 @@ the nearest preceding collection neighbor that is still on that toolbar. An empt
     <dd></dd>
   </dl>
 
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarItems_SetCopyHidden_" data-uid="SmartDock.ToolBarItems.SetCopyHidden*"></a>
+
+  <h3 id="SmartDock_ToolBarItems_SetCopyHidden_SmartDock_ToolBarEntry_System_Collections_Generic_List_SmartDock_ToolBarItemEntry__System_String_System_Boolean_" data-uid="SmartDock.ToolBarItems.SetCopyHidden(SmartDock.ToolBarEntry,System.Collections.Generic.List{SmartDock.ToolBarItemEntry},System.String,System.Boolean)">
+  SetCopyHidden(ToolBarEntry, List&lt;ToolBarItemEntry&gt;, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Hides or shows one copied key. Returns false when the key is not on the custom toolbar.
+A shown key does not need an item entry. A hidden key stores one with <a class="xref" href="SmartDock.ToolBarItemEntry.html#SmartDock_ToolBarItemEntry_Hidden">Hidden</a> set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SetCopyHidden(ToolBarEntry bar, List&lt;ToolBarItemEntry&gt; entries, string key, bool hidden)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bar</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+    <dt><code>entries</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarItemEntry.html">ToolBarItemEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>key</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>hidden</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
