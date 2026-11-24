@@ -410,6 +410,135 @@ outermost (index 0) last.</p>
 
 
 
+  <a id="SmartDock_ToolBarBands_CreateCustom_" data-uid="SmartDock.ToolBarBands.CreateCustom*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_CreateCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)">
+  CreateCustom(List&lt;ToolBarEntry&gt;, string, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds an empty custom toolbar and returns its id.
+The toolbar floats at <code class="paramref">x</code>, <code class="paramref">y</code> with a small default size.
+Returns null when <code class="paramref">title</code> is empty or another custom toolbar already has that title.
+The id is <code>custom-1</code>, <code>custom-2</code>, and so on, skipping ids that are already used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string? CreateCustom(List&lt;ToolBarEntry&gt; bars, string title, double x, double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_CustomTitleTaken_" data-uid="SmartDock.ToolBarBands.CustomTitleTaken*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_CustomTitleTaken_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_" data-uid="SmartDock.ToolBarBands.CustomTitleTaken(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)">
+  CustomTitleTaken(List&lt;ToolBarEntry&gt;, string, string?)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when another custom toolbar already uses <code class="paramref">title</code>. <code class="paramref">exceptId</code> is skipped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool CustomTitleTaken(List&lt;ToolBarEntry&gt; bars, string title, string? exceptId)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>exceptId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_DeleteCustom_" data-uid="SmartDock.ToolBarBands.DeleteCustom*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_DeleteCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_" data-uid="SmartDock.ToolBarBands.DeleteCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)">
+  DeleteCustom(List&lt;ToolBarEntry&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes a custom toolbar. Buttons copied onto it are dropped from its list.
+The toolbars those buttons came from are not changed.
+A shared float that loses this toolbar collapses when one member remains.
+Returns false when the id is unknown or the toolbar is not custom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool DeleteCustom(List&lt;ToolBarEntry&gt; bars, string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_DockBack_" data-uid="SmartDock.ToolBarBands.DockBack*"></a>
 
   <h3 id="SmartDock_ToolBarBands_DockBack_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_" data-uid="SmartDock.ToolBarBands.DockBack(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)">
@@ -430,6 +559,78 @@ outermost (index 0) last.</p>
     <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
     <dd></dd>
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_DockBackMembers_" data-uid="SmartDock.ToolBarBands.DockBackMembers*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_DockBackMembers_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_" data-uid="SmartDock.ToolBarBands.DockBackMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String)">
+  DockBackMembers(List&lt;ToolBarEntry&gt;, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks back every visible member of the floating window. Each returns to its own stored band. Hidden members stay floating.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DockBackMembers(List&lt;ToolBarEntry&gt; bars, string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_DockMembers_" data-uid="SmartDock.ToolBarBands.DockMembers*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_DockMembers_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_" data-uid="SmartDock.ToolBarBands.DockMembers(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop)">
+  DockMembers(List&lt;ToolBarEntry&gt;, string, ToolBarDrop)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Docks every visible member of the floating window, in <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatIndex">FloatIndex</a> order, into <code class="paramref">drop</code>.
+The first takes <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Index">Index</a> and <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Offset">Offset</a>. Each later one follows it with no gap.
+Hidden members stay floating. A window of one docks that toolbar.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DockMembers(List&lt;ToolBarEntry&gt; bars, string id, ToolBarDrop drop)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>drop</code> <a class="xref" href="SmartDock.ToolBarDrop.html">ToolBarDrop</a></dt>
     <dd></dd>
   </dl>
 
@@ -470,6 +671,61 @@ outermost (index 0) last.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_FloatOrientation_" data-uid="SmartDock.ToolBarBands.FloatOrientation*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_FloatOrientation_System_Boolean_System_Boolean_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)">
+  FloatOrientation(bool, bool, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Orientation while a floating toolbar's edge is dragged.
+<code class="paramref">dx</code> is the pointer movement from the press, positive to the right.
+<code class="paramref">dy</code> is the movement downward.
+<code class="paramref">width</code> and <code class="paramref">height</code> are the window size at the press.
+Dragging the right edge left by more than half the width returns vertical.
+Dragging it right by more than half the width returns horizontal.
+Dragging the bottom edge down by more than half the height returns horizontal.
+Dragging it up by more than half the height returns vertical.
+A movement that has not passed that halfway point returns <code class="paramref">vertical</code>, the orientation at the press.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool FloatOrientation(bool vertical, bool rightEdge, double width, double height, double dx, double dy)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>rightEdge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>dx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>dy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -728,6 +984,91 @@ plus <code class="paramref">gap</code> when the pointer is past the last toolbar
 
 
 
+  <a id="SmartDock_ToolBarBands_Merge_" data-uid="SmartDock.ToolBarBands.Merge*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_Merge_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_System_Int32_" data-uid="SmartDock.ToolBarBands.Merge(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,System.Int32)">
+  Merge(List&lt;ToolBarEntry&gt;, string, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Puts <code class="paramref">id</code> into the floating window that holds <code class="paramref">targetId</code>.
+<code class="paramref">index</code> is the gap among the other members, or the end when it is negative.
+The toolbar floats if it was docked, and takes that window's bounds and orientation.
+A toolbar already there moves to the gap. Returns false when nothing changes, the target is not floating, or an id is unknown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Merge(List&lt;ToolBarEntry&gt; bars, string id, string targetId, int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>targetId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_MoveFloat_" data-uid="SmartDock.ToolBarBands.MoveFloat*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_MoveFloat_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.MoveFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)">
+  MoveFloat(List&lt;ToolBarEntry&gt;, string, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the floating position onto every toolbar in the same window.
+A toolbar with no <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a> is updated on its own.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void MoveFloat(List&lt;ToolBarEntry&gt; bars, string id, double x, double y)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_Moved_" data-uid="SmartDock.ToolBarBands.Moved*"></a>
 
   <h3 id="SmartDock_ToolBarBands_Moved_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.Moved(System.Double,System.Double,System.Double,System.Double,System.Double)">
@@ -916,6 +1257,48 @@ screen order, start-aligned ones first. End-aligned toolbars keep their indexes 
 
 
 
+  <a id="SmartDock_ToolBarBands_RenameCustom_" data-uid="SmartDock.ToolBarBands.RenameCustom*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_RenameCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_" data-uid="SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)">
+  RenameCustom(List&lt;ToolBarEntry&gt;, string, string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Renames a custom toolbar. Returns false when the id is unknown, the toolbar is not custom,
+<code class="paramref">title</code> is empty, or another custom toolbar already has that title.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RenameCustom(List&lt;ToolBarEntry&gt; bars, string id, string title)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_ResetPlace_" data-uid="SmartDock.ToolBarBands.ResetPlace*"></a>
 
   <h3 id="SmartDock_ToolBarBands_ResetPlace_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_ToolBarAlignment_System_Boolean_" data-uid="SmartDock.ToolBarBands.ResetPlace(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.ToolBarAlignment,System.Boolean)">
@@ -971,6 +1354,131 @@ This clears both, so a reset shows the toolbar on that place and closes its floa
 
 
 
+  <a id="SmartDock_ToolBarBands_SetFloatVertical_" data-uid="SmartDock.ToolBarBands.SetFloatVertical*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_SetFloatVertical_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Boolean_" data-uid="SmartDock.ToolBarBands.SetFloatVertical(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Boolean)">
+  SetFloatVertical(List&lt;ToolBarEntry&gt;, string, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatVertical">FloatVertical</a> for a floating toolbar.
+Every toolbar in the same floating window changes with it.
+A docked toolbar is left unchanged. An unknown id does nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetFloatVertical(List&lt;ToolBarEntry&gt; bars, string id, bool vertical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_SizeFloat_" data-uid="SmartDock.ToolBarBands.SizeFloat*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_SizeFloat_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)">
+  SizeFloat(List&lt;ToolBarEntry&gt;, string, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Writes the floating size onto every toolbar in the same window. A non-positive size is left as it was.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SizeFloat(List&lt;ToolBarEntry&gt; bars, string id, double width, double height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_Split_" data-uid="SmartDock.ToolBarBands.Split*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_Split_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.Split(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double,System.Double,System.Double)">
+  Split(List&lt;ToolBarEntry&gt;, string, double, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Takes a toolbar out of a shared floating window. It keeps the orientation and uses the position passed in.
+The others stay. When one remains, that window drops <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a>.
+Returns false when the toolbar is already alone, is not floating, or the id is unknown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Split(List&lt;ToolBarEntry&gt; bars, string id, double x, double y, double width, double height)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_TargetRect_" data-uid="SmartDock.ToolBarBands.TargetRect*"></a>
 
   <h3 id="SmartDock_ToolBarBands_TargetRect_SmartDock_DockRect_SmartDock_ToolBarEdge_" data-uid="SmartDock.ToolBarBands.TargetRect(SmartDock.DockRect,SmartDock.ToolBarEdge)">
@@ -997,6 +1505,64 @@ This clears both, so a reset shows the toolbar on that place and closes its floa
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_TryHitFloat_" data-uid="SmartDock.ToolBarBands.TryHitFloat*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_TryHitFloat_System_ReadOnlySpan_SmartDock_ToolBarFloatWindow__System_ReadOnlySpan_SmartDock_ToolBarFloatMember__System_String_System_String_System_Double_System_Double_System_String__System_Int32__SmartDock_DockRect__" data-uid="SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan{SmartDock.ToolBarFloatWindow},System.ReadOnlySpan{SmartDock.ToolBarFloatMember},System.String,System.String,System.Double,System.Double,System.String@,System.Int32@,SmartDock.DockRect@)">
+  TryHitFloat(ReadOnlySpan&lt;ToolBarFloatWindow&gt;, ReadOnlySpan&lt;ToolBarFloatMember&gt;, string, string, double, double, out string, out int, out DockRect)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The topmost floating toolbar window under the point, and the gap where a toolbar would be inserted.
+<code class="paramref">index</code> counts members other than <code class="paramref">dragId</code>.
+<code class="paramref">indicator</code> is a <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Indicator">Indicator</a> thick line inside the window.
+A point farther than <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TraySlop">TraySlop</a> outside every window misses.
+<code class="paramref">skipWindowId</code> is the window being dragged, which is not a drop target.
+No allocations.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryHitFloat(ReadOnlySpan&lt;ToolBarFloatWindow&gt; windows, ReadOnlySpan&lt;ToolBarFloatMember&gt; members, string dragId, string skipWindowId, double x, double y, out string windowId, out int index, out DockRect indicator)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>windows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>members</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="SmartDock.ToolBarFloatMember.html">ToolBarFloatMember</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>dragId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>skipWindowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>windowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>indicator</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
