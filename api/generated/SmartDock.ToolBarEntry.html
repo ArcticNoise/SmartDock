@@ -250,6 +250,41 @@ public int Band { get; set; }</code></pre>
 
 
 
+  <a id="SmartDock_ToolBarEntry_Custom_" data-uid="SmartDock.ToolBarEntry.Custom*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Custom" data-uid="SmartDock.ToolBarEntry.Custom">
+  Custom
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the user created this toolbar. It has no host collection.
+Its buttons are copies of buttons on other toolbars, and the originals stay where they are.
+Omitted from JSON when false, so a document written before custom toolbars stays the same bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public bool Custom { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarEntry_Edge_" data-uid="SmartDock.ToolBarEntry.Edge*"></a>
 
   <h3 id="SmartDock_ToolBarEntry_Edge" data-uid="SmartDock.ToolBarEntry.Edge">
@@ -272,6 +307,112 @@ public int Band { get; set; }</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_FloatId_" data-uid="SmartDock.ToolBarEntry.FloatId*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_FloatId" data-uid="SmartDock.ToolBarEntry.FloatId">
+  FloatId
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Id of the floating window this toolbar shares. Null is a window of its own.
+Set only while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is true. This is not <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a>, which names a pane float.
+A window with one toolbar drops it on load. Omitted from JSON when null, so an older file stays the same bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public string? FloatId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_FloatIndex_" data-uid="SmartDock.ToolBarEntry.FloatIndex*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_FloatIndex" data-uid="SmartDock.ToolBarEntry.FloatIndex">
+  FloatIndex
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Order in the shared floating window. 0 is the left of a horizontal window and the top of a vertical one.
+Omitted from JSON when zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public int FloatIndex { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_FloatVertical_" data-uid="SmartDock.ToolBarEntry.FloatVertical*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_FloatVertical" data-uid="SmartDock.ToolBarEntry.FloatVertical">
+  FloatVertical
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when the floating window stacks its buttons. The grip sits on top and the customize chevron at the bottom.
+A docked toolbar ignores this and takes its orientation from <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Edge">Edge</a>.
+Docking, docking back, and reset clear it. A toolbar that is not floating drops it on load.
+Every toolbar in one floating window has the same value.
+Omitted from JSON when false, so a document written before vertical floats stays the same bytes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public bool FloatVertical { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -447,6 +588,41 @@ public int Index { get; set; }</code></pre>
 
 
 
+  <a id="SmartDock_ToolBarEntry_Items_" data-uid="SmartDock.ToolBarEntry.Items*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Items" data-uid="SmartDock.ToolBarEntry.Items">
+  Items
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Keys of the buttons copied onto this custom toolbar, in order.
+Each key is the original button's key. A key whose button is missing stays in the list
+and is not shown until that button exists again. Omitted from JSON when null or empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public List&lt;string&gt;? Items { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarEntry_Offset_" data-uid="SmartDock.ToolBarEntry.Offset*"></a>
 
   <h3 id="SmartDock_ToolBarEntry_Offset" data-uid="SmartDock.ToolBarEntry.Offset">
@@ -498,6 +674,41 @@ Omitted from JSON when null, so a window-tray document stays the same bytes.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
 public string? PaneId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarEntry_Title_" data-uid="SmartDock.ToolBarEntry.Title*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Title" data-uid="SmartDock.ToolBarEntry.Title">
+  Title
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Caption of a custom toolbar, shown on the float and in the tray menu.
+Null on a toolbar the host declared. Omitted from JSON when null.
+A custom toolbar with an empty title is rejected on load.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+public string? Title { get; set; }</code></pre>
   </div>
 
 
