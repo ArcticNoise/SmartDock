@@ -185,6 +185,7 @@ public static class SampleContent
 <p>A floating window can be saved maximized. Its x, y, width, and height are then the restored bounds, not the maximized ones.</p>
 <p><code>DockManager.FloatPane</code> and <code>DockManager.DockBackPane</code> do the same on a live manager.</p>
 <p>A floating window draws its own caption. Drag the caption to move the window, or drop it on a guide to dock the whole window. Double-clicking the caption docks the selected pane back if its previous group is still in the main tree, and maximizes the window otherwise.</p>
+<p>On a maximized float, a click or a press without movement leaves it maximized. A double-click restores its earlier place and size. Dragging the caption restores that size under the pointer, and the drag continues with the guides.</p>
 <h2 id="auto-hide">Auto-hide</h2>
 <p><code>DockEdit.AutoHide</code> moves a tool onto an auto-hide strip on one edge of the dock root. The pane must have <code>CanAutoHide</code> set. <code>DockEdit.Pin</code> docks it back. A new auto-hide entry gets a flyout size of 240 device-independent pixels.</p>
 <pre><code class="lang-csharp">public static void Move(DockLayout layout)
