@@ -667,7 +667,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SmartDock.DockToolBarCaption",
-      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarCaption.yml\" sourcestartlinenumber=\"1\">Caption of a floating toolbar. <code>PART_Grip</code> drags and double-clicks to dock.\n<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <xref href=\"SmartDock.DockToolBarCaption.Title\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockToolBarCaption.yml\" sourcestartlinenumber=\"1\">Caption of a floating toolbar. <code>PART_Grip</code> drags and double-clicks to dock.\n<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <xref href=\"SmartDock.DockToolBarCaption.Title\" data-throw-if-not-resolved=\"false\"></xref> and trims it when the window is narrow.\nA trimmed title gets a tooltip with the full text. The close button stays a fixed width.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1158,6 +1158,34 @@
       "IsMRef": true,
       "Title": "SmartDock.ToolBarEntry",
       "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarEntry.yml\" sourcestartlinenumber=\"1\">Where one toolbar sits. <xref href=\"SmartDock.ToolBarEntry.Edge\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"SmartDock.ToolBarEntry.Band\" data-throw-if-not-resolved=\"false\"></xref>, <xref href=\"SmartDock.ToolBarEntry.Index\" data-throw-if-not-resolved=\"false\"></xref>, and <xref href=\"SmartDock.ToolBarEntry.Offset\" data-throw-if-not-resolved=\"false\"></xref>\nstay the last docked place while <xref href=\"SmartDock.ToolBarEntry.Floating\" data-throw-if-not-resolved=\"false\"></xref> is set, so a double-click can put it back.\n<xref href=\"SmartDock.ToolBarEntry.PaneId\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarEntry.WindowId\" data-throw-if-not-resolved=\"false\"></xref> name the pane or floating window that hosts it.\nBoth null is the main window. Default values are omitted from JSON.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarFloatMember.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarFloatMember.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarFloatMember",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarFloatMember.yml\" sourcestartlinenumber=\"1\">One toolbar inside a floating window, in the same coordinates as the pointer.\nMembers of one window are visited in <xref href=\"SmartDock.ToolBarFloatMember.Index\" data-throw-if-not-resolved=\"false\"></xref> order by <xref href=\"SmartDock.ToolBarBands.TryHitFloat(System.ReadOnlySpan%7bSmartDock.ToolBarFloatWindow%7d%2cSystem.ReadOnlySpan%7bSmartDock.ToolBarFloatMember%7d%2cSystem.String%2cSystem.String%2cSystem.Double%2cSystem.Double%2cSystem.String%40%2cSystem.Int32%40%2cSmartDock.DockRect%40)\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.ToolBarFloatWindow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.ToolBarFloatWindow.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.ToolBarFloatWindow",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarFloatWindow.yml\" sourcestartlinenumber=\"1\">One floating toolbar window. <xref href=\"SmartDock.ToolBarFloatWindow.Id\" data-throw-if-not-resolved=\"false\"></xref> is <xref href=\"SmartDock.ToolBarEntry.FloatId\" data-throw-if-not-resolved=\"false\"></xref>,\nor the toolbar id when the window holds one toolbar.\nA larger <xref href=\"SmartDock.ToolBarFloatWindow.ZOrder\" data-throw-if-not-resolved=\"false\"></xref> is painted above a smaller one. <xref href=\"SmartDock.ToolBarFloatWindow.Vertical\" data-throw-if-not-resolved=\"false\"></xref> stacks members top to bottom.</p>\n"
     },
     {
       "type": "ManagedReference",
