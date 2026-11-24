@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="themes">Themes</h1>
 
-<p><code>DockManager.Theme</code> is a dependency property. Set it to <code>DockThemeKind.Dark</code> (the default), <code>Light</code>, or <code>Blue</code>, or bind it. The palette lives in a dictionary the manager merges. A <code>Dock.*</code> entry in <code>DockManager.Resources</code> is left in place and wins, including after the manager loads and after <code>Theme</code> changes. The same entry is copied onto floating windows, the guide overlay, the auto-hide flyout, and toolbar windows. An override added after one of those windows exists is copied the next time <code>Theme</code> is assigned, including to the value it already has, and when that window is created. The pane switcher follows the theme. Open chrome repaints in place. The theme is not saved with the layout.</p>
+<p><code>DockManager.Theme</code> is a dependency property. Set it to <code>DockThemeKind.Dark</code> (the default), <code>Light</code>, or <code>Blue</code>, or bind it. The palette lives in a dictionary the manager merges. A <code>Dock.*</code> entry in <code>DockManager.Resources</code> is left in place and wins, including after the manager loads and after <code>Theme</code> changes. The same entry is copied onto floating windows, the guide overlay, the auto-hide flyout, toolbar windows, and the toolbar name dialog. An override added after one of those windows exists is copied the next time <code>Theme</code> is assigned, including to the value it already has, and when that window is created. The pane switcher follows the theme. Open chrome repaints in place. The theme is not saved with the layout.</p>
 <pre><code class="lang-csharp">public static void UseLight(DockManager dock)
 {
     dock.Theme = DockThemeKind.Light;
@@ -100,8 +100,9 @@
 }
 </code></pre>
 <p>The chrome looks brushes up by resource key, not through the static brush properties. The keys are <code>Dock.Workspace</code>, <code>Dock.Panel</code>, <code>Dock.Chrome</code>, <code>Dock.Header</code>, <code>Dock.Border</code>, <code>Dock.Text</code>, <code>Dock.Muted</code>, <code>Dock.Accent</code>, <code>Dock.AccentSoft</code>, <code>Dock.Guide</code>, <code>Dock.GuideButton</code>, <code>Dock.GuideBorder</code>, <code>Dock.Hover</code>, and <code>Dock.Font</code>. <code>DockTheme</code> exposes each name as a <code>*Key</code> constant, for example <code>DockTheme.WorkspaceKey</code>.</p>
+<p>New Toolbar and Rename use a separate window, and it reads the same keys. The window background is <code>Dock.Panel</code> and the edge is <code>Dock.Border</code>. The caption is <code>Dock.Chrome</code> with <code>Dock.Text</code>. The text box uses <code>Dock.Chrome</code>, <code>Dock.Text</code> for the text and the caret, and <code>Dock.Border</code>, and that border becomes <code>Dock.Accent</code> while the box has focus. OK and Cancel use <code>Dock.Chrome</code>, <code>Dock.Text</code>, and <code>Dock.Border</code>. Hover uses <code>Dock.Hover</code>, a press uses <code>Dock.AccentSoft</code>, and keyboard focus uses <code>Dock.Accent</code> plus <code>Dock.FocusVisual</code>. A custom theme and a <code>Dock.*</code> entry on the manager reach this dialog, including while it is open. An empty or duplicate name still leaves the dialog up, with no extra message.</p>
 <p>The static brushes on <code>DockTheme</code> always hold the dark palette, and the chrome doesn't use them. Don't reference <code>DockTheme.Border</code> or <code>DockTheme.Panel</code> with <code>x:Static</code>: those names match WPF types, and the markup compiler resolves them as types.</p>
-<p><code>DockTheme.CreateScrollBarResources</code> returns styles for the scroll bar, tool tip, and focus visual. The manager, each floating window, and the switcher merge it already. Merge your own copy if you want the same scroll bars elsewhere in the app.</p>
+<p><code>DockTheme.CreateScrollBarResources</code> returns styles for the scroll bar, tool tip, and focus visual. The manager, each floating window, the switcher, and the toolbar name dialog merge it already. Merge your own copy if you want the same scroll bars elsewhere in the app.</p>
 <p><code>DockTheme.CreateMenuResources</code> returns menu, context menu, menu item, and separator styles in the dock colors. Nothing merges it for you. Merge it into application resources if your menus should match the dock, or leave it out to keep the system look. A copy merged into the host window follows <code>Theme</code> changes.</p>
 <h2 id="a-shared-dictionary">A shared dictionary</h2>
 <p><code>DockManager.CustomTheme</code> points a manager at a resource dictionary you already share across windows. Subclass <code>DockCustomTheme</code> and return that dictionary's Uri. You do not write the Uri on each window.</p>
@@ -131,7 +132,7 @@
 <li>The same key in the custom dictionary.</li>
 <li><code>DockManager.Theme</code>.</li>
 </ol>
-<p>Setting, replacing, or clearing <code>CustomTheme</code> repaints chrome that is already open, and windows opened later pick it up. Changing <code>Theme</code> leaves the custom keys in place. Set <code>CustomTheme</code> to null to go back to the palette. A Uri that cannot be loaded throws when you set the property, and the previous theme stays. The choice is not saved with the layout.</p>
+<p>Setting, replacing, or clearing <code>CustomTheme</code> repaints chrome that is already open, including the toolbar name dialog, and windows opened later pick it up. Changing <code>Theme</code> leaves the custom keys in place. Set <code>CustomTheme</code> to null to go back to the palette. A Uri that cannot be loaded throws when you set the property, and the previous theme stays. The choice is not saved with the layout.</p>
 
 </article>
 
