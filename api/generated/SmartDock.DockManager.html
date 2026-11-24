@@ -2447,7 +2447,7 @@ Every other entry is ignored, so a shared dictionary that also holds unrelated s
 A key stored on <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.resources">Resources</a> wins, then this dictionary, then <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a>.
 A key the dictionary does not define stays on <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a>.
 Setting, replacing, or clearing it repaints chrome that is already open: this manager, floating windows,
-the auto-hide flyout, the guide overlay, toolbar windows, and the pane switcher. Windows created later use it too.
+the auto-hide flyout, the guide overlay, toolbar windows, the toolbar name dialog, and the pane switcher. Windows created later use it too.
 Changing <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_Theme">Theme</a> does not drop these keys.
 A Uri that cannot be loaded throws, and the previous value stays.
 This is not part of the layout JSON.</p>
@@ -2639,40 +2639,6 @@ An item whose content id is already docked, floating, auto-hidden, or hidden sta
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.ienumerable">IEnumerable</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="SmartDock_DockManager_IsToolBarCustomizing_" data-uid="SmartDock.DockManager.IsToolBarCustomizing*"></a>
-
-  <h3 id="SmartDock_DockManager_IsToolBarCustomizing" data-uid="SmartDock.DockManager.IsToolBarCustomizing">
-  IsToolBarCustomizing
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>When true, dragging a toolbar button moves or copies it the way Alt+drag does, without holding Alt.
-The dock shows a hint while this is on. Escape, the Customize Toolbars menu item, and leaving the window turn it off.
-The default is false. This is not saved in the layout.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsToolBarCustomizing { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -2905,12 +2871,12 @@ A tabs-on-top group with one pane shows the caption instead of that strip.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Palette for this manager, its floating windows, the guide overlay, the auto-hide flyout, toolbar windows,
-the pane switcher, and the scrollbars merged into them.
+the toolbar name dialog, the pane switcher, and the scrollbars merged into them.
 The default is <a class="xref" href="SmartDock.DockThemeKind.html#SmartDock_DockThemeKind_Dark">Dark</a>. This is a dependency property, so it can be bound.
 The brushes live in a dictionary this manager merges. A key in <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.frameworkelement.resources">Resources</a>,
 such as <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey">AccentKey</a>, is left in place and wins over the theme, including after load
 and after a later change. The same keys are copied onto floating windows, the guide overlay, the auto-hide
-flyout, and toolbar windows. An override added after one of those windows exists is copied the next time
+flyout, toolbar windows, and the toolbar name dialog. An override added after one of those windows exists is copied the next time
 this property is assigned, including to the value it already has, and when that window is created.
 Assigning the current value updates chrome that is already open.
 A menu dictionary merged into the host window is updated with the theme. Call
@@ -4394,7 +4360,7 @@ An active pane, or an open flyout of the removed pane, is cleared the same way <
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Renames a custom toolbar. The tray menu and the floating caption use the new title.
+  <div class="markdown level1 summary"><p>Renames a custom toolbar. The tray menu shows the new name. A float shows it as the caption tooltip, not as caption text.
 Throws <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a> when <code class="paramref">title</code> is empty, another toolbar already has that title,
 or <code class="paramref">id</code> is not a custom toolbar.
 A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_LayoutChanged">LayoutChanged</a> and <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ToolBarCustomizationChanged">ToolBarCustomizationChanged</a> with <a class="xref" href="SmartDock.ToolBarCustomizationChange.html#SmartDock_ToolBarCustomizationChange_Renamed">Renamed</a>.</p>
