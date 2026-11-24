@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.14.0 (2026-11-24)
+
+- Dragging a toolbar over an edge that has no band shows the drop line, and the edge guides when the pointer is over a pane or a floating window, and does not open a tray until you drop it there. Escape, or dropping somewhere else, leaves the edge empty. A band that is already there still takes the toolbar while the pointer is down. A new row in a tray waits for the drop as well, because that row would make the tray taller.
+- Pulling a toolbar off its band shows the floating window on that move.
+- Dragging a floating toolbar by its caption moves the window with the pointer on each move, the same way a pane float does.
+- Dragging the grip of a floating toolbar that is alone in its window moves the window from the first move, too. A grip press right after a drag is no longer read as a double-click, so it does not dock the toolbar back.
+- The New Toolbar and Rename dialog follows the dock theme. The window, caption, text, text box, and OK and Cancel buttons pick up `Theme`, a custom theme, and any `Dock.*` brushes set on the manager.
+- Customize Toolbars is gone. The tray menu and Add or Remove Buttons no longer have that item, and a plain drag no longer moves or copies a button. Alt+drag still does. New Toolbar stays on the tray menu.
+- A tray menu item no longer shows a tooltip that only repeats its label. That tooltip was drawn in the main window, away from the menu, in the system colors. A tooltip that says something else sits under the item and uses the dock tooltip colors.
+- A vertical floating toolbar sizes to its buttons, including a custom toolbar that was horizontal first and a window that holds several toolbars. Switching back to horizontal sizes it again. The overflow chevron shows only when a button does not fit. Combined vertical toolbars share one width, with a separator between them.
+- A custom toolbar's name is the caption and grip tooltip. It is not drawn in the caption, including a vertical float.
+
 ## 0.13.0 (2026-11-24)
 
 - Floating toolbars can share one window. Drag a grip onto a float to insert it, drag inside the window to reorder, and drag out to tear one toolbar off. The caption moves the whole window, and dropping it on a tray docks every visible toolbar in order. Close and Alt+F4 hide the whole group and keep the float. A grip double-click or Reset still affects only that toolbar. The caption joins their titles. `MergeFloatingToolBars` and `SplitFloatingToolBar` do the same, and `floatId` and `floatIndex` are omitted when they are the default so an older file stays the same bytes.
