@@ -3025,18 +3025,6 @@ references:
   commentId: Overload:SmartDock.DockManager.IsFloatMaximized
   fullName: SmartDock.DockManager.IsFloatMaximized
   nameWithType: DockManager.IsFloatMaximized
-- uid: SmartDock.DockManager.IsToolBarCustomizing
-  name: IsToolBarCustomizing
-  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarCustomizing
-  commentId: P:SmartDock.DockManager.IsToolBarCustomizing
-  fullName: SmartDock.DockManager.IsToolBarCustomizing
-  nameWithType: DockManager.IsToolBarCustomizing
-- uid: SmartDock.DockManager.IsToolBarCustomizing*
-  name: IsToolBarCustomizing
-  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarCustomizing_
-  commentId: Overload:SmartDock.DockManager.IsToolBarCustomizing
-  fullName: SmartDock.DockManager.IsToolBarCustomizing
-  nameWithType: DockManager.IsToolBarCustomizing
 - uid: SmartDock.DockManager.IsToolBarFloatVertical(System.String)
   name: IsToolBarFloatVertical(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_IsToolBarFloatVertical_System_String_
