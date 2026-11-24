@@ -329,7 +329,8 @@ A toolbar created from <a class="xref" href="SmartDock.DockManager.html#SmartDoc
     <dl class="jumplist">
       <dt><a class="xref" href="SmartDock.DockToolBarCaption.html">DockToolBarCaption</a></dt>
       <dd><p>Caption of a floating toolbar. <code>PART_Grip</code> drags and double-clicks to dock.
-<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <a class="xref" href="SmartDock.DockToolBarCaption.html#SmartDock_DockToolBarCaption_Title">Title</a>.</p>
+<code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <a class="xref" href="SmartDock.DockToolBarCaption.html#SmartDock_DockToolBarCaption_Title">Title</a> and trims it when the window is narrow.
+A trimmed title gets a tooltip with the full text. The close button stays a fixed width.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -562,6 +563,19 @@ A negative index means this list is the whole group in order, and the list posit
       <dt><a class="xref" href="SmartDock.ToolBarDrop.html">ToolBarDrop</a></dt>
       <dd><p>A drop target. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Float">Float</a> tears the toolbar off. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_InsertBand">InsertBand</a> opens a new band
 and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarFloatMember.html">ToolBarFloatMember</a></dt>
+      <dd><p>One toolbar inside a floating window, in the same coordinates as the pointer.
+Members of one window are visited in <a class="xref" href="SmartDock.ToolBarFloatMember.html#SmartDock_ToolBarFloatMember_Index">Index</a> order by <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TryHitFloat_System_ReadOnlySpan_SmartDock_ToolBarFloatWindow__System_ReadOnlySpan_SmartDock_ToolBarFloatMember__System_String_System_String_System_Double_System_Double_System_String__System_Int32__SmartDock_DockRect__">TryHitFloat(ReadOnlySpan&lt;ToolBarFloatWindow&gt;, ReadOnlySpan&lt;ToolBarFloatMember&gt;, string, string, double, double, out string, out int, out DockRect)</a>.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+      <dd><p>One floating toolbar window. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id">Id</a> is <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a>,
+or the toolbar id when the window holds one toolbar.
+A larger <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder">ZOrder</a> is painted above a smaller one. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical">Vertical</a> stacks members top to bottom.</p>
 </dd>
     </dl>
     <dl class="jumplist">
