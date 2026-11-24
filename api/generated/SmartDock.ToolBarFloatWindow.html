@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct ToolBarFloatWindow | SmartDock </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct ToolBarFloatWindow | SmartDock ">
+      
+      <meta name="description" content="One floating toolbar window.  is , or the toolbar id when the window holds one toolbar. A larger  is painted above a smaller one.  stacks members top to bottom.">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="SmartDock">
+            SmartDock
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SmartDock.ToolBarFloatWindow">
+
+
+
+  <h1 id="SmartDock_ToolBarFloatWindow" data-uid="SmartDock.ToolBarFloatWindow" class="text-break">
+Struct ToolBarFloatWindow  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SmartDock.html">SmartDock</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SmartDock.Core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>One floating toolbar window. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id">Id</a> is <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a>,
+or the toolbar id when the window holds one toolbar.
+A larger <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder">ZOrder</a> is painted above a smaller one. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical">Vertical</a> stacks members top to bottom.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly struct ToolBarFloatWindow : IEquatable&lt;ToolBarFloatWindow&gt;</code></pre>
+  </div>
+
+
+
+
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SmartDock_ToolBarFloatWindow__ctor_" data-uid="SmartDock.ToolBarFloatWindow.#ctor*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow__ctor_System_String_SmartDock_DockRect_System_Int32_System_Boolean_" data-uid="SmartDock.ToolBarFloatWindow.#ctor(System.String,SmartDock.DockRect,System.Int32,System.Boolean)">
+  ToolBarFloatWindow(string, DockRect, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>One floating toolbar window. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id">Id</a> is <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a>,
+or the toolbar id when the window holds one toolbar.
+A larger <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder">ZOrder</a> is painted above a smaller one. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical">Vertical</a> stacks members top to bottom.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ToolBarFloatWindow(string Id, DockRect Bounds, int ZOrder, bool Vertical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Bounds</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+    <dt><code>ZOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Bounds_" data-uid="SmartDock.ToolBarFloatWindow.Bounds*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Bounds" data-uid="SmartDock.ToolBarFloatWindow.Bounds">
+  Bounds
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockRect Bounds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Id_" data-uid="SmartDock.ToolBarFloatWindow.Id*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Id" data-uid="SmartDock.ToolBarFloatWindow.Id">
+  Id
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Vertical_" data-uid="SmartDock.ToolBarFloatWindow.Vertical*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Vertical" data-uid="SmartDock.ToolBarFloatWindow.Vertical">
+  Vertical
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Vertical { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_ZOrder_" data-uid="SmartDock.ToolBarFloatWindow.ZOrder*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_ZOrder" data-uid="SmartDock.ToolBarFloatWindow.ZOrder">
+  ZOrder
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ZOrder { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Deconstruct_" data-uid="SmartDock.ToolBarFloatWindow.Deconstruct*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Deconstruct_System_String__SmartDock_DockRect__System_Int32__System_Boolean__" data-uid="SmartDock.ToolBarFloatWindow.Deconstruct(System.String@,SmartDock.DockRect@,System.Int32@,System.Boolean@)">
+  Deconstruct(out string, out DockRect, out int, out bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out string Id, out DockRect Bounds, out int ZOrder, out bool Vertical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Bounds</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+    <dt><code>ZOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>Vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Equals_" data-uid="SmartDock.ToolBarFloatWindow.Equals*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Equals_SmartDock_ToolBarFloatWindow_" data-uid="SmartDock.ToolBarFloatWindow.Equals(SmartDock.ToolBarFloatWindow)">
+  Equals(ToolBarFloatWindow)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(ToolBarFloatWindow other)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>other</code> <a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_Equals_" data-uid="SmartDock.ToolBarFloatWindow.Equals*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_Equals_System_Object_" data-uid="SmartDock.ToolBarFloatWindow.Equals(System.Object)">
+  Equals(object)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_GetHashCode_" data-uid="SmartDock.ToolBarFloatWindow.GetHashCode*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_GetHashCode" data-uid="SmartDock.ToolBarFloatWindow.GetHashCode">
+  GetHashCode()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_ToString_" data-uid="SmartDock.ToolBarFloatWindow.ToString*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_ToString" data-uid="SmartDock.ToolBarFloatWindow.ToString">
+  ToString()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="SmartDock_ToolBarFloatWindow_op_Equality_" data-uid="SmartDock.ToolBarFloatWindow.op_Equality*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_op_Equality_SmartDock_ToolBarFloatWindow_SmartDock_ToolBarFloatWindow_" data-uid="SmartDock.ToolBarFloatWindow.op_Equality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)">
+  operator ==(ToolBarFloatWindow, ToolBarFloatWindow)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(ToolBarFloatWindow left, ToolBarFloatWindow right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarFloatWindow_op_Inequality_" data-uid="SmartDock.ToolBarFloatWindow.op_Inequality*"></a>
+
+  <h3 id="SmartDock_ToolBarFloatWindow_op_Inequality_SmartDock_ToolBarFloatWindow_SmartDock_ToolBarFloatWindow_" data-uid="SmartDock.ToolBarFloatWindow.op_Inequality(SmartDock.ToolBarFloatWindow,SmartDock.ToolBarFloatWindow)">
+  operator !=(ToolBarFloatWindow, ToolBarFloatWindow)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(ToolBarFloatWindow left, ToolBarFloatWindow right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+    <dd></dd>
+    <dt><code>right</code> <a class="xref" href="SmartDock.ToolBarFloatWindow.html">ToolBarFloatWindow</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          SmartDock
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
