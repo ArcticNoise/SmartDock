@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.13.0 (2026-11-24)
+
+- Floating toolbars can share one window. Drag a grip onto a float to insert it, drag inside the window to reorder, and drag out to tear one toolbar off. The caption moves the whole window, and dropping it on a tray docks every visible toolbar in order. Close and Alt+F4 hide the whole group and keep the float. A grip double-click or Reset still affects only that toolbar. The caption joins their titles. `MergeFloatingToolBars` and `SplitFloatingToolBar` do the same, and `floatId` and `floatIndex` are omitted when they are the default so an older file stays the same bytes.
+- Closing a floating toolbar now hides it. Showing it again brings it back floating where it was. Reset still docks it on its declared place.
+- A floating toolbar can stack its buttons. Check Vertical on the caption menu or on Add or Remove Buttons, or drag the right edge in past half the width or the bottom edge down past half the height. The window snaps to the new size. Escape or a lost capture keeps the orientation from the press. `DockManager.SetToolBarFloatVertical` and `IsToolBarFloatVertical` set and read it, and `SaveLayout` writes `floatVertical` only when it is true. Docking, docking back, and reset clear it. A float torn off a left or right edge stays horizontal until then. A docked toolbar ignores the setter, and a file that sets the flag on a toolbar that is not floating loads without it.
+- You can make your own toolbars. New Toolbar on the tray menu asks for a name and floats an empty bar near the pointer. Alt+drag copies a button onto it and leaves the original in place. The copy clicks the original, and an Image or Path icon shows in both. Customize Toolbars turns that drag on without Alt until Escape or you leave the window. Rename and Delete are on the caption and the grip. Reset clears the copies and leaves the bar where it is. `CreateCustomToolBar`, `RenameCustomToolBar`, `DeleteCustomToolBar`, and `IsToolBarCustomizing` do the same, and `custom`, `title`, and `items` are omitted when they are the default so an older file stays the same bytes.
+- Alt+drag or Customize Toolbars grabs a separator, or any thin item, from anywhere in its slot, not only on the painted line.
+- A single click on the caption of a maximized floating window no longer restores it and moves it to the top-left corner. A click or a press without movement leaves it maximized, and a double-click restores it to its earlier place and size.
+- Dragging the caption of a maximized floating window restores it to its earlier size under the pointer, at the same share of the caption width and the same height on it, and the drag continues, docking guides included. It used to shrink into the top-left corner.
+
 ## 0.12.0
 
 - Dragging a toolbar so its trailing edge lands within 16 device-independent pixels of a band's far end, or past it, pins that toolbar to the end. Dragging it off that zone packs it from the start at the drop. The toolbar moves there while the pointer is still down.
