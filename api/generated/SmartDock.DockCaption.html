@@ -2266,7 +2266,9 @@ public sealed class DockCaption : ContentControl, IAnimatable, ISupportInitializ
   
   </h3>
 
-  <div class="markdown level1 summary"><p>True for the one-pane top accent: panel fill and a 2px accent edge.</p>
+  <div class="markdown level1 summary"><p>True for the one-pane top bar: panel fill and a 2px edge.
+The edge color follows <a class="xref" href="SmartDock.DockCaption.html#SmartDock_DockCaption_IsActive">IsActive</a>. A replaced style reads this flag and paints itself.
+A flyout caption stays false and keeps the chrome fill; its edge still follows <a class="xref" href="SmartDock.DockCaption.html#SmartDock_DockCaption_IsActive">IsActive</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -2298,7 +2300,8 @@ public sealed class DockCaption : ContentControl, IAnimatable, ISupportInitializ
   
   </h3>
 
-  <div class="markdown level1 summary"><p>True when the float window is active, or the docked group contains keyboard focus.</p>
+  <div class="markdown level1 summary"><p>True when this caption's pane is the active pane. A split float title is true while that window is active.
+The default accent edge uses <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentKey">AccentKey</a> when this is true and <a class="xref" href="SmartDock.DockTheme.html#SmartDock_DockTheme_AccentInactiveKey">AccentInactiveKey</a> when it is false.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

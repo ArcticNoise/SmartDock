@@ -232,7 +232,7 @@ A dock guide or that float wins where it overlaps an auto-hide hot zone. Documen
 The same gesture is covered by the internal drag methods, which call <a class="xref" href="SmartDock.DockDragSession.html">DockDragSession</a> with coordinates and no mouse.
 Ctrl+Tab switches panes. <a class="xref" href="SmartDock.DockCommands.html">DockCommands</a> closes, cycles document tabs, toggles float and auto-hide, and saves the layout.
 When <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_AnimationsEnabled">AnimationsEnabled</a> is set and Windows animations are on, reordered tab headers slide and the dock guides fade.
-The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. It opens and closes
+The auto-hide flyout is a child window so it paints above an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.interop.hwndhost">HwndHost</a> pane. A click or focus inside that hosted window, including a child of it, activates the pane and leaves the click with the native window. The flyout opens and closes
 at its arranged size: a render transform does not move that HWND. Those clocks do not change layout, focus, or events.
 <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeGripThickness">ResizeGripThickness</a> is the hit zone of a splitter, a flyout edge, and a float's border.
 <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_ResizeMode">ResizeMode</a> applies splitter, flyout, and floating-window sizes live, once per frame, or as a preview on release.</p>
