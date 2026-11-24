@@ -90,9 +90,9 @@
 <p>To restyle the chrome, put an implicit style in <code>DockManager.Resources</code>. Floating windows, the guide overlay, the auto-hide flyout, and toolbar windows are separate visual trees and can't see the manager's resources, so the manager copies styles for these types onto each of them: <code>DockTabHeader</code>, <code>DockCaption</code>, <code>DockDropPreview</code>, <code>DockGuideButton</code>, <code>DockToolBarGrip</code>, <code>DockToolBarTray</code>, <code>DockToolBarCaption</code>, <code>DockToolBarDrop</code>, and <code>DockToolBarCustomize</code>. A style in <code>Application.Resources</code> doesn't need copying, because every window already sees it.</p>
 <p>Each of those controls picks up the implicit style from its manager when it loads, and assigning <code>Theme</code> makes chrome that is already open pick it up again. If you remove a style from the manager, the control drops it and goes back to the template in <code>Themes/Generic.xaml</code>.</p>
 <h2 id="theme-brushes">Theme brushes</h2>
-<p>The chrome reads these keys: <code>Dock.Workspace</code>, <code>Dock.Panel</code>, <code>Dock.Chrome</code>, <code>Dock.Header</code>, <code>Dock.Border</code>, <code>Dock.Text</code>, <code>Dock.Muted</code>, <code>Dock.Accent</code>, <code>Dock.AccentSoft</code>, <code>Dock.Guide</code>, <code>Dock.GuideButton</code>, <code>Dock.GuideBorder</code>, <code>Dock.Hover</code>, and <code>Dock.Font</code>. <code>DockTheme</code> has a <code>*Key</code> constant for each one, such as <code>DockTheme.AccentKey</code>. <code>Dock.FocusVisual</code> is the focus rectangle, drawn with <code>Dock.Accent</code>. <code>Dock.GuideBorder</code> is transparent in every built-in theme.</p>
+<p>The chrome reads these keys: <code>Dock.Workspace</code>, <code>Dock.Panel</code>, <code>Dock.Chrome</code>, <code>Dock.Header</code>, <code>Dock.Border</code>, <code>Dock.Text</code>, <code>Dock.Muted</code>, <code>Dock.Accent</code>, <code>Dock.AccentSoft</code>, <code>Dock.AccentInactive</code>, <code>Dock.Guide</code>, <code>Dock.GuideButton</code>, <code>Dock.GuideBorder</code>, <code>Dock.Hover</code>, and <code>Dock.Font</code>. <code>DockTheme</code> has a <code>*Key</code> constant for each one, such as <code>DockTheme.AccentKey</code>. <code>Dock.FocusVisual</code> is the focus rectangle, drawn with <code>Dock.Accent</code>. <code>Dock.GuideBorder</code> is transparent in every built-in theme. <code>Dock.Accent</code> is the bright edge of the active pane. <code>Dock.AccentInactive</code> is the same edge when that tab is selected, or that lone caption is showing, but the pane is not the active one. A <code>Dock.AccentInactive</code> brush in <code>DockManager.Resources</code> wins the same way the other <code>Dock.*</code> keys do.</p>
 <p>The theme palette lives in a dictionary that the manager merges into its resources. A <code>Dock.*</code> key you add to <code>DockManager.Resources</code> sits above that dictionary, so it wins over the theme and keeps winning after the manager loads and after <code>Theme</code> changes. Your overrides are also copied onto floating windows, the guide overlay, the auto-hide flyout, toolbar windows, and the toolbar name dialog. If you add an override after one of those windows is open, it reaches that window the next time <code>Theme</code> is assigned (assigning the current value is enough) and every new window gets it when it is created. <code>DockManager.CustomTheme</code> is a shared dictionary of the same keys. It sits under those local keys and over the palette. The New Toolbar and Rename dialog uses these brushes for its window, caption, text box, and buttons. <a href="themes.html">Themes</a> has the class, the order, and which key paints which part.</p>
-<p><code>StylingWindow</code> binds <code>Theme</code> and replaces the two accent brushes:</p>
+<p><code>StylingWindow</code> binds <code>Theme</code> and replaces the accent brushes, including the dim edge:</p>
 <pre><code class="lang-xml">&lt;Window.DataContext&gt;
   &lt;local:ThemeChoice /&gt;
 &lt;/Window.DataContext&gt;
@@ -100,6 +100,7 @@
   &lt;dock:DockManager.Resources&gt;
     &lt;SolidColorBrush x:Key=&quot;{x:Static dock:DockTheme.AccentKey}&quot; Color=&quot;#FFC45C26&quot; /&gt;
     &lt;SolidColorBrush x:Key=&quot;{x:Static dock:DockTheme.AccentSoftKey}&quot; Color=&quot;#FFF0D3C2&quot; /&gt;
+    &lt;SolidColorBrush x:Key=&quot;{x:Static dock:DockTheme.AccentInactiveKey}&quot; Color=&quot;#FF8C5A3C&quot; /&gt;
 </code></pre>
 <p>The Blue button switches the bound property to <code>DockThemeKind.Blue</code>, and the copper accent stays. Don't point <code>x:Static</code> at <code>DockTheme.Border</code> or <code>DockTheme.Panel</code>, because those names clash with WPF types; use the <code>*Key</code> constants. <a href="themes.html">Themes</a> covers <code>DockTheme.Apply</code>, the menu dictionary, and the scroll bar dictionary.</p>
 <p>The panes in this sample get their controls from <code>SampleContent.Prepare</code>, because <code>RegisterContent</code> can't be called from markup. <a href="xaml.html">Working in XAML</a> explains why.</p>
@@ -130,8 +131,15 @@
         &lt;ControlTemplate.Triggers&gt;
           &lt;Trigger Property=&quot;IsSelected&quot; Value=&quot;True&quot;&gt;
             &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Panel}&quot; /&gt;
-            &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+            &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.AccentInactive}&quot; /&gt;
           &lt;/Trigger&gt;
+          &lt;MultiTrigger&gt;
+            &lt;MultiTrigger.Conditions&gt;
+              &lt;Condition Property=&quot;IsSelected&quot; Value=&quot;True&quot; /&gt;
+              &lt;Condition Property=&quot;IsActive&quot; Value=&quot;True&quot; /&gt;
+            &lt;/MultiTrigger.Conditions&gt;
+            &lt;Setter Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+          &lt;/MultiTrigger&gt;
           &lt;Trigger Property=&quot;Placement&quot; Value=&quot;Bottom&quot;&gt;
             &lt;Setter Property=&quot;Margin&quot; Value=&quot;2,0,2,4&quot; /&gt;
           &lt;/Trigger&gt;
@@ -144,6 +152,7 @@
 <p><code>PART_ButtonHost</code> is where the header puts its buttons when the template doesn't provide its own. It gets a close button if the pane can close or has <code>HideOnClose</code>, and a pin if the pane can auto-hide. They're added after the template's own children, in the order pin, close, menu. To supply your own button, name a <code>Button</code> <code>PART_Close</code>, <code>PART_Pin</code>, or <code>PART_Menu</code>; the header collapses it whenever that action isn't available. <code>ShowMenu</code> stays false, so a <code>PART_Menu</code> button stays collapsed.</p>
 <p><code>PART_Face</code> is optional. If the template names both <code>PART_Face</code> and <code>PART_ButtonHost</code>, the header lays the face over the accent stroke and the padding; otherwise the template keeps its own layout. <code>PART_Chrome</code> is the outer border. The default style fills it with theme brushes, and a replaced style is left to paint itself.</p>
 <p>The header exposes <code>Title</code>, <code>Icon</code>, <code>IsSelected</code>, <code>IsActive</code>, <code>Kind</code>, <code>Placement</code>, <code>IsHovered</code>, <code>ShowClose</code>, <code>ShowPin</code>, and <code>ShowMenu</code> for your template to bind. Dragging, selecting, and closing are handled by the control, so they keep working with any template.</p>
+<p><code>IsActive</code> is true when this header's group holds the active pane. The default selected tab keeps the panel fill and draws a 2px <code>Dock.Accent</code> edge while <code>IsActive</code> is true, and <code>Dock.AccentInactive</code> while it is false. An unselected tab keeps the header fill and no edge. A replaced style is left alone: the sample paints <code>Dock.AccentInactive</code> when <code>IsSelected</code> is true, and <code>Dock.Accent</code> when <code>IsSelected</code> and <code>IsActive</code> are both true. Switching the active pane repaints the headers. There is one bright edge, on the active pane.</p>
 <h2 id="captions">Captions</h2>
 <pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockCaption&quot;&gt;
   &lt;Setter Property=&quot;Focusable&quot; Value=&quot;False&quot; /&gt;
@@ -183,9 +192,27 @@
           &lt;/Trigger&gt;
           &lt;Trigger Property=&quot;IsAccented&quot; Value=&quot;True&quot;&gt;
             &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Panel}&quot; /&gt;
-            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.AccentInactive}&quot; /&gt;
             &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderThickness&quot; Value=&quot;0,2,0,0&quot; /&gt;
           &lt;/Trigger&gt;
+          &lt;MultiTrigger&gt;
+            &lt;MultiTrigger.Conditions&gt;
+              &lt;Condition Property=&quot;IsAccented&quot; Value=&quot;True&quot; /&gt;
+              &lt;Condition Property=&quot;IsActive&quot; Value=&quot;True&quot; /&gt;
+            &lt;/MultiTrigger.Conditions&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+          &lt;/MultiTrigger&gt;
+          &lt;Trigger Property=&quot;Role&quot; Value=&quot;Flyout&quot;&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.AccentInactive}&quot; /&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderThickness&quot; Value=&quot;0,2,0,0&quot; /&gt;
+          &lt;/Trigger&gt;
+          &lt;MultiTrigger&gt;
+            &lt;MultiTrigger.Conditions&gt;
+              &lt;Condition Property=&quot;Role&quot; Value=&quot;Flyout&quot; /&gt;
+              &lt;Condition Property=&quot;IsActive&quot; Value=&quot;True&quot; /&gt;
+            &lt;/MultiTrigger.Conditions&gt;
+            &lt;Setter TargetName=&quot;PART_Chrome&quot; Property=&quot;BorderBrush&quot; Value=&quot;{DynamicResource Dock.Accent}&quot; /&gt;
+          &lt;/MultiTrigger&gt;
         &lt;/ControlTemplate.Triggers&gt;
       &lt;/ControlTemplate&gt;
     &lt;/Setter.Value&gt;
@@ -194,7 +221,8 @@
 </code></pre>
 <p>A custom caption style hosts the library's button cluster in <code>PART_Buttons</code>. If you name a <code>Button</code> <code>PART_Close</code>, <code>PART_Pin</code>, <code>PART_Maximize</code>, or <code>PART_Menu</code>, the caption gives it the library button's automation name, tooltip, glyph, and visibility, and takes the library button out of the cluster so it doesn't show twice. A template with neither the named button nor <code>PART_Buttons</code> simply has no such button. The default template, used while <code>Style</code> is null, puts the cluster in <code>PART_Bar</code> instead.</p>
 <p><code>PART_Grip</code> is the drag surface; without it, the whole caption is. A strip caption (<code>Role</code> is <code>Strip</code>) shows the tab strip as its content, so its template needs a <code>ContentPresenter</code>. The sample hides the title row for that role. <code>PART_Title</code> shows <code>Title</code>, and a template without it shows no title.</p>
-<p><code>IsAccented</code> is true for the top accent of a lone pane. The default style draws a 2px accent edge over a panel fill, and a replaced style reads <code>IsAccented</code> and paints whatever it wants. A flyout caption is 28px high unless your style sets a height.</p>
+<p><code>IsAccented</code> is true for the one-pane top bar. That bar uses the panel fill and a 2px edge. The edge is <code>Dock.Accent</code> while <code>IsActive</code> is true and <code>Dock.AccentInactive</code> while it is false. <code>IsActive</code> is true when this caption's pane is the active pane. A split float title is active while that window is active, and it does not draw this edge. A replaced style reads <code>IsAccented</code> and <code>IsActive</code> and paints itself. The sample uses <code>Dock.AccentInactive</code> for the accented bar and <code>Dock.Accent</code> when that bar is also active.</p>
+<p>A flyout caption stays <code>IsAccented</code> false and keeps the chrome fill, at 28px unless your style sets a height. Its 2px top edge still follows <code>IsActive</code>. The sample paints that edge from <code>Role</code> being <code>Flyout</code>. A bottom tool caption, with tabs under the content and more than one pane, keeps the chrome fill and draws no edge.</p>
 <h2 id="drop-preview-and-guides">Drop preview and guides</h2>
 <pre><code class="lang-xml">&lt;Style TargetType=&quot;dock:DockDropPreview&quot;&gt;
   &lt;Setter Property=&quot;Background&quot; Value=&quot;{DynamicResource Dock.Guide}&quot; /&gt;
