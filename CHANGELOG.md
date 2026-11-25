@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.16.0 (2026-11-25)
+
+- A floating toolbar can be resized from its right and bottom edges. The buttons wrap into a grid that fills the window, and the window snaps to whole cells so a row stays one height and there is no empty strip. The smallest size is one button plus the caption and the frame. A window at least as wide as it is tall is horizontal, including a square. A taller window is vertical, and the Vertical check follows while the edge is dragged. Checking or unchecking Vertical sizes the window to one column or one row, including a window that holds several toolbars. Escape or a lost capture keeps the size and orientation from the press. `SaveLayout` writes that width and height with the other float bounds, and loading the layout opens the window at that size. A float that was never resized stays a single row or column. Docked toolbars do not resize this way.
+- The tray menu stays open while a toolbar is checked or unchecked, so several can be shown or hidden together. New Toolbar still closes it.
+- Dragging a toolbar onto an empty window edge shows that edge's drop line in the guide overlay. The right and bottom lines sit inside the window, and dropping there creates the band. A point in that edge's zone docks on that edge even when it is also in the slop of a tray on another side. A point inside the tray still uses the tray.
+- Docking a custom toolbar no longer reports a binding error for a copied button that is already its own container.
+- A button copied onto another toolbar keeps the original button's width and height. It keeps the original style when that style's target type fits the copy, and uses the toolbar's button style otherwise. A check box uses the toggle style. A vertical float of copied icon buttons is the same size as the toolbar they came from.
+- The close button on a vertical float caption is 16 DIP. A 24 DIP icon column keeps a drag area beside it. A column of 16 DIP or less does not. A horizontal caption stays at 22 DIP.
+
 ## 0.15.1 (2026-11-25)
 
 - A vertical floating toolbar hides the caption grip and makes the caption outside the close button the drag handle, so the float is as wide as its button column or the close button (22 DIP) and a 24 DIP icon column leaves no empty strip.
