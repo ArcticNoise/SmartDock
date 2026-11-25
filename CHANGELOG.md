@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.1 (2026-11-26)
+
+- A resized floating toolbar keeps each button at the size that button has in a single row or column. An image with no width or height stays that size. While the buttons are wrapped in a grid, a style that limits the toolbar's height or width is lifted, so the extra rows and columns stay whole. Those limits come back when the float is a single row or column again.
+- Checking or unchecking Vertical measures the floating window again after the orientation change, including a toolbar the host restyles, so the new column or row fits at any display scale.
+- The close button on a vertical float caption is 32/3 DIP (about 10.7), two thirds of the previous 16 DIP box, and its glyph is two thirds of the template's font size. A host template's own close button gets the same size. A horizontal caption keeps the template's width and font size.
+
 ## 0.16.0 (2026-11-25)
 
 - A floating toolbar can be resized from its right and bottom edges. The buttons wrap into a grid that fills the window, and the window snaps to whole cells so a row stays one height and there is no empty strip. The smallest size is one button plus the caption and the frame. A window at least as wide as it is tall is horizontal, including a square. A taller window is vertical, and the Vertical check follows while the edge is dragged. Checking or unchecking Vertical sizes the window to one column or one row, including a window that holds several toolbars. Escape or a lost capture keeps the size and orientation from the press. `SaveLayout` writes that width and height with the other float bounds, and loading the layout opens the window at that size. A float that was never resized stays a single row or column. Docked toolbars do not resize this way.
