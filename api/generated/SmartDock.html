@@ -332,7 +332,7 @@ A toolbar created from <a class="xref" href="SmartDock.DockManager.html#SmartDoc
 <code>PART_Close</code> hides the toolbar. <code>PART_Title</code> shows <a class="xref" href="SmartDock.DockToolBarCaption.html#SmartDock_DockToolBarCaption_Title">Title</a> and trims it when the window is narrow.
 A trimmed title gets a tooltip with the full text. A vertical float hides the title and keeps that tooltip,
 because the button column is too narrow for it. A custom toolbar name is not drawn here; it is the tooltip.
-The close button stays a fixed width.</p>
+The close button is 22 DIP on a horizontal caption and 16 DIP on a vertical one, so a 24 DIP column keeps a drag area beside the glyph.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -578,6 +578,15 @@ Members of one window are visited in <a class="xref" href="SmartDock.ToolBarFloa
       <dd><p>One floating toolbar window. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Id">Id</a> is <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_FloatId">FloatId</a>,
 or the toolbar id when the window holds one toolbar.
 A larger <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_ZOrder">ZOrder</a> is painted above a smaller one. <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolBarFloatWindow_Vertical">Vertical</a> stacks members top to bottom.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SmartDock.ToolBarGridFit.html">ToolBarGridFit</a></dt>
+      <dd><p>One snapped size of a floating toolbar. <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Columns">Columns</a> and <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Rows">Rows</a> place every button.
+Horizontal fills a row and then the next. Vertical fills a column and then the next.
+<a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width">Width</a> and <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height">Height</a> are the window: the cells plus the chrome given to
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_">FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)</a>, and at least that orientation's minimum width.
+<a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Vertical">Vertical</a> is false when <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width">Width</a> is at least <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height">Height</a>, including a square.</p>
 </dd>
     </dl>
     <dl class="jumplist">
