@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.15.1 (2026-11-25)
+
+- A vertical floating toolbar hides the caption grip and makes the caption outside the close button the drag handle, so the float is as wide as its button column or the close button (22 DIP) and a 24 DIP icon column leaves no empty strip.
+- A toolbar's button band is the same height as its grip and its chevron, docked or floating.
+- Dragging a toolbar off its tray shows the floating window on that move, under the pointer, while the button is still down.
+
 ## 0.15.0 (2026-11-25)
 
 - Closing the docking guides now repaints a native pane the drop preview covered. Before, the preview could stay drawn on that pane.
