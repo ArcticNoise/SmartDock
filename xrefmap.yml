@@ -9160,21 +9160,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.Find
   fullName: SmartDock.ToolBarBands.Find
   nameWithType: ToolBarBands.Find
-- uid: SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)
-  name: FloatOrientation(bool, bool, double, double, double, double)
-  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FloatOrientation_System_Boolean_System_Boolean_System_Double_System_Double_System_Double_System_Double_
-  commentId: M:SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)
-  name.vb: FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
-  fullName: SmartDock.ToolBarBands.FloatOrientation(bool, bool, double, double, double, double)
-  fullName.vb: SmartDock.ToolBarBands.FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
-  nameWithType: ToolBarBands.FloatOrientation(bool, bool, double, double, double, double)
-  nameWithType.vb: ToolBarBands.FloatOrientation(Boolean, Boolean, Double, Double, Double, Double)
-- uid: SmartDock.ToolBarBands.FloatOrientation*
-  name: FloatOrientation
-  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FloatOrientation_
-  commentId: Overload:SmartDock.ToolBarBands.FloatOrientation
-  fullName: SmartDock.ToolBarBands.FloatOrientation
-  nameWithType: ToolBarBands.FloatOrientation
+- uid: SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)
+  name: FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_
+  commentId: M:SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)
+  name.vb: FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
+  fullName: SmartDock.ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
+  fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
+  nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
+  nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
+- uid: SmartDock.ToolBarBands.FitGrid*
+  name: FitGrid
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_
+  commentId: Overload:SmartDock.ToolBarBands.FitGrid
+  fullName: SmartDock.ToolBarBands.FitGrid
+  nameWithType: ToolBarBands.FitGrid
 - uid: SmartDock.ToolBarBands.Hit(SmartDock.DockRect,System.String,System.ReadOnlySpan{SmartDock.ToolBarBarRect},System.ReadOnlySpan{SmartDock.ToolBarBandRect},System.ReadOnlySpan{SmartDock.ToolBarTrayRect},System.Double,System.Double,System.String,System.String)
   name: Hit(DockRect, string, ReadOnlySpan<ToolBarBarRect>, ReadOnlySpan<ToolBarBandRect>, ReadOnlySpan<ToolBarTrayRect>, double, double, string, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_
@@ -10714,6 +10714,186 @@ references:
   fullName.vb: SmartDock.ToolBarFloatWindow.<>
   nameWithType: ToolBarFloatWindow.operator !=
   nameWithType.vb: ToolBarFloatWindow.<>
+- uid: SmartDock.ToolBarGridFit
+  name: ToolBarGridFit
+  href: api/generated/SmartDock.ToolBarGridFit.html
+  commentId: T:SmartDock.ToolBarGridFit
+  fullName: SmartDock.ToolBarGridFit
+  nameWithType: ToolBarGridFit
+- uid: SmartDock.ToolBarGridFit.#ctor(System.Int32,System.Int32,System.Boolean,System.Double,System.Double)
+  name: ToolBarGridFit(int, int, bool, double, double)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit__ctor_System_Int32_System_Int32_System_Boolean_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarGridFit.#ctor(System.Int32,System.Int32,System.Boolean,System.Double,System.Double)
+  name.vb: New(Integer, Integer, Boolean, Double, Double)
+  fullName: SmartDock.ToolBarGridFit.ToolBarGridFit(int, int, bool, double, double)
+  fullName.vb: SmartDock.ToolBarGridFit.New(Integer, Integer, Boolean, Double, Double)
+  nameWithType: ToolBarGridFit.ToolBarGridFit(int, int, bool, double, double)
+  nameWithType.vb: ToolBarGridFit.New(Integer, Integer, Boolean, Double, Double)
+- uid: SmartDock.ToolBarGridFit.#ctor*
+  name: ToolBarGridFit
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit__ctor_
+  commentId: Overload:SmartDock.ToolBarGridFit.#ctor
+  name.vb: New
+  fullName: SmartDock.ToolBarGridFit.ToolBarGridFit
+  fullName.vb: SmartDock.ToolBarGridFit.New
+  nameWithType: ToolBarGridFit.ToolBarGridFit
+  nameWithType.vb: ToolBarGridFit.New
+- uid: SmartDock.ToolBarGridFit.Columns
+  name: Columns
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Columns
+  commentId: P:SmartDock.ToolBarGridFit.Columns
+  fullName: SmartDock.ToolBarGridFit.Columns
+  nameWithType: ToolBarGridFit.Columns
+- uid: SmartDock.ToolBarGridFit.Columns*
+  name: Columns
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Columns_
+  commentId: Overload:SmartDock.ToolBarGridFit.Columns
+  fullName: SmartDock.ToolBarGridFit.Columns
+  nameWithType: ToolBarGridFit.Columns
+- uid: SmartDock.ToolBarGridFit.Deconstruct(System.Int32@,System.Int32@,System.Boolean@,System.Double@,System.Double@)
+  name: Deconstruct(out int, out int, out bool, out double, out double)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Deconstruct_System_Int32__System_Int32__System_Boolean__System_Double__System_Double__
+  commentId: M:SmartDock.ToolBarGridFit.Deconstruct(System.Int32@,System.Int32@,System.Boolean@,System.Double@,System.Double@)
+  name.vb: Deconstruct(Integer, Integer, Boolean, Double, Double)
+  fullName: SmartDock.ToolBarGridFit.Deconstruct(out int, out int, out bool, out double, out double)
+  fullName.vb: SmartDock.ToolBarGridFit.Deconstruct(Integer, Integer, Boolean, Double, Double)
+  nameWithType: ToolBarGridFit.Deconstruct(out int, out int, out bool, out double, out double)
+  nameWithType.vb: ToolBarGridFit.Deconstruct(Integer, Integer, Boolean, Double, Double)
+- uid: SmartDock.ToolBarGridFit.Deconstruct*
+  name: Deconstruct
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Deconstruct_
+  commentId: Overload:SmartDock.ToolBarGridFit.Deconstruct
+  fullName: SmartDock.ToolBarGridFit.Deconstruct
+  nameWithType: ToolBarGridFit.Deconstruct
+- uid: SmartDock.ToolBarGridFit.Equals(SmartDock.ToolBarGridFit)
+  name: Equals(ToolBarGridFit)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Equals_SmartDock_ToolBarGridFit_
+  commentId: M:SmartDock.ToolBarGridFit.Equals(SmartDock.ToolBarGridFit)
+  fullName: SmartDock.ToolBarGridFit.Equals(SmartDock.ToolBarGridFit)
+  nameWithType: ToolBarGridFit.Equals(ToolBarGridFit)
+- uid: SmartDock.ToolBarGridFit.Equals(System.Object)
+  name: Equals(object)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Equals_System_Object_
+  commentId: M:SmartDock.ToolBarGridFit.Equals(System.Object)
+  name.vb: Equals(Object)
+  fullName: SmartDock.ToolBarGridFit.Equals(object)
+  fullName.vb: SmartDock.ToolBarGridFit.Equals(Object)
+  nameWithType: ToolBarGridFit.Equals(object)
+  nameWithType.vb: ToolBarGridFit.Equals(Object)
+- uid: SmartDock.ToolBarGridFit.Equals*
+  name: Equals
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Equals_
+  commentId: Overload:SmartDock.ToolBarGridFit.Equals
+  fullName: SmartDock.ToolBarGridFit.Equals
+  nameWithType: ToolBarGridFit.Equals
+- uid: SmartDock.ToolBarGridFit.GetHashCode
+  name: GetHashCode()
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_GetHashCode
+  commentId: M:SmartDock.ToolBarGridFit.GetHashCode
+  fullName: SmartDock.ToolBarGridFit.GetHashCode()
+  nameWithType: ToolBarGridFit.GetHashCode()
+- uid: SmartDock.ToolBarGridFit.GetHashCode*
+  name: GetHashCode
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_GetHashCode_
+  commentId: Overload:SmartDock.ToolBarGridFit.GetHashCode
+  fullName: SmartDock.ToolBarGridFit.GetHashCode
+  nameWithType: ToolBarGridFit.GetHashCode
+- uid: SmartDock.ToolBarGridFit.Height
+  name: Height
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height
+  commentId: P:SmartDock.ToolBarGridFit.Height
+  fullName: SmartDock.ToolBarGridFit.Height
+  nameWithType: ToolBarGridFit.Height
+- uid: SmartDock.ToolBarGridFit.Height*
+  name: Height
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height_
+  commentId: Overload:SmartDock.ToolBarGridFit.Height
+  fullName: SmartDock.ToolBarGridFit.Height
+  nameWithType: ToolBarGridFit.Height
+- uid: SmartDock.ToolBarGridFit.Rows
+  name: Rows
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Rows
+  commentId: P:SmartDock.ToolBarGridFit.Rows
+  fullName: SmartDock.ToolBarGridFit.Rows
+  nameWithType: ToolBarGridFit.Rows
+- uid: SmartDock.ToolBarGridFit.Rows*
+  name: Rows
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Rows_
+  commentId: Overload:SmartDock.ToolBarGridFit.Rows
+  fullName: SmartDock.ToolBarGridFit.Rows
+  nameWithType: ToolBarGridFit.Rows
+- uid: SmartDock.ToolBarGridFit.ToString
+  name: ToString()
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_ToString
+  commentId: M:SmartDock.ToolBarGridFit.ToString
+  fullName: SmartDock.ToolBarGridFit.ToString()
+  nameWithType: ToolBarGridFit.ToString()
+- uid: SmartDock.ToolBarGridFit.ToString*
+  name: ToString
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_ToString_
+  commentId: Overload:SmartDock.ToolBarGridFit.ToString
+  fullName: SmartDock.ToolBarGridFit.ToString
+  nameWithType: ToolBarGridFit.ToString
+- uid: SmartDock.ToolBarGridFit.Vertical
+  name: Vertical
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Vertical
+  commentId: P:SmartDock.ToolBarGridFit.Vertical
+  fullName: SmartDock.ToolBarGridFit.Vertical
+  nameWithType: ToolBarGridFit.Vertical
+- uid: SmartDock.ToolBarGridFit.Vertical*
+  name: Vertical
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Vertical_
+  commentId: Overload:SmartDock.ToolBarGridFit.Vertical
+  fullName: SmartDock.ToolBarGridFit.Vertical
+  nameWithType: ToolBarGridFit.Vertical
+- uid: SmartDock.ToolBarGridFit.Width
+  name: Width
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width
+  commentId: P:SmartDock.ToolBarGridFit.Width
+  fullName: SmartDock.ToolBarGridFit.Width
+  nameWithType: ToolBarGridFit.Width
+- uid: SmartDock.ToolBarGridFit.Width*
+  name: Width
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width_
+  commentId: Overload:SmartDock.ToolBarGridFit.Width
+  fullName: SmartDock.ToolBarGridFit.Width
+  nameWithType: ToolBarGridFit.Width
+- uid: SmartDock.ToolBarGridFit.op_Equality(SmartDock.ToolBarGridFit,SmartDock.ToolBarGridFit)
+  name: operator ==(ToolBarGridFit, ToolBarGridFit)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_op_Equality_SmartDock_ToolBarGridFit_SmartDock_ToolBarGridFit_
+  commentId: M:SmartDock.ToolBarGridFit.op_Equality(SmartDock.ToolBarGridFit,SmartDock.ToolBarGridFit)
+  name.vb: =(ToolBarGridFit, ToolBarGridFit)
+  fullName: SmartDock.ToolBarGridFit.operator ==(SmartDock.ToolBarGridFit, SmartDock.ToolBarGridFit)
+  fullName.vb: SmartDock.ToolBarGridFit.=(SmartDock.ToolBarGridFit, SmartDock.ToolBarGridFit)
+  nameWithType: ToolBarGridFit.operator ==(ToolBarGridFit, ToolBarGridFit)
+  nameWithType.vb: ToolBarGridFit.=(ToolBarGridFit, ToolBarGridFit)
+- uid: SmartDock.ToolBarGridFit.op_Equality*
+  name: operator ==
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_op_Equality_
+  commentId: Overload:SmartDock.ToolBarGridFit.op_Equality
+  name.vb: =
+  fullName: SmartDock.ToolBarGridFit.operator ==
+  fullName.vb: SmartDock.ToolBarGridFit.=
+  nameWithType: ToolBarGridFit.operator ==
+  nameWithType.vb: ToolBarGridFit.=
+- uid: SmartDock.ToolBarGridFit.op_Inequality(SmartDock.ToolBarGridFit,SmartDock.ToolBarGridFit)
+  name: operator !=(ToolBarGridFit, ToolBarGridFit)
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_op_Inequality_SmartDock_ToolBarGridFit_SmartDock_ToolBarGridFit_
+  commentId: M:SmartDock.ToolBarGridFit.op_Inequality(SmartDock.ToolBarGridFit,SmartDock.ToolBarGridFit)
+  name.vb: <>(ToolBarGridFit, ToolBarGridFit)
+  fullName: SmartDock.ToolBarGridFit.operator !=(SmartDock.ToolBarGridFit, SmartDock.ToolBarGridFit)
+  fullName.vb: SmartDock.ToolBarGridFit.<>(SmartDock.ToolBarGridFit, SmartDock.ToolBarGridFit)
+  nameWithType: ToolBarGridFit.operator !=(ToolBarGridFit, ToolBarGridFit)
+  nameWithType.vb: ToolBarGridFit.<>(ToolBarGridFit, ToolBarGridFit)
+- uid: SmartDock.ToolBarGridFit.op_Inequality*
+  name: operator !=
+  href: api/generated/SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_op_Inequality_
+  commentId: Overload:SmartDock.ToolBarGridFit.op_Inequality
+  name.vb: <>
+  fullName: SmartDock.ToolBarGridFit.operator !=
+  fullName.vb: SmartDock.ToolBarGridFit.<>
+  nameWithType: ToolBarGridFit.operator !=
+  nameWithType.vb: ToolBarGridFit.<>
 - uid: SmartDock.ToolBarItemEntry
   name: ToolBarItemEntry
   href: api/generated/SmartDock.ToolBarItemEntry.html
