@@ -684,48 +684,62 @@ Hidden members stay floating. A window of one docks that toolbar.</p>
 
 
 
-  <a id="SmartDock_ToolBarBands_FloatOrientation_" data-uid="SmartDock.ToolBarBands.FloatOrientation*"></a>
+  <a id="SmartDock_ToolBarBands_FitGrid_" data-uid="SmartDock.ToolBarBands.FitGrid*"></a>
 
-  <h3 id="SmartDock_ToolBarBands_FloatOrientation_System_Boolean_System_Boolean_System_Double_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.FloatOrientation(System.Boolean,System.Boolean,System.Double,System.Double,System.Double,System.Double)">
-  FloatOrientation(bool, bool, double, double, double, double)
+  <h3 id="SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_" data-uid="SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+  FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Orientation while a floating toolbar's edge is dragged.
-<code class="paramref">dx</code> is the pointer movement from the press, positive to the right.
-<code class="paramref">dy</code> is the movement downward.
-<code class="paramref">width</code> and <code class="paramref">height</code> are the window size at the press.
-Dragging the right edge left by more than half the width returns vertical.
-Dragging it right by more than half the width returns horizontal.
-Dragging the bottom edge down by more than half the height returns horizontal.
-Dragging it up by more than half the height returns vertical.
-A movement that has not passed that halfway point returns <code class="paramref">vertical</code>, the orientation at the press.</p>
+  <div class="markdown level1 summary"><p>Snaps a floating toolbar to a whole-cell grid that shows every button.
+<code class="paramref">count</code> is the number of buttons. Zero is treated as one cell, the minimum.
+<code class="paramref">cellWidth</code> and <code class="paramref">cellHeight</code> are one button; a non-positive value is 1.
+<code class="paramref">width</code> and <code class="paramref">height</code> are the window size being asked for.
+Horizontal fills each row and wraps. Vertical fills each column and wraps.
+A result at least as wide as it is tall is horizontal, including a square. Anything taller is vertical.
+The chrome arguments are the window size outside the button grid for that orientation.
+<code class="paramref">horizontalMinWidth</code> and <code class="paramref">verticalMinWidth</code> keep the caption usable.
+<code class="paramref">axis</code> is 0 when the pointer is moving the width, 1 when it is moving the height,
+and 2 when both sides of a saved size matter. The snapped size is the chrome plus whole cells,
+so the window has no empty strip beside the grid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool FloatOrientation(bool vertical, bool rightEdge, double width, double height, double dx, double dy)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ToolBarGridFit FitGrid(int count, double cellWidth, double cellHeight, double width, double height, double horizontalChromeWidth, double horizontalChromeHeight, double verticalChromeWidth, double verticalChromeHeight, double horizontalMinWidth, double verticalMinWidth, int axis)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>rightEdge</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>cellWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>cellHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
     <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
     <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
-    <dt><code>dx</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dt><code>horizontalChromeWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
-    <dt><code>dy</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dt><code>horizontalChromeHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalChromeWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalChromeHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>horizontalMinWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalMinWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><a class="xref" href="SmartDock.ToolBarGridFit.html">ToolBarGridFit</a></dt>
     <dd></dd>
   </dl>
 
@@ -801,11 +815,12 @@ The toolbar being dragged is skipped, so a drop on itself keeps its index.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Picks the topmost window under the pointer and the pane under it in that window, then a drop in this order:
-the outer <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand">TargetBand</a> of the window, a band of the window, a band of the pane, a tray of the
-window, a tray of the pane, the window's <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a>, then the pane's edge. With no pane toolbars
-this is <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> on the window, so the main window docks as before. A pane edge that lies within
-<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> of the window edge catches the next <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable.
-Anything else floats. No allocations.</p>
+the outer <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand">TargetBand</a> of the window, a band of the window, a band of the pane, an empty edge of
+the window when the point is not inside a window tray, a tray of the window, a tray of the pane, the window's
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a>, then the pane's edge. An empty edge wins over the slop of a tray on another side, and
+a point inside that tray still uses the tray. With no pane toolbars this is <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> on the window,
+so the main window docks as before. A pane edge that lies within <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> of the window edge
+catches the next <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable. Anything else floats. No allocations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1584,7 +1599,7 @@ No allocations.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>The pane or floating window whose four edge bands are drawn for <code class="paramref">drop</code>.
-A dock drop names its own site. The main window is not returned: its drop stays the line it already draws.
+A dock drop names its own site. The main window is not returned. The host draws that window's drop line in the guide overlay, and the right and bottom lines sit inside the window.
 A float drop over a pane shows that pane, and over a floating window's caption shows that window.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
