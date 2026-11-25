@@ -89,17 +89,17 @@
 <li>Drag a tab along its strip to reorder it, or off the strip to float it, then drop it on a dock guide.</li>
 <li>Hide a pane and show it again later. A hidden pane stays in the saved layout.</li>
 <li>Save and load the whole layout as compact JSON, including floats, auto-hide, hidden panes, and toolbars.</li>
-<li>Toolbars on the main window, on floating windows, and on panes, with a customize menu. Their positions are saved with the layout.</li>
+<li>Toolbars on the main window and on panes, including a pane inside a floating window or an open auto-hide flyout, with a customize menu. Their positions are saved with the layout. They do not dock to the outside of a floating window.</li>
 <li>A Ctrl+Tab pane switcher, plus commands for close, document cycling, float, and auto-hide.</li>
 <li>Dark, light, and blue chrome. Dark is the default.</li>
 <li>Events for layout changes, closing, pane state, activation, and when a pane's content is mounted or unmounted.</li>
 <li>Bind documents and tools to a collection, with a data template per item.</li>
 </ul>
 <h2 id="install">Install</h2>
-<pre><code class="lang-bash">dotnet add package SmartDock --version 0.16.1
+<pre><code class="lang-bash">dotnet add package SmartDock --version 0.16.2
 </code></pre>
 <p>It pulls in SmartDock.Core. If you only build or store layouts, the core package is enough:</p>
-<pre><code class="lang-bash">dotnet add package SmartDock.Core --version 0.16.1
+<pre><code class="lang-bash">dotnet add package SmartDock.Core --version 0.16.2
 </code></pre>
 <p>The WPF package needs <code>net8.0-windows</code>. SmartDock.Core targets plain <code>net8.0</code>.</p>
 <h2 id="read-next">Read next</h2>

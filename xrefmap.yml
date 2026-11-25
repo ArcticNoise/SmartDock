@@ -9175,6 +9175,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.FitGrid
   fullName: SmartDock.ToolBarBands.FitGrid
   nameWithType: ToolBarBands.FitGrid
+- uid: SmartDock.ToolBarBands.GridShape(System.Int32,System.Int32,System.Boolean)
+  name: GridShape(int, int, bool)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_GridShape_System_Int32_System_Int32_System_Boolean_
+  commentId: M:SmartDock.ToolBarBands.GridShape(System.Int32,System.Int32,System.Boolean)
+  name.vb: GridShape(Integer, Integer, Boolean)
+  fullName: SmartDock.ToolBarBands.GridShape(int, int, bool)
+  fullName.vb: SmartDock.ToolBarBands.GridShape(Integer, Integer, Boolean)
+  nameWithType: ToolBarBands.GridShape(int, int, bool)
+  nameWithType.vb: ToolBarBands.GridShape(Integer, Integer, Boolean)
+- uid: SmartDock.ToolBarBands.GridShape*
+  name: GridShape
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_GridShape_
+  commentId: Overload:SmartDock.ToolBarBands.GridShape
+  fullName: SmartDock.ToolBarBands.GridShape
+  nameWithType: ToolBarBands.GridShape
 - uid: SmartDock.ToolBarBands.Hit(SmartDock.DockRect,System.String,System.ReadOnlySpan{SmartDock.ToolBarBarRect},System.ReadOnlySpan{SmartDock.ToolBarBandRect},System.ReadOnlySpan{SmartDock.ToolBarTrayRect},System.Double,System.Double,System.String,System.String)
   name: Hit(DockRect, string, ReadOnlySpan<ToolBarBarRect>, ReadOnlySpan<ToolBarBandRect>, ReadOnlySpan<ToolBarTrayRect>, double, double, string, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_
@@ -9346,6 +9361,18 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.Place
   fullName: SmartDock.ToolBarBands.Place
   nameWithType: ToolBarBands.Place
+- uid: SmartDock.ToolBarBands.ReleaseWindowEdge(SmartDock.ToolBarEntry)
+  name: ReleaseWindowEdge(ToolBarEntry)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ReleaseWindowEdge_SmartDock_ToolBarEntry_
+  commentId: M:SmartDock.ToolBarBands.ReleaseWindowEdge(SmartDock.ToolBarEntry)
+  fullName: SmartDock.ToolBarBands.ReleaseWindowEdge(SmartDock.ToolBarEntry)
+  nameWithType: ToolBarBands.ReleaseWindowEdge(ToolBarEntry)
+- uid: SmartDock.ToolBarBands.ReleaseWindowEdge*
+  name: ReleaseWindowEdge
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_ReleaseWindowEdge_
+  commentId: Overload:SmartDock.ToolBarBands.ReleaseWindowEdge
+  fullName: SmartDock.ToolBarBands.ReleaseWindowEdge
+  nameWithType: ToolBarBands.ReleaseWindowEdge
 - uid: SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)
   name: RenameCustom(List<ToolBarEntry>, string, string)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_RenameCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_
@@ -9391,6 +9418,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.SetFloatVertical
   fullName: SmartDock.ToolBarBands.SetFloatVertical
   nameWithType: ToolBarBands.SetFloatVertical
+- uid: SmartDock.ToolBarBands.SetLines(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Int32)
+  name: SetLines(List<ToolBarEntry>, string, int)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SetLines_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Int32_
+  commentId: M:SmartDock.ToolBarBands.SetLines(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Int32)
+  name.vb: SetLines(List(Of ToolBarEntry), String, Integer)
+  fullName: SmartDock.ToolBarBands.SetLines(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, int)
+  fullName.vb: SmartDock.ToolBarBands.SetLines(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, Integer)
+  nameWithType: ToolBarBands.SetLines(List<ToolBarEntry>, string, int)
+  nameWithType.vb: ToolBarBands.SetLines(List(Of ToolBarEntry), String, Integer)
+- uid: SmartDock.ToolBarBands.SetLines*
+  name: SetLines
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SetLines_
+  commentId: Overload:SmartDock.ToolBarBands.SetLines
+  fullName: SmartDock.ToolBarBands.SetLines
+  nameWithType: ToolBarBands.SetLines
 - uid: SmartDock.ToolBarBands.SizeFloat(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
   name: SizeFloat(List<ToolBarEntry>, string, double, double)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_SizeFloat_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_
@@ -10282,6 +10324,18 @@ references:
   commentId: Overload:SmartDock.ToolBarEntry.Items
   fullName: SmartDock.ToolBarEntry.Items
   nameWithType: ToolBarEntry.Items
+- uid: SmartDock.ToolBarEntry.Lines
+  name: Lines
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Lines
+  commentId: P:SmartDock.ToolBarEntry.Lines
+  fullName: SmartDock.ToolBarEntry.Lines
+  nameWithType: ToolBarEntry.Lines
+- uid: SmartDock.ToolBarEntry.Lines*
+  name: Lines
+  href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Lines_
+  commentId: Overload:SmartDock.ToolBarEntry.Lines
+  fullName: SmartDock.ToolBarEntry.Lines
+  nameWithType: ToolBarEntry.Lines
 - uid: SmartDock.ToolBarEntry.Offset
   name: Offset
   href: api/generated/SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Offset

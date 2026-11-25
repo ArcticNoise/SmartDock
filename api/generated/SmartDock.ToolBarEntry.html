@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ToolBarEntry | SmartDock ">
       
-      <meta name="description" content="Where one toolbar sits. , , , and  stay the last docked place while  is set, so a double-click can put it back.  and  name the pane or floating window that hosts it. Both null is the main window. Default values are omitted from JSON.">
+      <meta name="description" content="Where one toolbar sits. , , , and  stay the last docked place while  is set, so a double-click can put it back.  names the pane that hosts it. Both null is the main window.  is an old floating-window edge; the dock moves that toolbar to the main window&#39;s top tray. Default values are omitted from JSON.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -99,8 +99,9 @@ Class ToolBarEntry
 
   <div class="markdown summary"><p>Where one toolbar sits. <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Edge">Edge</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Band">Band</a>, <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Index">Index</a>, and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Offset">Offset</a>
 stay the last docked place while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is set, so a double-click can put it back.
-<a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a> name the pane or floating window that hosts it.
-Both null is the main window. Default values are omitted from JSON.</p>
+<a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> names the pane that hosts it. Both null is the main window.
+<a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a> is an old floating-window edge; the dock moves that toolbar to the main window's top tray.
+Default values are omitted from JSON.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -325,7 +326,7 @@ public bool Custom { get; set; }</code></pre>
   </h3>
 
   <div class="markdown level1 summary"><p>Id of the floating window this toolbar shares. Null is a window of its own.
-Set only while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is true. This is not <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a>, which names a pane float.
+Set only while <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Floating">Floating</a> is true. This is not <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_WindowId">WindowId</a>, which is an old floating-window edge the dock moves to the main top tray.
 A window with one toolbar drops it on load. Omitted from JSON when null, so an older file stays the same bytes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -626,6 +627,44 @@ public List&lt;string&gt;? Items { get; set; }</code></pre>
 
 
 
+  <a id="SmartDock_ToolBarEntry_Lines_" data-uid="SmartDock.ToolBarEntry.Lines*"></a>
+
+  <h3 id="SmartDock_ToolBarEntry_Lines" data-uid="SmartDock.ToolBarEntry.Lines">
+  Lines
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Button lines in the toolbar's current orientation. A horizontal toolbar counts rows.
+A vertical toolbar counts columns. Zero is one line and is omitted from JSON, so a document
+written before line counts loads as one line and stays the same bytes. One is stored as zero.
+Docking onto an edge of the same orientation keeps the count. Docking onto the other orientation
+sets it to zero: the grid is not transposed. Reset sets it to zero. Undocking a count above one
+opens the same grid. Every toolbar in one floating window has the same value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+public int Lines { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarEntry_Offset_" data-uid="SmartDock.ToolBarEntry.Offset*"></a>
 
   <h3 id="SmartDock_ToolBarEntry_Offset" data-uid="SmartDock.ToolBarEntry.Offset">
@@ -806,9 +845,11 @@ public double Width { get; set; }</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Id of the floating window whose window trays hold this toolbar.
+  <div class="markdown level1 summary"><p>Id of a floating pane window this toolbar was docked against.
+The dock does not keep that place: loading the layout moves the toolbar to the main window's top tray,
+and a floating toolbar stays floating with that tray as the place it docks back to.
 Null with a null <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_PaneId">PaneId</a> is the main window. A pane and a window are not both set.
-Omitted from JSON when null.</p>
+Omitted from JSON when null. An older file that still has it reads back the same bytes until the dock loads it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

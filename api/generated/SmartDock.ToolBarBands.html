@@ -254,7 +254,7 @@ within this many device-independent pixels of the band's far end, or past it. On
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Thickness of the four edge bands drawn while a drag is over a pane or a floating window.</p>
+  <div class="markdown level1 summary"><p>Thickness of the four edge bands drawn while a drag is over a pane. A floating pane window draws none.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -692,6 +692,7 @@ Hidden members stay floating. A window of one docks that toolbar.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Snaps a floating toolbar to a whole-cell grid that shows every button.
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_GridShape_System_Int32_System_Int32_System_Boolean_">GridShape(int, int, bool)</a> is the same wrap once a line count is known.
 <code class="paramref">count</code> is the number of buttons. Zero is treated as one cell, the minimum.
 <code class="paramref">cellWidth</code> and <code class="paramref">cellHeight</code> are one button; a non-positive value is 1.
 <code class="paramref">width</code> and <code class="paramref">height</code> are the window size being asked for.
@@ -740,6 +741,51 @@ so the window has no empty strip beside the grid.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SmartDock.ToolBarGridFit.html">ToolBarGridFit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_GridShape_" data-uid="SmartDock.ToolBarBands.GridShape*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_GridShape_System_Int32_System_Int32_System_Boolean_" data-uid="SmartDock.ToolBarBands.GridShape(System.Int32,System.Int32,System.Boolean)">
+  GridShape(int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Columns and rows for <code class="paramref">count</code> buttons wrapped into <code class="paramref">lines</code>.
+Horizontal lines are rows and the buttons fill a row before the next. Vertical lines are columns
+and the buttons fill a column before the next. A count below one is one button. A line count below
+two, or above the button count, is clamped. This is the grid <a class="xref" href="SmartDock.ToolBarGridFit.html">ToolBarGridFit</a> uses
+when a float is docked or opened again.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static (int Columns, int Rows) GridShape(int count, int lines, bool vertical)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt>(<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.columns">Columns</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.rows">Rows</a>)</dt>
     <dd></dd>
   </dl>
 
@@ -815,12 +861,13 @@ The toolbar being dragged is skipped, so a drop on itself keeps its index.</p>
   </h3>
 
   <div class="markdown level1 summary"><p>Picks the topmost window under the pointer and the pane under it in that window, then a drop in this order:
-the outer <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand">TargetBand</a> of the window, a band of the window, a band of the pane, an empty edge of
-the window when the point is not inside a window tray, a tray of the window, a tray of the pane, the window's
-<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a>, then the pane's edge. An empty edge wins over the slop of a tray on another side, and
-a point inside that tray still uses the tray. With no pane toolbars this is <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> on the window,
-so the main window docks as before. A pane edge that lies within <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> of the window edge
-catches the next <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable. Anything else floats. No allocations.</p>
+the outer <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_TargetBand">TargetBand</a> of the main window, a band of that window, a band of the pane, an empty edge of
+the main window when the point is not inside a window tray, a tray of the main window, a tray of the pane, the
+main window's <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a>, then the pane's edge. An empty edge wins over the slop of a tray on another
+side, and a point inside that tray still uses the tray. With no pane toolbars this is <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> on the
+main window. A pane edge that lies within <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> of the window edge catches the next
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable. A floating pane window is not a target: its outside edges,
+bands, and trays are skipped, and a pane inside it still docks. Anything else floats. No allocations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1272,6 +1319,45 @@ screen order, start-aligned ones first. End-aligned toolbars keep their indexes 
 
 
 
+  <a id="SmartDock_ToolBarBands_ReleaseWindowEdge_" data-uid="SmartDock.ToolBarBands.ReleaseWindowEdge*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_ReleaseWindowEdge_SmartDock_ToolBarEntry_" data-uid="SmartDock.ToolBarBands.ReleaseWindowEdge(SmartDock.ToolBarEntry)">
+  ReleaseWindowEdge(ToolBarEntry)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Moves a toolbar off a floating pane window's outside edge and onto the main window's top tray.
+A floating toolbar stays floating. Docking it back then uses that tray.
+A toolbar on a pane, or on the main window, is left as it is.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReleaseWindowEdge(ToolBarEntry entry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entry</code> <a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_RenameCustom_" data-uid="SmartDock.ToolBarBands.RenameCustom*"></a>
 
   <h3 id="SmartDock_ToolBarBands_RenameCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_String_" data-uid="SmartDock.ToolBarBands.RenameCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.String)">
@@ -1393,6 +1479,44 @@ A docked toolbar is left unchanged. An unknown id does nothing.</p>
     <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>vertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_SetLines_" data-uid="SmartDock.ToolBarBands.SetLines*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_SetLines_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Int32_" data-uid="SmartDock.ToolBarBands.SetLines(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Int32)">
+  SetLines(List&lt;ToolBarEntry&gt;, string, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stores <a class="xref" href="SmartDock.ToolBarEntry.html#SmartDock_ToolBarEntry_Lines">Lines</a> for the toolbar.
+A count below two is one line and is stored as zero. Every toolbar in the same floating window changes with it.
+A docked toolbar is updated on its own. An unknown id does nothing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetLines(List&lt;ToolBarEntry&gt; bars, string id, int lines)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>lines</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -1598,9 +1722,10 @@ No allocations.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The pane or floating window whose four edge bands are drawn for <code class="paramref">drop</code>.
-A dock drop names its own site. The main window is not returned. The host draws that window's drop line in the guide overlay, and the right and bottom lines sit inside the window.
-A float drop over a pane shows that pane, and over a floating window's caption shows that window.</p>
+  <div class="markdown level1 summary"><p>The pane whose four edge bands are drawn for <code class="paramref">drop</code>.
+A dock drop names its pane. The main window is not returned; the host draws that window's drop line in the guide overlay, and the right and bottom lines sit inside the window.
+A float drop over a pane shows that pane, except on the outside margin of a floating pane window, which draws nothing.
+A floating pane window's caption and outside edges are not returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
