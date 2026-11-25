@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.16.2 (2026-11-26)
+
+- Right-clicking a toolbar button that has its own context menu, or that opens its own popup on right-click, now opens only that menu or popup. The toolbar list no longer opens on top of it. The list still opens on an empty part of the band, the grip, the chevron, and a button with no menu of its own. This works on window trays, pane trays, and floating toolbars. Before, a plain button never opened the list, because WPF's `ToolBar` marks every press inside it as handled.
+- Right-clicking an item in a toolbar's overflow keeps the overflow open, so the item's own menu opens, or the toolbar list if it has none. Before, the overflow closed and the list opened on the band underneath. To keep the overflow open, SmartDock marks an unhandled right press as handled at the overflow panel. A handler above the overflow panel only gets that press if it also listens for handled events.
+- A floating toolbar resized into several lines keeps that line count when it docks to an edge with the same orientation: rows on a top or bottom tray, columns on a left or right one, pane trays included. Docking to the other orientation gives one line. The count is saved as `ToolBarEntry.Lines` and left out of the file when it is one line, so older layouts load unchanged. On a tray too short for the grid, the buttons that don't fit go to the chevron's overflow list. Reset goes back to one line.
+- A floating toolbar resized into a grid keeps the background, border, corners, padding, and margin its template draws around the buttons. Before, a host-styled float lost its background as a grid and the caption seemed to run into the buttons. Theme and resource changes still reach the grid.
+- The grip and the chevron line up with the button band, docked or floating, horizontal or vertical. A band inset by a template margin, a toolbar margin or height limit, or tray padding no longer leaves them 1 or 2 pixels taller than the band.
+- On a vertical row the chevron's style width runs down the row, and the chevron spans the band like the grip does.
+- A floating toolbar can dock to a pane shown in an open auto-hide flyout. Before, that drop failed with an error because the flyout lives in its own window.
+- Toolbars no longer dock to the outside edges of a floating pane window. Dragging over its caption or sides shows no band, and dropping there leaves the toolbar floating. Panes inside that window still take toolbars. A saved layout with a toolbar on a floating window's edge loads that toolbar on the main window's top tray, and the next save drops `windowId`.
+- The tray menu has a new Edit Custom Toolbars item after New Toolbar. It lists your custom toolbars so you can rename or delete them, and it is disabled when there are none. The dialog uses the dock theme.
+- Add or Remove Buttons on a custom toolbar has Delete Toolbar next to Reset. It asks first, then removes the toolbar wherever it is. Deleting a floating toolbar closes its window. Built-in toolbars don't show the item.
+
 ## 0.16.1 (2026-11-26)
 
 - A resized floating toolbar keeps each button at the size that button has in a single row or column. An image with no width or height stays that size. While the buttons are wrapped in a grid, a style that limits the toolbar's height or width is lifted, so the extra rows and columns stay whole. Those limits come back when the float is a single row or column again.
