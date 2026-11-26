@@ -9184,6 +9184,15 @@ references:
   fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
   nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
   nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
+- uid: SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)
+  name: FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Boolean_
+  commentId: M:SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)
+  name.vb: FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
+  fullName: SmartDock.ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
+  fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
+  nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
+  nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
 - uid: SmartDock.ToolBarBands.FitGrid*
   name: FitGrid
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_
