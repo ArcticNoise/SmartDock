@@ -9043,6 +9043,21 @@ references:
   commentId: Overload:SmartDock.ToolBarBands.CompareInBand
   fullName: SmartDock.ToolBarBands.CompareInBand
   nameWithType: ToolBarBands.CompareInBand
+- uid: SmartDock.ToolBarBands.Compress(System.ReadOnlySpan{SmartDock.ToolBarPackItem},System.ReadOnlySpan{System.Boolean},System.Double,System.Span{System.Double},System.Span{System.Double})
+  name: Compress(ReadOnlySpan<ToolBarPackItem>, ReadOnlySpan<bool>, double, Span<double>, Span<double>)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Compress_System_ReadOnlySpan_SmartDock_ToolBarPackItem__System_ReadOnlySpan_System_Boolean__System_Double_System_Span_System_Double__System_Span_System_Double__
+  commentId: M:SmartDock.ToolBarBands.Compress(System.ReadOnlySpan{SmartDock.ToolBarPackItem},System.ReadOnlySpan{System.Boolean},System.Double,System.Span{System.Double},System.Span{System.Double})
+  name.vb: Compress(ReadOnlySpan(Of ToolBarPackItem), ReadOnlySpan(Of Boolean), Double, Span(Of Double), Span(Of Double))
+  fullName: SmartDock.ToolBarBands.Compress(System.ReadOnlySpan<SmartDock.ToolBarPackItem>, System.ReadOnlySpan<bool>, double, System.Span<double>, System.Span<double>)
+  fullName.vb: SmartDock.ToolBarBands.Compress(System.ReadOnlySpan(Of SmartDock.ToolBarPackItem), System.ReadOnlySpan(Of Boolean), Double, System.Span(Of Double), System.Span(Of Double))
+  nameWithType: ToolBarBands.Compress(ReadOnlySpan<ToolBarPackItem>, ReadOnlySpan<bool>, double, Span<double>, Span<double>)
+  nameWithType.vb: ToolBarBands.Compress(ReadOnlySpan(Of ToolBarPackItem), ReadOnlySpan(Of Boolean), Double, Span(Of Double), Span(Of Double))
+- uid: SmartDock.ToolBarBands.Compress*
+  name: Compress
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Compress_
+  commentId: Overload:SmartDock.ToolBarBands.Compress
+  fullName: SmartDock.ToolBarBands.Compress
+  nameWithType: ToolBarBands.Compress
 - uid: SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)
   name: CreateCustom(List<ToolBarEntry>, string, double, double)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_CreateCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_
@@ -11485,15 +11500,15 @@ references:
   commentId: T:SmartDock.ToolBarSite
   fullName: SmartDock.ToolBarSite
   nameWithType: ToolBarSite
-- uid: SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String)
-  name: ToolBarSite(string, string, DockRect, int, string)
-  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite__ctor_System_String_System_String_SmartDock_DockRect_System_Int32_System_String_
-  commentId: M:SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String)
-  name.vb: New(String, String, DockRect, Integer, String)
-  fullName: SmartDock.ToolBarSite.ToolBarSite(string, string, SmartDock.DockRect, int, string)
-  fullName.vb: SmartDock.ToolBarSite.New(String, String, SmartDock.DockRect, Integer, String)
-  nameWithType: ToolBarSite.ToolBarSite(string, string, DockRect, int, string)
-  nameWithType.vb: ToolBarSite.New(String, String, DockRect, Integer, String)
+- uid: SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String,SmartDock.DockRect)
+  name: ToolBarSite(string, string, DockRect, int, string, DockRect)
+  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite__ctor_System_String_System_String_SmartDock_DockRect_System_Int32_System_String_SmartDock_DockRect_
+  commentId: M:SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String,SmartDock.DockRect)
+  name.vb: New(String, String, DockRect, Integer, String, DockRect)
+  fullName: SmartDock.ToolBarSite.ToolBarSite(string, string, SmartDock.DockRect, int, string, SmartDock.DockRect)
+  fullName.vb: SmartDock.ToolBarSite.New(String, String, SmartDock.DockRect, Integer, String, SmartDock.DockRect)
+  nameWithType: ToolBarSite.ToolBarSite(string, string, DockRect, int, string, DockRect)
+  nameWithType.vb: ToolBarSite.New(String, String, DockRect, Integer, String, DockRect)
 - uid: SmartDock.ToolBarSite.#ctor*
   name: ToolBarSite
   href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite__ctor_
@@ -11515,15 +11530,27 @@ references:
   commentId: Overload:SmartDock.ToolBarSite.Bounds
   fullName: SmartDock.ToolBarSite.Bounds
   nameWithType: ToolBarSite.Bounds
-- uid: SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@)
-  name: Deconstruct(out string, out string, out DockRect, out int, out string)
-  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Deconstruct_System_String__System_String__SmartDock_DockRect__System_Int32__System_String__
-  commentId: M:SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@)
-  name.vb: Deconstruct(String, String, DockRect, Integer, String)
-  fullName: SmartDock.ToolBarSite.Deconstruct(out string, out string, out SmartDock.DockRect, out int, out string)
-  fullName.vb: SmartDock.ToolBarSite.Deconstruct(String, String, SmartDock.DockRect, Integer, String)
-  nameWithType: ToolBarSite.Deconstruct(out string, out string, out DockRect, out int, out string)
-  nameWithType.vb: ToolBarSite.Deconstruct(String, String, DockRect, Integer, String)
+- uid: SmartDock.ToolBarSite.Cover
+  name: Cover
+  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover
+  commentId: P:SmartDock.ToolBarSite.Cover
+  fullName: SmartDock.ToolBarSite.Cover
+  nameWithType: ToolBarSite.Cover
+- uid: SmartDock.ToolBarSite.Cover*
+  name: Cover
+  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover_
+  commentId: Overload:SmartDock.ToolBarSite.Cover
+  fullName: SmartDock.ToolBarSite.Cover
+  nameWithType: ToolBarSite.Cover
+- uid: SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@,SmartDock.DockRect@)
+  name: Deconstruct(out string, out string, out DockRect, out int, out string, out DockRect)
+  href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Deconstruct_System_String__System_String__SmartDock_DockRect__System_Int32__System_String__SmartDock_DockRect__
+  commentId: M:SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@,SmartDock.DockRect@)
+  name.vb: Deconstruct(String, String, DockRect, Integer, String, DockRect)
+  fullName: SmartDock.ToolBarSite.Deconstruct(out string, out string, out SmartDock.DockRect, out int, out string, out SmartDock.DockRect)
+  fullName.vb: SmartDock.ToolBarSite.Deconstruct(String, String, SmartDock.DockRect, Integer, String, SmartDock.DockRect)
+  nameWithType: ToolBarSite.Deconstruct(out string, out string, out DockRect, out int, out string, out DockRect)
+  nameWithType.vb: ToolBarSite.Deconstruct(String, String, DockRect, Integer, String, DockRect)
 - uid: SmartDock.ToolBarSite.Deconstruct*
   name: Deconstruct
   href: api/generated/SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Deconstruct_

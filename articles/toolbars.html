@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="toolbars">Toolbars</h1>
 
-<p>Put ordinary WPF <code>ToolBar</code> controls in <code>DockManager.ToolBars</code> and the dock lays them out in trays on the main window or on a pane, including a pane inside a floating window. A floating pane window has no trays of its own: the caption and the outside edges are not drop targets. An open auto-hide flyout is a pane, so a toolbar can dock to it. If you never touch <code>ToolBars</code> or <code>ToolBarsSource</code>, no tray is built.</p>
+<p>Put ordinary WPF <code>ToolBar</code> controls in <code>DockManager.ToolBars</code> and the dock lays them out in trays on the main window or on a pane, including a pane inside a floating window. A floating pane window has no trays of its own: the caption and the outside edges are not drop targets. An open auto-hide flyout is a pane, so a toolbar can dock to it. The flyout is drawn above the panes it covers, and a drop on it docks to the flyout rather than to a pane or tray underneath. A pane the flyout does not cover still takes a drop. If you never touch <code>ToolBars</code> or <code>ToolBarsSource</code>, no tray is built.</p>
 <p>Set <code>DockToolBar</code> attached properties on each toolbar to say where it goes:</p>
 <table>
 <thead>
@@ -119,7 +119,7 @@
 </tr>
 <tr>
 <td><code>Offset</code></td>
-<td>Gap before the toolbar, in device-independent pixels.</td>
+<td>Gap before the toolbar, in device-independent pixels. When the band is too short, a start gap shrinks on screen, down to nothing, before the toolbar overflows. The stored value stays, so a wider band restores it.</td>
 </tr>
 <tr>
 <td><code>Alignment</code></td>
@@ -135,7 +135,7 @@
 </tr>
 <tr>
 <td><code>ShowOverflow</code></td>
-<td>When true, the toolbar uses the leftover space in the band and shows an overflow chevron. The default is false.</td>
+<td>When true, the toolbar uses the space left after the gap in front of it and shows an overflow chevron. The gap shrinks first. The chevron stays inside the tray. The default is false.</td>
 </tr>
 <tr>
 <td><code>IsCustomizable</code></td>

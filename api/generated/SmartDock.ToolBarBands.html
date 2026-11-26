@@ -410,6 +410,51 @@ outermost (index 0) last.</p>
 
 
 
+  <a id="SmartDock_ToolBarBands_Compress_" data-uid="SmartDock.ToolBarBands.Compress*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_Compress_System_ReadOnlySpan_SmartDock_ToolBarPackItem__System_ReadOnlySpan_System_Boolean__System_Double_System_Span_System_Double__System_Span_System_Double__" data-uid="SmartDock.ToolBarBands.Compress(System.ReadOnlySpan{SmartDock.ToolBarPackItem},System.ReadOnlySpan{System.Boolean},System.Double,System.Span{System.Double},System.Span{System.Double})">
+  Compress(ReadOnlySpan&lt;ToolBarPackItem&gt;, ReadOnlySpan&lt;bool&gt;, double, Span&lt;double&gt;, Span&lt;double&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Visual gaps and lengths for one band. The stored offset and size are not changed.
+A non-positive or non-finite <code class="paramref">bandLength</code> copies them through.
+When the toolbars do not fit, start-aligned gaps shrink from the last toolbar down to zero
+before a toolbar marked in <code class="paramref">shrink</code> is shortened. Those toolbars then share
+the length that remains, and one that already fits in its share keeps its size.
+A length never grows past its size. End-aligned gaps stay as stored. <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Pack_System_ReadOnlySpan_SmartDock_ToolBarPackItem__System_Double_System_Span_System_Double__">Pack(ReadOnlySpan&lt;ToolBarPackItem&gt;, double, Span&lt;double&gt;)</a> places the result.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Compress(ReadOnlySpan&lt;ToolBarPackItem&gt; items, ReadOnlySpan&lt;bool&gt; shrink, double bandLength, Span&lt;double&gt; gaps, Span&lt;double&gt; lengths)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>items</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="SmartDock.ToolBarPackItem.html">ToolBarPackItem</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>shrink</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.readonlyspan-1">ReadOnlySpan</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>bandLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>gaps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>lengths</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.span-1">Span</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_CreateCustom_" data-uid="SmartDock.ToolBarBands.CreateCustom*"></a>
 
   <h3 id="SmartDock_ToolBarBands_CreateCustom_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.CreateCustom(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,System.Double,System.Double)">
@@ -866,7 +911,9 @@ the main window when the point is not inside a window tray, a tray of the main w
 main window's <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a>, then the pane's edge. An empty edge wins over the slop of a tray on another
 side, and a point inside that tray still uses the tray. With no pane toolbars this is <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_Hit_SmartDock_DockRect_System_String_System_ReadOnlySpan_SmartDock_ToolBarBarRect__System_ReadOnlySpan_SmartDock_ToolBarBandRect__System_ReadOnlySpan_SmartDock_ToolBarTrayRect__System_Double_System_Double_System_String_System_String_">Hit(DockRect, string, ReadOnlySpan&lt;ToolBarBarRect&gt;, ReadOnlySpan&lt;ToolBarBandRect&gt;, ReadOnlySpan&lt;ToolBarTrayRect&gt;, double, double, string, string)</a> on the
 main window. A pane edge that lies within <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> of the window edge catches the next
-<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable. A floating pane window is not a target: its outside edges,
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EdgeSlop">EdgeSlop</a> inward, so it stays reachable. A point in a pane's <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover">Cover</a> skips
+the window bands, trays, and edges under it. That pane's own bands, trays, and edge still run, in that order, and
+the edge zone is the pane's own bounds, so a point on the flyout caption floats. A floating pane window is not a target: its outside edges,
 bands, and trays are skipped, and a pane inside it still docks. Anything else floats. No allocations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

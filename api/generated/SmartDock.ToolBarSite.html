@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct ToolBarSite | SmartDock ">
       
-      <meta name="description" content="One place a toolbar can dock. An empty  and  is the main window. A pane id is that pane&#39;s content. A window id is a floating window&#39;s id. A window with a larger  is painted above one with a smaller value.  is the window that shows a pane: empty for the main window, else a floating window&#39;s id.">
+      <meta name="description" content="One place a toolbar can dock. An empty  and  is the main window. A pane id is that pane&#39;s content. A window id is a floating window&#39;s id. A window with a larger  is painted above one with a smaller value.  is the window that shows a pane: empty for the main window, else a floating window&#39;s id.  is the open auto-hide flyout that shows this pane, caption included, painted above the other panes of that window. A point inside it selects this pane even when a smaller pane underneath contains the point.  stays the pane&#39;s content, so the flyout&#39;s edges are where a docked pane&#39;s are. An empty cover is a pane that is not in a flyout.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -100,7 +100,11 @@ Struct ToolBarSite
   <div class="markdown summary"><p>One place a toolbar can dock. An empty <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_WindowId">WindowId</a> is the main window.
 A pane id is that pane's content. A window id is a floating window's id.
 A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_ZOrder">ZOrder</a> is painted above one with a smaller value.
-<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.</p>
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover">Cover</a> is the open auto-hide flyout that shows this pane, caption included, painted above the
+other panes of that window. A point inside it selects this pane even when a smaller pane underneath contains
+the point. <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Bounds">Bounds</a> stays the pane's content, so the flyout's edges are where a docked pane's are.
+An empty cover is a pane that is not in a flyout.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -145,20 +149,24 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
 
   <a id="SmartDock_ToolBarSite__ctor_" data-uid="SmartDock.ToolBarSite.#ctor*"></a>
 
-  <h3 id="SmartDock_ToolBarSite__ctor_System_String_System_String_SmartDock_DockRect_System_Int32_System_String_" data-uid="SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String)">
-  ToolBarSite(string, string, DockRect, int, string)
+  <h3 id="SmartDock_ToolBarSite__ctor_System_String_System_String_SmartDock_DockRect_System_Int32_System_String_SmartDock_DockRect_" data-uid="SmartDock.ToolBarSite.#ctor(System.String,System.String,SmartDock.DockRect,System.Int32,System.String,SmartDock.DockRect)">
+  ToolBarSite(string, string, DockRect, int, string, DockRect)
   
   </h3>
 
   <div class="markdown level1 summary"><p>One place a toolbar can dock. An empty <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_WindowId">WindowId</a> is the main window.
 A pane id is that pane's content. A window id is a floating window's id.
 A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_ZOrder">ZOrder</a> is painted above one with a smaller value.
-<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.</p>
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover">Cover</a> is the open auto-hide flyout that shows this pane, caption included, painted above the
+other panes of that window. A point inside it selects this pane even when a smaller pane underneath contains
+the point. <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Bounds">Bounds</a> stays the pane's content, so the flyout's edges are where a docked pane's are.
+An empty cover is a pane that is not in a flyout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ToolBarSite(string PaneId, string WindowId, DockRect Bounds, int ZOrder = 0, string OwnerId = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ToolBarSite(string PaneId, string WindowId, DockRect Bounds, int ZOrder = 0, string OwnerId = &quot;&quot;, DockRect Cover = default)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -172,6 +180,8 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
     <dt><code>ZOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>OwnerId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Cover</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
     <dd></dd>
   </dl>
 
@@ -202,6 +212,37 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public DockRect Bounds { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarSite_Cover_" data-uid="SmartDock.ToolBarSite.Cover*"></a>
+
+  <h3 id="SmartDock_ToolBarSite_Cover" data-uid="SmartDock.ToolBarSite.Cover">
+  Cover
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DockRect Cover { get; init; }</code></pre>
   </div>
 
 
@@ -351,8 +392,8 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
 
   <a id="SmartDock_ToolBarSite_Deconstruct_" data-uid="SmartDock.ToolBarSite.Deconstruct*"></a>
 
-  <h3 id="SmartDock_ToolBarSite_Deconstruct_System_String__System_String__SmartDock_DockRect__System_Int32__System_String__" data-uid="SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@)">
-  Deconstruct(out string, out string, out DockRect, out int, out string)
+  <h3 id="SmartDock_ToolBarSite_Deconstruct_System_String__System_String__SmartDock_DockRect__System_Int32__System_String__SmartDock_DockRect__" data-uid="SmartDock.ToolBarSite.Deconstruct(System.String@,System.String@,SmartDock.DockRect@,System.Int32@,System.String@,SmartDock.DockRect@)">
+  Deconstruct(out string, out string, out DockRect, out int, out string, out DockRect)
   
   </h3>
 
@@ -360,7 +401,7 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Deconstruct(out string PaneId, out string WindowId, out DockRect Bounds, out int ZOrder, out string OwnerId)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out string PaneId, out string WindowId, out DockRect Bounds, out int ZOrder, out string OwnerId, out DockRect Cover)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -374,6 +415,8 @@ A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDoc
     <dt><code>ZOrder</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
     <dt><code>OwnerId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>Cover</code> <a class="xref" href="SmartDock.DockRect.html">DockRect</a></dt>
     <dd></dd>
   </dl>
 

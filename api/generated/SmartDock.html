@@ -605,7 +605,11 @@ Horizontal fills a row and then the next. Vertical fills a column and then the n
       <dd><p>One place a toolbar can dock. An empty <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_PaneId">PaneId</a> and <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_WindowId">WindowId</a> is the main window.
 A pane id is that pane's content. A window id is a floating window's id.
 A window with a larger <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_ZOrder">ZOrder</a> is painted above one with a smaller value.
-<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.</p>
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_OwnerId">OwnerId</a> is the window that shows a pane: empty for the main window, else a floating window's id.
+<a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Cover">Cover</a> is the open auto-hide flyout that shows this pane, caption included, painted above the
+other panes of that window. A point inside it selects this pane even when a smaller pane underneath contains
+the point. <a class="xref" href="SmartDock.ToolBarSite.html#SmartDock_ToolBarSite_Bounds">Bounds</a> stays the pane's content, so the flyout's edges are where a docked pane's are.
+An empty cover is a pane that is not in a flyout.</p>
 </dd>
     </dl>
     <dl class="jumplist">
