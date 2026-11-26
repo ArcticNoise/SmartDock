@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.3 (2026-11-26)
+
+- A toolbar's gap in a band shrinks when the tray runs out of room. The toolbar starts overflowing into its chevron only after that gap is gone. The saved offset is unchanged, so making the window wider puts the toolbar back where it was. The chevron stays inside the tray. This applies to horizontal and vertical trays on the main window, on a pane, and on a pane in a floating window.
+- Dropping a toolbar on an open auto-hide flyout docks it to that flyout when the pointer is over the flyout, including where a pane or a tray underneath used to take the drop. A pane the flyout does not cover still docks as before. The flyout's top edge is the first 24 DIP under its caption, as on a docked pane.
+- Once a toolbar with `ShowOverflow` has overflowed, its buttons come back from the chevron as soon as the band is long enough again. Before, the chevron it had already shown kept some buttons in the overflow list.
+
 ## 0.16.2 (2026-11-26)
 
 - Right-clicking a toolbar button that has its own context menu, or that opens its own popup on right-click, now opens only that menu or popup. The toolbar list no longer opens on top of it. The list still opens on an empty part of the band, the grip, the chevron, and a button with no menu of its own. This works on window trays, pane trays, and floating toolbars. Before, a plain button never opened the list, because WPF's `ToolBar` marks every press inside it as handled.
