@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.16.4 (2026-11-26)
+
+- A click on a floating toolbar's resize edge no longer replaces the toolbar template, so the host band fill stays and the window does not flash the default white background. The window background is painted in the theme chrome color.
+- Right-clicking a toolbar button, or any other item, no longer opens the toolbar list. The list still opens on empty band, the grip, the chevron, and free tray space, docked or floating, including a vertical tray and an auto-hide flyout. An item's own menu is unchanged, and the overflow stays open.
+- An empty toolbar is at least two icon slots along the band, floating and docked. A toolbar whose buttons are all hidden is empty too. The customize chevron sits at the far end of the row, including when a toolbar that does not show an overflow list is squeezed.
+- Switching the dock theme updates the window background color of floating toolbars.
+- Dragging a floating toolbar's edge by a few pixels no longer flips it between one row and one column. The wrap changes only when the new wrap is closer to the pointer than the current one by more than half a button. A horizontal drag does not snap to a vertical window that would end left of the pointer.
+- Undocking a toolbar, dragging an icon, and showing the button grid no longer trace a binding error for `ToolBarTray.Orientation`. A host template that binds to the tray resolves while the toolbar is floating, and the grid's look probe is parented to a tray. The grid's overflow popup takes its placement target from the chevron, so that template does not bind by element name.
+- A toolbar item key read from a single property no longer falls back to a binding when the item has no such property, including a dynamic object. A path that only some items have does not trace a data error for the others.
+- A menu item sets its content alignment itself, so opening a context menu no longer traces a binding error looking for an ancestor items control.
+- `ToolBarBands.FitGrid` has a public overload that takes the wrap already on screen (`holdVertical`, `holdColumns`, `holdRows`) and keeps it until another wrap is closer to the requested size by more than half a cell. The floating toolbar resize uses it.
+
 ## 0.16.3 (2026-11-26)
 
 - A toolbar's gap in a band shrinks when the tray runs out of room. The toolbar starts overflowing into its chevron only after that gap is gone. The saved offset is unchanged, so making the window wider puts the toolbar back where it was. The chevron stays inside the tray. This applies to horizontal and vertical trays on the main window, on a pane, and on a pane in a floating window.
