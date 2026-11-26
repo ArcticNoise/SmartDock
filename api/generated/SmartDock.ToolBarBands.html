@@ -799,6 +799,82 @@ so the window has no empty strip beside the grid.</p>
 
 
 
+  <a id="SmartDock_ToolBarBands_FitGrid_" data-uid="SmartDock.ToolBarBands.FitGrid*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Boolean_" data-uid="SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+  FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The same snap as <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_">FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)</a>,
+keeping the wrap already on screen until another wrap is closer to the requested size by more than half a cell.
+<code class="paramref">holdColumns</code> and <code class="paramref">holdRows</code> are that wrap, and <code class="paramref">holdVertical</code>
+is true when it fills columns first. Zero columns or rows skips the hold, and the result is the plain snap.
+<code class="paramref">lineWraps</code> false leaves out a wrap of one line in the other orientation's chrome when there
+is more than one button, such as a vertical row of two buttons. For one toolbar that shape sits between the
+row and the column, and a drag across it changes the wrap twice. A merged float stacks its members, and
+there the same per-member wrap is the block they make, so it keeps it.
+A different wrap is used only when its size is closer to the requested size than the current
+wrap by more than half a cell. <code class="paramref">axis</code> picks the compared size as in the plain snap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ToolBarGridFit FitGrid(int count, double cellWidth, double cellHeight, double width, double height, double horizontalChromeWidth, double horizontalChromeHeight, double verticalChromeWidth, double verticalChromeHeight, double horizontalMinWidth, double verticalMinWidth, int axis, bool holdVertical, int holdColumns, int holdRows, bool lineWraps = true)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>cellWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>cellHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>horizontalChromeWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>horizontalChromeHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalChromeWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalChromeHeight</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>horizontalMinWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>verticalMinWidth</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>axis</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>holdVertical</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+    <dt><code>holdColumns</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>holdRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+    <dt><code>lineWraps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SmartDock.ToolBarGridFit.html">ToolBarGridFit</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarBands_GridShape_" data-uid="SmartDock.ToolBarBands.GridShape*"></a>
 
   <h3 id="SmartDock_ToolBarBands_GridShape_System_Int32_System_Int32_System_Boolean_" data-uid="SmartDock.ToolBarBands.GridShape(System.Int32,System.Int32,System.Boolean)">
