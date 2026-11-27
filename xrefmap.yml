@@ -9184,15 +9184,15 @@ references:
   fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
   nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)
   nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer)
-- uid: SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)
-  name: FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
-  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Boolean_
-  commentId: M:SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)
-  name.vb: FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
-  fullName: SmartDock.ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
-  fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
-  nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
-  nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Boolean)
+- uid: SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32)
+  name: FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, int)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_
+  commentId: M:SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32)
+  name.vb: FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Integer)
+  fullName: SmartDock.ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, int)
+  fullName.vb: SmartDock.ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Integer)
+  nameWithType: ToolBarBands.FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, int)
+  nameWithType.vb: ToolBarBands.FitGrid(Integer, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, Integer, Boolean, Integer, Integer, Integer)
 - uid: SmartDock.ToolBarBands.FitGrid*
   name: FitGrid
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_
@@ -9280,6 +9280,21 @@ references:
   commentId: F:SmartDock.ToolBarBands.Indicator
   fullName: SmartDock.ToolBarBands.Indicator
   nameWithType: ToolBarBands.Indicator
+- uid: SmartDock.ToolBarBands.JoinsEndRun(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double)
+  name: JoinsEndRun(List<ToolBarEntry>, string, ToolBarDrop, double, double, double)
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_JoinsEndRun_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_
+  commentId: M:SmartDock.ToolBarBands.JoinsEndRun(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double)
+  name.vb: JoinsEndRun(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double)
+  fullName: SmartDock.ToolBarBands.JoinsEndRun(System.Collections.Generic.List<SmartDock.ToolBarEntry>, string, SmartDock.ToolBarDrop, double, double, double)
+  fullName.vb: SmartDock.ToolBarBands.JoinsEndRun(System.Collections.Generic.List(Of SmartDock.ToolBarEntry), String, SmartDock.ToolBarDrop, Double, Double, Double)
+  nameWithType: ToolBarBands.JoinsEndRun(List<ToolBarEntry>, string, ToolBarDrop, double, double, double)
+  nameWithType.vb: ToolBarBands.JoinsEndRun(List(Of ToolBarEntry), String, ToolBarDrop, Double, Double, Double)
+- uid: SmartDock.ToolBarBands.JoinsEndRun*
+  name: JoinsEndRun
+  href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_JoinsEndRun_
+  commentId: Overload:SmartDock.ToolBarBands.JoinsEndRun
+  fullName: SmartDock.ToolBarBands.JoinsEndRun
+  nameWithType: ToolBarBands.JoinsEndRun
 - uid: SmartDock.ToolBarBands.LandingLead(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean)
   name: LandingLead(double, double, double, double, double, bool)
   href: api/generated/SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_LandingLead_System_Double_System_Double_System_Double_System_Double_System_Double_System_Boolean_
@@ -9547,15 +9562,15 @@ references:
   commentId: T:SmartDock.ToolBarBarRect
   fullName: SmartDock.ToolBarBarRect
   nameWithType: ToolBarBarRect
-- uid: SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String)
-  name: ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string)
-  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect__ctor_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_SmartDock_DockRect_System_String_System_String_
-  commentId: M:SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String)
-  name.vb: New(String, ToolBarEdge, Integer, Integer, DockRect, String, String)
-  fullName: SmartDock.ToolBarBarRect.ToolBarBarRect(string, SmartDock.ToolBarEdge, int, int, SmartDock.DockRect, string, string)
-  fullName.vb: SmartDock.ToolBarBarRect.New(String, SmartDock.ToolBarEdge, Integer, Integer, SmartDock.DockRect, String, String)
-  nameWithType: ToolBarBarRect.ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string)
-  nameWithType.vb: ToolBarBarRect.New(String, ToolBarEdge, Integer, Integer, DockRect, String, String)
+- uid: SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String,System.Boolean)
+  name: ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string, bool)
+  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect__ctor_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_SmartDock_DockRect_System_String_System_String_System_Boolean_
+  commentId: M:SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String,System.Boolean)
+  name.vb: New(String, ToolBarEdge, Integer, Integer, DockRect, String, String, Boolean)
+  fullName: SmartDock.ToolBarBarRect.ToolBarBarRect(string, SmartDock.ToolBarEdge, int, int, SmartDock.DockRect, string, string, bool)
+  fullName.vb: SmartDock.ToolBarBarRect.New(String, SmartDock.ToolBarEdge, Integer, Integer, SmartDock.DockRect, String, String, Boolean)
+  nameWithType: ToolBarBarRect.ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string, bool)
+  nameWithType.vb: ToolBarBarRect.New(String, ToolBarEdge, Integer, Integer, DockRect, String, String, Boolean)
 - uid: SmartDock.ToolBarBarRect.#ctor*
   name: ToolBarBarRect
   href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect__ctor_
@@ -9589,15 +9604,15 @@ references:
   commentId: Overload:SmartDock.ToolBarBarRect.Bounds
   fullName: SmartDock.ToolBarBarRect.Bounds
   nameWithType: ToolBarBarRect.Bounds
-- uid: SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@)
-  name: Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string)
-  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_Deconstruct_System_String__SmartDock_ToolBarEdge__System_Int32__System_Int32__SmartDock_DockRect__System_String__System_String__
-  commentId: M:SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@)
-  name.vb: Deconstruct(String, ToolBarEdge, Integer, Integer, DockRect, String, String)
-  fullName: SmartDock.ToolBarBarRect.Deconstruct(out string, out SmartDock.ToolBarEdge, out int, out int, out SmartDock.DockRect, out string, out string)
-  fullName.vb: SmartDock.ToolBarBarRect.Deconstruct(String, SmartDock.ToolBarEdge, Integer, Integer, SmartDock.DockRect, String, String)
-  nameWithType: ToolBarBarRect.Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string)
-  nameWithType.vb: ToolBarBarRect.Deconstruct(String, ToolBarEdge, Integer, Integer, DockRect, String, String)
+- uid: SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)
+  name: Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string, out bool)
+  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_Deconstruct_System_String__SmartDock_ToolBarEdge__System_Int32__System_Int32__SmartDock_DockRect__System_String__System_String__System_Boolean__
+  commentId: M:SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)
+  name.vb: Deconstruct(String, ToolBarEdge, Integer, Integer, DockRect, String, String, Boolean)
+  fullName: SmartDock.ToolBarBarRect.Deconstruct(out string, out SmartDock.ToolBarEdge, out int, out int, out SmartDock.DockRect, out string, out string, out bool)
+  fullName.vb: SmartDock.ToolBarBarRect.Deconstruct(String, SmartDock.ToolBarEdge, Integer, Integer, SmartDock.DockRect, String, String, Boolean)
+  nameWithType: ToolBarBarRect.Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string, out bool)
+  nameWithType.vb: ToolBarBarRect.Deconstruct(String, ToolBarEdge, Integer, Integer, DockRect, String, String, Boolean)
 - uid: SmartDock.ToolBarBarRect.Deconstruct*
   name: Deconstruct
   href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_Deconstruct_
@@ -9616,6 +9631,18 @@ references:
   commentId: Overload:SmartDock.ToolBarBarRect.Edge
   fullName: SmartDock.ToolBarBarRect.Edge
   nameWithType: ToolBarBarRect.Edge
+- uid: SmartDock.ToolBarBarRect.End
+  name: End
+  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_End
+  commentId: P:SmartDock.ToolBarBarRect.End
+  fullName: SmartDock.ToolBarBarRect.End
+  nameWithType: ToolBarBarRect.End
+- uid: SmartDock.ToolBarBarRect.End*
+  name: End
+  href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_End_
+  commentId: Overload:SmartDock.ToolBarBarRect.End
+  fullName: SmartDock.ToolBarBarRect.End
+  nameWithType: ToolBarBarRect.End
 - uid: SmartDock.ToolBarBarRect.Equals(SmartDock.ToolBarBarRect)
   name: Equals(ToolBarBarRect)
   href: api/generated/SmartDock.ToolBarBarRect.html#SmartDock_ToolBarBarRect_Equals_SmartDock_ToolBarBarRect_
@@ -9916,15 +9943,15 @@ references:
   commentId: T:SmartDock.ToolBarDrop
   fullName: SmartDock.ToolBarDrop
   nameWithType: ToolBarDrop
-- uid: SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String)
-  name: ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string)
-  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop__ctor_System_Boolean_System_Boolean_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_DockRect_System_String_System_String_
-  commentId: M:SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String)
-  name.vb: New(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String)
-  fullName: SmartDock.ToolBarDrop.ToolBarDrop(bool, bool, SmartDock.ToolBarEdge, int, int, double, SmartDock.DockRect, string, string)
-  fullName.vb: SmartDock.ToolBarDrop.New(Boolean, Boolean, SmartDock.ToolBarEdge, Integer, Integer, Double, SmartDock.DockRect, String, String)
-  nameWithType: ToolBarDrop.ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string)
-  nameWithType.vb: ToolBarDrop.New(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String)
+- uid: SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String,System.Boolean)
+  name: ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string, bool)
+  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop__ctor_System_Boolean_System_Boolean_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_DockRect_System_String_System_String_System_Boolean_
+  commentId: M:SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String,System.Boolean)
+  name.vb: New(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String, Boolean)
+  fullName: SmartDock.ToolBarDrop.ToolBarDrop(bool, bool, SmartDock.ToolBarEdge, int, int, double, SmartDock.DockRect, string, string, bool)
+  fullName.vb: SmartDock.ToolBarDrop.New(Boolean, Boolean, SmartDock.ToolBarEdge, Integer, Integer, Double, SmartDock.DockRect, String, String, Boolean)
+  nameWithType: ToolBarDrop.ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string, bool)
+  nameWithType.vb: ToolBarDrop.New(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String, Boolean)
 - uid: SmartDock.ToolBarDrop.#ctor*
   name: ToolBarDrop
   href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop__ctor_
@@ -9946,15 +9973,15 @@ references:
   commentId: Overload:SmartDock.ToolBarDrop.Band
   fullName: SmartDock.ToolBarDrop.Band
   nameWithType: ToolBarDrop.Band
-- uid: SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@)
-  name: Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string)
-  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Deconstruct_System_Boolean__System_Boolean__SmartDock_ToolBarEdge__System_Int32__System_Int32__System_Double__SmartDock_DockRect__System_String__System_String__
-  commentId: M:SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@)
-  name.vb: Deconstruct(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String)
-  fullName: SmartDock.ToolBarDrop.Deconstruct(out bool, out bool, out SmartDock.ToolBarEdge, out int, out int, out double, out SmartDock.DockRect, out string, out string)
-  fullName.vb: SmartDock.ToolBarDrop.Deconstruct(Boolean, Boolean, SmartDock.ToolBarEdge, Integer, Integer, Double, SmartDock.DockRect, String, String)
-  nameWithType: ToolBarDrop.Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string)
-  nameWithType.vb: ToolBarDrop.Deconstruct(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String)
+- uid: SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)
+  name: Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string, out bool)
+  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Deconstruct_System_Boolean__System_Boolean__SmartDock_ToolBarEdge__System_Int32__System_Int32__System_Double__SmartDock_DockRect__System_String__System_String__System_Boolean__
+  commentId: M:SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)
+  name.vb: Deconstruct(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String, Boolean)
+  fullName: SmartDock.ToolBarDrop.Deconstruct(out bool, out bool, out SmartDock.ToolBarEdge, out int, out int, out double, out SmartDock.DockRect, out string, out string, out bool)
+  fullName.vb: SmartDock.ToolBarDrop.Deconstruct(Boolean, Boolean, SmartDock.ToolBarEdge, Integer, Integer, Double, SmartDock.DockRect, String, String, Boolean)
+  nameWithType: ToolBarDrop.Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string, out bool)
+  nameWithType.vb: ToolBarDrop.Deconstruct(Boolean, Boolean, ToolBarEdge, Integer, Integer, Double, DockRect, String, String, Boolean)
 - uid: SmartDock.ToolBarDrop.Deconstruct*
   name: Deconstruct
   href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Deconstruct_
@@ -10066,6 +10093,18 @@ references:
   commentId: Overload:SmartDock.ToolBarDrop.Offset
   fullName: SmartDock.ToolBarDrop.Offset
   nameWithType: ToolBarDrop.Offset
+- uid: SmartDock.ToolBarDrop.OnEndRun
+  name: OnEndRun
+  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun
+  commentId: P:SmartDock.ToolBarDrop.OnEndRun
+  fullName: SmartDock.ToolBarDrop.OnEndRun
+  nameWithType: ToolBarDrop.OnEndRun
+- uid: SmartDock.ToolBarDrop.OnEndRun*
+  name: OnEndRun
+  href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun_
+  commentId: Overload:SmartDock.ToolBarDrop.OnEndRun
+  fullName: SmartDock.ToolBarDrop.OnEndRun
+  nameWithType: ToolBarDrop.OnEndRun
 - uid: SmartDock.ToolBarDrop.PaneId
   name: PaneId
   href: api/generated/SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_PaneId

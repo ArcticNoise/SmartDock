@@ -1073,7 +1073,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SmartDock.ToolBarBarRect",
-      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarBarRect.yml\" sourcestartlinenumber=\"1\">Arranged bounds of one docked toolbar, in the same coordinates as the pointer.\n<code class=\"paramref\">PaneId</code> and <code class=\"paramref\">WindowId</code> are empty for a main-window tray.</p>\n"
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarBarRect.yml\" sourcestartlinenumber=\"1\">Arranged bounds of one docked toolbar, in the same coordinates as the pointer.\n<code class=\"paramref\">PaneId</code> and <code class=\"paramref\">WindowId</code> are empty for a main-window tray.\n<code class=\"paramref\">End</code> is true for a toolbar aligned to the far end of its band.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1129,7 +1129,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SmartDock.ToolBarDrop",
-      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarDrop.yml\" sourcestartlinenumber=\"1\">A drop target. <xref href=\"SmartDock.ToolBarDrop.Float\" data-throw-if-not-resolved=\"false\"></xref> tears the toolbar off. <xref href=\"SmartDock.ToolBarDrop.InsertBand\" data-throw-if-not-resolved=\"false\"></xref> opens a new band\nand shifts bands at <xref href=\"SmartDock.ToolBarDrop.Band\" data-throw-if-not-resolved=\"false\"></xref> and after it. <xref href=\"SmartDock.ToolBarDrop.Indicator\" data-throw-if-not-resolved=\"false\"></xref> is the line to draw.</p>\n"
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarDrop.yml\" sourcestartlinenumber=\"1\">A drop target. <xref href=\"SmartDock.ToolBarDrop.Float\" data-throw-if-not-resolved=\"false\"></xref> tears the toolbar off. <xref href=\"SmartDock.ToolBarDrop.InsertBand\" data-throw-if-not-resolved=\"false\"></xref> opens a new band\nand shifts bands at <xref href=\"SmartDock.ToolBarDrop.Band\" data-throw-if-not-resolved=\"false\"></xref> and after it. <xref href=\"SmartDock.ToolBarDrop.Indicator\" data-throw-if-not-resolved=\"false\"></xref> is the line to draw.\n<xref href=\"SmartDock.ToolBarDrop.OnEndRun\" data-throw-if-not-resolved=\"false\"></xref> is true when the pointer is over the band's end-aligned toolbars or past them,\nso the toolbar joins that run.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -1199,7 +1199,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SmartDock.ToolBarGridFit",
-      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarGridFit.yml\" sourcestartlinenumber=\"1\">One snapped size of a floating toolbar. <xref href=\"SmartDock.ToolBarGridFit.Columns\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarGridFit.Rows\" data-throw-if-not-resolved=\"false\"></xref> place every button.\nHorizontal fills a row and then the next. Vertical fills a column and then the next.\n<xref href=\"SmartDock.ToolBarGridFit.Width\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarGridFit.Height\" data-throw-if-not-resolved=\"false\"></xref> are the window: the cells plus the chrome given to\n<xref href=\"SmartDock.ToolBarBands.FitGrid(System.Int32%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Int32)\" data-throw-if-not-resolved=\"false\"></xref>, and at least that orientation's minimum width.\n<xref href=\"SmartDock.ToolBarGridFit.Vertical\" data-throw-if-not-resolved=\"false\"></xref> is false when <xref href=\"SmartDock.ToolBarGridFit.Width\" data-throw-if-not-resolved=\"false\"></xref> is at least <xref href=\"SmartDock.ToolBarGridFit.Height\" data-throw-if-not-resolved=\"false\"></xref>, including a square.</p>\n"
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.ToolBarGridFit.yml\" sourcestartlinenumber=\"1\">One snapped size of a floating toolbar. <xref href=\"SmartDock.ToolBarGridFit.Columns\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarGridFit.Rows\" data-throw-if-not-resolved=\"false\"></xref> place every button.\nHorizontal fills a row and then the next. Vertical fills a column and then the next.\n<xref href=\"SmartDock.ToolBarGridFit.Width\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SmartDock.ToolBarGridFit.Height\" data-throw-if-not-resolved=\"false\"></xref> are the window: the cells plus the chrome given to\n<xref href=\"SmartDock.ToolBarBands.FitGrid(System.Int32%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Double%2cSystem.Int32)\" data-throw-if-not-resolved=\"false\"></xref>, and at least that orientation's minimum width.\n<xref href=\"SmartDock.ToolBarGridFit.Vertical\" data-throw-if-not-resolved=\"false\"></xref> is true when there are fewer <xref href=\"SmartDock.ToolBarGridFit.Columns\" data-throw-if-not-resolved=\"false\"></xref> than <xref href=\"SmartDock.ToolBarGridFit.Rows\" data-throw-if-not-resolved=\"false\"></xref>. A square grid is horizontal.</p>\n"
     },
     {
       "type": "ManagedReference",

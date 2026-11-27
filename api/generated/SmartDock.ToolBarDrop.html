@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct ToolBarDrop | SmartDock ">
       
-      <meta name="description" content="A drop target.  tears the toolbar off.  opens a new band and shifts bands at  and after it.  is the line to draw.">
+      <meta name="description" content="A drop target.  tears the toolbar off.  opens a new band and shifts bands at  and after it.  is the line to draw.  is true when the pointer is over the band&#39;s end-aligned toolbars or past them, so the toolbar joins that run.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -98,7 +98,9 @@ Struct ToolBarDrop
   </div>
 
   <div class="markdown summary"><p>A drop target. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Float">Float</a> tears the toolbar off. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_InsertBand">InsertBand</a> opens a new band
-and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.</p>
+and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.
+<a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun">OnEndRun</a> is true when the pointer is over the band's end-aligned toolbars or past them,
+so the toolbar joins that run.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -143,18 +145,20 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
 
   <a id="SmartDock_ToolBarDrop__ctor_" data-uid="SmartDock.ToolBarDrop.#ctor*"></a>
 
-  <h3 id="SmartDock_ToolBarDrop__ctor_System_Boolean_System_Boolean_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_DockRect_System_String_System_String_" data-uid="SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String)">
-  ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string)
+  <h3 id="SmartDock_ToolBarDrop__ctor_System_Boolean_System_Boolean_SmartDock_ToolBarEdge_System_Int32_System_Int32_System_Double_SmartDock_DockRect_System_String_System_String_System_Boolean_" data-uid="SmartDock.ToolBarDrop.#ctor(System.Boolean,System.Boolean,SmartDock.ToolBarEdge,System.Int32,System.Int32,System.Double,SmartDock.DockRect,System.String,System.String,System.Boolean)">
+  ToolBarDrop(bool, bool, ToolBarEdge, int, int, double, DockRect, string, string, bool)
   
   </h3>
 
   <div class="markdown level1 summary"><p>A drop target. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Float">Float</a> tears the toolbar off. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_InsertBand">InsertBand</a> opens a new band
-and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.</p>
+and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.
+<a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun">OnEndRun</a> is true when the pointer is over the band's end-aligned toolbars or past them,
+so the toolbar joins that run.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ToolBarDrop(bool Float, bool InsertBand, ToolBarEdge Edge, int Band, int Index, double Offset, DockRect Indicator, string PaneId = &quot;&quot;, string WindowId = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ToolBarDrop(bool Float, bool InsertBand, ToolBarEdge Edge, int Band, int Index, double Offset, DockRect Indicator, string PaneId = &quot;&quot;, string WindowId = &quot;&quot;, bool OnEndRun = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -176,6 +180,8 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
     <dt><code>PaneId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>WindowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>OnEndRun</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -411,6 +417,37 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
 
 
 
+  <a id="SmartDock_ToolBarDrop_OnEndRun_" data-uid="SmartDock.ToolBarDrop.OnEndRun*"></a>
+
+  <h3 id="SmartDock_ToolBarDrop_OnEndRun" data-uid="SmartDock.ToolBarDrop.OnEndRun">
+  OnEndRun
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool OnEndRun { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SmartDock_ToolBarDrop_PaneId_" data-uid="SmartDock.ToolBarDrop.PaneId*"></a>
 
   <h3 id="SmartDock_ToolBarDrop_PaneId" data-uid="SmartDock.ToolBarDrop.PaneId">
@@ -479,8 +516,8 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
 
   <a id="SmartDock_ToolBarDrop_Deconstruct_" data-uid="SmartDock.ToolBarDrop.Deconstruct*"></a>
 
-  <h3 id="SmartDock_ToolBarDrop_Deconstruct_System_Boolean__System_Boolean__SmartDock_ToolBarEdge__System_Int32__System_Int32__System_Double__SmartDock_DockRect__System_String__System_String__" data-uid="SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@)">
-  Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string)
+  <h3 id="SmartDock_ToolBarDrop_Deconstruct_System_Boolean__System_Boolean__SmartDock_ToolBarEdge__System_Int32__System_Int32__System_Double__SmartDock_DockRect__System_String__System_String__System_Boolean__" data-uid="SmartDock.ToolBarDrop.Deconstruct(System.Boolean@,System.Boolean@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,System.Double@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)">
+  Deconstruct(out bool, out bool, out ToolBarEdge, out int, out int, out double, out DockRect, out string, out string, out bool)
   
   </h3>
 
@@ -488,7 +525,7 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Deconstruct(out bool Float, out bool InsertBand, out ToolBarEdge Edge, out int Band, out int Index, out double Offset, out DockRect Indicator, out string PaneId, out string WindowId)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out bool Float, out bool InsertBand, out ToolBarEdge Edge, out int Band, out int Index, out double Offset, out DockRect Indicator, out string PaneId, out string WindowId, out bool OnEndRun)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -510,6 +547,8 @@ and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_T
     <dt><code>PaneId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>WindowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>OnEndRun</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 

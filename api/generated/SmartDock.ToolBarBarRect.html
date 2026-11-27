@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct ToolBarBarRect | SmartDock ">
       
-      <meta name="description" content="Arranged bounds of one docked toolbar, in the same coordinates as the pointer. PaneId and WindowId are empty for a main-window tray.">
+      <meta name="description" content="Arranged bounds of one docked toolbar, in the same coordinates as the pointer. PaneId and WindowId are empty for a main-window tray. End is true for a toolbar aligned to the far end of its band.">
       <link rel="icon" href="../../favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
@@ -98,7 +98,8 @@ Struct ToolBarBarRect
   </div>
 
   <div class="markdown summary"><p>Arranged bounds of one docked toolbar, in the same coordinates as the pointer.
-<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.</p>
+<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.
+<code class="paramref">End</code> is true for a toolbar aligned to the far end of its band.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -143,18 +144,19 @@ Struct ToolBarBarRect
 
   <a id="SmartDock_ToolBarBarRect__ctor_" data-uid="SmartDock.ToolBarBarRect.#ctor*"></a>
 
-  <h3 id="SmartDock_ToolBarBarRect__ctor_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_SmartDock_DockRect_System_String_System_String_" data-uid="SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String)">
-  ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string)
+  <h3 id="SmartDock_ToolBarBarRect__ctor_System_String_SmartDock_ToolBarEdge_System_Int32_System_Int32_SmartDock_DockRect_System_String_System_String_System_Boolean_" data-uid="SmartDock.ToolBarBarRect.#ctor(System.String,SmartDock.ToolBarEdge,System.Int32,System.Int32,SmartDock.DockRect,System.String,System.String,System.Boolean)">
+  ToolBarBarRect(string, ToolBarEdge, int, int, DockRect, string, string, bool)
   
   </h3>
 
   <div class="markdown level1 summary"><p>Arranged bounds of one docked toolbar, in the same coordinates as the pointer.
-<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.</p>
+<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.
+<code class="paramref">End</code> is true for a toolbar aligned to the far end of its band.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ToolBarBarRect(string Id, ToolBarEdge Edge, int Band, int Index, DockRect Bounds, string PaneId = &quot;&quot;, string WindowId = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ToolBarBarRect(string Id, ToolBarEdge Edge, int Band, int Index, DockRect Bounds, string PaneId = &quot;&quot;, string WindowId = &quot;&quot;, bool End = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -172,6 +174,8 @@ Struct ToolBarBarRect
     <dt><code>PaneId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>WindowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>End</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -273,6 +277,37 @@ Struct ToolBarBarRect
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SmartDock.ToolBarEdge.html">ToolBarEdge</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBarRect_End_" data-uid="SmartDock.ToolBarBarRect.End*"></a>
+
+  <h3 id="SmartDock_ToolBarBarRect_End" data-uid="SmartDock.ToolBarBarRect.End">
+  End
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool End { get; init; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 
@@ -413,8 +448,8 @@ Struct ToolBarBarRect
 
   <a id="SmartDock_ToolBarBarRect_Deconstruct_" data-uid="SmartDock.ToolBarBarRect.Deconstruct*"></a>
 
-  <h3 id="SmartDock_ToolBarBarRect_Deconstruct_System_String__SmartDock_ToolBarEdge__System_Int32__System_Int32__SmartDock_DockRect__System_String__System_String__" data-uid="SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@)">
-  Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string)
+  <h3 id="SmartDock_ToolBarBarRect_Deconstruct_System_String__SmartDock_ToolBarEdge__System_Int32__System_Int32__SmartDock_DockRect__System_String__System_String__System_Boolean__" data-uid="SmartDock.ToolBarBarRect.Deconstruct(System.String@,SmartDock.ToolBarEdge@,System.Int32@,System.Int32@,SmartDock.DockRect@,System.String@,System.String@,System.Boolean@)">
+  Deconstruct(out string, out ToolBarEdge, out int, out int, out DockRect, out string, out string, out bool)
   
   </h3>
 
@@ -422,7 +457,7 @@ Struct ToolBarBarRect
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Deconstruct(out string Id, out ToolBarEdge Edge, out int Band, out int Index, out DockRect Bounds, out string PaneId, out string WindowId)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Deconstruct(out string Id, out ToolBarEdge Edge, out int Band, out int Index, out DockRect Bounds, out string PaneId, out string WindowId, out bool End)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -440,6 +475,8 @@ Struct ToolBarBarRect
     <dt><code>PaneId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
     <dt><code>WindowId</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>End</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
 

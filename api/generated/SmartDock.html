@@ -559,13 +559,16 @@ A negative index means this list is the whole group in order, and the list posit
     <dl class="jumplist">
       <dt><a class="xref" href="SmartDock.ToolBarBarRect.html">ToolBarBarRect</a></dt>
       <dd><p>Arranged bounds of one docked toolbar, in the same coordinates as the pointer.
-<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.</p>
+<code class="paramref">PaneId</code> and <code class="paramref">WindowId</code> are empty for a main-window tray.
+<code class="paramref">End</code> is true for a toolbar aligned to the far end of its band.</p>
 </dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="SmartDock.ToolBarDrop.html">ToolBarDrop</a></dt>
       <dd><p>A drop target. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Float">Float</a> tears the toolbar off. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_InsertBand">InsertBand</a> opens a new band
-and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.</p>
+and shifts bands at <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Band">Band</a> and after it. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Indicator">Indicator</a> is the line to draw.
+<a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun">OnEndRun</a> is true when the pointer is over the band's end-aligned toolbars or past them,
+so the toolbar joins that run.</p>
 </dd>
     </dl>
     <dl class="jumplist">
@@ -587,7 +590,7 @@ A larger <a class="xref" href="SmartDock.ToolBarFloatWindow.html#SmartDock_ToolB
 Horizontal fills a row and then the next. Vertical fills a column and then the next.
 <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width">Width</a> and <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height">Height</a> are the window: the cells plus the chrome given to
 <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_">FitGrid(int, double, double, double, double, double, double, double, double, double, double, int)</a>, and at least that orientation's minimum width.
-<a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Vertical">Vertical</a> is false when <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Width">Width</a> is at least <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Height">Height</a>, including a square.</p>
+<a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Vertical">Vertical</a> is true when there are fewer <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Columns">Columns</a> than <a class="xref" href="SmartDock.ToolBarGridFit.html#SmartDock_ToolBarGridFit_Rows">Rows</a>. A square grid is horizontal.</p>
 </dd>
     </dl>
     <dl class="jumplist">

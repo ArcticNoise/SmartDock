@@ -742,7 +742,7 @@ Hidden members stay floating. A window of one docks that toolbar.</p>
 <code class="paramref">cellWidth</code> and <code class="paramref">cellHeight</code> are one button; a non-positive value is 1.
 <code class="paramref">width</code> and <code class="paramref">height</code> are the window size being asked for.
 Horizontal fills each row and wraps. Vertical fills each column and wraps.
-A result at least as wide as it is tall is horizontal, including a square. Anything taller is vertical.
+At least as many columns as rows is horizontal, including a square. Fewer columns than rows is vertical.
 The chrome arguments are the window size outside the button grid for that orientation.
 <code class="paramref">horizontalMinWidth</code> and <code class="paramref">verticalMinWidth</code> keep the caption usable.
 <code class="paramref">axis</code> is 0 when the pointer is moving the width, 1 when it is moving the height,
@@ -801,8 +801,8 @@ so the window has no empty strip beside the grid.</p>
 
   <a id="SmartDock_ToolBarBands_FitGrid_" data-uid="SmartDock.ToolBarBands.FitGrid*"></a>
 
-  <h3 id="SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Boolean_" data-uid="SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Boolean)">
-  FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, bool)
+  <h3 id="SmartDock_ToolBarBands_FitGrid_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_" data-uid="SmartDock.ToolBarBands.FitGrid(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32)">
+  FitGrid(int, double, double, double, double, double, double, double, double, double, double, int, bool, int, int, int)
   
   </h3>
 
@@ -810,17 +810,17 @@ so the window has no empty strip beside the grid.</p>
 keeping the wrap already on screen until another wrap is closer to the requested size by more than half a cell.
 <code class="paramref">holdColumns</code> and <code class="paramref">holdRows</code> are that wrap, and <code class="paramref">holdVertical</code>
 is true when it fills columns first. Zero columns or rows skips the hold, and the result is the plain snap.
-<code class="paramref">lineWraps</code> false leaves out a wrap of one line in the other orientation's chrome when there
-is more than one button, such as a vertical row of two buttons. For one toolbar that shape sits between the
-row and the column, and a drag across it changes the wrap twice. A merged float stacks its members, and
-there the same per-member wrap is the block they make, so it keeps it.
+Columns against rows leaves out a one-line wrap in the other orientation, such as a vertical row of two buttons.
 A different wrap is used only when its size is closer to the requested size than the current
-wrap by more than half a cell. <code class="paramref">axis</code> picks the compared size as in the plain snap.</p>
+wrap by more than half a cell. <code class="paramref">axis</code> picks the compared size as in the plain snap.
+<code class="paramref">members</code> is the number of toolbars in the window, each with this grid. A horizontal
+window puts them side by side and a vertical one stacks them, so the compared and returned size is
+the whole window. Less than one is one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ToolBarGridFit FitGrid(int count, double cellWidth, double cellHeight, double width, double height, double horizontalChromeWidth, double horizontalChromeHeight, double verticalChromeWidth, double verticalChromeHeight, double horizontalMinWidth, double verticalMinWidth, int axis, bool holdVertical, int holdColumns, int holdRows, bool lineWraps = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ToolBarGridFit FitGrid(int count, double cellWidth, double cellHeight, double width, double height, double horizontalChromeWidth, double horizontalChromeHeight, double verticalChromeWidth, double verticalChromeHeight, double horizontalMinWidth, double verticalMinWidth, int axis, bool holdVertical, int holdColumns, int holdRows, int members = 1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -855,7 +855,7 @@ wrap by more than half a cell. <code class="paramref">axis</code> picks the comp
     <dd></dd>
     <dt><code>holdRows</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
-    <dt><code>lineWraps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dt><code>members</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd></dd>
   </dl>
 
@@ -1100,6 +1100,58 @@ A main-window toolbar is never missing.</p>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
     <dt><code>slop</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SmartDock_ToolBarBands_JoinsEndRun_" data-uid="SmartDock.ToolBarBands.JoinsEndRun*"></a>
+
+  <h3 id="SmartDock_ToolBarBands_JoinsEndRun_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_" data-uid="SmartDock.ToolBarBands.JoinsEndRun(System.Collections.Generic.List{SmartDock.ToolBarEntry},System.String,SmartDock.ToolBarDrop,System.Double,System.Double,System.Double)">
+  JoinsEndRun(List&lt;ToolBarEntry&gt;, string, ToolBarDrop, double, double, double)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>True when <code class="paramref">drop</code> packs toolbar <code class="paramref">id</code> with the end-aligned toolbars of its band.
+A pointer over that run, or past it, joins it (<a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_OnEndRun">OnEndRun</a>). Otherwise
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_PinsToEnd_System_Double_System_Double_System_Double_">PinsToEnd(double, double, double)</a> decides from <code class="paramref">lead</code> and <code class="paramref">bandLength</code>. On a band with
+no other end-aligned toolbar the trailing edge counts, <code class="paramref">along</code> past the lead. On a band
+that has one, only the leading edge counts, so a drop in the gap before that run stays in the start run
+even when the toolbar is longer than the gap.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool JoinsEndRun(List&lt;ToolBarEntry&gt; bars, string id, ToolBarDrop drop, double lead, double along, double bandLength)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bars</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SmartDock.ToolBarEntry.html">ToolBarEntry</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>id</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>drop</code> <a class="xref" href="SmartDock.ToolBarDrop.html">ToolBarDrop</a></dt>
+    <dd></dd>
+    <dt><code>lead</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>along</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd></dd>
+    <dt><code>bandLength</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
     <dd></dd>
   </dl>
 
@@ -1394,9 +1446,8 @@ A non-positive band length does not pin.</p>
 
   <div class="markdown level1 summary"><p>Writes <code class="paramref">drop</code> onto the toolbar and reindexes that band.
 A float keeps the docked edge, band, index, offset, and alignment for <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_DockBack_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_">DockBack(List&lt;ToolBarEntry&gt;, string)</a>.
-When <code class="paramref">bandLength</code> is positive, <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_PinsToEnd_System_Double_System_Double_System_Double_">PinsToEnd(double, double, double)</a> decides the end:
-a trailing edge inside <a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_EndSnap">EndSnap</a> of the far end packs there with the other end-aligned toolbars,
-and a drop that misses that zone packs from the start at the drop index and offset.
+<a class="xref" href="SmartDock.ToolBarBands.html#SmartDock_ToolBarBands_JoinsEndRun_System_Collections_Generic_List_SmartDock_ToolBarEntry__System_String_SmartDock_ToolBarDrop_System_Double_System_Double_System_Double_">JoinsEndRun(List&lt;ToolBarEntry&gt;, string, ToolBarDrop, double, double, double)</a> decides the end: a drop that joins the end run packs there with the other
+end-aligned toolbars, and any other drop packs from the start at the drop index and offset.
 Without a band length, an end-aligned toolbar dropped on the same band after its start-aligned toolbars
 keeps that alignment and its offset. <a class="xref" href="SmartDock.ToolBarDrop.html#SmartDock_ToolBarDrop_Index">Index</a> counts the band's toolbars in
 screen order, start-aligned ones first. End-aligned toolbars keep their indexes when a start-aligned one is placed.</p>
@@ -1848,7 +1899,8 @@ No allocations.</p>
   <div class="markdown level1 summary"><p>The pane whose four edge bands are drawn for <code class="paramref">drop</code>.
 A dock drop names its pane. The main window is not returned; the host draws that window's drop line in the guide overlay, and the right and bottom lines sit inside the window.
 A float drop over a pane shows that pane, except on the outside margin of a floating pane window, which draws nothing.
-A floating pane window's caption and outside edges are not returned.</p>
+A floating pane window's caption and outside edges are not returned.
+The host paints those bands for a visible float only while the pointer is in the pane's edge zone.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
