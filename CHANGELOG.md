@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.16.7 (2026-11-27)
+
+- Moving buttons onto a custom toolbar no longer fills the output with `System.Windows.Data Error: 26` when the host's toolbar style sets an `ItemTemplate` or `ItemTemplateSelector`. Resizing or docking the custom toolbar afterwards is clean too.
+- A toolbar you just tore off no longer shows dock guides, or docks again, while the pointer is still close to where it tore off. Until the pointer is 48 DIP away, only a tray under the pointer can take it back, and releasing anywhere else leaves it floating. Dragging a toolbar that was already floating works as before.
+
 ## 0.16.6 (2026-11-27)
 
 - Dragging a docked toolbar no longer shows the drop line, the dock guides, or a pane's edge bands until it floats. Sliding it along its band, or pulling it toward the document before it tears off, shows nothing. Once it floats, the guides work as before and stay if it docks again in the same drag. Where the toolbar slides and drops is unchanged.
