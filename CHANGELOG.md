@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.16.9 (2026-11-28)
+
+- `DockManager.FloatWindowBoundsChanged` fires once when a floating window finishes moving or resizing, and when SmartDock shows, maximizes, or restores one. A caption drag or an edge resize does not fire it on each mouse step. Docking the window does not fire it. `LayoutChanged` still does not fire for a float move.
+
 ## 0.16.8 (2026-11-27)
 
 - Docking a toolbar back, or deleting it while it floats, now closes its window. Before, the window was only hidden and stayed alive, so every float and dock-back left one more window and its handles behind.
