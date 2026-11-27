@@ -259,6 +259,7 @@ Users drag the grip to move a toolbar, pull it out to float it, and Alt+drag a b
 - `ActivePaneChanged` (`OldContentId`, `NewContentId`, both nullable) when `ActiveContentId` changes.
 - `PaneMounted` (`DockPaneEventArgs`, `ContentId`) after the content element is in a host: the selected tab, a shown float, or an open flyout.
 - `PaneUnmounted` (`DockPaneEventArgs`, `ContentId`) after the element is detached.
+- `FloatWindowBoundsChanged` (`DockFloatWindowEventArgs`, `Window`, `ContentIds`) once when a floating window has finished moving or resizing.
 
 ```csharp
 dock.PaneClosing += (_, e) =>
@@ -274,6 +275,7 @@ dock.PaneClosing += (_, e) =>
 - `LoadLayout`, assigning `Layout`, a `SavedLayout` change, `RemovePane`, `HidePane`, `ShowPane`, and `EditLayout` raise `PaneStateChanged` only. They never raise `PaneClosing` or `PaneClosed`.
 - `ShowPane` selects the pane but does not focus it. `ActivatePane` shows it if hidden, selects it, opens its flyout or activates its float, and focuses the content.
 - `DockPaneState` does not tell you whether the element is in the visual tree. Use `PaneMounted` and `PaneUnmounted` for that. Moving a pane to another host raises `PaneUnmounted` and then `PaneMounted`.
+- `FloatWindowBoundsChanged` fires when a caption drag or an edge resize ends and the window's bounds changed. It also fires when SmartDock sets the bounds itself: a loaded layout that shows a float, maximize, and restore. It does not fire on each mouse step, when the drag docks the window, or for a press that doesn't move it. Subscribe to it instead of `LocationChanged` and `SizeChanged` on each float. `LayoutChanged` still does not fire when a float moves.
 
 ## Keyboard and commands
 
