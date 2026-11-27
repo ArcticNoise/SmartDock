@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.16.5 (2026-11-27)
+
+- A floating toolbar's orientation follows its grid. At least as many columns as rows is horizontal, including a square. Fewer columns than rows is vertical. Resizing no longer turns a wide grid vertical just because the window, caption included, is taller than it is wide.
+- Undocking a pane by the right side or the middle of its caption keeps the cursor on the new float's caption.
+- Moving a button onto a floating toolbar saves that window's size and line count, so closing the toolbar the button came from no longer resizes the other float.
+- Dragging a toolbar no longer shows the pane dock bands or guides. A floating toolbar is drawn before its window is shown.
+- A floating toolbar of two or more lines keeps the band fill between its buttons while resizing, after release, and after docking. Before, the gaps showed the theme's light brush or white.
+- Resizing a float that holds several toolbars measures the whole window, so narrowing it to one column stacks the toolbars vertically again.
+- Resizing a float of several toolbars with wide buttons into a vertical stack keeps the window at its content size. Before, the right side was clipped and an empty strip was left below the buttons.
+- Resizing a float of toolbars with different button counts sizes each toolbar from its own buttons. A small edge drag on a six-button toolbar merged with a one-button toolbar no longer wraps it into a grid.
+- A layout loaded before the dock is shown keeps its toolbars where it puts them. A toolbar's declared place is used only when the layout leaves that toolbar out. A floating toolbar of two or more lines keeps its line count and height.
+- A toolbar dropped in the gap between the last start-aligned toolbar and an end-aligned one goes after the start-aligned toolbar and stays start-aligned. Before, it joined the end-aligned toolbars whenever it was longer than about the end-aligned toolbar. A drop over an end-aligned toolbar, or past it, still joins that group. `ToolBarDrop.OnEndRun`, `ToolBarBarRect.End`, and `ToolBarBands.JoinsEndRun` are new.
+- Breaking change: the `ToolBarBands.FitGrid` overload that takes the wrap on screen no longer has `lineWraps`, which had no effect. Its last parameter is now `members`, the number of toolbars in the window, 1 by default. Drop the `lineWraps` argument from your calls.
+
 ## 0.16.4 (2026-11-26)
 
 - A click on a floating toolbar's resize edge no longer replaces the toolbar template, so the host band fill stays and the window does not flash the default white background. The window background is painted in the theme chrome color.
