@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.16.8 (2026-11-27)
+
+- Docking a toolbar back, or deleting it while it floats, now closes its window. Before, the window was only hidden and stayed alive, so every float and dock-back left one more window and its handles behind.
+- Closing a floating pane, a floating toolbar, or an auto-hide flyout with a mouse click no longer leaves WPF reading the mouse from the destroyed window, which logged `Invalid window handle` errors. The window hides at once and is destroyed right after the click is handled.
+
 ## 0.16.7 (2026-11-27)
 
 - Moving buttons onto a custom toolbar no longer fills the output with `System.Windows.Data Error: 26` when the host's toolbar style sets an `ItemTemplate` or `ItemTemplateSelector`. Resizing or docking the custom toolbar afterwards is clean too.
