@@ -1960,6 +1960,54 @@ references:
   fullName.vb: SmartDock.DockEditResult.<>
   nameWithType: DockEditResult.operator !=
   nameWithType.vb: DockEditResult.<>
+- uid: SmartDock.DockFloatWindowEventArgs
+  name: DockFloatWindowEventArgs
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html
+  commentId: T:SmartDock.DockFloatWindowEventArgs
+  fullName: SmartDock.DockFloatWindowEventArgs
+  nameWithType: DockFloatWindowEventArgs
+- uid: SmartDock.DockFloatWindowEventArgs.#ctor(System.Windows.Window,System.Collections.Generic.IReadOnlyList{System.String})
+  name: DockFloatWindowEventArgs(Window, IReadOnlyList<string>)
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs__ctor_System_Windows_Window_System_Collections_Generic_IReadOnlyList_System_String__
+  commentId: M:SmartDock.DockFloatWindowEventArgs.#ctor(System.Windows.Window,System.Collections.Generic.IReadOnlyList{System.String})
+  name.vb: New(Window, IReadOnlyList(Of String))
+  fullName: SmartDock.DockFloatWindowEventArgs.DockFloatWindowEventArgs(System.Windows.Window, System.Collections.Generic.IReadOnlyList<string>)
+  fullName.vb: SmartDock.DockFloatWindowEventArgs.New(System.Windows.Window, System.Collections.Generic.IReadOnlyList(Of String))
+  nameWithType: DockFloatWindowEventArgs.DockFloatWindowEventArgs(Window, IReadOnlyList<string>)
+  nameWithType.vb: DockFloatWindowEventArgs.New(Window, IReadOnlyList(Of String))
+- uid: SmartDock.DockFloatWindowEventArgs.#ctor*
+  name: DockFloatWindowEventArgs
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs__ctor_
+  commentId: Overload:SmartDock.DockFloatWindowEventArgs.#ctor
+  name.vb: New
+  fullName: SmartDock.DockFloatWindowEventArgs.DockFloatWindowEventArgs
+  fullName.vb: SmartDock.DockFloatWindowEventArgs.New
+  nameWithType: DockFloatWindowEventArgs.DockFloatWindowEventArgs
+  nameWithType.vb: DockFloatWindowEventArgs.New
+- uid: SmartDock.DockFloatWindowEventArgs.ContentIds
+  name: ContentIds
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs_ContentIds
+  commentId: P:SmartDock.DockFloatWindowEventArgs.ContentIds
+  fullName: SmartDock.DockFloatWindowEventArgs.ContentIds
+  nameWithType: DockFloatWindowEventArgs.ContentIds
+- uid: SmartDock.DockFloatWindowEventArgs.ContentIds*
+  name: ContentIds
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs_ContentIds_
+  commentId: Overload:SmartDock.DockFloatWindowEventArgs.ContentIds
+  fullName: SmartDock.DockFloatWindowEventArgs.ContentIds
+  nameWithType: DockFloatWindowEventArgs.ContentIds
+- uid: SmartDock.DockFloatWindowEventArgs.Window
+  name: Window
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs_Window
+  commentId: P:SmartDock.DockFloatWindowEventArgs.Window
+  fullName: SmartDock.DockFloatWindowEventArgs.Window
+  nameWithType: DockFloatWindowEventArgs.Window
+- uid: SmartDock.DockFloatWindowEventArgs.Window*
+  name: Window
+  href: api/generated/SmartDock.DockFloatWindowEventArgs.html#SmartDock_DockFloatWindowEventArgs_Window_
+  commentId: Overload:SmartDock.DockFloatWindowEventArgs.Window
+  fullName: SmartDock.DockFloatWindowEventArgs.Window
+  nameWithType: DockFloatWindowEventArgs.Window
 - uid: SmartDock.DockGesturePhase
   name: DockGesturePhase
   href: api/generated/SmartDock.DockGesturePhase.html
@@ -2995,6 +3043,12 @@ references:
   commentId: Overload:SmartDock.DockManager.FloatPane
   fullName: SmartDock.DockManager.FloatPane
   nameWithType: DockManager.FloatPane
+- uid: SmartDock.DockManager.FloatWindowBoundsChanged
+  name: FloatWindowBoundsChanged
+  href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_FloatWindowBoundsChanged
+  commentId: E:SmartDock.DockManager.FloatWindowBoundsChanged
+  fullName: SmartDock.DockManager.FloatWindowBoundsChanged
+  nameWithType: DockManager.FloatWindowBoundsChanged
 - uid: SmartDock.DockManager.HidePane(System.String)
   name: HidePane(string)
   href: api/generated/SmartDock.DockManager.html#SmartDock_DockManager_HidePane_System_String_

@@ -251,6 +251,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/generated/SmartDock.DockFloatWindowEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/generated/SmartDock.DockFloatWindowEventArgs.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SmartDock.DockFloatWindowEventArgs",
+      "Summary": "<p sourcefile=\"api/generated/SmartDock.DockFloatWindowEventArgs.yml\" sourcestartlinenumber=\"1\">A floating window whose on-screen bounds have finished changing.\n<xref href=\"SmartDock.DockFloatWindowEventArgs.ContentIds\" data-throw-if-not-resolved=\"false\"></xref> lists the panes in that window.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/generated/SmartDock.DockGesturePhase.yml",
       "output": {
         ".html": {

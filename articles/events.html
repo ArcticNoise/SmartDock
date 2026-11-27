@@ -103,11 +103,24 @@ public static void Watch(DockManager dock)
     dock.PaneMounted += (_, e) =&gt; Last = e.ContentId;
     dock.PaneUnmounted += (_, e) =&gt; Last = e.ContentId;
     dock.LayoutChanged += (_, _) =&gt; Last = &quot;layout&quot;;
+    dock.FloatWindowBoundsChanged += (_, e) =&gt; Last = e.ContentIds.Count &gt; 0 ? e.ContentIds[0] : &quot;&quot;;
     dock.ToolBarCustomizationChanged += (_, e) =&gt; Last = e.ToolBarId;
 }
 </code></pre>
 <h2 id="layoutchanged">LayoutChanged</h2>
-<p>Fires after a structural edit, a tab selection change, or a splitter move. Use it to know when to save. Reordering a tab by dragging fires it once, on release. Tearing a pane off into a float fires it as soon as the pane leaves its group. Moving a floating window does not fire it, and neither does a close that a <code>PaneClosing</code> handler cancelled.</p>
+<p>Fires after a structural edit, a tab selection change, or a splitter move. Use it to know when to save. Reordering a tab by dragging fires it once, on release. Tearing a pane off into a float fires it as soon as the pane leaves its group. Moving a floating window does not fire it. <code>FloatWindowBoundsChanged</code> is the signal that the move or resize has finished. A close that a <code>PaneClosing</code> handler cancelled does not fire <code>LayoutChanged</code> either.</p>
+<h2 id="floatwindowboundschanged">FloatWindowBoundsChanged</h2>
+<p>Fires once when a floating window's bounds have changed and the change is finished. <code>Window</code> is that window. <code>ContentIds</code> is the content ids of the panes in it, in tree order.</p>
+<p>A caption drag fires it when the mouse button goes up or Escape is pressed, and only when the window is still open and its bounds differ from the press. It does not fire on each move. A drag that docks the window does not fire it: the window is gone, and <code>PaneUnmounted</code> and <code>LayoutChanged</code> already cover that. A press that does not move the window does not fire it. Escape fires it only when the window is left somewhere other than where the drag started.</p>
+<p>An edge resize fires it when the resize ends and the bounds changed. It does not fire on each step. Escape or a lost capture that puts the size back does not fire it.</p>
+<p>SmartDock also fires it when it sets the bounds itself, once for that change. Showing a float from a loaded layout does. Maximizing or restoring does. The live drag and the live resize do not.</p>
+<p>Subscribe on the manager. You do not need <code>LocationChanged</code> or <code>SizeChanged</code> on each float: those fire on every mouse step while SmartDock is moving the window.</p>
+<pre><code class="lang-csharp">dock.FloatWindowBoundsChanged += (_, e) =&gt;
+{
+    // e.Window has its final bounds. e.ContentIds are the panes in it.
+    QueryDisplay(e.Window);
+};
+</code></pre>
 <h2 id="paneclosing-and-paneclosed">PaneClosing and PaneClosed</h2>
 <p><code>PaneClosing</code> fires before a pane is removed, with <code>ContentId</code> and <code>Cancel</code>. Set <code>Cancel</code> to keep the pane; the layout stays as it was and <code>LayoutChanged</code> does not fire. This is where you ask about unsaved changes.</p>
 <p>It fires for the tab close button, the flyout close button, <code>ClosePane</code> (and so Ctrl+F4), and for a floating window's close button, Alt+F4, or <code>Window.Close</code>. Closing a floating window fires it once for each pane that can close; if any handler cancels, the window stays open and nothing closes. Panes in that window that can't close are docked back without the event, unless they have <code>HideOnClose</code>.</p>

@@ -4747,6 +4747,44 @@ A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockM
 
 
 
+  <h3 id="SmartDock_DockManager_FloatWindowBoundsChanged" data-uid="SmartDock.DockManager.FloatWindowBoundsChanged">
+  FloatWindowBoundsChanged
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Raised once when a floating window's bounds have changed and that change is finished.
+A caption drag raises this when the mouse button goes up or Escape is pressed, and only
+when the window is still open and its bounds differ from the press. It does not raise
+on each move, and a drag that docks the window does not raise it.
+An edge resize raises this when the resize ends and the bounds changed.
+It also raises when SmartDock sets the bounds itself, once for that change:
+showing a float for a loaded layout, and maximizing or restoring one.
+It does not raise while the drag or the resize is still going.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;DockFloatWindowEventArgs&gt;? FloatWindowBoundsChanged</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SmartDock.DockFloatWindowEventArgs.html">DockFloatWindowEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h3 id="SmartDock_DockManager_LayoutChanged" data-uid="SmartDock.DockManager.LayoutChanged">
   LayoutChanged
   
@@ -4755,7 +4793,8 @@ A change raises <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockM
   <div class="markdown level1 summary"><p>Raised after a structural edit, a selection change, or a splitter move.
 A sideways tab drag raises this once, on release, not on each swap.
 A drag that tears a pane out into a float raises this when the pane leaves its group.
-Moving a float window does not raise it. A close cancelled through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> does not raise it.</p>
+Moving a float window does not raise it. That finish is <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_FloatWindowBoundsChanged">FloatWindowBoundsChanged</a>.
+A close cancelled through <a class="xref" href="SmartDock.DockManager.html#SmartDock_DockManager_PaneClosing">PaneClosing</a> does not raise it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
