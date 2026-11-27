@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.16.6 (2026-11-27)
+
+- Dragging a docked toolbar no longer shows the drop line, the dock guides, or a pane's edge bands until it floats. Sliding it along its band, or pulling it toward the document before it tears off, shows nothing. Once it floats, the guides work as before and stay if it docks again in the same drag. Where the toolbar slides and drops is unchanged.
+
 ## 0.16.5 (2026-11-27)
 
 - A floating toolbar's orientation follows its grid. At least as many columns as rows is horizontal, including a square. Fewer columns than rows is vertical. Resizing no longer turns a wide grid vertical just because the window, caption included, is taller than it is wide.
