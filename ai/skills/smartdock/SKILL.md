@@ -161,6 +161,7 @@ Other members:
 - `SetPaneTitle` and `SetPaneIcon` update every place the pane is shown without rebuilding the tree. A new title raises `LayoutChanged` because titles are saved. Icons are not saved.
 - `DockBackPane` docks a floating pane back with the same rule as `DockEdit.DockBack`. A hidden pane fails.
 - A caption double-click on a float docks it back when its previous group still exists. Otherwise it maximizes the window.
+- When a mouse click closes a float, a floating toolbar, or the auto-hide flyout, the window hides at once and is destroyed right after that click is handled. Docking a toolbar back, or deleting a custom toolbar while it floats, closes its window.
 - On a maximized float, a click or a press without movement leaves it maximized. A double-click restores its earlier place and size. Dragging the caption restores that size under the pointer, and the drag continues with the guides.
 - `ActiveContentId` is the last selected tab, the content that last received keyboard focus, or the pane that last received a click or focus inside hosted native content.
 - `ResizeMode` is `DockResizeMode.Live` by default. `DockResizeMode.Preview` draws a line while dragging a splitter, the flyout edge, or a float edge, and applies the size on release. Escape cancels a drag. `ResizeGripThickness` is the hit size of those edges, 6 DIP at minimum.
